@@ -1,0 +1,105 @@
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/banner.png[/img]
+
+[quote][i]"The Throne remembers every scion who sat upon it. Be worthy of the memory, or be forgotten by it."[/i]
+- Words spoken at the Ritual of Becoming[/quote]
+
+[h1]Imperial Knights of the Rim[/h1]
+By decree of the Mechanicum, the ancient war engines of the Knightly houses have come to the Rim. Raise a forge, uncover the sacred patterns, and bind a worthy colonist to the Throne Mechanicum - then walk a fortress of adamantium and plasma into the fight.
+
+[b]Five pilotable Knight classes, built on Vehicle Framework[/b] - each with its own weapons, armour, hangar and paint.
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/header_knights.png[/img]
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/knight_armiger.png[/img]
+[h3]Armiger - the hunting hound of the household[/h3]
+Light, fast and fierce. Armigers run down prey and screen the greater Knights, their pilots bound as bondsmen to a noble scion.
+[b]Arms:[/b] Armiger autocannon, thermal spear, Reaper chain-cleaver, graviton pulsar, volkite veuglaire, lightning lock, conversion beam cannon, siege claw and rad cleanser
+[b]Carapace:[/b] heavy stubber, meltagun
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/knight_questoris.png[/img]
+[h3]Questoris - the backbone of every Knightly house[/h3]
+The classic battle Knight, with the widest arsenal of them all - from the rapid-fire battle cannon to the Thunderstrike gauntlet.
+[b]Arms:[/b] rapid-fire battle cannon, thermal cannon, Avenger gatling cannon, Reaper chainsword, Thunderstrike gauntlet, lightning cannon, volkite chierovile, Hekaton siege claw and rad cleanser, las-impulsor, plasma executor, conversion beam obliterator
+[b]Top carapace:[/b] Ironstorm missile pod, Stormspear rocket pod, twin Icarus autocannon
+[b]Side mount:[/b] heavy stubber, meltagun, multi-laser, phosphor blaster, phased plasma-fusil, graviton crusher
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/knight_cerastus.png[/img]
+[h3]Cerastus - the swift and the deadly[/h3]
+Leaner and faster than the Questoris, built to strike hard and keep moving. Field it as a Knight-Lancer, Acheron, Castigator or Atrapos.
+[b]Arms:[/b] Cerastus shock lance, ion gauntlet shield, Acheron flame cannon, Reaper chainfist and twin heavy bolter, Castigator bolt cannon, Tempest warblade, Atrapos lascutter, graviton singularity cannon
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/knight_dominus.png[/img]
+[h3]Dominus - a fortress that walks[/h3]
+Twin plasma cores feed the heaviest guns a Knight can carry. Slow, unstoppable, and built to break armies.
+[b]Arms:[/b] plasma decimator, volcano lance, conflagration cannon, Thundercoil harpoon
+[b]Shoulders and top mount:[/b] shieldbreaker missile launcher, twin siegebreaker cannon
+[b]Head guns:[/b] twin meltagun
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/knight_acastus.png[/img]
+[h3]Acastus Porphyrion - the super-heavy[/h3]
+The rarest and mightiest Knight of all - a towering super-heavy that turns the tide of whole campaigns.
+[b]Arms:[/b] twin magna lascannon, twin conversion beam cannon
+[b]Top launcher:[/b] Ironstorm missile launcher, Helios defence missiles
+[b]Shoulder sockets:[/b] Acastus autocannon, Acastus lascannon
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/header_features.png[/img]
+
+[list]
+[*][b]The Throne Mechanicum[/b] - a colonist climbs in and pilots the Knight like any vehicle
+[*][b]Mechanicum forge[/b] - research the patterns and build each Knight piece by piece
+[*][b]Knight hangar[/b] - dock, refit, repair and rearm; swap every weapon mount from the hangar cogitator
+[*][b]Heraldry[/b] - paint each Knight in your house colours and add stickers: shields, beasts, crosses, banners, Mechanicus glyphs and more
+[*][b]Weapons from the lore[/b] - shock lances that stun and hurl back their target, conversion beams that hit harder the farther the target, graviton guns, Helios missiles that swat drop pods out of the sky
+[*][b]Reactor meltdowns[/b] - a fallen Knight may go up like a small sun, or its pilot can overload the core in a Noble Sacrifice
+[*][b]Sound and light[/b] - recorded weapon and stomp sounds, weapon glow and muzzle light (adjustable in the mod settings)
+[/list]
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/header_requirements.png[/img]
+
+[b]Required[/b] (Steam subscribes you to both automatically):
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3014915404]Vehicle Framework[/url]
+[/list]
+[b]Load order:[/b] Harmony > Vehicle Framework > Imperial Knights of the Rim
+
+[h2]Compatibility[/h2]
+[list]
+[*][b]Odyssey[/b] (optional) - Imperial plasma reactor for your gravship, and orbital drops: Knights fall from a gravship hangar onto the map below
+[*][b]Combat Extended[/b] - supported, patches load automatically
+[*][b]RimDark 40k - Mankind's Finest[/b] - its icons show up as extra Knight stickers when installed
+[*][b]Camera+[/b] - supported
+[*]Safe to add to an existing save. Removing it mid-save is not supported.
+[/list]
+
+[h2]FAQ[/h2]
+[b]How do I get my first Knight?[/b]
+Research the Knight patterns, build the forge, and assemble the Knight there piece by piece. Then put a colonist on the Throne.
+
+[b]Do I need Odyssey?[/b]
+No - everything except the plasma reactor and orbital drops works without it.
+
+[b]The game crashed on the very first start after subscribing.[/b]
+Make sure Steam has finished downloading everything (the mod is around 130 MB), then start again.
+
+[b]Why does the game take longer to load?[/b]
+The Knights use large, detailed pictures. Loading takes a little longer than with most mods.
+
+[h2]Bugs and feedback[/h2]
+Use the pinned [b]Bug reports[/b] discussion or open an Issue on GitHub, and please include your Player.log - it makes fixing things much faster.
+
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/workshop/header_credits.png[/img]
+
+[list]
+[*][b]Mod, art and code:[/b] ToxicBuckle565
+[*][b]Art[/b] painted from community 3D models. Questoris parts from "Questoris Knight Builder" by Pedjorsi (Thingiverse, CC BY-NC-SA). Dominus based on "Castle Keeper" by Solutionlesn.
+[*][b]Sounds[/b] made from freesound.org recordings, all CC0 (full list in About/SOUND_CREDITS.txt)
+[*][b]Frameworks:[/b] Vehicle Framework by SmashPhil, Harmony by Andreas Pardeike
+[/list]
+Some art is based on community models from various, partly unknown sources. If your work is used here and you would like credit or removal, get in touch and it will be fixed quickly.
+
+[h2]Open source[/h2]
+The whole mod is on GitHub: [url=https://github.com/toxicbuckle565-ux/ImperialKnightsOfTheRim]github.com/toxicbuckle565-ux/ImperialKnightsOfTheRim[/url]
+Code is MIT, art is CC BY-NC-SA 4.0 - remakes, translations and add-ons are welcome, with credit.
+
+[i]Unofficial, free fan mod. Not affiliated with or endorsed by Games Workshop. Warhammer 40,000, Imperial Knights and all related names are trademarks of Games Workshop Ltd.[/i]
