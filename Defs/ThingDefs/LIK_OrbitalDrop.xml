@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HAND-WRITTEN (not generated). Orbital drop: the falling Knight, its impact crater and the flung rocks. Code: Source/OrbitalDrop.cs -->
+<Defs>
+	<ThingDef>
+		<defName>LIK_KnightDropIncoming</defName>
+		<label>Knight orbital drop</label>
+		<description>An Imperial Knight falling from orbit.</description>
+		<thingClass>LIK.KnightDropFaller</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Skyfaller</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<selectable>false</selectable>
+		<drawOffscreen>true</drawOffscreen>
+		<bringAlongOnGravship>false</bringAlongOnGravship>
+		<size>(1,1)</size>
+	</ThingDef>
+
+	<!-- Impact crater: vanilla crater pictures, drawn big, but flat and walkable (not an edifice) so the Knight stands in it. -->
+	<ThingDef Name="LIK_KnightCraterBase" Abstract="True">
+		<label>Knight impact crater</label>
+		<description>A scorched pit punched into the ground by an Imperial Knight dropping from orbit. It can be deconstructed to level the ground.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<drawerType>MapMeshOnly</drawerType>
+		<useHitPoints>false</useHitPoints>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<canOverlapZones>true</canOverlapZones>
+		<clearBuildingArea>false</clearBuildingArea>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<bringAlongOnGravship>false</bringAlongOnGravship>
+		<size>(1,1)</size>
+		<graphicData>
+			<texPath>Things/Building/Crater/5x5</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<isEdifice>false</isEdifice>
+			<deconstructible>true</deconstructible>
+			<isInert>true</isInert>
+			<claimable>false</claimable>
+			<expandHomeArea>false</expandHomeArea>
+			<isTargetable>false</isTargetable>
+		</building>
+		<statBases>
+			<WorkToBuild>1200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Beauty>-20</Beauty>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Small</defName>
+		<graphicData><drawSize>(7.5,7.5)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Medium</defName>
+		<graphicData><drawSize>(11,11)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Large</defName>
+		<graphicData><drawSize>(14,14)</drawSize></graphicData>
+	</ThingDef>
+
+	<!-- One crater per Knight class (user 2026-11-11: "the crater should depend on which knight is falling"). The three above are kept for old saves. Sizes doubled 2026-11-11 (user: crater should be bigger; the vanilla picture has wide empty margins). -->
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Armiger</defName>
+		<label>Armiger impact crater</label>
+		<graphicData><drawSize>(12,12)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Questoris</defName>
+		<label>Questoris impact crater</label>
+		<graphicData><drawSize>(22,22)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Cerastus</defName>
+		<label>Cerastus impact crater</label>
+		<graphicData><drawSize>(24,24)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Dominus</defName>
+		<label>Dominus impact crater</label>
+		<graphicData><drawSize>(28,28)</drawSize></graphicData>
+	</ThingDef>
+	<ThingDef ParentName="LIK_KnightCraterBase">
+		<defName>LIK_KnightCrater_Acastus</defName>
+		<label>Acastus impact crater</label>
+		<graphicData><drawSize>(34,34)</drawSize></graphicData>
+	</ThingDef>
+
+	<!-- Rocks flung up by the impact (vanilla debris picture, higher and longer arcs). -->
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_ImpactRock</defName>
+		<graphicData>
+			<texPath>Things/Mote/ThrownDebris</texPath>
+			<shaderType>Mote</shaderType>
+			<renderInstanced>false</renderInstanced>
+			<graphicClass>Graphic_Fleck</graphicClass>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.05</fadeInTime>
+		<solidTime>1.6</solidTime>
+		<fadeOutTime>0.4</fadeOutTime>
+		<archHeight>2~6</archHeight>
+		<archDuration>1.6</archDuration>
+		<archCurve>
+			<points>
+				<li>(0,0)</li>
+				<li>(0.25,0.75)</li>
+				<li>(0.5,1)</li>
+				<li>(0.75,0.75)</li>
+				<li>(1,0)</li>
+			</points>
+		</archCurve>
+		<speedPerTime>-3</speedPerTime>
+	</FleckDef>
+</Defs>

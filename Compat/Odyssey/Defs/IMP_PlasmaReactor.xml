@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mechanicum plasma reactor: a grav core upgrade (user 2026-11-21: gravships could not hold more than one Knight hangar; "greatly
+  extend it", and keep it usable by a future Imperial aircraft mod with Thunderhawks). Loaded only with Odyssey (LoadFolders.xml).
+  IMP_ prefix (not LIK_) on purpose: this is meant to move into a shared Imperial core mod later without breaking saves.
+  Vanilla for comparison: grav engine 500 support, grav field extender +250 (max 6, footprint radius 16.9) = 2000 max.
+  Reactor: +3000 support each, max 2 per ship (+6000), substructure footprint radius 40, links up to 30 cells from the engine,
+  and it PRODUCES 3000 W (a plasma reactor). Hand-written (not generated).
+-->
+<Defs>
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>IMP_PlasmaReactor</defName>
+		<label>Mechanicum plasma reactor</label>
+		<description>A sacred plasma reactor of the Adeptus Mechanicus, the same holy fire that drives an Imperial Knight, sealed in a ceramite shell and bound to a gravship's grav engine. Its output vastly strengthens the grav field: the ship can support far more substructure, and the area where substructure can be built grows wide enough for Knight hangars and the landing decks of Imperial craft. The surplus feeds the ship's power grid.\n\nMust be built near a grav engine. A gravship can support up to two plasma reactors.</description>
+		<!-- 2026-11-22 (user): the plasma-globe machine IS the reactor (was the grav engine re-skin). Static picture here, animated arms +
+		     plasma ball drawn by LIK.CompPlasmaReactorArt. Art made for 3 cells wide, scaled x4/3: 4 x 5.229, bottom on the footprint bottom. -->
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Imperial/PlasmaReactor/reactor</texPath>
+			<drawSize>(4,5.22917)</drawSize>
+			<drawOffset>(0,0,0.61458)</drawOffset>
+			<shadowData>
+				<volume>(3.6,1.2,3.6)</volume>
+			</shadowData>
+		</graphicData>
+		<size>(4,4)</size>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<statBases>
+			<MaxHitPoints>800</MaxHitPoints>
+			<Mass>60</Mass>
+			<WorkToBuild>14000</WorkToBuild>
+		</statBases>
+		<fillPercent>0.9</fillPercent>
+		<passability>Impassable</passability>
+		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>	<!-- 90% cover on purpose -->
+		<blockLight>false</blockLight>	<!-- 2026-11-23: true boxed in its own purple glow (light floods from the centre cell; neighbours were blockers) -->
+		<canOverlapZones>false</canOverlapZones>
+		<designationCategory>Odyssey</designationCategory>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>IMP_PlasmaReactor</li>
+		</researchPrerequisites>
+		<costList>
+			<Gravcore>2</Gravcore>
+			<Plasteel>250</Plasteel>
+			<Uranium>80</Uranium>
+			<Gold>60</Gold>
+			<ComponentSpacer>8</ComponentSpacer>
+			<GravlitePanel>60</GravlitePanel>
+		</costList>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<placeWorkers>
+			<li>PlaceWorker_InRangeOfGravEngine</li>
+		</placeWorkers>
+		<building>
+			<relatedTerrain>
+				<li>Substructure</li>
+			</relatedTerrain>
+		</building>
+		<comps>
+			<li Class="CompProperties_SubstructureFootprint">
+				<radius>40</radius>
+			</li>
+			<li Class="CompProperties_GravshipFacility">
+				<statOffsets>
+					<SubstructureSupport>3000</SubstructureSupport>
+				</statOffsets>
+				<requiresLOS>false</requiresLOS>
+				<maxSimultaneous>2</maxSimultaneous>
+				<maxDistance>30</maxDistance>
+				<onlyRequiresLooseConnection>true</onlyRequiresLooseConnection>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-3000</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+			</li>
+			<li Class="LIK.CompProperties_PlasmaReactorArt" />
+			<li Class="CompProperties_Glower">
+				<!-- user 2026-11-22: 'plasma reactor should have a purple light to it' (matches the plasma globe; was pale blue) -->
+				<glowRadius>8</glowRadius>
+				<glowColor>(185,80,255,0)</glowColor>
+			</li>
+		</comps>
+		<uiOrder>2310</uiOrder>
+	</ThingDef>
+</Defs>

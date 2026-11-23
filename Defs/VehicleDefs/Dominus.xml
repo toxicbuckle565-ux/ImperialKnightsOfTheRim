@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--============BUILDABLE============-->
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>LIK_DominusBlueprint</defName>
+		<label>Dominus Knight</label>
+		<description>A siege-class engine. The Castellan pattern carries a plasma decimator and a Titan-killing volcano lance; the Valiant a conflagration cannon and a thundercoil harpoon. Shieldbreaker missiles and twin siegebreaker cannons ride its carapace, twin meltaguns flank its head. Piloted by a single noble through the Throne Mechanicum.</description>
+		<graphicData>
+			<texPath>Things/Knights/Dominus/Icon/dominus</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(9.790,9.790)</drawSize>
+		</graphicData>
+		<size>(7,7)</size>
+		<statBases>
+			<MaxHitPoints>7000</MaxHitPoints>
+			<WorkToBuild>600000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<researchPrerequisites>
+			<li>LIK_DominusKnights</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<costList>
+			<Steel>4500</Steel>
+			<Plasteel>1500</Plasteel>
+			<ComponentIndustrial>120</ComponentIndustrial>
+			<ComponentSpacer>60</ComponentSpacer>
+			<Gold>150</Gold>
+		</costList>
+		<designationCategory Inherit="False" />
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<soundBuilt/>
+		<thingToSpawn>LIK_Dominus</thingToSpawn>
+	</Vehicles.VehicleBuildDef>
+
+	<!--==============PAWN===============-->
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>LIK_Dominus</defName>
+		<label>Dominus Knight</label>
+		<description>A siege-class engine. The Castellan pattern carries a plasma decimator and a Titan-killing volcano lance; the Valiant a conflagration cannon and a thundercoil harpoon. Shieldbreaker missiles and twin siegebreaker cannons ride its carapace, twin meltaguns flank its head. Piloted by a single noble through the Throne Mechanicum.</description>
+		<graphicData>
+			<texPath>Things/Knights/Dominus/dominus</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<drawSize>(9.790,9.790)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<uiIconPath>Things/Knights/Dominus/Icon/dominus_south</uiIconPath>
+		<fillPercent>0.75</fillPercent>
+		<altitudeLayer>PawnState</altitudeLayer>
+		<buildDef>LIK_DominusBlueprint</buildDef>
+		<size>(7,7)</size>
+
+		<navigationCategory>Manual</navigationCategory>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Spacer</techLevel>
+		<vehicleType>Land</vehicleType>
+		<nameable>true</nameable>
+
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightToll">
+				<strainPerHour>0.010</strainPerHour>
+				<ageDaysPerHour>0.15</ageDaysPerHour>
+				<feedbackScale>0.80</feedbackScale>
+				<referenceSize>4</referenceSize>
+				<minPiloting>12</minPiloting>
+			</li>
+			<!-- footsteps + war horn (Source/KnightSound.cs; sounds from Tools/gen_knight_sounds.py) -->
+			<li Class="LIK.DefModExtension_KnightSound">
+				<step>LIK_Snd_step_Dominus</step>
+				<stepTicks>44</stepTicks>
+				<stepShake>0.65</stepShake>
+				<horn>LIK_Snd_horn_Dominus</horn>
+			</li>
+		</modExtensions>
+
+		<vehicleStats>
+			<Mass>7500</Mass>
+			<MoveSpeed>3.8</MoveSpeed>
+			<CargoCapacity>350</CargoCapacity>
+			<RepairRate>0.9</RepairRate>
+		</vehicleStats>
+
+		<!-- Knight sounds (Tools/gen_knight_sounds.py): reactor hum loops while the engine runs, start-up / shut-down, hatch when the pilot climbs in or out. -->
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>LIK_Snd_hum_Dominus</value>
+			</li>
+		</soundSustainersOnEvent>
+		<soundOneShotsOnEvent Inherit="False">
+			<li>
+				<key>PawnEntered</key>
+				<value>LIK_Snd_hatch_in</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>LIK_Snd_hatch_out</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>LIK_Snd_startup_Dominus</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>LIK_Snd_shutdown_Dominus</value>
+			</li>
+		</soundOneShotsOnEvent>
+
+		<statBases>
+			<ArmorRating_Blunt>1.70</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.90</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.2</Flammability>
+			<MarketValue>90000</MarketValue>
+		</statBases>
+
+		<race>
+			<baseBodySize>14</baseBodySize>
+		</race>
+
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<customRoadCosts AssignDefaults="1.0"/>
+			<customHillinessCosts>
+				<SmallHills>1.0</SmallHills>
+				<LargeHills>1.0</LargeHills>
+				<Mountainous>1.5</Mountainous>
+			</customHillinessCosts>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 4)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>pilot</key>
+					<label>Noble pilot (Throne Mechanicum)</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<chanceToHit>0</chanceToHit>
+					<handlingTypes><li>Movement</li><li>Turret</li></handlingTypes>
+					<turretIds>
+						<li>armL_dominus_conflag</li>
+						<li>armL_dominus_decimator</li>
+						<li>armL_dominus_volcano</li>
+						<li>armL_dominus_harpoon</li>
+						<li>armR_dominus_decimator</li>
+						<li>armR_dominus_conflag</li>
+						<li>armR_dominus_volcano</li>
+						<li>armR_dominus_harpoon</li>
+						<li>top_dominus_shieldbreaker</li>
+						<li>top_dominus_siegebreaker</li>
+						<li>shoulderL_dominus_siegebreaker</li>
+						<li>shoulderL_dominus_shieldbreaker</li>
+						<li>shoulderR_dominus_siegebreaker</li>
+						<li>shoulderR_dominus_shieldbreaker</li>
+						<li>headL_dominus_twinmelta</li>
+						<li>headR_dominus_twinmelta</li>
+					</turretIds>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>
+			</roles>
+		</properties>
+		<components>
+			<li>
+				<key>Reactor</key>
+				<label>Plasma Reactor</label>
+				<health>583</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.40</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.60</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>9</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftLeg</key>
+				<label>Left Leg</label>
+				<health>1400</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightLeg</key>
+				<label>Right Leg</label>
+				<health>1400</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmor</key>
+				<label>Front Carapace</label>
+				<health>1000</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.70</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.90</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmor</key>
+				<label>Left Carapace</label>
+				<health>1000</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.60</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.80</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmor</key>
+				<label>Right Carapace</label>
+				<health>1000</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.60</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.80</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmor</key>
+				<label>Rear Carapace</label>
+				<health>1000</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>FuelTank</key>
+				<label>Promethium Tanks</label>
+				<health>466</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.30</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_FuelLeak">
+						<maxHealth>0.3</maxHealth>
+						<rate>1~4</rate>
+					</li>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.2</chance>
+						<radius>11</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(-3, -3)</li>
+						<li>(3, -3)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Throne</key>
+				<label>Pilot Throne</label>
+				<health>700</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>2.10</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.30</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>1</hitWeight>
+			</li>
+			<li>
+				<key>Servos</key>
+				<label>Servo-muscle Bundle</label>
+				<health>437</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.40</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>4</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>140</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>1</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>700</fuelCapacity>
+			</li>
+			<li Class="LIK.CompProperties_KnightHead"/>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>LIK_Turret_dominus_conflag</turretDef>
+						<renderProperties>
+							<north>(-2.62, -0.25)</north>
+							<south>(2.59, -0.62)</south>
+							<east>(-0.35, 2.36)</east>
+							<west>(0.66, -1.05)</west>
+						</renderProperties>
+						<gizmoLabel>Conflagration cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_dominus_conflag</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_decimator</turretDef>
+						<renderProperties>
+							<north>(-2.62, -0.25)</north>
+							<south>(2.59, -0.62)</south>
+							<east>(-0.35, 2.36)</east>
+							<west>(0.66, -1.05)</west>
+						</renderProperties>
+						<gizmoLabel>Plasma decimator</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_dominus_decimator</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_volcano</turretDef>
+						<renderProperties>
+							<north>(-2.62, -0.25)</north>
+							<south>(2.59, -0.62)</south>
+							<east>(-0.35, 2.36)</east>
+							<west>(0.66, -1.05)</west>
+						</renderProperties>
+						<gizmoLabel>Volcano lance</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_dominus_volcano</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_harpoon</turretDef>
+						<renderProperties>
+							<north>(-2.62, -0.25)</north>
+							<south>(2.59, -0.62)</south>
+							<east>(-0.35, 2.36)</east>
+							<west>(0.66, -1.05)</west>
+						</renderProperties>
+						<gizmoLabel>Thundercoil harpoon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_dominus_harpoon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_decimator</turretDef>
+						<renderProperties>
+							<north>(2.62, -0.25)</north>
+							<south>(-2.59, -0.62)</south>
+							<east>(-0.66, -1.05)</east>
+							<west>(0.35, 2.36)</west>
+						</renderProperties>
+						<gizmoLabel>Plasma decimator</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_dominus_decimator</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_conflag</turretDef>
+						<renderProperties>
+							<north>(2.62, -0.25)</north>
+							<south>(-2.59, -0.62)</south>
+							<east>(-0.66, -1.05)</east>
+							<west>(0.35, 2.36)</west>
+						</renderProperties>
+						<gizmoLabel>Conflagration cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_dominus_conflag</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_volcano</turretDef>
+						<renderProperties>
+							<north>(2.62, -0.25)</north>
+							<south>(-2.59, -0.62)</south>
+							<east>(-0.66, -1.05)</east>
+							<west>(0.35, 2.36)</west>
+						</renderProperties>
+						<gizmoLabel>Volcano lance</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_dominus_volcano</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_harpoon</turretDef>
+						<renderProperties>
+							<north>(2.62, -0.25)</north>
+							<south>(-2.59, -0.62)</south>
+							<east>(-0.66, -1.05)</east>
+							<west>(0.35, 2.36)</west>
+						</renderProperties>
+						<gizmoLabel>Thundercoil harpoon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_dominus_harpoon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_shieldbreaker</turretDef>
+						<renderProperties>
+							<north>(-0.02, 1.99)</north>
+							<south>(-0.03, 2.95)</south>
+							<east>(-0.96, 2.83)</east>
+							<west>(0.92, 2.84)</west>
+						</renderProperties>
+						<gizmoLabel>Shieldbreaker missile launcher</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_dominus_shieldbreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_siegebreaker</turretDef>
+						<renderProperties>
+							<north>(-0.02, 1.99)</north>
+							<south>(-0.03, 2.95)</south>
+							<east>(-0.96, 2.83)</east>
+							<west>(0.92, 2.84)</west>
+						</renderProperties>
+						<gizmoLabel>Twin siegebreaker cannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_dominus_siegebreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_siegebreaker</turretDef>
+						<renderProperties>
+							<north>(-2.37, 1.97)</north>
+							<south>(2.41, 1.91)</south>
+							<east>(-0.19, 3.64)</east>
+							<west>(0.17, 0.93)</west>
+						</renderProperties>
+						<gizmoLabel>Twin siegebreaker cannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>shoulderL_dominus_siegebreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_shieldbreaker</turretDef>
+						<renderProperties>
+							<north>(-2.37, 1.97)</north>
+							<south>(2.41, 1.91)</south>
+							<east>(-0.19, 3.64)</east>
+							<west>(0.17, 0.93)</west>
+						</renderProperties>
+						<gizmoLabel>Shieldbreaker missile launcher</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>shoulderL_dominus_shieldbreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_siegebreaker</turretDef>
+						<renderProperties>
+							<north>(2.37, 1.97)</north>
+							<south>(-2.41, 1.91)</south>
+							<east>(-0.17, 0.93)</east>
+							<west>(0.19, 3.64)</west>
+						</renderProperties>
+						<gizmoLabel>Twin siegebreaker cannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>shoulderR_dominus_siegebreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_shieldbreaker</turretDef>
+						<renderProperties>
+							<north>(2.37, 1.97)</north>
+							<south>(-2.41, 1.91)</south>
+							<east>(-0.17, 0.93)</east>
+							<west>(0.19, 3.64)</west>
+						</renderProperties>
+						<gizmoLabel>Shieldbreaker missile launcher</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>shoulderR_dominus_shieldbreaker</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_twinmelta</turretDef>
+						<renderProperties>
+							<north>(-1.33, 1.30)</north>
+							<south>(1.28, -1.42)</south>
+							<east>(2.15, 0.92)</east>
+							<west>(-2.13, -0.51)</west>
+						</renderProperties>
+						<gizmoLabel>Twin meltagun</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>headL_dominus_twinmelta</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_dominus_twinmelta</turretDef>
+						<renderProperties>
+							<north>(1.33, 1.30)</north>
+							<south>(-1.28, -1.42)</south>
+							<east>(2.13, -0.51)</east>
+							<west>(-2.15, 0.92)</west>
+						</renderProperties>
+						<gizmoLabel>Twin meltagun</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>headR_dominus_twinmelta</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+	<!--=============TURRETS=============-->
+</Defs>

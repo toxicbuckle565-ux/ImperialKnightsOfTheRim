@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- 2026-11-22 (user): an impossibly rare survivor of a Noble Sacrifice (reactor overload) shows it in the health tab. Permanent, no effects. -->
+	<HediffDef>
+		<defName>LIK_SavedByEmperor</defName>
+		<label>saved by the Emperor</label>
+		<description>This noble overloaded their Knight's plasma core to take the enemy with them - and was pulled from the heart of the blast alive. No machine, no armour and no surgeon can explain it. The Emperor protects.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(1.0, 0.85, 0.35)</defaultLabelColor>
+		<isBad>false</isBad>
+		<everCurableByItem>false</everCurableByItem>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+			<li>
+				<label>miracle</label>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

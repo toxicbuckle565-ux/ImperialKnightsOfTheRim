@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>LIK_KnightHangar</defName>
+		<label>Knight hangar</label>
+		<description>The Knight assembly bay, big enough for every Knight class from the Armiger to the Acastus. Use "Configure Knight assembly" to choose the class, a weapon for every mount and a livery; builders then haul the parts in and assemble it. The finished Knight stands in the bay. The bay is also a docking port: park a Knight of the right size fully inside it and it is repaired and its weapons rearmed (using steel). Knights can only be repaired here. Keep the floor clear.</description>
+		<thingClass>LIK.Building_KnightHangar</thingClass>
+		<graphicData>
+			<texPath>Things/Knights/Hangar/knight_hangar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(20.00000,18.78906)</drawSize>
+			<drawOffset>(0.00000,0,3.89453)</drawOffset>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<size>(20,11)</size>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<holdsRoof>true</holdsRoof>	<!-- 2026-11-22: 20x18 is too wide for walls alone (6-cell roof range); every hangar cell supports the roof -->
+		<fillPercent>0</fillPercent>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<tickerType>Rare</tickerType>
+		<costList>
+			<Steel>1200</Steel>
+			<Plasteel>300</Plasteel>
+			<ComponentIndustrial>40</ComponentIndustrial>
+			<ComponentSpacer>15</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>3000</MaxHitPoints>
+			<WorkToBuild>60000</WorkToBuild>
+			<Flammability>0.2</Flammability>
+		</statBases>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>LIK_ArmigerKnights</li>
+		</researchPrerequisites>
+		<designationCategory>Production</designationCategory>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_HangarSize">
+				<minFootprint>0</minFootprint>
+				<maxFootprint>99</maxFootprint>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<JobDef>
+		<defName>LIK_AssembleKnight</defName>
+		<driverClass>LIK.JobDriver_AssembleKnight</driverClass>
+		<reportString>assembling a Knight.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+	<WorkGiverDef>
+		<defName>LIK_AssembleKnight</defName>
+		<label>assemble a Knight</label>
+		<giverClass>LIK.WorkGiver_AssembleKnight</giverClass>
+		<workType>Construction</workType>
+		<verb>assemble</verb>
+		<gerund>assembling</gerund>
+		<priorityInType>60</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByMechs>false</canBeDoneByMechs>
+	</WorkGiverDef>
+</Defs>

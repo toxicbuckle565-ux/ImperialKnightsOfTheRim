@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Vehicles.RetextureDef>
+		<defName>LIK_Open_acastus_ironstorm</defName>
+		<label>Ironstorm rockets raised</label>
+		<graphicData>
+			<texPath>Things/Knights/Acastus/acastus_ironstorm</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(84,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+			<drawSize>(14.950,14.950)</drawSize>
+		</graphicData>
+	</Vehicles.RetextureDef>
+
+	<Vehicles.RetextureDef>
+		<defName>LIK_Open_acastus_helios</defName>
+		<label>Helios rockets raised</label>
+		<graphicData>
+			<texPath>Things/Knights/Acastus/acastus_helios</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(84,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+			<drawSize>(14.950,14.950)</drawSize>
+		</graphicData>
+	</Vehicles.RetextureDef>
+
+</Defs>

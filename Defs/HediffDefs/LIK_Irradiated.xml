@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- HAND-WRITTEN (not generated). Armiger weapon pass 2026-11-17: the irad-cleanser (siege claw arm of the Armiger Moirax).
+	     Lore (Lexicanum, Irrad-Cleanser): "victims ... are boiled alive from within and blasted apart on a cellular level ... the target will likely
+	     die later from radioactive contamination". Applied by LIK.ArmigerWeapons.Irradiate to living, organic things in the blast (scaled down by
+	     toxic resistance); mechs are immune. The sickness keeps building after the hit and kills at full severity unless the pawn is cured
+	     (e.g. a healer mech serum). -->
+	<HediffDef>
+		<defName>LIK_Irradiated</defName>
+		<label>radiation sickness</label>
+		<description>Cells torn apart by a blast of cross-spectrum radiation from an irad-cleanser. The damage keeps spreading through the body: weakness, bleeding gums, failing organs. Without a cure it is fatal.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.55, 0.85, 0.35)</defaultLabelColor>
+		<initialSeverity>0.05</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<lethalSeverity>1.0</lethalSeverity>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.1</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>initial</label>
+				<capMods>
+					<li><capacity>BloodFiltration</capacity><offset>-0.05</offset></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.25</minSeverity>
+				<label>moderate</label>
+				<vomitMtbDays>1.5</vomitMtbDays>
+				<painOffset>0.08</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.1</offset></li>
+					<li><capacity>BloodFiltration</capacity><offset>-0.15</offset></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.5</minSeverity>
+				<label>serious</label>
+				<vomitMtbDays>0.6</vomitMtbDays>
+				<painOffset>0.15</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.2</offset></li>
+					<li><capacity>Moving</capacity><offset>-0.15</offset></li>
+					<li><capacity>BloodFiltration</capacity><offset>-0.3</offset></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>extreme</label>
+				<lifeThreatening>true</lifeThreatening>
+				<vomitMtbDays>0.3</vomitMtbDays>
+				<painOffset>0.25</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.35</offset></li>
+					<li><capacity>Moving</capacity><offset>-0.3</offset></li>
+					<li><capacity>BloodFiltration</capacity><offset>-0.5</offset></li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

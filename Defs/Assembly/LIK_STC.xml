@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_armiger_conversionbeam</defName>
+		<label>STC fragment (armiger conversion beam cannon)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the armiger conversion beam cannon. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_armiger_graviton</defName>
+		<label>STC fragment (armiger graviton pulsar)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the armiger graviton pulsar. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_lasimpulsor</defName>
+		<label>STC fragment (questoris las-impulsor)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris las-impulsor. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_gravcrusher</defName>
+		<label>STC fragment (questoris graviton crusher)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris graviton crusher. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_fusil</defName>
+		<label>STC fragment (questoris phased plasma-fusil)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris phased plasma-fusil. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_executor</defName>
+		<label>STC fragment (questoris plasma executor)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris plasma executor. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_obliterator</defName>
+		<label>STC fragment (questoris conversion beam obliterator)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris conversion beam obliterator. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_questoris_hekaton</defName>
+		<label>STC fragment (questoris hekaton siege claw and rad cleanser)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the questoris hekaton siege claw and rad cleanser. Study 1 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>700</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_dominus_decimator</defName>
+		<label>STC fragment (dominus plasma decimator)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the dominus plasma decimator. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_dominus_volcano</defName>
+		<label>STC fragment (dominus volcano lance)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the dominus volcano lance. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_dominus_harpoon</defName>
+		<label>STC fragment (dominus thundercoil harpoon)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the dominus thundercoil harpoon. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_cerastus_singularity</defName>
+		<label>STC fragment (cerastus graviton singularity cannon)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the cerastus graviton singularity cannon. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_cerastus_lascutter</defName>
+		<label>STC fragment (cerastus atrapos lascutter)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the cerastus atrapos lascutter. Study 2 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>1400</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_acastus_magna</defName>
+		<label>STC fragment (acastus twin magna lascannon)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the acastus twin magna lascannon. Study 3 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>2100</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_STC_acastus_convbeam</defName>
+		<label>STC fragment (acastus twin conversion beam cannon)</label>
+		<description>A fragment of a Standard Template Construct, the lost design data for the acastus twin conversion beam cannon. Study 3 fragment(s) at a Mechanicum manufactorum to recover the pattern, after which the weapon can be forged. Fragments are found in ancient ruins, offered as rewards, or sold by exotic traders.</description>
+		<graphicData>
+			<texPath>Things/Knights/STC/stc_fragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<stackLimit>5</stackLimit>
+		<useHitPoints>false</useHitPoints>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>2100</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_STC</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<JobDef>
+		<defName>LIK_StudySTC</defName>
+		<driverClass>LIK.JobDriver_StudySTC</driverClass>
+		<reportString>studying an STC fragment.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+	<WorkGiverDef>
+		<defName>LIK_StudySTC</defName>
+		<label>study STC fragments</label>
+		<giverClass>LIK.WorkGiver_StudySTC</giverClass>
+		<workType>Research</workType>
+		<verb>study</verb>
+		<gerund>studying</gerund>
+		<priorityInType>80</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByMechs>false</canBeDoneByMechs>
+	</WorkGiverDef>
+
+</Defs>

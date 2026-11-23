@@ -1,0 +1,5255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_autocannon</defName>
+		<label>Armiger autocannon</label>
+		<description>Armiger autocannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_autocannon_single</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.01, 1.81)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.14, 2.81)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.14, 2.81)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.01, 1.81)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 1.81)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.02, 1.53)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.01, 1.53)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.14, 2.82)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.14, 2.82)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_armigerauto</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>150</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>1.8</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>60</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>5</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_autocannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(5.9,5.9)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_thermalspear</defName>
+		<label>Thermal spear</label>
+		<description>Thermal spear, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_thermal_spear</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 1.18)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.06, 1.56)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.06, 1.56)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 1.18)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 1.18)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 1.10)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 1.10)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.06, 1.57)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.06, 1.57)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_thermalspear</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.40</rotationSpeed>
+		<projectileOffset>1.2</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>24</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>110</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_thermalspear</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.6,3.6)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>36.00</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_chaincleaver</defName>
+		<label>Reaper chain-cleaver</label>
+		<description>Reaper chain-cleaver, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_chain_cleaver</sound>
+				<minGapTicks>75</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 1.05)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.12, 1.46)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.12, 1.46)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 1.05)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.00, 1.05)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 0.97)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.01, 0.97)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.12, 1.47)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.12, 1.47)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_chaincleaver</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.40</rotationSpeed>
+		<projectileOffset>1.1</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>6</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_chaincleaver</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.0,4.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_stubber</defName>
+		<label>Armiger heavy stubber</label>
+		<description>Armiger heavy stubber, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_stubber_short</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.21, 0.66)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.10, 1.09)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.21, 0.66)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.21, 0.69)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.14, 1.09)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_stubber</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>200</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.60</rotationSpeed>
+		<projectileOffset>0.7</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>10</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_stubber</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.8,2.8)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_meltagun</defName>
+		<label>Armiger meltagun</label>
+		<description>Armiger meltagun, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_melta</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 0.49)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.04, 0.84)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 0.49)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.58)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.04, 0.85)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_meltagun</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>16</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>0.5</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_meltagun</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.5,2.5)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>25.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_battlecannon</defName>
+		<label>Rapid-fire battle cannon</label>
+		<description>Rapid-fire battle cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_battlecannon</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 2.56)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.09, 4.34)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.09, 4.34)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 2.56)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 2.56)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 2.74)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 2.74)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.09, 4.34)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.09, 4.34)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_battlecannon</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>30</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.30</rotationSpeed>
+		<projectileOffset>2.6</projectileOffset>
+		<minRange>8</minRange>
+		<maxRange>48</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>2</shotsPerBurst>
+				<ticksBetweenShots>22</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_battlecannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.0,9.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_thermal</defName>
+		<label>Thermal cannon</label>
+		<description>Thermal cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_thermal_cannon</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.05, 2.37)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.04, 3.77)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.04, 3.77)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.05, 2.37)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.04, 2.37)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.04, 2.61)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.04, 2.61)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.04, 3.78)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.04, 3.78)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_thermal</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>2.4</projectileOffset>
+		<minRange>4</minRange>
+		<maxRange>26</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>140</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_thermal</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(8.0,8.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>34.27</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_gatling</defName>
+		<label>Avenger gatling cannon</label>
+		<description>Avenger gatling cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_gatling_short</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 2.10)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.11, 3.49)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.11, 3.49)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 2.10)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.00, 2.10)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 2.31)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.00, 2.31)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.11, 3.50)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.11, 3.50)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_gatling</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>150</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.50</rotationSpeed>
+		<projectileOffset>2.1</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>34</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>8</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_gatling</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(8.0,8.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_chainsword</defName>
+		<label>Reaper chainsword</label>
+		<description>Reaper chainsword, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_chainsword</sound>
+				<minGapTicks>100</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 2.15)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 2.15)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 2.15)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 2.48)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.00, 2.48)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.18, 3.80)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_chainsword</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.20</rotationSpeed>
+		<projectileOffset>2.1</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_chainsword</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(8.0,8.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_gauntlet</defName>
+		<label>Thunderstrike gauntlet</label>
+		<description>Thunderstrike gauntlet, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_thunderstrike_gauntlet</sound>
+				<minGapTicks>75</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.06, 1.39)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.48, 2.58)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.74, 2.60)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.06, 1.39)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.05, 1.39)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.04, 2.16)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.03, 2.16)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.74, 2.60)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.48, 2.59)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_gauntlet</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>1.4</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_gauntlet</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(6.0,6.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_stubber</defName>
+		<label>Questoris heavy stubber</label>
+		<description>Questoris heavy stubber, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_stubber_short</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 0.53)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.00, 0.85)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 0.53)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.53)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.00, 0.86)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_stubber</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>200</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.60</rotationSpeed>
+		<projectileOffset>0.5</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>10</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_stubber</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.0,2.0)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_icarus</defName>
+		<label>Twin Icarus autocannon</label>
+		<description>Twin Icarus autocannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_twin_icarus</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 1.09)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.42, 1.12)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 1.09)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 0.48)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.42, 1.12)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_icarus</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>60</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>1.1</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>38</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_icarus</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.0,4.0)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_missilepod</defName>
+		<label>Ironstorm missile pod</label>
+		<description>Ironstorm missile pod, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_ironstorm_pod_single</sound>
+				<perBurst>true</perBurst>
+				<byBurst>
+					<li>
+						<shots>1</shots>
+						<sound>LIK_Snd_fire_ironstorm_pod_single</sound>
+					</li>
+					<li>
+						<shots>3</shots>
+						<sound>LIK_Snd_fire_ironstorm_pod_cluster3</sound>
+					</li>
+					<li>
+						<shots>6</shots>
+						<sound>LIK_Snd_fire_ironstorm_pod_full6</sound>
+					</li>
+				</byBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 0.67)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.03, 0.77)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 0.67)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 0.59)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 0.78)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_missile</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>6</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>0.7</projectileOffset>
+		<minRange>10</minRange>
+		<maxRange>50</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>12</ticksBetweenShots>
+				<ticksBetweenBursts>130</ticksBetweenBursts>
+				<label>Cluster of 3</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>70</ticksBetweenBursts>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>300</ticksBetweenBursts>
+				<spreadRadius>6</spreadRadius>
+				<label>Whole pod</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_missilepod</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.5,2.5)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_stormspear</defName>
+		<label>Stormspear rocket pod</label>
+		<description>Stormspear rocket pod, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_stormspear</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 0.67)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.04, 0.70)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 0.67)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 0.59)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 0.71)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_stormspear</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>18</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>0.7</projectileOffset>
+		<minRange>8</minRange>
+		<maxRange>48</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>10</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_stormspear</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.5,2.5)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_meltagun</defName>
+		<label>Questoris meltagun</label>
+		<description>Questoris meltagun, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_melta</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 0.52)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.00, 0.83)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 0.52)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.52)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.00, 0.84)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_meltagun</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>16</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>0.5</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_meltagun</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.0,2.0)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>25.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_conflag</defName>
+		<label>Conflagration cannon</label>
+		<description>Conflagration cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_conflagration_cannon</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.52, 2.55)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.82, 4.24)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.22, 4.24)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.52, 2.55)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.52, 2.55)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.52, 3.09)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.52, 3.09)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.22, 4.25)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.82, 4.25)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_conflag</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>100</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.30</rotationSpeed>
+		<projectileOffset>2.6</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>18</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>10</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>90</ticksBetweenBursts>
+				<canMiss>false</canMiss>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_conflag</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(10.7,10.7)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_decimator</defName>
+		<label>Plasma decimator</label>
+		<description>Plasma decimator, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_plasma_decimator</sound>
+				<perBurst>true</perBurst>
+				<chargeTicks>32</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 2.85)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.17, 4.73)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.17, 4.73)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 2.85)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 2.85)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 2.95)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 2.95)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.17, 4.74)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.17, 4.74)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_decimator</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>30</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.10</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>6</minRange>
+		<maxRange>48</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>5</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>150</ticksBetweenBursts>
+				<label>Standard</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>5</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>150</ticksBetweenBursts>
+				<label>Supercharge (hazardous)</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_decimator</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(10.7,10.7)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>7.55</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_volcano</defName>
+		<label>Volcano lance</label>
+		<description>Volcano lance, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_volcano_lance</sound>
+				<chargeTicks>54</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.25, 3.51)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.18, 5.78)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.10, 5.78)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.25, 3.51)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.24, 3.51)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.24, 3.42)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.24, 3.42)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.10, 5.79)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.18, 5.79)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_volcano</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>8</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.00</rotationSpeed>
+		<projectileOffset>3.5</projectileOffset>
+		<minRange>10</minRange>
+		<maxRange>70</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>220</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_volcano</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(13.3,13.3)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>60.20</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_harpoon</defName>
+		<label>Thundercoil harpoon</label>
+		<description>Thundercoil harpoon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_harpoon</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.78, 2.80)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.53, 5.02)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.36, 5.02)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.78, 2.80)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.79, 2.80)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.78, 2.96)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.77, 2.96)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.36, 5.03)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.53, 5.03)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_harpoon</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>6</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.30</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>200</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_harpoon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(12.5,12.5)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_shieldbreaker</defName>
+		<label>Shieldbreaker missile launcher</label>
+		<description>Shieldbreaker missile launcher, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_missile_D_heavy</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 0.86)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.06, 1.42)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 0.86)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.76)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.05, 1.43)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_shieldbreaker</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>6</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.10</rotationSpeed>
+		<projectileOffset>0.9</projectileOffset>
+		<minRange>12</minRange>
+		<maxRange>70</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>160</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_shieldbreaker</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.6,3.6)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_siegebreaker</defName>
+		<label>Twin siegebreaker cannon</label>
+		<description>Twin siegebreaker cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_siegebreaker_double</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 1.15)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.03, 1.94)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.03, 1.94)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 1.15)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 1.15)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 1.22)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 1.22)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.03, 1.95)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.03, 1.95)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_siegebreaker</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>40</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>1.1</projectileOffset>
+		<minRange>6</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>10</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_siegebreaker</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.5,4.5)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_dominus_twinmelta</defName>
+		<label>Twin meltagun</label>
+		<description>Twin meltagun, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_twin_meltagun</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 1.33)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.05, 1.31)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.04, 1.31)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 1.33)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 1.33)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 0.85)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.00, 0.85)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.04, 1.32)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.05, 1.32)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_twinmelta</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>20</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>1.3</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>110</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/turret_dominus_twinmelta</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.6,3.6)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>27.67</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_graviton</defName>
+		<label>Graviton pulsar</label>
+		<description>Graviton pulsar, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_graviton</sound>
+				<chargeTicks>78</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.01, 1.28)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.03, 2.11)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.03, 2.11)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.01, 1.28)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.02, 1.28)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.02, 1.29)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.02, 1.29)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.03, 2.12)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.03, 2.12)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_graviton</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>24</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>1.3</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>24</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>80</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_graviton</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.7,4.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>21.07</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_veuglaire</defName>
+		<label>Volkite veuglaire</label>
+		<description>Volkite veuglaire, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_volkite</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 1.32)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.27, 2.38)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.27, 2.38)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 1.32)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 1.32)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 1.86)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 1.86)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.27, 2.39)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.27, 2.39)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_volkite</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>120</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>1.3</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>30</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>5</shotsPerBurst>
+				<ticksBetweenShots>5</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_veuglaire</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(5.1,5.1)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>2.50</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_lightninglock</defName>
+		<label>Lightning lock</label>
+		<description>Lightning lock, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_lightning_lock</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.07, 0.62)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.49, 1.81)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.57, 1.81)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.07, 0.62)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.07, 0.62)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.07, 1.69)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.07, 1.69)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.57, 1.82)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.49, 1.82)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lightninglock</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>100</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>0.6</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>10</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>90</ticksBetweenBursts>
+				<label>Overcharge</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_lightninglock</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.0,4.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>3.12</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_conversionbeam</defName>
+		<label>Conversion beam cannon</label>
+		<description>Conversion beam cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_conversion_armiger</sound>
+				<chargeTicks>46</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.01, 2.14)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.03, 3.59)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.03, 3.59)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.01, 2.14)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.02, 2.14)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.02, 2.06)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.01, 2.06)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 3.59)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.03, 3.59)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_conversionbeam</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>20</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.50</rotationSpeed>
+		<projectileOffset>2.1</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>45</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_conversionbeam</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(7.9,7.9)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>25.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_siegeclaw</defName>
+		<label>Siege claw and rad cleanser</label>
+		<description>Siege claw and rad cleanser, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_siege_claw</sound>
+				<minGapTicks>85</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 1.44)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.03, 1.45)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.03, 1.45)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 1.44)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 1.44)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 1.11)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 1.11)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 1.46)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.03, 1.46)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_siegeclaw</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>1.4</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>6</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_siegeclaw</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.3,4.3)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_lightningcannon</defName>
+		<label>Lightning cannon</label>
+		<description>Lightning cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_lightning</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 2.43)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.18, 4.33)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.18, 4.33)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 2.43)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.00, 2.43)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 2.81)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.01, 2.81)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.18, 4.34)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.18, 4.34)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lightningcannon</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>200</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.40</rotationSpeed>
+		<projectileOffset>2.4</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>40</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>2</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_lightningcannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(10.0,10.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>2.08</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_fusil</defName>
+		<label>Phased plasma-fusil</label>
+		<description>Phased plasma-fusil, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_plasma_fusil</sound>
+				<perBurst>true</perBurst>
+				<chargeTicks>19</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 0.74)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.05, 1.17)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 0.74)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.01, 0.68)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.01, 1.18)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_fusil</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>20</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>0.7</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>24</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>2</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>80</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_fusil</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.0,3.0)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>9.65</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_gravcrusher</defName>
+		<label>Graviton crusher</label>
+		<description>Graviton crusher, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_graviton_crusher</sound>
+				<chargeTicks>62</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 0.55)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.00, 0.89)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 0.55)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 0.54)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.00, 0.90)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_gravcrusher</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>14</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.40</rotationSpeed>
+		<projectileOffset>0.6</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>18</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_gravcrusher</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.0,3.0)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>25.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_chierovile</defName>
+		<label>Volkite chierovile</label>
+		<description>Volkite chierovile, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_volkite_chierovile</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.01, 2.90)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.14, 4.77)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.14, 4.77)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.01, 2.90)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.02, 2.90)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 3.23)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.01, 3.23)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.14, 4.78)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.14, 4.78)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_chierovile</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>160</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.50</rotationSpeed>
+		<projectileOffset>2.9</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>30</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_chierovile</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(10.0,10.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>2.08</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_hekaton</defName>
+		<label>Hekaton siege claw and rad cleanser</label>
+		<description>Hekaton siege claw and rad cleanser, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_hekaton_siege_claw</sound>
+				<minGapTicks>95</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.67, 2.81)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.13, 4.15)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.13, 4.15)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.67, 2.81)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.66, 2.81)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.66, 3.07)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.67, 3.07)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.13, 4.16)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.13, 4.16)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_hekaton</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_hekaton</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.0,9.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_lasimpulsor</defName>
+		<label>Las-impulsor</label>
+		<description>Las-impulsor, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_las_impulsor</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.09, 2.50)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.18, 4.21)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.18, 4.21)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.09, 2.50)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.08, 2.50)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.07, 2.90)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.08, 2.90)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.18, 4.22)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.18, 4.22)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lasimpulsor</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>14</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>2.5</projectileOffset>
+		<minRange>6</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>150</ticksBetweenBursts>
+				<label>High intensity</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>10</ticksBetweenShots>
+				<ticksBetweenBursts>150</ticksBetweenBursts>
+				<label>Low intensity (more, lighter shots)</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_lasimpulsor</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.0,9.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>36.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_multilaser</defName>
+		<label>Questoris multi-laser</label>
+		<description>Questoris multi-laser, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_multilaser_pulses</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 0.69)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.06, 1.05)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 0.69)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.59)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.07, 1.06)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_multilaser</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>160</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.20</rotationSpeed>
+		<projectileOffset>0.7</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>8</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_multilaser</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.0,3.0)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>1.56</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_executor</defName>
+		<label>Plasma executor</label>
+		<description>Plasma executor, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_plasma_executor</sound>
+				<chargeTicks>29</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.22, 2.45)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.21, 3.63)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.21, 3.63)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.22, 2.45)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.21, 2.45)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.21, 2.16)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.22, 2.16)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.21, 3.64)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.21, 3.64)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_executor</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.10</rotationSpeed>
+		<projectileOffset>2.5</projectileOffset>
+		<minRange>6</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>160</ticksBetweenBursts>
+				<label>Standard</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>160</ticksBetweenBursts>
+				<label>Supercharge (hazardous)</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_executor</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(8.0,8.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>38.67</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_obliterator</defName>
+		<label>Conversion beam obliterator</label>
+		<description>Conversion beam obliterator, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_conversion_obliterator</sound>
+				<perBurst>true</perBurst>
+				<chargeTicks>75</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.02, 2.60)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.19, 4.05)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.19, 4.05)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.02, 2.60)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.01, 2.60)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.01, 2.24)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.01, 2.24)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.19, 4.06)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.19, 4.06)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_obliterator</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>24</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>2.6</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>120</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_obliterator</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.0,9.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>11.85</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_phosphor</defName>
+		<label>Phosphor blaster</label>
+		<description>Phosphor blaster, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_phosphor_blaster</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 0.84)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.01, 1.37)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 0.84)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 0.87)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.00, 1.39)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_phosphor</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>40</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>0.8</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>24</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_phosphor</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.0,3.0)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_acheronflame</defName>
+		<label>Acheron flame cannon</label>
+		<description>Acheron flame cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_acheron_flame_cannon</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.00, 3.27)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.43, 6.10)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.43, 6.10)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 3.27)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 3.27)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.01, 4.10)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.00, 4.10)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.44, 6.10)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.44, 6.10)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_acheronflame</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>120</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>3.3</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>22</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>2</ticksBetweenShots>
+				<ticksBetweenBursts>70</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_acheronflame</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(13.7,13.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_chainfist</defName>
+		<label>Reaper chainfist and twin heavy bolter</label>
+		<description>Reaper chainfist and twin heavy bolter, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_reaper_chainfist_k2</sound>
+				<minGapTicks>95</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.06, 2.78)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(1.04, 6.32)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(1.04, 6.32)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.06, 2.78)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.07, 2.78)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.04, 4.78)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.05, 4.78)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-1.05, 6.32)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-1.05, 6.32)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_chainfist</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.20</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>9</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Auto: chainfist close, bolter far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Reaper chainfist</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Twin heavy bolter</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_chainfist</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(13.7,13.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_lascutter</defName>
+		<label>Atrapos lascutter</label>
+		<description>Atrapos lascutter, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_lascutter</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.02, 3.06)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.02, 3.06)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.03, 3.06)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.02, 4.42)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.03, 4.42)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.70, 5.71)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lascutter</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>240</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>3.1</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>14</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Auto: volley close, beam far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Las volley</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>45</ticksBetweenBursts>
+				<label>Cutter beam</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_lascutter</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(12.7,12.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>2.08</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_singularity</defName>
+		<label>Graviton singularity cannon</label>
+		<description>Graviton singularity cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_singularity_cannon</sound>
+				<chargeTicks>132</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.06, 2.03)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.45, 4.05)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.45, 4.05)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.06, 2.03)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.05, 2.03)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.06, 2.85)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.05, 2.85)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.46, 4.05)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.46, 4.05)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_singularity</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>8</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>2.0</projectileOffset>
+		<minRange>4</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>200</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_singularity</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.1,9.1)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>55.80</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_boltcannon</defName>
+		<label>Castigator bolt cannon</label>
+		<description>Castigator bolt cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_boltcannon_short</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 2.29)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.55, 3.99)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.55, 3.99)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 2.29)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 2.29)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.01, 3.27)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 3.27)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.55, 3.99)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.55, 3.99)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_castigatorbolt</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>320</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>2.3</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>36</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>16</shotsPerBurst>
+				<ticksBetweenShots>2</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_boltcannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.1,9.1)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_warblade</defName>
+		<label>Tempest warblade</label>
+		<description>Tempest warblade, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_tempest_warblade</sound>
+				<minGapTicks>60</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.02, 1.97)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(1.79, 6.56)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(1.79, 6.56)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.02, 1.97)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.02, 1.97)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.02, 5.58)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.02, 5.58)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-1.80, 6.56)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-1.80, 6.56)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_warblade</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.30</rotationSpeed>
+		<projectileOffset>2.0</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>9</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_warblade</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(14.6,14.6)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_shocklance</defName>
+		<label>Cerastus shock lance</label>
+		<description>Cerastus shock lance, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_shock_lance</sound>
+				<minGapTicks>70</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 2.76)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.80, 6.12)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.80, 6.12)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 2.76)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 2.76)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 4.38)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.01, 4.38)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.81, 6.12)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.81, 6.12)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_shocklance</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.10</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>11</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>36</ticksBetweenBursts>
+				<label>Auto: lance close, blast far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>36</ticksBetweenBursts>
+				<label>Shock lance</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>36</ticksBetweenBursts>
+				<label>Plasma blast</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_shocklance</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(14.6,14.6)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_iongauntlet</defName>
+		<label>Ion gauntlet shield</label>
+		<description>Ion gauntlet shield, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_thunderstrike_gauntlet</sound>
+				<minGapTicks>75</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.22, 2.61)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.83, 4.23)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(1.16, 4.23)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.22, 2.61)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.22, 2.61)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(1.04, 3.75)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-1.05, 3.75)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-1.17, 4.23)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.83, 4.23)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_gauntlet</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.00</rotationSpeed>
+		<projectileOffset>2.6</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_iongauntlet</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(14.6,14.6)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_magna</defName>
+		<label>Twin magna lascannon</label>
+		<description>Twin magna lascannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_magna_lascannon_twin</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.16, 5.12)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.57, 9.13)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.16, 5.12)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.15, 5.12)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.16, 6.07)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.16, 6.07)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.58, 9.13)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_magna</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>16</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>0.90</rotationSpeed>
+		<projectileOffset>5.1</projectileOffset>
+		<projectileShifting>
+			<li>-0.63</li>
+			<li>0.63</li>
+		</projectileShifting>
+		<minRange>14</minRange>
+		<maxRange>250</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>2</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>240</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_magna</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(19.5,19.5)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(84,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>31.64</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_convbeam</defName>
+		<label>Twin conversion beam cannon</label>
+		<description>Twin conversion beam cannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_twin_conversion_beam</sound>
+				<perBurst>true</perBurst>
+				<chargeTicks>83</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.02, 2.57)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.97, 5.36)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.02, 2.57)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.03, 2.57)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.11, 4.46)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.12, 4.46)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.98, 5.36)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_twinconversion</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>18</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.00</rotationSpeed>
+		<projectileOffset>2.6</projectileOffset>
+		<minRange>14</minRange>
+		<maxRange>180</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>130</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_convbeam</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(19.5,19.5)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(84,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>12.59</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_autocannon</defName>
+		<label>Acastus autocannon</label>
+		<description>Acastus autocannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_autocannon_single</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.01, 1.13)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.00, 1.88)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.00, 1.14)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 1.14)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.01, 1.88)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_acastusauto</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>60</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.60</rotationSpeed>
+		<projectileOffset>1.1</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>80</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>8</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_autocannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(5.2,5.2)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_lascannon</defName>
+		<label>Acastus lascannon</label>
+		<description>Acastus lascannon, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_lascannon_A</sound>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.04, 1.27)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.04, 2.13)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.05, 1.28)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.05, 1.28)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 2.13)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lascannon</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.30</rotationSpeed>
+		<projectileOffset>1.3</projectileOffset>
+		<minRange>6</minRange>
+		<maxRange>120</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>150</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_lascannon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(5.2,5.2)</drawSize>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>36.47</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_ironstorm</defName>
+		<label>Acastus Ironstorm missile launcher</label>
+		<description>Acastus Ironstorm missile launcher, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_missile_A_single</sound>
+				<perBurst>true</perBurst>
+				<byBurst>
+					<li>
+						<shots>1</shots>
+						<sound>LIK_Snd_fire_missile_A_single</sound>
+					</li>
+					<li>
+						<shots>4</shots>
+						<sound>LIK_Snd_fire_missile_B_ripple4</sound>
+					</li>
+					<li>
+						<shots>16</shots>
+						<sound>LIK_Snd_fire_missile_volley16</sound>
+					</li>
+				</byBurst>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_ironstorm16</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>16</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>1.6</projectileOffset>
+		<minRange>20</minRange>
+		<maxRange>300</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>14</ticksBetweenShots>
+				<ticksBetweenBursts>110</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>16</shotsPerBurst>
+				<ticksBetweenShots>6</ticksBetweenShots>
+				<ticksBetweenBursts>400</ticksBetweenBursts>
+				<spreadRadius>14</spreadRadius>
+				<label>Volley (whole silo)</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_ironstorm</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.4,3.4)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_acastus_helios</defName>
+		<label>Helios defence missiles</label>
+		<description>Helios defence missiles, fitted to a Knight's weapon mount at the hangar. Placeholder stats; tune in the def.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_helios</sound>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_helios</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.20</rotationSpeed>
+		<projectileOffset>1.4</projectileOffset>
+		<minRange>12</minRange>
+		<maxRange>200</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>10</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/turret_acastus_helios</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(3.2,3.2)</drawSize>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_cleaversweep</defName>
+		<label>Sweep (reaper chain-cleaver)</label>
+		<description>Sweep (reaper chain-cleaver). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_chain_cleaver</sound>
+				<minGapTicks>75</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 1.05)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.12, 1.46)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.12, 1.46)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 1.05)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.00, 1.05)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 0.97)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.01, 0.97)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.12, 1.47)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.12, 1.47)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_cleaversweep</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.40</rotationSpeed>
+		<projectileOffset>1.1</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>6</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_chaincleaver</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.0,4.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_armiger_clawcleanser</defName>
+		<label>Rad cleanser mode (siege claw arm)</label>
+		<description>Rad cleanser mode (siege claw arm). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_rad_cleanser</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.01, 1.44)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.03, 1.45)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.03, 1.45)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.01, 1.44)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.00, 1.44)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.00, 1.11)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.00, 1.11)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.03, 1.46)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.03, 1.46)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_radcleanser</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>60</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>1.4</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>5</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<canMiss>false</canMiss>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/turret_armiger_siegeclaw</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(4.3,4.3)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_chainswordsweep</defName>
+		<label>Sweep (reaper chainsword)</label>
+		<description>Sweep (reaper chainsword). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_chainsword</sound>
+				<minGapTicks>100</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 2.15)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 2.15)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 2.15)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.01, 2.48)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.00, 2.48)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.18, 3.80)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.18, 3.80)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_chainswordsweep</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.40</rotationSpeed>
+		<projectileOffset>2.1</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>26</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_chainsword</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(8.0,8.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_gauntletsweep</defName>
+		<label>Sweep (thunderstrike gauntlet)</label>
+		<description>Sweep (thunderstrike gauntlet). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_thunderstrike_gauntlet</sound>
+				<minGapTicks>75</minGapTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.06, 1.39)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.48, 2.58)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.74, 2.60)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.06, 1.39)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.05, 1.39)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.04, 2.16)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.03, 2.16)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.74, 2.60)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.48, 2.59)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_gauntletsweep</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.20</rotationSpeed>
+		<projectileOffset>1.4</projectileOffset>
+		<minRange>1</minRange>
+		<maxRange>8</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Auto: strike one, sweep crowds</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Strike</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>32</ticksBetweenBursts>
+				<label>Sweep</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_gauntlet</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(6.0,6.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- melee: no ammunition (VF never reloads or hauls for it) -->
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_clawcleanser</defName>
+		<label>Rad cleanser mode (Hekaton siege claw arm)</label>
+		<description>Rad cleanser mode (Hekaton siege claw arm). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_twin_rad_cleanser</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(-0.67, 2.81)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(-0.13, 4.15)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(-0.13, 4.15)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(-0.67, 2.81)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(0.66, 2.81)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.66, 3.07)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(0.67, 3.07)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(0.13, 4.16)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(0.13, 4.16)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_twinradcleanser</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>80</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.80</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>12</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>8</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_hekaton</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(9.0,9.0)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_fistbolter</defName>
+		<label>Twin heavy bolter (reaper chainfist arm)</label>
+		<description>Twin heavy bolter (reaper chainfist arm). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_boltcannon_short</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.06, 2.78)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(1.04, 6.32)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(1.04, 6.32)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.06, 2.78)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.07, 2.78)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.04, 4.78)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.05, 4.78)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-1.05, 6.32)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-1.05, 6.32)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_fistbolter</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>180</magazineCapacity>
+		<genericAmmo>true</genericAmmo>
+		<autoRefuelProportion>0.5</autoRefuelProportion>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.20</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>3</minRange>
+		<maxRange>32</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Auto: chainfist close, bolter far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Reaper chainfist</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>40</ticksBetweenBursts>
+				<label>Twin heavy bolter</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_chainfist</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(13.7,13.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_lascutterbeam</defName>
+		<label>Cutter beam (Atrapos lascutter)</label>
+		<description>Cutter beam (Atrapos lascutter). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_volcano_lance</sound>
+				<chargeTicks>54</chargeTicks>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.02, 3.06)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.02, 3.06)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.03, 3.06)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(0.02, 4.42)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.03, 4.42)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.70, 5.71)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.70, 5.71)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_lascutterbeam</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>20</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.40</rotationSpeed>
+		<projectileOffset>3.1</projectileOffset>
+		<minRange>10</minRange>
+		<maxRange>40</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>180</ticksBetweenBursts>
+				<label>Auto: volley close, beam far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>180</ticksBetweenBursts>
+				<label>Las volley</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>180</ticksBetweenBursts>
+				<label>Cutter beam</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_lascutter</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(12.7,12.7)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>51.40</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_cerastus_shockblast</defName>
+		<label>Plasma blast (shock lance)</label>
+		<description>Plasma blast (shock lance). Replaces the siege claw on this arm while the Knight is switched to this mode.</description>
+		<turretType>Rotatable</turretType>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotSound">
+				<sound>LIK_Snd_fire_lightning_lock</sound>
+				<perBurst>true</perBurst>
+			</li>
+			<li Class="LIK.DefModExtension_Muzzle">
+				<points>
+					<li>
+						<side>base</side>
+						<pos>(0.00, 2.76)</pos>
+					</li>
+					<li>
+						<side>east</side>
+						<pos>(0.80, 6.12)</pos>
+					</li>
+					<li>
+						<side>east|L</side>
+						<pos>(0.80, 6.12)</pos>
+					</li>
+					<li>
+						<side>north</side>
+						<pos>(0.00, 2.76)</pos>
+					</li>
+					<li>
+						<side>north|L</side>
+						<pos>(-0.01, 2.76)</pos>
+					</li>
+					<li>
+						<side>south</side>
+						<pos>(-0.00, 4.38)</pos>
+					</li>
+					<li>
+						<side>south|L</side>
+						<pos>(-0.01, 4.38)</pos>
+					</li>
+					<li>
+						<side>west</side>
+						<pos>(-0.81, 6.12)</pos>
+					</li>
+					<li>
+						<side>west|L</side>
+						<pos>(-0.81, 6.12)</pos>
+					</li>
+				</points>
+			</li>
+		</modExtensions>
+		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
+		<reloadSound>LIK_Snd_reload</reloadSound>
+		<projectile>LIK_Proj_shockblast</projectile>
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>120</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.10</rotationSpeed>
+		<projectileOffset>2.8</projectileOffset>
+		<minRange>2</minRange>
+		<maxRange>18</maxRange>
+		<recoil>
+			<distanceTotal>0.2</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Auto: lance close, blast far</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Shock lance</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>50</ticksBetweenBursts>
+				<label>Plasma blast</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/turret_cerastus_shocklance</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(14.6,14.6)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,192,138)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
+		<cooldown>
+			<heatPerShot>4.17</heatPerShot>
+			<dissipationRate>0.22</dissipationRate>
+			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
+		</cooldown>
+	</Vehicles.VehicleTurretDef>
+
+</Defs>

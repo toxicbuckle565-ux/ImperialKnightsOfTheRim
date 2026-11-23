@@ -1,0 +1,2 @@
+# default colours when placed (colour 1 2 3, hex)
+111112 141416 D9B23A

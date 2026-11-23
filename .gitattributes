@@ -1,0 +1,13 @@
+# pictures, sounds and the DLL are binary - never touch their line endings
+*.png binary
+*.ogg binary
+*.wav binary
+*.dll binary
+*.npz binary
+# text files: normalise line endings in the repository
+*.cs text eol=crlf
+*.csproj text eol=crlf
+*.xml text
+*.txt text
+*.md text
+*.json text

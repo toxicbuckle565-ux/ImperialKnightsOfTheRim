@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Pilot training (rebuilt 2026-11-21 from the lore, Codex: Imperial Knights 8th ed.): squires are mentored by a Knight Preceptor at
+	     the Knight hangar; the Helm Mechanicum (Armiger) needs no Becoming, so anyone can become a Bondsman; every Throne-class Knight
+	     needs the Ritual of Becoming. Pilots also learn by fighting. The Knight simulator was removed. -->
+
+	<!-- ===== the skill ===== -->
+	<SkillDef>
+		<defName>LIK_Piloting</defName>
+		<label>piloting</label>
+		<skillLabel>piloting</skillLabel>
+		<description>Piloting an Imperial Knight through its neural link. Skilled pilots strain less, age less, feel less feedback, run their Knight faster and aim better. Each Knight class needs a minimum level. Learned as a squire under a Knight Preceptor at the Knight hangar, by piloting and by fighting. Without the Ritual of Becoming it stops at level 7 - enough for the Helm Mechanicum of an Armiger, not for a Throne. Everyone starts at zero.</description>
+		<pawnCreatorSummaryVisible>true</pawnCreatorSummaryVisible>
+		<neverDisabledBasedOnWorkTypes>true</neverDisabledBasedOnWorkTypes>
+		<listOrder>125</listOrder>
+		<generalRules>
+			<rulesStrings>
+				<li>subject->piloting</li>
+				<li>subject->walker piloting</li>
+				<li>subject->neural linking</li>
+				<li>subject->throne discipline</li>
+				<li>subject->Knight handling</li>
+			</rulesStrings>
+		</generalRules>
+	</SkillDef>
+
+	<!-- ===== work: squires train, Preceptors mentor ===== -->
+	<WorkTypeDef>
+		<defName>LIK_PilotTraining</defName>
+		<labelShort>pilot training</labelShort>
+		<pawnLabel>Squire</pawnLabel>
+		<gerundLabel>training as a Knight pilot</gerundLabel>
+		<description>Squires drill at the Knight hangar's Throne; pilots of Piloting 10 or more serve as Knight Preceptors and mentor them.</description>
+		<verb>Train at</verb>
+		<naturalPriority>50</naturalPriority>
+		<disabledForSlaves>true</disabledForSlaves>
+		<relevantSkills>
+			<li>LIK_Piloting</li>
+		</relevantSkills>
+		<workTags>
+			<li>AllWork</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkGiverDef>
+		<defName>LIK_MentorSquire</defName>
+		<label>mentor a squire</label>
+		<giverClass>LIK.WorkGiver_MentorSquire</giverClass>
+		<workType>LIK_PilotTraining</workType>
+		<verb>mentor</verb>
+		<gerund>mentoring</gerund>
+		<priorityInType>110</priorityInType>
+		<requiredCapacities>
+			<li>Talking</li>
+		</requiredCapacities>
+		<canBeDoneByMechs>false</canBeDoneByMechs>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>LIK_SquireTraining</defName>
+		<label>train as a squire</label>
+		<giverClass>LIK.WorkGiver_SquireTraining</giverClass>
+		<workType>LIK_PilotTraining</workType>
+		<verb>train at</verb>
+		<gerund>training at</gerund>
+		<priorityInType>100</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByMechs>false</canBeDoneByMechs>
+	</WorkGiverDef>
+
+	<!-- ===== jobs ===== -->
+	<JobDef>
+		<defName>LIK_SquireTraining</defName>
+		<driverClass>LIK.JobDriver_SquireTraining</driverClass>
+		<reportString>drilling at the Throne as a squire.</reportString>
+		<casualInterruptible>true</casualInterruptible>
+	</JobDef>
+
+	<JobDef>
+		<defName>LIK_MentorSquire</defName>
+		<driverClass>LIK.JobDriver_MentorSquire</driverClass>
+		<reportString>mentoring TargetA.</reportString>
+		<casualInterruptible>true</casualInterruptible>
+	</JobDef>
+
+	<JobDef>
+		<defName>LIK_RitualOfBecoming</defName>
+		<driverClass>LIK.JobDriver_RitualOfBecoming</driverClass>
+		<reportString>undergoing the Ritual of Becoming.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+		<playerInterruptible>false</playerInterruptible>
+	</JobDef>
+
+	<!-- ===== conditions ===== -->
+	<HediffDef>
+		<defName>LIK_SquireReadiness</defName>
+		<label>Knight squire</label>
+		<description>Being prepared for the Ritual of Becoming by a Knight Preceptor. The higher the readiness, the better the odds of surviving the night alone with the Throne Mechanicum.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.75, 0.82, 1.0)</defaultLabelColor>
+		<isBad>false</isBad>
+		<everCurableByItem>false</everCurableByItem>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+			<li><label>novice</label></li>
+			<li><minSeverity>0.34</minSeverity><label>tested</label></li>
+			<li><minSeverity>0.67</minSeverity><label>steeled</label></li>
+			<li><minSeverity>1</minSeverity><label>ready</label></li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>LIK_ThroneBonded</defName>
+		<label>Throne-bonded</label>
+		<description>This pawn survived the Ritual of Becoming. Their psyche is imprinted upon the Throne Mechanicum, and the Throne has left its mark in turn: a deep sense of fealty, duty and reverence for those who sat it before. They may pilot any Knight, and their Piloting is no longer limited.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.95, 0.82, 0.45)</defaultLabelColor>
+		<isBad>false</isBad>
+		<everCurableByItem>false</everCurableByItem>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>LIK_BecomingShock</defName>
+		<label>Becoming shock</label>
+		<description>The Throne's ancestral engrams nearly overwhelmed this pawn during the Ritual of Becoming. The voices fade over a few days.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.8, 0.6, 0.9)</defaultLabelColor>
+		<isBad>true</isBad>
+		<initialSeverity>1</initialSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay"><severityPerDay>-0.34</severityPerDay></li>
+		</comps>
+		<stages>
+			<li>
+				<capMods><li><capacity>Consciousness</capacity><offset>-0.2</offset></li></capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>LIK_ThroneMadness</defName>
+		<label>Throne madness</label>
+		<description>The Ritual of Becoming broke this pawn's mind: the engrams of the Throne's past riders never left. They hear the dead and sometimes wander off after them.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.85, 0.35, 0.35)</defaultLabelColor>
+		<isBad>true</isBad>
+		<everCurableByItem>false</everCurableByItem>
+		<stages>
+			<li>
+				<capMods><li><capacity>Consciousness</capacity><offset>-0.15</offset></li></capMods>
+				<mentalStateGivers>
+					<li><mentalState>Wander_Psychotic</mentalState><mtbDays>12</mtbDays></li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

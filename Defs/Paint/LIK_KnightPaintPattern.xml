@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Knights' paint (2026-11-13): makes Vehicle Framework draw paintable Knights with its 3-colour RGB shader, so the trim
+       (green mask) takes colour two. VF's own Default pattern uses the pattern shader, which leaves the trim white. -->
+  <LIK.KnightPaintPatternDef>
+    <defName>LIK_KnightPaint</defName>
+    <label>Knight house paint</label>
+    <path>Graphics/Patterns/Default/Default</path>
+    <properties>
+      <equalize>false</equalize>
+    </properties>
+  </LIK.KnightPaintPatternDef>
+</Defs>

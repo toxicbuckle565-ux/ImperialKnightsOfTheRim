@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts</defName>
+		<label>Knight parts</label>
+		<parent>Items</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons</defName>
+		<label>Knight weapons</label>
+		<parent>Items</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_STC</defName>
+		<label>STC fragments</label>
+		<parent>Items</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts_Armiger</defName>
+		<label>Armiger parts</label>
+		<parent>LIK_KnightParts</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons_Armiger</defName>
+		<label>Armiger weapons</label>
+		<parent>LIK_KnightWeapons</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts_Questoris</defName>
+		<label>Questoris parts</label>
+		<parent>LIK_KnightParts</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons_Questoris</defName>
+		<label>Questoris weapons</label>
+		<parent>LIK_KnightWeapons</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts_Dominus</defName>
+		<label>Dominus parts</label>
+		<parent>LIK_KnightParts</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons_Dominus</defName>
+		<label>Dominus weapons</label>
+		<parent>LIK_KnightWeapons</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts_Cerastus</defName>
+		<label>Cerastus parts</label>
+		<parent>LIK_KnightParts</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons_Cerastus</defName>
+		<label>Cerastus weapons</label>
+		<parent>LIK_KnightWeapons</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>LIK_KnightParts_Acastus</defName>
+		<label>Acastus parts</label>
+		<parent>LIK_KnightParts</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>LIK_KnightWeapons_Acastus</defName>
+		<label>Acastus weapons</label>
+		<parent>LIK_KnightWeapons</parent>
+	</ThingCategoryDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Armiger_legs</defName>
+		<label>Armiger leg assembly</label>
+		<description>A structural part of the Armiger Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/armiger_legs</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>252</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Armiger_torso</defName>
+		<label>Armiger carapace</label>
+		<description>A structural part of the Armiger Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/armiger_torso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>341</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Armiger_core</defName>
+		<label>Armiger plasma reactor core</label>
+		<description>A structural part of the Armiger Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/armiger_core</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>96</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Armiger_throne</defName>
+		<label>Armiger helm mechanicum</label>
+		<description>A structural part of the Armiger Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/armiger_throne</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>80</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Questoris_legs</defName>
+		<label>Questoris leg assembly</label>
+		<description>A structural part of the Questoris Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/questoris_legs</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>535</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Questoris_torso</defName>
+		<label>Questoris carapace</label>
+		<description>A structural part of the Questoris Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/questoris_torso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>727</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Questoris_core</defName>
+		<label>Questoris plasma reactor core</label>
+		<description>A structural part of the Questoris Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/questoris_core</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>222</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Questoris_throne</defName>
+		<label>Questoris neural throne</label>
+		<description>A structural part of the Questoris Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/questoris_throne</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>184</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Dominus_legs</defName>
+		<label>Dominus leg assembly</label>
+		<description>A structural part of the Dominus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/dominus_legs</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>996</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Dominus_torso</defName>
+		<label>Dominus carapace</label>
+		<description>A structural part of the Dominus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/dominus_torso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1365</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Dominus_core</defName>
+		<label>Dominus plasma reactor core</label>
+		<description>A structural part of the Dominus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/dominus_core</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>442</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Dominus_throne</defName>
+		<label>Dominus neural throne</label>
+		<description>A structural part of the Dominus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/dominus_throne</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>361</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Cerastus_legs</defName>
+		<label>Cerastus leg assembly</label>
+		<description>A structural part of the Cerastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/cerastus_legs</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>699</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Cerastus_torso</defName>
+		<label>Cerastus carapace</label>
+		<description>A structural part of the Cerastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/cerastus_torso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>955</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Cerastus_core</defName>
+		<label>Cerastus plasma reactor core</label>
+		<description>A structural part of the Cerastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/cerastus_core</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>300</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Cerastus_throne</defName>
+		<label>Cerastus neural throne</label>
+		<description>A structural part of the Cerastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/cerastus_throne</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>246</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Acastus_legs</defName>
+		<label>Acastus leg assembly</label>
+		<description>A structural part of the Acastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/acastus_legs</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1226</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Acastus_torso</defName>
+		<label>Acastus carapace</label>
+		<description>A structural part of the Acastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/acastus_torso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1684</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Acastus_core</defName>
+		<label>Acastus plasma reactor core</label>
+		<description>A structural part of the Acastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/acastus_core</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>559</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Part_Acastus_throne</defName>
+		<label>Acastus neural throne</label>
+		<description>A structural part of the Acastus Knight, forged at the Mechanicum manufactorum. Four parts (legs, carapace, reactor core and throne) plus weapons are assembled into a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Parts/acastus_throne</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>455</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_LifeSupport_Armiger</defName>
+		<label>Armiger life-support module</label>
+		<description>A sealed life-support module for the Armiger Knight, forged at the Mechanicum manufactorum. Fitted at the hangar (optional), it recycles air, fluids and neural coolant for the pilot and greatly slows neural strain, ageing and the shock of damage, so the Knight can fight for days.</description>
+		<graphicData>
+			<texPath>Things/Knights/LifeSupport/armiger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>77</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_LifeSupport_Questoris</defName>
+		<label>Questoris life-support module</label>
+		<description>A sealed life-support module for the Questoris Knight, forged at the Mechanicum manufactorum. Fitted at the hangar (optional), it recycles air, fluids and neural coolant for the pilot and greatly slows neural strain, ageing and the shock of damage, so the Knight can fight for days.</description>
+		<graphicData>
+			<texPath>Things/Knights/LifeSupport/questoris</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>164</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_LifeSupport_Dominus</defName>
+		<label>Dominus life-support module</label>
+		<description>A sealed life-support module for the Dominus Knight, forged at the Mechanicum manufactorum. Fitted at the hangar (optional), it recycles air, fluids and neural coolant for the pilot and greatly slows neural strain, ageing and the shock of damage, so the Knight can fight for days.</description>
+		<graphicData>
+			<texPath>Things/Knights/LifeSupport/dominus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>307</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_LifeSupport_Cerastus</defName>
+		<label>Cerastus life-support module</label>
+		<description>A sealed life-support module for the Cerastus Knight, forged at the Mechanicum manufactorum. Fitted at the hangar (optional), it recycles air, fluids and neural coolant for the pilot and greatly slows neural strain, ageing and the shock of damage, so the Knight can fight for days.</description>
+		<graphicData>
+			<texPath>Things/Knights/LifeSupport/cerastus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>215</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_LifeSupport_Acastus</defName>
+		<label>Acastus life-support module</label>
+		<description>A sealed life-support module for the Acastus Knight, forged at the Mechanicum manufactorum. Fitted at the hangar (optional), it recycles air, fluids and neural coolant for the pilot and greatly slows neural strain, ageing and the shock of damage, so the Knight can fight for days.</description>
+		<graphicData>
+			<texPath>Things/Knights/LifeSupport/acastus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>20</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>380</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_VoidShield_Questoris</defName>
+		<label>Questoris void shield generator</label>
+		<description>A void shield generator for the Questoris Knight, forged at the Mechanicum manufactorum. Fitted at the hangar as an optional carapace module, it projects a shield that soaks up damage and recharges a few seconds after the last hit.</description>
+		<graphicData>
+			<texPath>Things/Knights/VoidShield/questoris</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>25</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>221</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightParts_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_autocannon</defName>
+		<label>Armiger autocannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_autocannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>253</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_thermalspear</defName>
+		<label>Armiger thermal spear</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_thermalspear</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>346</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_chaincleaver</defName>
+		<label>Armiger reaper chain-cleaver</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_chaincleaver</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>274</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_stubber</defName>
+		<label>Armiger heavy stubber</label>
+		<description>A Knight-scale weapon (carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_stubber</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>105</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_meltagun</defName>
+		<label>Armiger meltagun</label>
+		<description>A Knight-scale weapon (carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_meltagun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>141</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_battlecannon</defName>
+		<label>Questoris rapid-fire battle cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_battlecannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>623</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_thermal</defName>
+		<label>Questoris thermal cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_thermal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>707</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_gatling</defName>
+		<label>Questoris avenger gatling cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_gatling</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>460</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_chainsword</defName>
+		<label>Questoris reaper chainsword</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_chainsword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>383</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_gauntlet</defName>
+		<label>Questoris thunderstrike gauntlet</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_gauntlet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>534</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_stubber</defName>
+		<label>Questoris heavy stubber</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_stubber</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>128</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_icarus</defName>
+		<label>Questoris twin Icarus autocannon</label>
+		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_icarus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>265</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_missilepod</defName>
+		<label>Questoris ironstorm missile pod</label>
+		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_missilepod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>313</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_stormspear</defName>
+		<label>Questoris stormspear rocket pod</label>
+		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_stormspear</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>318</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_meltagun</defName>
+		<label>Questoris meltagun</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_meltagun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>161</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_conflag</defName>
+		<label>Dominus conflagration cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_conflag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1033</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_decimator</defName>
+		<label>Dominus plasma decimator</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_decimator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1475</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_volcano</defName>
+		<label>Dominus volcano lance</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_volcano</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1773</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_harpoon</defName>
+		<label>Dominus thundercoil harpoon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_harpoon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1126</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_shieldbreaker</defName>
+		<label>Dominus shieldbreaker missile launcher</label>
+		<description>A Knight-scale weapon (top missile mount / shoulder turret), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_shieldbreaker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>484</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_siegebreaker</defName>
+		<label>Dominus twin siegebreaker cannon</label>
+		<description>A Knight-scale weapon (top missile mount / shoulder turret), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_siegebreaker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>526</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_dominus_twinmelta</defName>
+		<label>Dominus twin meltagun</label>
+		<description>A Knight-scale weapon (head gun), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/dominus/item_dominus_twinmelta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>386</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Dominus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_graviton</defName>
+		<label>Armiger graviton pulsar</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_graviton</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>323</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_veuglaire</defName>
+		<label>Armiger volkite veuglaire</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_veuglaire</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>291</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_lightninglock</defName>
+		<label>Armiger lightning lock</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_lightninglock</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>274</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_conversionbeam</defName>
+		<label>Armiger conversion beam cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_conversionbeam</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>376</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_armiger_siegeclaw</defName>
+		<label>Armiger siege claw and rad cleanser</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/armiger/item_armiger_siegeclaw</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>360</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Armiger</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_lightningcannon</defName>
+		<label>Questoris lightning cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_lightningcannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>570</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_fusil</defName>
+		<label>Questoris phased plasma-fusil</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_fusil</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>543</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_gravcrusher</defName>
+		<label>Questoris graviton crusher</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_gravcrusher</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>565</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_chierovile</defName>
+		<label>Questoris volkite chierovile</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_chierovile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>555</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_hekaton</defName>
+		<label>Questoris hekaton siege claw and rad cleanser</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_hekaton</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>644</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_lasimpulsor</defName>
+		<label>Questoris las-impulsor</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_lasimpulsor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>728</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_multilaser</defName>
+		<label>Questoris multi-laser</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_multilaser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>206</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_executor</defName>
+		<label>Questoris plasma executor</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_executor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1026</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_obliterator</defName>
+		<label>Questoris conversion beam obliterator</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_obliterator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1067</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_questoris_phosphor</defName>
+		<label>Questoris phosphor blaster</label>
+		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/item_questoris_phosphor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>186</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Questoris</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_acheronflame</defName>
+		<label>Cerastus acheron flame cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_acheronflame</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>909</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_chainfist</defName>
+		<label>Cerastus reaper chainfist and twin heavy bolter</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_chainfist</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>752</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_lascutter</defName>
+		<label>Cerastus atrapos lascutter</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_lascutter</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>806</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_singularity</defName>
+		<label>Cerastus graviton singularity cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_singularity</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>1157</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_boltcannon</defName>
+		<label>Cerastus castigator bolt cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_boltcannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>690</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_warblade</defName>
+		<label>Cerastus tempest warblade</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_warblade</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>752</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_shocklance</defName>
+		<label>Cerastus shock lance</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_shocklance</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>831</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_cerastus_iongauntlet</defName>
+		<label>Cerastus ion gauntlet shield</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_iongauntlet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>831</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Cerastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_magna</defName>
+		<label>Acastus twin magna lascannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_magna</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>2662</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_convbeam</defName>
+		<label>Acastus twin conversion beam cannon</label>
+		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_convbeam</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>2311</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_autocannon</defName>
+		<label>Acastus autocannon</label>
+		<description>A Knight-scale weapon (shoulder socket), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_autocannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>464</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_lascannon</defName>
+		<label>Acastus lascannon</label>
+		<description>A Knight-scale weapon (shoulder socket), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_lascannon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>528</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_ironstorm</defName>
+		<label>Acastus Ironstorm missile launcher</label>
+		<description>A Knight-scale weapon (top launcher), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_ironstorm</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>497</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>LIK_Weapon_acastus_helios</defName>
+		<label>Acastus helios defence missiles</label>
+		<description>A Knight-scale weapon (top launcher), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/acastus/item_acastus_helios</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>18</Mass>
+			<Flammability>0.1</Flammability>
+			<MarketValue>521</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>LIK_KnightWeapons_Acastus</li>
+		</thingCategories>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,1836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_autocannon</defName>
+		<label>autocannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationBase>0.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.68</power>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_icarus</defName>
+		<label>twin Icarus autocannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationBase>0.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.68</power>
+				<antiAir>2.0</antiAir>
+				<breachChance>0.1667</breachChance>
+				<breachAP>1.5</breachAP>
+				<braceExtra>0.33</braceExtra>
+				<interceptPods>true</interceptPods>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_chainswordsweep</defName>
+		<label>reaper chainsword (sweep) shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<armorPenetrationBase>0.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.5</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>70</swingArc>
+				<swingTicks>30</swingTicks>
+				<look>chain</look>
+				<slash>true</slash>
+				<arcStrike>true</arcStrike>
+				<reapingBlow>1.5</reapingBlow>
+				<shred>0.5</shred>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_gauntletsweep</defName>
+		<label>thunderstrike gauntlet (sweep) shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>70</damageAmountBase>
+			<armorPenetrationBase>1.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.4</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>70</swingArc>
+				<swingTicks>28</swingTicks>
+				<look>electric</look>
+				<arcStrike>true</arcStrike>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_acastusauto</defName>
+		<label>Acastus autocannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationBase>0.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.68</power>
+				<breachChance>0.1667</breachChance>
+				<breachAP>2.0</breachAP>
+				<braceExtra>0.33</braceExtra>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_stubber</defName>
+		<label>heavy stubber shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.7</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.25</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.57</power>
+				<closeExtra>1.0</closeExtra>
+				<closeRange>18</closeRange>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_battlecannon</defName>
+		<label>rapid-fire battle cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/shell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>45</damageAmountBase>
+			<armorPenetrationBase>0.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>70</speed>
+			<explosionRadius>2.5</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_large</soundExplode>
+			<screenShakeFactor>3.9</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>shell</style>
+				<power>1.96</power>
+				<closeExtra>1.0</closeExtra>
+				<closeRange>24</closeRange>
+				<braceExtra>0.5</braceExtra>
+				<braceAP>1.3</braceAP>
+				<suppress>1.5</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_thermal</defName>
+		<label>thermal cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/melta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>70</damageAmountBase>
+			<armorPenetrationBase>1.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.9</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las_melt_through</soundExplode>
+			<screenShakeFactor>4.1</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>melta</style>
+				<power>2.04</power>
+				<beam>LIK_Beam_Orange</beam>
+				<meltaRange>13</meltaRange>
+				<meltaMult>1.5</meltaMult>
+				<antiArmour>1.3</antiArmour>
+				<braceMult>1.2</braceMult>
+				<beamWidth>1.3</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_conflag</defName>
+		<label>conflagration cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<arcHeightFactor>2.2</arcHeightFactor>
+			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+			<explosionRadius>2.4</explosionRadius>
+			<soundExplode>Explosion_Flame</soundExplode>
+			<screenShakeFactor>3.3</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>flame</style>
+				<power>1.53</power>
+				<stream>true</stream>
+				<ignoreCover>true</ignoreCover>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_melta</defName>
+		<label>meltacannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/melta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>60</damageAmountBase>
+			<armorPenetrationBase>1.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las_melt_through</soundExplode>
+			<screenShakeFactor>3.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>melta</style>
+				<power>1.63</power>
+				<beam>LIK_Beam_Orange</beam>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_armigerauto</defName>
+		<label>Armiger autocannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>24</damageAmountBase>
+			<armorPenetrationBase>0.75</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.70</power>
+				<braceRange>2.0</braceRange>
+				<suppress>0.8</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_cleaversweep</defName>
+		<label>reaper chain-cleaver (sweep) shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>60</damageAmountBase>
+			<armorPenetrationBase>0.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.3</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>70</swingArc>
+				<swingTicks>30</swingTicks>
+				<look>chain</look>
+				<slash>true</slash>
+				<arcStrike>true</arcStrike>
+				<reapingBlow>1.5</reapingBlow>
+				<panic>0.2</panic>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_gatling</defName>
+		<label>gatling cannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.7</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationBase>0.45</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>tracer</style>
+				<power>0.62</power>
+				<braceExtra>1.0</braceExtra>
+				<breachChance>0.1667</breachChance>
+				<breachAP>1.5</breachAP>
+				<suppress>2.0</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_missile</defName>
+		<label>Ironstorm missile shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>Silhouettes</altitudeLayer>
+		<seeThroughFog>true</seeThroughFog>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rocket_ironstorm_heavy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.2</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>65</damageAmountBase>
+			<armorPenetrationBase>1.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<arcHeightFactor>5</arcHeightFactor>
+			<shadowSize>1.2</shadowSize>
+			<flyOverhead>true</flyOverhead>
+			<explosionRadius>4.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_large</soundExplode>
+			<screenShakeFactor>5.3</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>rocket</style>
+				<power>2.89</power>
+				<braceMult>1.5</braceMult>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_ironstorm16</defName>
+		<label>Acastus Ironstorm missile shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>Silhouettes</altitudeLayer>
+		<seeThroughFog>true</seeThroughFog>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3.2</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationBase>0.70</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<arcHeightFactor>5</arcHeightFactor>
+			<shadowSize>1.1</shadowSize>
+			<flyOverhead>true</flyOverhead>
+			<explosionRadius>3.5</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_small</soundExplode>
+			<screenShakeFactor>4.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>rocket</style>
+				<power>2.30</power>
+				<braceExtra>0.5</braceExtra>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_chainsword</defName>
+		<label>reaper chainsword shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>110</damageAmountBase>
+			<armorPenetrationBase>1.10</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.5</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>25</swingArc>
+				<swingTicks>20</swingTicks>
+				<look>chain</look>
+				<slash>true</slash>
+				<shred>0.5</shred>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_chaincleaver</defName>
+		<label>reaper chain-cleaver (strike) shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>140</damageAmountBase>
+			<armorPenetrationBase>1.30</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.3</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>25</swingArc>
+				<swingTicks>20</swingTicks>
+				<look>chain</look>
+				<slash>true</slash>
+				<antiArmour>1.5</antiArmour>
+				<panic>0.15</panic>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_volcano</defName>
+		<label>volcano lance shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/heavybolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.4</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>200</damageAmountBase>
+			<armorPenetrationBase>3.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>2.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_huge</soundExplode>
+			<screenShakeFactor>5.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>3.00</power>
+				<beam>LIK_Beam_Red</beam>
+				<pierce>4000</pierce>
+				<vaporise>2.5</vaporise>
+				<antiArmour>1.5</antiArmour>
+				<beamWidth>2.2</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_shieldbreaker</defName>
+		<label>shieldbreaker missile shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rocket_shieldbreaker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.6</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>110</damageAmountBase>
+			<armorPenetrationBase>3.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<arcHeightFactor>5</arcHeightFactor>
+			<shadowSize>1.1</shadowSize>
+			<explosionRadius>1.6</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_large</soundExplode>
+			<screenShakeFactor>4.6</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>rocket</style>
+				<power>2.42</power>
+				<antiArmour>1.5</antiArmour>
+				<shieldMult>3.0</shieldMult>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_thermalspear</defName>
+		<label>thermal spear shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/melta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>110</damageAmountBase>
+			<armorPenetrationBase>2.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las_melt_through</soundExplode>
+			<screenShakeFactor>4.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>melta</style>
+				<power>2.25</power>
+				<beam>LIK_Beam_Orange</beam>
+				<meltaRange>12</meltaRange>
+				<meltaMult>2.0</meltaMult>
+				<braceMult>1.25</braceMult>
+				<vaporise>0.6</vaporise>
+				<antiArmour>1.5</antiArmour>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_meltagun</defName>
+		<label>meltagun shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/melta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>70</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>0.9</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las_melt_through</soundExplode>
+			<screenShakeFactor>3.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>melta</style>
+				<power>1.63</power>
+				<beam>LIK_Beam_Orange</beam>
+				<meltaRange>6</meltaRange>
+				<meltaMult>2.0</meltaMult>
+				<antiArmour>1.3</antiArmour>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_twinmelta</defName>
+		<label>twin meltagun shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/melta</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>62</damageAmountBase>
+			<armorPenetrationBase>1.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las_melt_through</soundExplode>
+			<screenShakeFactor>3.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>melta</style>
+				<power>1.58</power>
+				<beam>LIK_Beam_Orange</beam>
+				<meltaRange>6</meltaRange>
+				<meltaMult>1.5</meltaMult>
+				<twin>true</twin>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_gauntlet</defName>
+		<label>thunderstrike gauntlet shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>170</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.4</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>20</swingArc>
+				<swingTicks>18</swingTicks>
+				<look>electric</look>
+				<shockVehicles>0.33</shockVehicles>
+				<shockTicks>150</shockTicks>
+				<hurl>true</hurl>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_stormspear</defName>
+		<label>stormspear rocket shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rocket_stormspear</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3.4</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>55</damageAmountBase>
+			<armorPenetrationBase>1.10</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<arcHeightFactor>5</arcHeightFactor>
+			<shadowSize>0.9</shadowSize>
+			<explosionRadius>1.6</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_small</soundExplode>
+			<screenShakeFactor>3.6</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>rocket</style>
+				<power>1.73</power>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_harpoon</defName>
+		<label>thundercoil harpoon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/harpoon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.2</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>220</damageAmountBase>
+			<armorPenetrationBase>4.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>80</speed>
+			<explosionRadius>1.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_melee_heavy</soundExplode>
+			<screenShakeFactor>5.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>heavy</style>
+				<power>3.00</power>
+				<arcRadius>6</arcRadius>
+				<arcChance>0.5</arcChance>
+				<arcDamageMin>20</arcDamageMin>
+				<arcDamageMax>55</arcDamageMax>
+				<tether>true</tether>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_siegebreaker</defName>
+		<label>siegebreaker cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/shell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.7</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>70</speed>
+			<explosionRadius>2.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_large</soundExplode>
+			<screenShakeFactor>3.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>shell</style>
+				<power>1.59</power>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_graviton</defName>
+		<label>graviton pulsar shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/graviton</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.9</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>45</damageAmountBase>
+			<armorPenetrationBase>1.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<explosionRadius>1.5</explosionRadius>
+			<soundExplode>LIK_Snd_impact_graviton</soundExplode>
+			<screenShakeFactor>3.3</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>graviton</style>
+				<power>1.56</power>
+				<gravField>2.5</gravField>
+				<gravTick>4</gravTick>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_volkite</defName>
+		<label>volkite veuglaire shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/volkite_green</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationBase>0.35</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>volkite</style>
+				<power>0.68</power>
+				<beam>LIK_Beam_VolkiteGreen</beam>
+				<deflagrate>12</deflagrate>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lightninglock</defName>
+		<label>lightning lock shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationBase>0.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.2</explosionRadius>
+			<soundExplode>Explosion_Bomb</soundExplode>
+			<screenShakeFactor>2.7</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>lightning</style>
+				<power>1.13</power>
+				<beam>LineEMP</beam>
+				<arcRadius>3.5</arcRadius>
+				<arcChance>0.5</arcChance>
+				<arcDamageMin>8</arcDamageMin>
+				<arcDamageMax>18</arcDamageMax>
+				<suppress>1.0</suppress>
+				<overcharge>0.5</overcharge>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_conversionbeam</defName>
+		<label>conversion beam shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>70</damageAmountBase>
+			<armorPenetrationBase>1.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.5</explosionRadius>
+			<soundExplode>Explosion_Bomb</soundExplode>
+			<screenShakeFactor>3.8</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>conversion</style>
+				<power>1.88</power>
+				<beam>LIK_Beam_Gold</beam>
+				<impactSound>LIK_Snd_impact_las</impactSound>
+				<growRange>45</growRange>
+				<conversionBands>true</conversionBands>
+				<convShortEnd>0.333</convShortEnd>
+				<convLongStart>0.667</convLongStart>
+				<convMult0>0.5</convMult0>
+				<convMult1>1.0</convMult1>
+				<convMult2>1.6</convMult2>
+				<convRadius0>1.5</convRadius0>
+				<convRadius1>1.5</convRadius1>
+				<convRadius2>1.5</convRadius2>
+				<convFlash>false</convFlash>
+				<convChain>false</convChain>
+				<convBraced>1.0</convBraced>
+				<mustBrace>true</mustBrace>
+				<suppress>1.0</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_siegeclaw</defName>
+		<label>siege claw shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>170</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.4</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<antiArmour>1.6</antiArmour>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_hekaton</defName>
+		<label>hekaton siege claw shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>200</damageAmountBase>
+			<armorPenetrationBase>1.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.6</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>20</swingArc>
+				<swingTicks>20</swingTicks>
+				<look>electric</look>
+				<antiArmour>1.5</antiArmour>
+				<shockVehicles>0.33</shockVehicles>
+				<shockTicks>120</shockTicks>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_radcleanser</defName>
+		<label>rad cleanser shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rad</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Burn</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.05</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<explosionRadius>1.8</explosionRadius>
+			<soundExplode>Explosion_Flame</soundExplode>
+			<screenShakeFactor>2.9</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>flame</style>
+				<power>1.29</power>
+				<panic>0.25</panic>
+				<irradiate>0.08</irradiate>
+				<ignoreCover>true</ignoreCover>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_twinradcleanser</defName>
+		<label>twin rad cleanser shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rad</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Burn</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<armorPenetrationBase>0.10</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<explosionRadius>1.8</explosionRadius>
+			<soundExplode>Explosion_Flame</soundExplode>
+			<screenShakeFactor>2.9</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>flame</style>
+				<power>1.27</power>
+				<panic>0.2</panic>
+				<irradiate>0.08</irradiate>
+				<ignoreCover>true</ignoreCover>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lightningcannon</defName>
+		<label>lightning cannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationBase>0.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>lightning</style>
+				<power>0.65</power>
+				<beam>LineEMP</beam>
+				<chainHits>2</chainHits>
+				<chainRadius>3.5</chainRadius>
+				<shredChance>0.333</shredChance>
+				<breachChance>0.333</breachChance>
+				<breachAP>1.2</breachAP>
+				<suppress>1.0</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_fusil</defName>
+		<label>phased plasma-fusil shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/plasma</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>3.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>55</damageAmountBase>
+			<armorPenetrationBase>1.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<explosionRadius>0.8</explosionRadius>
+			<soundExplode>LIK_Snd_impact_plasma</soundExplode>
+			<screenShakeFactor>3.1</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>plasma</style>
+				<power>1.41</power>
+				<closeExtra>1.0</closeExtra>
+				<closeRange>12</closeRange>
+				<breachChance>0.333</breachChance>
+				<breachAP>1.5</breachAP>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_gravcrusher</defName>
+		<label>graviton crusher shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/graviton</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<armorPenetrationBase>0.90</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<explosionRadius>2.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_graviton</soundExplode>
+			<screenShakeFactor>3.7</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>graviton</style>
+				<power>1.82</power>
+				<antiArmour>2.0</antiArmour>
+				<gravPin>8.0</gravPin>
+				<suppress>1.0</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_chierovile</defName>
+		<label>volkite chierovile shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/volkite_green</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationBase>0.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>volkite</style>
+				<power>0.78</power>
+				<beam>LIK_Beam_VolkiteGreen</beam>
+				<deflagrate>12</deflagrate>
+				<braceExtra>1.0</braceExtra>
+				<shredChance>0.5</shredChance>
+				<breachChance>0.1667</breachChance>
+				<breachAP>2.0</breachAP>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lasimpulsor</defName>
+		<label>las-impulsor shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>80</damageAmountBase>
+			<armorPenetrationBase>1.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.5</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las</soundExplode>
+			<screenShakeFactor>4.0</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>2.00</power>
+				<beam>LIK_Beam_Red</beam>
+				<pierce>1500</pierce>
+				<lowIntensity>0.35</lowIntensity>
+				<lowIntensityAP>0.5</lowIntensityAP>
+				<antiArmour>1.5</antiArmour>
+				<braceMult>1.3</braceMult>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_multilaser</defName>
+		<label>multi-laser shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>0.57</power>
+				<beam>LIK_Beam_Red</beam>
+				<suppress>1.0</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_executor</defName>
+		<label>plasma executor shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/plasma_heavy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>4.3</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>95</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<explosionRadius>2.4</explosionRadius>
+			<soundExplode>LIK_Snd_impact_plasma</soundExplode>
+			<screenShakeFactor>4.8</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>plasma</style>
+				<power>2.55</power>
+				<supercharge>1.4</supercharge>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_obliterator</defName>
+		<label>conversion beam obliterator shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>85</damageAmountBase>
+			<armorPenetrationBase>1.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las</soundExplode>
+			<screenShakeFactor>3.8</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>conversion</style>
+				<power>1.86</power>
+				<beam>LIK_Beam_Gold</beam>
+				<growRange>36</growRange>
+				<conversionBands>true</conversionBands>
+				<convShortEnd>0.333</convShortEnd>
+				<convLongStart>0.667</convLongStart>
+				<convMult0>0.6</convMult0>
+				<convMult1>1.0</convMult1>
+				<convMult2>1.5</convMult2>
+				<convRadius0>1.0</convRadius0>
+				<convRadius1>1.5</convRadius1>
+				<convRadius2>2.0</convRadius2>
+				<convFlash>false</convFlash>
+				<convChain>true</convChain>
+				<convBraced>1.0</convBraced>
+				<beamWidth>1.3</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_phosphor</defName>
+		<label>phosphor blaster shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/phosphor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>24</damageAmountBase>
+			<armorPenetrationBase>0.40</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>flame</style>
+				<power>0.70</power>
+				<ignoreCover>true</ignoreCover>
+				<closeExtra>1.0</closeExtra>
+				<closeRange>12</closeRange>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_acheronflame</defName>
+		<label>Acheron flame cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.25</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<arcHeightFactor>2.2</arcHeightFactor>
+			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+			<explosionRadius>2.6</explosionRadius>
+			<soundExplode>Explosion_Flame</soundExplode>
+			<screenShakeFactor>3.4</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>flame</style>
+				<power>1.61</power>
+				<stream>true</stream>
+				<panic>0.3</panic>
+				<poolGrowth>0.35</poolGrowth>
+				<poolMax>7.0</poolMax>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_fistbolter</defName>
+		<label>twin heavy bolter shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/bolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>24</damageAmountBase>
+			<armorPenetrationBase>0.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>75</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>bolt</style>
+				<power>0.70</power>
+				<massReactive>10</massReactive>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_chainfist</defName>
+		<label>reaper chainfist shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>125</damageAmountBase>
+			<armorPenetrationBase>1.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.6</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>70</swingArc>
+				<swingTicks>30</swingTicks>
+				<look>chain</look>
+				<slash>true</slash>
+				<arcStrike>true</arcStrike>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lascutter</defName>
+		<label>Atrapos lascutter (las volley) shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationBase>0.90</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>0.68</power>
+				<beam>LIK_Beam_Red</beam>
+				<beamWidth>0.5</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_singularity</defName>
+		<label>graviton singularity cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/singularity_v2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>120</damageAmountBase>
+			<armorPenetrationBase>2.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>55</speed>
+			<explosionRadius>4.5</explosionRadius>
+			<soundExplode>LIK_Snd_impact_graviton</soundExplode>
+			<screenShakeFactor>5.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>graviton</style>
+				<power>3.00</power>
+				<gravField>5</gravField>
+				<gravTick>5</gravTick>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_castigatorbolt</defName>
+		<label>Castigator bolt cannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/bolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.0</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>28</damageAmountBase>
+			<armorPenetrationBase>0.70</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>75</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>bolt</style>
+				<power>0.75</power>
+				<massReactive>14</massReactive>
+				<suppress>1.5</suppress>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_warblade</defName>
+		<label>Tempest warblade shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>120</damageAmountBase>
+			<armorPenetrationBase>1.20</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.6</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<swingArc>70</swingArc>
+				<swingTicks>30</swingTicks>
+				<look>flame</look>
+				<slash>true</slash>
+				<arcStrike>true</arcStrike>
+				<ignite>0.25</ignite>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lascutterbeam</defName>
+		<label>Atrapos cutter beam shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.4</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>260</damageAmountBase>
+			<armorPenetrationBase>3.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>3.00</power>
+				<beam>LIK_Beam_Red</beam>
+				<whiteHot>true</whiteHot>
+				<pierce>1500</pierce>
+				<antiArmour>1.5</antiArmour>
+				<braceMult>2.0</braceMult>
+				<beamWidth>1.5</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_shockblast</defName>
+		<label>shock lance plasma blast shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/tracer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Burn</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationBase>0.90</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>lightning</style>
+				<power>0.78</power>
+				<beam>LineEMP</beam>
+				<stunChance>0.35</stunChance>
+				<stunTicks>120</stunTicks>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_shocklance</defName>
+		<label>Cerastus shock lance shot</label>
+		<thingClass>LIK.Projectile_KnightMelee</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/none</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Stab</damageDef>
+			<damageAmountBase>180</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>90</speed>
+			<explosionRadius>1.0</explosionRadius>
+			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_MeleeFx">
+				<knockback>4</knockback>
+				<stunTicks>150</stunTicks>
+				<exoshock>0.35</exoshock>
+				<exoshockDamage>90</exoshockDamage>
+				<look>electric</look>
+				<thrust>3.0</thrust>
+				<thrustTicks>22</thrustTicks>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_magna</defName>
+		<label>twin magna lascannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/heavybolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>85</damageAmountBase>
+			<armorPenetrationBase>2.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>2.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_huge</soundExplode>
+			<screenShakeFactor>4.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>2.34</power>
+				<beam>LIK_Beam_Magna</beam>
+				<whiteHot>true</whiteHot>
+				<pierce>4000</pierce>
+				<vaporise>1.5</vaporise>
+				<braceMult>1.5</braceMult>
+				<antiArmour>1.5</antiArmour>
+				<shockVehicles>0.33</shockVehicles>
+				<shockTicks>120</shockTicks>
+				<beamWidth>0.3</beamWidth>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_twinconversion</defName>
+		<label>twin conversion beam cannon shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>2.1</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>110</damageAmountBase>
+			<armorPenetrationBase>1.60</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+			<explosionRadius>1.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_las</soundExplode>
+			<screenShakeFactor>4.3</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>conversion</style>
+				<power>2.17</power>
+				<beam>LIK_Beam_Gold</beam>
+				<growRange>180</growRange>
+				<conversionBands>true</conversionBands>
+				<whiteHot>true</whiteHot>
+				<twin>true</twin>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_lascannon</defName>
+		<label>lascannon shot</label>
+		<thingClass>LIK.Bullet_Knight</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/laser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>90</damageAmountBase>
+			<armorPenetrationBase>2.00</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>400</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>laser</style>
+				<power>1.52</power>
+				<beam>LIK_Beam_Red</beam>
+				<pierce>1500</pierce>
+				<impactSound>LIK_Snd_impact_las</impactSound>
+				<antiArmour>1.5</antiArmour>
+				<braceMult>1.25</braceMult>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_helios</defName>
+		<label>Helios defence missiles shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>Silhouettes</altitudeLayer>
+		<seeThroughFog>true</seeThroughFog>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/rocket_helios</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3.6</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>110</damageAmountBase>
+			<armorPenetrationBase>1.80</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<arcHeightFactor>5</arcHeightFactor>
+			<shadowSize>1.2</shadowSize>
+			<flyOverhead>true</flyOverhead>
+			<explosionRadius>3.0</explosionRadius>
+			<soundExplode>LIK_Snd_impact_explosion_large</soundExplode>
+			<screenShakeFactor>5.5</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>rocket</style>
+				<power>2.97</power>
+				<antiAir>2.0</antiAir>
+				<interceptPods>true</interceptPods>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>LIK_Proj_decimator</defName>
+		<label>plasma decimator shot</label>
+		<thingClass>LIK.Projectile_KnightShell</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Things/Knights/Projectiles/plasma_heavy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>3.8</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<armorPenetrationBase>1.50</armorPenetrationBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>60</speed>
+			<explosionRadius>2.2</explosionRadius>
+			<soundExplode>LIK_Snd_impact_plasma</soundExplode>
+			<screenShakeFactor>3.9</screenShakeFactor>
+		</projectile>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_ShotFx">
+				<style>plasma</style>
+				<power>1.91</power>
+				<supercharge>1.4</supercharge>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+</Defs>

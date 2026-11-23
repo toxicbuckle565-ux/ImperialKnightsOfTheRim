@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Throne / Helm Mechanicum neural strain. Severity 0..1, built by LIK.MapComponent_KnightToll while a Knight runs. -->
+	<HediffDef>
+		<defName>LIK_NeuralStrain</defName>
+		<label>neural strain</label>
+		<description>The neural link of a Knight's Throne or Helm Mechanicum strains the pilot's mind. It builds while the Knight is active, worsens when the machine is damaged, and fades with rest away from the Knight. Severe strain brings pain, confusion and madness; total neural burnout kills.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.72, 0.55, 0.95)</defaultLabelColor>
+		<initialSeverity>0.01</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<lethalSeverity>1.0</lethalSeverity>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+			<li>
+				<minSeverity>0.2</minSeverity>
+				<label>strained</label>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.05</offset></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.45</minSeverity>
+				<label>taxed</label>
+				<painOffset>0.12</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.15</offset></li>
+					<li><capacity>Manipulation</capacity><offset>-0.10</offset></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.7</minSeverity>
+				<label>overloaded</label>
+				<painOffset>0.25</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.30</offset></li>
+					<li><capacity>Manipulation</capacity><offset>-0.20</offset></li>
+				</capMods>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_Psychotic</mentalState>
+						<mtbDays>6</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<minSeverity>0.9</minSeverity>
+				<label>neural burnout</label>
+				<painOffset>0.40</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.50</offset></li>
+					<li><capacity>Manipulation</capacity><offset>-0.30</offset></li>
+				</capMods>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_Psychotic</mentalState>
+						<mtbDays>2</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<!-- Short, sharp feedback when a component of the Knight is destroyed. -->
+	<HediffDef>
+		<defName>LIK_FeedbackShock</defName>
+		<label>machine-spirit feedback</label>
+		<description>The Knight's machine spirit lashed out through the neural link as part of the machine was destroyed.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.9, 0.5, 0.5)</defaultLabelColor>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>7500</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.30</painOffset>
+				<capMods>
+					<li><capacity>Consciousness</capacity><offset>-0.25</offset></li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

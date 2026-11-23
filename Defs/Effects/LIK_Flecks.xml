@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Effects of the Knight weapons (see Source/WeaponFx.cs and SHOT_BEAM in Tools/gen_knights.py). Hand-written file.
+	     Beams are drawn muzzle -> target when the shot is fired: a wide coloured glow line plus the thin white core.
+	     The picture Things/Knights/Effects/beam is a PLACEHOLDER (soft white line, tinted here). -->
+
+	<FleckDef ParentName="FleckBase" Name="LIK_BeamBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Knights/Effects/beam</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.18</solidTime>
+		<fadeOutTime>0.65</fadeOutTime>
+	</FleckDef>
+
+	<!-- las weapons: searing red -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Red</defName>
+		<graphicData>
+			<color>(1.00, 0.16, 0.10, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- twin magna lascannon (user 2026-11-11): far too hot to be red - a wide white-hot centre with a yellow-orange edge -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Magna</defName>
+		<graphicData>
+			<color>(1.00, 0.68, 0.16, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- melta / thermal: orange-white heat -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Orange</defName>
+		<graphicData>
+			<color>(1.00, 0.55, 0.15, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- volkite: deep crimson deflagrating ray -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Crimson</defName>
+		<graphicData>
+			<color>(0.95, 0.10, 0.05, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- Armiger volkite veuglaire (user 2026-11-17): green deflagrating ray, the glow colour of the user's painted weapon (62, 253, 88) -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_VolkiteGreen</defName>
+		<graphicData>
+			<color>(0.24, 0.99, 0.35, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- conversion beam: pale gold-white -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Gold</defName>
+		<graphicData>
+			<color>(1.00, 0.90, 0.55, 1)</color>
+		</graphicData>
+	</FleckDef>
+
+	<!-- the white-hot core drawn inside every beam; fades a little sooner than the glow -->
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_Beam_Core</defName>
+		<graphicData>
+			<color>(1, 1, 1, 1)</color>
+		</graphicData>
+		<solidTime>0.14</solidTime>
+		<fadeOutTime>0.4</fadeOutTime>
+	</FleckDef>
+
+	<!-- Red-hot ground: left where an energy weapon hit or a las beam burnt through cover. Glows for a few seconds, then cools slowly. -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_HotGround</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(0.55, 0.12, 0.02, 1)</color>	<!-- 2026-11-22 (user: too bright / white): about half (was 1.00, 0.22, 0.04) -->
+		</graphicData>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<fadeInTime>0.12</fadeInTime>
+		<solidTime>2</solidTime>
+		<fadeOutTime>5</fadeOutTime>
+	</FleckDef>
+
+	<!-- the yellow-white centre of fresh molten ground; cools to the red glow above much sooner -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_HotGroundCore</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(0.60, 0.30, 0.08, 1)</color>	<!-- 2026-11-22: orange, no longer yellow-white (was 1.00, 0.75, 0.30) -->
+		</graphicData>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<fadeInTime>0.05</fadeInTime>
+		<solidTime>0.8</solidTime>
+		<fadeOutTime>2.5</fadeOutTime>
+	</FleckDef>
+
+	<!-- Missile trail drawn ABOVE the fog of war (used only while an indirect-fire missile crosses unexplored ground) -->
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_TrailSmokeHigh</defName>
+		<graphicData>
+			<texPath>Things/Mote/Smoke</texPath>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+		<altitudeLayer>Silhouettes</altitudeLayer>
+		<fadeInTime>0.3</fadeInTime>
+		<solidTime>2.5</solidTime>
+		<fadeOutTime>2.2</fadeOutTime>
+		<growthRate>0.005</growthRate>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_TrailGlowHigh</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>Silhouettes</altitudeLayer>
+		<fadeInTime>0.1</fadeInTime>
+		<solidTime>0.3</solidTime>
+		<fadeOutTime>0.5</fadeOutTime>
+	</FleckDef>
+
+	<!-- Shockwaves: the vanilla ShockwaveFast distortion ring at three sizes (final width in cells is about growthRate x fadeOutTime) -->
+	<FleckDef ParentName="FleckBase" Name="LIK_ShockwaveBase" Abstract="True">
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<fadeInTime>0.0</fadeInTime>
+		<solidTime>0.0</solidTime>
+		<fadeOutTime>0.4</fadeOutTime>
+		<graphicData>
+			<graphicClass>Graphic_FleckPulse</graphicClass>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderType>MoteLargeDistortionWave</shaderType>
+			<shaderParameters>
+				<_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+				<_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+				<_distortionIntensity>0.2</_distortionIntensity>
+				<_brightnessMultiplier>5.15</_brightnessMultiplier>
+			</shaderParameters>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+	</FleckDef>
+
+	<!-- tiny ripple left behind a graviton pulse in flight -->
+	<FleckDef ParentName="LIK_ShockwaveBase">
+		<defName>LIK_Shockwave_T</defName>
+		<fadeOutTime>0.25</fadeOutTime>
+		<growthRate>12</growthRate>
+	</FleckDef>
+
+	<!-- medium hits and the muzzle of the heaviest guns: about 12 cells wide -->
+	<FleckDef ParentName="LIK_ShockwaveBase">
+		<defName>LIK_Shockwave_S</defName>
+		<growthRate>30</growthRate>
+	</FleckDef>
+
+	<!-- the biggest hits: about 30 cells wide -->
+	<FleckDef ParentName="LIK_ShockwaveBase">
+		<defName>LIK_Shockwave_L</defName>
+		<fadeOutTime>0.5</fadeOutTime>
+		<growthRate>60</growthRate>
+	</FleckDef>
+
+	<!-- CHARGE-UP of energy weapons (ShotFx.ChargeTick): white pictures, tinted per weapon in code.
+	     ChargeGlow = the ball of light growing at the muzzle (re-drawn every few ticks, so it flickers); ChargeMote = specks of light drawn IN to the
+	     muzzle; ChargeStreak = thin streaks of energy converging on it; ChargeDust = dust and grit pulled toward a graviton weapon. -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_ChargeGlow</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(1, 1, 1, 1)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.03</fadeInTime>
+		<solidTime>0.05</solidTime>
+		<fadeOutTime>0.2</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_ChargeMote</defName>
+		<graphicData>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(1, 1, 1, 1)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.04</fadeInTime>
+		<solidTime>0.12</solidTime>
+		<fadeOutTime>0.1</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="LIK_BeamBase">
+		<defName>LIK_ChargeStreak</defName>
+		<graphicData>
+			<color>(1, 1, 1, 1)</color>
+		</graphicData>
+		<solidTime>0.03</solidTime>
+		<fadeOutTime>0.14</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_ChargeDust</defName>
+		<graphicData>
+			<texPath>Things/Mote/DustPuff</texPath>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.08</fadeInTime>
+		<solidTime>0.15</solidTime>
+		<fadeOutTime>0.2</fadeOutTime>
+	</FleckDef>
+
+	<!-- FLAMETHROWERS (conflagration cannon, Acheron flame cannon; user 2026-11-11: like a real flamethrower - an arcing stream of burning fuel).
+	     Tongues of flame thrown out along the flight arc of every shot of the burst; together they read as one long stream. PLACEHOLDER picture
+	     Things/Knights/Effects/flame (generated; redraw it if you like - a flame pointing up on a transparent 128 px canvas). -->
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>LIK_FlameStream</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/flame</texPath>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.03</fadeInTime>
+		<solidTime>0.16</solidTime>
+		<fadeOutTime>0.38</fadeOutTime>
+		<growthRate>1.6</growthRate>
+	</FleckDef>
+
+	<!-- GRAVITON SINGULARITY (user 2026-11-15): REAL background distortion (vanilla MoteGlowDistortBackground shader) with the GAME'S OWN
+	     pattern (our custom pattern was read differently by the shader: square, darkened blocks). The downward look = small warps drifting down (Gravity.Pulse). -->
+	<FleckDef ParentName="FleckGlowDistortBackground">
+		<defName>LIK_GravDistort</defName>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.15</fadeInTime>
+		<solidTime>4.4</solidTime>
+		<fadeOutTime>0.6</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderParameters>
+				<_DistortionTex>/Things/Mote/PsycastDistortionMask</_DistortionTex>
+				<_distortionIntensity>0.05</_distortionIntensity>
+				<_brightnessMultiplier>1.0</_brightnessMultiplier>
+			</shaderParameters>
+		</graphicData>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckGlowDistortBackground">
+		<defName>LIK_GravDistortSmall</defName>
+		<fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.08</fadeInTime>
+		<solidTime>0.25</solidTime>
+		<fadeOutTime>0.45</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderParameters>
+				<_DistortionTex>/Things/Mote/PsycastDistortionMask</_DistortionTex>
+				<_distortionIntensity>0.06</_distortionIntensity>
+				<_brightnessMultiplier>1.0</_brightnessMultiplier>
+			</shaderParameters>
+		</graphicData>
+	</FleckDef>
+
+	<!-- the heavier middle of the field: a stronger warp at the centre (strength falls off toward the rim) -->
+	<FleckDef ParentName="FleckGlowDistortBackground">
+		<defName>LIK_GravDistortCore</defName>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.15</fadeInTime>
+		<solidTime>4.4</solidTime>
+		<fadeOutTime>0.6</fadeOutTime>
+		<graphicData>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderParameters>
+				<_DistortionTex>/Things/Mote/PsycastDistortionMask</_DistortionTex>
+				<_distortionIntensity>0.08</_distortionIntensity>
+				<_brightnessMultiplier>1.0</_brightnessMultiplier>
+			</shaderParameters>
+		</graphicData>
+	</FleckDef>
+
+	<!-- the purple rim marking the edge of the field (lasts as long as the field) -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_GravRim</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/grav_rim</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.15</fadeInTime>
+		<solidTime>4.4</solidTime>
+		<fadeOutTime>0.6</fadeOutTime>
+	</FleckDef>
+
+	<!-- thin purple rings pressing inward inside the field (and round the shot in flight) -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_GravRipple</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/grav_ripple</texPath>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.05</fadeInTime>
+		<solidTime>0.1</solidTime>
+		<fadeOutTime>0.55</fadeOutTime>
+		<growthRate>-2.2</growthRate>
+	</FleckDef>
+
+	<!-- dark pressure shadow under everything the field is crushing -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_GravShadow</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/grav_shadow</texPath>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<fadeInTime>0.05</fadeInTime>
+		<solidTime>0.2</solidTime>
+		<fadeOutTime>0.25</fadeOutTime>
+	</FleckDef>
+
+	<!-- ION GAUNTLET SHIELD (2026-11-15): half-dome in front of the Knight (Things/Knights/Effects/ion_arc), its full flash, and the hit flare -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_IonArc</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/ion_arc</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.2</fadeInTime>
+		<solidTime>0.15</solidTime>
+		<fadeOutTime>0.35</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_IonArcFlash</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/ion_arc</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime>
+		<solidTime>0.06</solidTime>
+		<fadeOutTime>0.4</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_IonFlare</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/ion_flare</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime>
+		<solidTime>0.05</solidTime>
+		<fadeOutTime>0.3</fadeOutTime>
+		<growthRate>2.5</growthRate>
+	</FleckDef>
+
+	<!-- WARBLADE burning slash (2026-11-15): flat RimWorld-style ground fire, three frames (Things/Knights/Effects/arcfire_a/b/c, generated);
+	     respawned every 6 ticks on fixed spots along the slash so each spot flickers in place -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_ArcFireA</defName>
+		<graphicData><texPath>Things/Knights/Effects/arcfire_a</texPath><shaderType>Mote</shaderType></graphicData>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime><solidTime>0.08</solidTime><fadeOutTime>0.06</fadeOutTime>
+	</FleckDef>
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_ArcFireB</defName>
+		<graphicData><texPath>Things/Knights/Effects/arcfire_b</texPath><shaderType>Mote</shaderType></graphicData>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime><solidTime>0.08</solidTime><fadeOutTime>0.06</fadeOutTime>
+	</FleckDef>
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_ArcFireC</defName>
+		<graphicData><texPath>Things/Knights/Effects/arcfire_c</texPath><shaderType>Mote</shaderType></graphicData>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime><solidTime>0.08</solidTime><fadeOutTime>0.06</fadeOutTime>
+	</FleckDef>
+
+	<!-- MELEE SLASH (user 2026-11-15: a sword-slash style mark over the whole area of a melee strike, chainfist first). Crescent bulging
+	     away from the Knight; picture Things/Knights/Effects/slash (generated, flat style). Alpha shader so repeated strikes don't white out. -->
+	<FleckDef ParentName="FleckBase">
+		<defName>LIK_Slash</defName>
+		<graphicData>
+			<texPath>Things/Knights/Effects/slash</texPath>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.02</fadeInTime>
+		<solidTime>0.07</solidTime>
+		<fadeOutTime>0.28</fadeOutTime>
+		<growthRate>0.6</growthRate>
+	</FleckDef>
+
+</Defs>

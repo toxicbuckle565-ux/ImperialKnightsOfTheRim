@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--============BUILDABLE============-->
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>LIK_QuestorisBlueprint</defName>
+		<label>Questoris Knight</label>
+		<description>The line Knight of the great houses. A thermal cannon on one arm, a rapid-fire battle cannon on the other, and twin carapace heavy stubbers. Piloted from a throne in the carapace.</description>
+		<graphicData>
+			<texPath>Things/Knights/Questoris/Icon/questoris</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(10.000,10.000)</drawSize>
+		</graphicData>
+		<size>(6,6)</size>
+		<statBases>
+			<MaxHitPoints>4000</MaxHitPoints>
+			<WorkToBuild>300000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<researchPrerequisites>
+			<li>LIK_QuestorisKnights</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<costList>
+			<Steel>2500</Steel>
+			<Plasteel>700</Plasteel>
+			<ComponentIndustrial>60</ComponentIndustrial>
+			<ComponentSpacer>30</ComponentSpacer>
+			<Gold>50</Gold>
+		</costList>
+		<designationCategory Inherit="False" />
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<soundBuilt/>
+		<thingToSpawn>LIK_Questoris</thingToSpawn>
+	</Vehicles.VehicleBuildDef>
+
+	<!--==============PAWN===============-->
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>LIK_Questoris</defName>
+		<label>Questoris Knight</label>
+		<description>The line Knight of the great houses. A thermal cannon on one arm, a rapid-fire battle cannon on the other, and twin carapace heavy stubbers. Piloted from a throne in the carapace.</description>
+		<graphicData>
+			<texPath>Things/Knights/Questoris/questoris</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<drawSize>(10.000,10.000)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<uiIconPath>Things/Knights/Questoris/Icon/questoris_south</uiIconPath>
+		<fillPercent>0.75</fillPercent>
+		<altitudeLayer>PawnState</altitudeLayer>
+		<buildDef>LIK_QuestorisBlueprint</buildDef>
+		<size>(6,6)</size>
+
+		<navigationCategory>Manual</navigationCategory>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Spacer</techLevel>
+		<vehicleType>Land</vehicleType>
+		<nameable>true</nameable>
+
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightToll">
+				<strainPerHour>0.010</strainPerHour>
+				<ageDaysPerHour>0.15</ageDaysPerHour>
+				<feedbackScale>0.80</feedbackScale>
+				<referenceSize>4</referenceSize>
+				<minPiloting>8</minPiloting>
+			</li>
+			<!-- footsteps + war horn (Source/KnightSound.cs; sounds from Tools/gen_knight_sounds.py) -->
+			<li Class="LIK.DefModExtension_KnightSound">
+				<step>LIK_Snd_step_Questoris</step>
+				<stepTicks>36</stepTicks>
+				<stepShake>0.45</stepShake>
+				<horn>LIK_Snd_horn_Questoris</horn>
+			</li>
+		</modExtensions>
+
+		<vehicleStats>
+			<Mass>4200</Mass>
+			<MoveSpeed>4.4</MoveSpeed>
+			<CargoCapacity>250</CargoCapacity>
+			<RepairRate>0.8</RepairRate>
+		</vehicleStats>
+
+		<!-- Knight sounds (Tools/gen_knight_sounds.py): reactor hum loops while the engine runs, start-up / shut-down, hatch when the pilot climbs in or out. -->
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>LIK_Snd_hum_Questoris</value>
+			</li>
+		</soundSustainersOnEvent>
+		<soundOneShotsOnEvent Inherit="False">
+			<li>
+				<key>PawnEntered</key>
+				<value>LIK_Snd_hatch_in</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>LIK_Snd_hatch_out</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>LIK_Snd_startup_Questoris</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>LIK_Snd_shutdown_Questoris</value>
+			</li>
+		</soundOneShotsOnEvent>
+
+		<statBases>
+			<ArmorRating_Blunt>1.50</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.70</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.2</Flammability>
+			<MarketValue>40000</MarketValue>
+		</statBases>
+
+		<race>
+			<baseBodySize>8</baseBodySize>
+		</race>
+
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<customRoadCosts AssignDefaults="1.0"/>
+			<customHillinessCosts>
+				<SmallHills>1.0</SmallHills>
+				<LargeHills>1.0</LargeHills>
+				<Mountainous>1.5</Mountainous>
+			</customHillinessCosts>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 4)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>pilot</key>
+					<label>Noble pilot (Throne Mechanicum)</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<chanceToHit>0</chanceToHit>
+					<handlingTypes><li>Movement</li><li>Turret</li></handlingTypes>
+					<turretIds>
+						<li>armL_questoris_battlecannon</li>
+						<li>armL_questoris_thermal</li>
+						<li>armL_questoris_gatling</li>
+						<li>armL_questoris_chainsword</li>
+						<li>armL_questoris_chainswordsweep</li>
+						<li>armL_questoris_gauntlet</li>
+						<li>armL_questoris_gauntletsweep</li>
+						<li>armL_questoris_lightningcannon</li>
+						<li>armL_questoris_chierovile</li>
+						<li>armL_questoris_hekaton</li>
+						<li>armL_questoris_clawcleanser</li>
+						<li>armL_questoris_lasimpulsor</li>
+						<li>armL_questoris_executor</li>
+						<li>armL_questoris_obliterator</li>
+						<li>armR_questoris_thermal</li>
+						<li>armR_questoris_battlecannon</li>
+						<li>armR_questoris_gatling</li>
+						<li>armR_questoris_chainsword</li>
+						<li>armR_questoris_chainswordsweep</li>
+						<li>armR_questoris_gauntlet</li>
+						<li>armR_questoris_gauntletsweep</li>
+						<li>armR_questoris_lightningcannon</li>
+						<li>armR_questoris_chierovile</li>
+						<li>armR_questoris_hekaton</li>
+						<li>armR_questoris_clawcleanser</li>
+						<li>armR_questoris_lasimpulsor</li>
+						<li>armR_questoris_executor</li>
+						<li>armR_questoris_obliterator</li>
+						<li>top_questoris_missilepod</li>
+						<li>top_questoris_stormspear</li>
+						<li>top_questoris_icarus</li>
+						<li>side_questoris_stubber</li>
+						<li>side_questoris_meltagun</li>
+						<li>side_questoris_multilaser</li>
+						<li>side_questoris_phosphor</li>
+						<li>side_questoris_fusil</li>
+						<li>side_questoris_gravcrusher</li>
+					</turretIds>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>
+			</roles>
+		</properties>
+		<components>
+			<li>
+				<key>Reactor</key>
+				<label>Plasma Reactor</label>
+				<health>333</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.40</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>8</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftLeg</key>
+				<label>Left Leg</label>
+				<health>800</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightLeg</key>
+				<label>Right Leg</label>
+				<health>800</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmor</key>
+				<label>Front Carapace</label>
+				<health>571</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.50</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.70</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmor</key>
+				<label>Left Carapace</label>
+				<health>571</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.40</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.60</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmor</key>
+				<label>Right Carapace</label>
+				<health>571</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.40</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.60</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmor</key>
+				<label>Rear Carapace</label>
+				<health>571</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.30</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>FuelTank</key>
+				<label>Promethium Tanks</label>
+				<health>266</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>0.90</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.10</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_FuelLeak">
+						<maxHealth>0.3</maxHealth>
+						<rate>1~4</rate>
+					</li>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.2</chance>
+						<radius>10</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(-2, -2)</li>
+						<li>(3, -2)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Throne</key>
+				<label>Pilot Throne</label>
+				<health>400</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.90</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.10</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>1</hitWeight>
+			</li>
+			<li>
+				<key>Servos</key>
+				<label>Servo-muscle Bundle</label>
+				<health>250</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.00</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>4</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>90</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>1</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>400</fuelCapacity>
+			</li>
+			<li Class="LIK.CompProperties_KnightHead"/>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>LIK_Turret_questoris_battlecannon</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Rapid-fire battle cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_battlecannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_thermal</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Thermal cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_thermal</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gatling</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Avenger gatling cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_gatling</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chainsword</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Reaper chainsword</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_chainsword</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chainswordsweep</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (reaper chainsword)</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_chainswordsweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gauntlet</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Thunderstrike gauntlet</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_gauntlet</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gauntletsweep</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (thunderstrike gauntlet)</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_gauntletsweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_lightningcannon</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Lightning cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_lightningcannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chierovile</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Volkite chierovile</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_chierovile</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_hekaton</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Hekaton siege claw and rad cleanser</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_hekaton</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_clawcleanser</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Rad cleanser mode (Hekaton siege claw arm)</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_clawcleanser</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_lasimpulsor</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Las-impulsor</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_lasimpulsor</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_executor</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Plasma executor</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_executor</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_obliterator</turretDef>
+						<renderProperties>
+							<north>(-2.30, 0.24)</north>
+							<south>(2.30, 0.12)</south>
+							<east>(-0.07, 2.05)</east>
+							<west>(0.07, -0.89)</west>
+						</renderProperties>
+						<gizmoLabel>Conversion beam obliterator</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_questoris_obliterator</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_thermal</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Thermal cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_thermal</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_battlecannon</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Rapid-fire battle cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_battlecannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gatling</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Avenger gatling cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_gatling</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chainsword</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Reaper chainsword</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_chainsword</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chainswordsweep</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (reaper chainsword)</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_chainswordsweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gauntlet</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Thunderstrike gauntlet</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_gauntlet</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gauntletsweep</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (thunderstrike gauntlet)</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_gauntletsweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_lightningcannon</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Lightning cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_lightningcannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_chierovile</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Volkite chierovile</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_chierovile</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_hekaton</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Hekaton siege claw and rad cleanser</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_hekaton</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_clawcleanser</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Rad cleanser mode (Hekaton siege claw arm)</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_clawcleanser</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_lasimpulsor</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Las-impulsor</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_lasimpulsor</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_executor</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Plasma executor</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_executor</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_obliterator</turretDef>
+						<renderProperties>
+							<north>(2.30, 0.24)</north>
+							<south>(-2.30, 0.12)</south>
+							<east>(-0.07, -0.89)</east>
+							<west>(0.07, 2.05)</west>
+						</renderProperties>
+						<gizmoLabel>Conversion beam obliterator</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_questoris_obliterator</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_missilepod</turretDef>
+						<renderProperties>
+							<north>(0.00, 2.21)</north>
+							<south>(0.00, 2.21)</south>
+							<east>(-0.32, 2.67)</east>
+							<west>(0.32, 2.65)</west>
+						</renderProperties>
+						<gizmoLabel>Ironstorm missile pod</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_questoris_missilepod</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_stormspear</turretDef>
+						<renderProperties>
+							<north>(0.00, 2.21)</north>
+							<south>(0.00, 2.21)</south>
+							<east>(-0.32, 2.67)</east>
+							<west>(0.32, 2.65)</west>
+						</renderProperties>
+						<gizmoLabel>Stormspear rocket pod</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_questoris_stormspear</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_icarus</turretDef>
+						<renderProperties>
+							<north>(0.00, 2.21)</north>
+							<south>(0.00, 2.21)</south>
+							<east>(-0.32, 2.67)</east>
+							<west>(0.32, 2.65)</west>
+						</renderProperties>
+						<gizmoLabel>Twin Icarus autocannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_questoris_icarus</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_stubber</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Questoris heavy stubber</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_stubber</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_meltagun</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Questoris meltagun</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_meltagun</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_multilaser</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Questoris multi-laser</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_multilaser</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_phosphor</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Phosphor blaster</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_phosphor</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_fusil</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Phased plasma-fusil</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_fusil</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_gravcrusher</turretDef>
+						<renderProperties>
+							<north>(-1.18, 2.14)</north>
+							<south>(1.33, -0.61)</south>
+							<east>(2.24, 1.56)</east>
+							<west>(-2.04, 0.38)</west>
+						</renderProperties>
+						<gizmoLabel>Graviton crusher</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>side_questoris_gravcrusher</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+	<!--=============TURRETS=============-->
+</Defs>

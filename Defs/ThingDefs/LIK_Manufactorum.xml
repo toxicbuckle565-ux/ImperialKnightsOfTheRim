@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BenchBase">
+		<defName>LIK_MechanicumManufactorum</defName>
+		<label>Mechanicum manufactorum</label>
+		<description>The Mechanicum's forge-temple where Imperial Knights are made: their legs, carapaces, reactor cores, thrones, life support and void shields, and every weapon from autocannons to Volcano lances. A servo-arm feeds the furnace and lifts out the finished work. The most powerful weapons are lost patterns: they can only be forged once enough STC fragments have been studied here. Keep power running.</description>
+		<thingClass>LIK.Building_Manufactorum</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Things/Knights/Manufactorum/mechanicum_manufactorum</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(6,7.5703)</drawSize>
+			<drawOffset>(0,0,1.2852)</drawOffset>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(6,5)</size>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<costList>
+			<Steel>1000</Steel>
+			<Plasteel>250</Plasteel>
+			<ComponentIndustrial>24</ComponentIndustrial>
+			<ComponentSpacer>12</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>1800</MaxHitPoints>
+			<WorkToBuild>40000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>LIK_MechanicumForge</li>
+		</researchPrerequisites>
+		<fillPercent>0.5</fillPercent>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-3)</interactionCellOffset>
+		<designationCategory>Production</designationCategory>
+		<surfaceType>Item</surfaceType>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>3000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8</glowRadius>
+				<glowColor>(255,170,90,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<heatPerTickWhileWorking>0.4</heatPerTickWhileWorking>
+		</building>
+		<pathCost>70</pathCost>
+		<passability>PassThroughOnly</passability>
+		<rotatable>false</rotatable>
+	</ThingDef>
+</Defs>

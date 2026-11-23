@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- HAND-WRITTEN (not generated). Cerastus weapon pass 2026-11-15: HH3 'Suppressive' of the Castigator bolt cannon.
+	     Applied by LIK.KnightEffects.Suppress to pawns hit by or near the shells; severity builds with more hits, fades after a few seconds. -->
+	<HediffDef>
+		<defName>LIK_Suppressed</defName>
+		<label>suppressed</label>
+		<description>Pinned down under a storm of mass-reactive bolt shells. Hard to move, harder to aim.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.95, 0.75, 0.35)</defaultLabelColor>
+		<initialSeverity>0.3</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<everCurableByItem>false</everCurableByItem>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>300</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>pinned</label>
+				<capMods>
+					<li><capacity>Moving</capacity><offset>-0.25</offset></li>
+				</capMods>
+				<statOffsets>
+					<AimingDelayFactor>0.4</AimingDelayFactor>
+				</statOffsets>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>pinned down</label>
+				<capMods>
+					<li><capacity>Moving</capacity><offset>-0.45</offset></li>
+				</capMods>
+				<statOffsets>
+					<AimingDelayFactor>0.8</AimingDelayFactor>
+				</statOffsets>
+				<statFactors>
+					<ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!-- Graviton singularity field (2026-11-15): gravity multiplied - severity grows with the victim's armour and size (LIK.Gravity.Weigh). -->
+	<HediffDef>
+		<defName>LIK_GravityCrushed</defName>
+		<label>crushed by gravity</label>
+		<description>Caught in a graviton singularity's field. Gravity is multiplied many times over: every step is a struggle, armour turns into a crushing weight.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.7, 0.45, 1.0)</defaultLabelColor>
+		<initialSeverity>0.35</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<everCurableByItem>false</everCurableByItem>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>90</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>heavy</label>
+				<capMods>
+					<li><capacity>Moving</capacity><postFactor>0.45</postFactor></li>
+					<li><capacity>Manipulation</capacity><postFactor>0.85</postFactor></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>crushed</label>
+				<capMods>
+					<li><capacity>Moving</capacity><postFactor>0.3</postFactor></li>
+					<li><capacity>Manipulation</capacity><postFactor>0.65</postFactor></li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.85</minSeverity>
+				<label>pinned</label>
+				<capMods>
+					<li><capacity>Moving</capacity><postFactor>0.2</postFactor></li>
+					<li><capacity>Manipulation</capacity><postFactor>0.5</postFactor></li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

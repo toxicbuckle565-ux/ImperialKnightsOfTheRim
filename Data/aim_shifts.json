@@ -1,0 +1,26 @@
+{
+ "LIK_Turret_dominus_twinmelta": [
+  0.0,
+  -0.057
+ ],
+ "LIK_Turret_armiger_meltagun": [
+  0.0,
+  -0.19
+ ],
+ "LIK_Turret_armiger_stubber": [
+  0.0,
+  -0.183
+ ],
+ "LIK_Turret_questoris_icarus": [
+  0.0,
+  -0.475
+ ],
+ "LIK_Turret_questoris_missilepod": [
+  0.0,
+  -0.475
+ ],
+ "LIK_Turret_questoris_stormspear": [
+  0.0,
+  -0.475
+ ]
+}

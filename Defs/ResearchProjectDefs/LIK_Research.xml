@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ResearchTabDef>
+		<defName>LIK_KnightsTab</defName>
+		<label>Imperial Knights</label>
+	</ResearchTabDef>
+
+	<!-- Root of the Knights tab: needs basic mechtech (Biotech) and advanced fabrication. -->
+	<ResearchProjectDef>
+		<defName>LIK_MechanicumForge</defName>
+		<label>Mechanicum manufactorum</label>
+		<description>The knowledge to raise a Mechanicum manufactorum: the forge-temple where every part and weapon of an Imperial Knight is made, ready to be assembled in a Knight hangar. Requires basic mechtech and advanced fabrication.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>4000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>AdvancedFabrication</li>
+			<li MayRequire="Ludeon.RimWorld.Biotech">BasicMechtech</li>
+		</prerequisites>
+		<researchViewX>0</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>LIK_ArmigerKnights</defName>
+		<label>Armiger Knights</label>
+		<description>Unlocks the Armiger Knight at the Mechanicum manufactorum: The smallest of the Knight engines: a fast, lightly armoured walker with two arm-mounted autocannons and a carapace heavy stubber. Piloted from a throne in the carapace.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>6000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_MechanicumForge</li>
+		</prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>LIK_QuestorisKnights</defName>
+		<label>Questoris Knights</label>
+		<description>Unlocks the Questoris Knight at the Mechanicum manufactorum: The line Knight of the great houses. A thermal cannon on one arm, a rapid-fire battle cannon on the other, and twin carapace heavy stubbers. Piloted from a throne in the carapace.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>12000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_ArmigerKnights</li>
+		</prerequisites>
+		<researchViewX>2</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>LIK_DominusKnights</defName>
+		<label>Dominus Knights</label>
+		<description>Unlocks the Dominus Knight at the Mechanicum manufactorum: A siege-class engine. The Castellan pattern carries a plasma decimator and a Titan-killing volcano lance; the Valiant a conflagration cannon and a thundercoil harpoon. Shieldbreaker missiles and twin siegebreaker cannons ride its carapace, twin meltaguns flank its head. Piloted by a single noble through the Throne Mechanicum.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>24000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_QuestorisKnights</li>
+		</prerequisites>
+		<researchViewX>3</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>LIK_CerastusKnights</defName>
+		<label>Cerastus Knights</label>
+		<description>Unlocks the Cerastus Knight at the Mechanicum manufactorum: A fast, specialised war machine of the Cerastus patterns (Acheron, Atrapos, Castigator, Lancer), each built around one signature weapon. Piloted by a single noble through the Throne Mechanicum.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>16000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_QuestorisKnights</li>
+		</prerequisites>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>LIK_AcastusKnights</defName>
+		<label>Acastus Knights</label>
+		<description>Unlocks the Acastus Knight at the Mechanicum manufactorum: A slow, towering fire-support engine (Porphyrion) carrying the heaviest guns of any Knight, built to break fortresses. Piloted by a single noble through the Throne Mechanicum.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>30000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_DominusKnights</li>
+		</prerequisites>
+		<researchViewX>4</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>

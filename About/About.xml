@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Imperial Knights of the Rim</name>
+	<author>ToxicBuckle565</author>
+	<packageId>toxicbuckle565.imperialknightsoftherim</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<description>Pilot towering Imperial Knights across the Rim.
+
+Five Knight classes, each with its own weapons, armour and hangar:
+- Armiger - the fast, light hunter of the household
+- Questoris - the classic battle-ready Knight with the widest weapon choice
+- Cerastus - the swift Knight-Lancer, Acheron, Castigator and Atrapos patterns
+- Dominus - the heavy Castellan and Valiant with shoulder and carapace guns
+- Acastus Porphyrion - the super-heavy, with twin magna lascannons or twin conversion beams
+
+FEATURES
+- Piloted walkers built on Vehicle Framework: a colonist climbs into the Throne Mechanicum and walks it to war
+- Research the Mechanicum path and build each Knight piece by piece at a forge
+- Knight hangar: dock, refit, repair and rearm; change every weapon mount from the hangar cogitator
+- Paint your house: two-colour schemes per Knight plus heraldic stickers (shields, beasts, crosses, banners and more)
+- Weapons that behave like the books: shock lances, conversion beams that hit harder the farther the target, graviton guns, Ironstorm and Helios missiles that can even swat drop pods out of the sky
+- Reactor meltdowns: a dying Knight may go up like a small sun - or its pilot can overload the plasma core in a Noble Sacrifice
+- Real recorded weapon and stomp sounds, weapon glow and muzzle light (adjustable in the mod settings)
+
+OPTIONAL
+- Odyssey: Imperial plasma reactor for your gravship, and orbital drops - Knights fall from a gravship hangar onto the map below
+- Combat Extended: ammo and ballistics patches included
+
+REQUIRES
+- Harmony
+- Vehicle Framework
+(Steam subscribes you to both automatically.)
+
+CREDITS
+- Art: painted by ToxicBuckle565, based on community 3D models. Questoris parts from "Questoris Knight Builder" by Pedjorsi (Thingiverse, CC BY-NC-SA) - so this mod's art is shared under CC BY-NC-SA too. Some art is based on community models from various, partly unknown sources; if your work is used here and you would like credit or removal, please get in touch and it will be fixed quickly.
+- Sounds: freesound.org recordings, CC0 (list in About/SOUND_CREDITS.txt).
+
+Unofficial, free fan mod. Not affiliated with or endorsed by Games Workshop. Warhammer 40,000, Imperial Knights and all related names are trademarks of Games Workshop Ltd.</description>
+	<modDependencies>
+		<li>
+			<packageId>SmashPhil.VehicleFramework</packageId>
+			<displayName>Vehicle Framework</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/3014915404</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>SmashPhil.VehicleFramework</li>
+		<li>CETeam.CombatExtended</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--============BUILDABLE============-->
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>LIK_ArmigerBlueprint</defName>
+		<label>Armiger Knight</label>
+		<description>The smallest of the Knight engines: a fast, lightly armoured walker with two arm-mounted autocannons and a carapace heavy stubber. Piloted from a throne in the carapace.</description>
+		<graphicData>
+			<texPath>Things/Knights/Armiger/Icon/armiger</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(5.530,5.530)</drawSize>
+		</graphicData>
+		<size>(4,4)</size>
+		<statBases>
+			<MaxHitPoints>2000</MaxHitPoints>
+			<WorkToBuild>120000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<researchPrerequisites>
+			<li>LIK_ArmigerKnights</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<costList>
+			<Steel>1200</Steel>
+			<Plasteel>300</Plasteel>
+			<ComponentIndustrial>30</ComponentIndustrial>
+			<ComponentSpacer>12</ComponentSpacer>
+		</costList>
+		<designationCategory Inherit="False" />
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<soundBuilt/>
+		<thingToSpawn>LIK_Armiger</thingToSpawn>
+	</Vehicles.VehicleBuildDef>
+
+	<!--==============PAWN===============-->
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>LIK_Armiger</defName>
+		<label>Armiger Knight</label>
+		<description>The smallest of the Knight engines: a fast, lightly armoured walker with two arm-mounted autocannons and a carapace heavy stubber. Piloted from a throne in the carapace.</description>
+		<graphicData>
+			<texPath>Things/Knights/Armiger/armiger</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<drawSize>(5.530,5.530)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(85,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<uiIconPath>Things/Knights/Armiger/Icon/armiger_south</uiIconPath>
+		<fillPercent>0.75</fillPercent>
+		<altitudeLayer>PawnState</altitudeLayer>
+		<buildDef>LIK_ArmigerBlueprint</buildDef>
+		<size>(4,4)</size>
+
+		<navigationCategory>Manual</navigationCategory>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Spacer</techLevel>
+		<vehicleType>Land</vehicleType>
+		<nameable>true</nameable>
+
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightToll">
+				<strainPerHour>0.010</strainPerHour>
+				<ageDaysPerHour>0.15</ageDaysPerHour>
+				<feedbackScale>0.80</feedbackScale>
+				<referenceSize>4</referenceSize>
+				<minPiloting>4</minPiloting>
+			</li>
+			<!-- footsteps + war horn (Source/KnightSound.cs; sounds from Tools/gen_knight_sounds.py) -->
+			<li Class="LIK.DefModExtension_KnightSound">
+				<step>LIK_Snd_step_Armiger</step>
+				<stepTicks>26</stepTicks>
+				<stepShake>0.25</stepShake>
+				<horn>LIK_Snd_horn_Armiger</horn>
+			</li>
+		</modExtensions>
+
+		<vehicleStats>
+			<Mass>1800</Mass>
+			<MoveSpeed>5.6</MoveSpeed>
+			<CargoCapacity>150</CargoCapacity>
+			<RepairRate>0.7</RepairRate>
+		</vehicleStats>
+
+		<!-- Knight sounds (Tools/gen_knight_sounds.py): reactor hum loops while the engine runs, start-up / shut-down, hatch when the pilot climbs in or out. -->
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>LIK_Snd_hum_Armiger</value>
+			</li>
+		</soundSustainersOnEvent>
+		<soundOneShotsOnEvent Inherit="False">
+			<li>
+				<key>PawnEntered</key>
+				<value>LIK_Snd_hatch_in</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>LIK_Snd_hatch_out</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>LIK_Snd_startup_Armiger</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>LIK_Snd_shutdown_Armiger</value>
+			</li>
+		</soundOneShotsOnEvent>
+
+		<statBases>
+			<ArmorRating_Blunt>1.30</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.2</Flammability>
+			<MarketValue>14000</MarketValue>
+		</statBases>
+
+		<race>
+			<baseBodySize>4</baseBodySize>
+		</race>
+
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<customRoadCosts AssignDefaults="1.0"/>
+			<customHillinessCosts>
+				<SmallHills>1.0</SmallHills>
+				<LargeHills>1.0</LargeHills>
+				<Mountainous>1.5</Mountainous>
+			</customHillinessCosts>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 4)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>pilot</key>
+					<label>Pilot (Helm Mechanicum)</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<chanceToHit>0</chanceToHit>
+					<handlingTypes><li>Movement</li><li>Turret</li></handlingTypes>
+					<turretIds>
+						<li>armL_armiger_autocannon</li>
+						<li>armL_armiger_thermalspear</li>
+						<li>armL_armiger_chaincleaver</li>
+						<li>armL_armiger_cleaversweep</li>
+						<li>armL_armiger_graviton</li>
+						<li>armL_armiger_veuglaire</li>
+						<li>armL_armiger_lightninglock</li>
+						<li>armL_armiger_conversionbeam</li>
+						<li>armL_armiger_siegeclaw</li>
+						<li>armL_armiger_clawcleanser</li>
+						<li>armR_armiger_autocannon</li>
+						<li>armR_armiger_thermalspear</li>
+						<li>armR_armiger_chaincleaver</li>
+						<li>armR_armiger_cleaversweep</li>
+						<li>armR_armiger_graviton</li>
+						<li>armR_armiger_veuglaire</li>
+						<li>armR_armiger_lightninglock</li>
+						<li>armR_armiger_conversionbeam</li>
+						<li>armR_armiger_siegeclaw</li>
+						<li>armR_armiger_clawcleanser</li>
+						<li>carapace_armiger_stubber</li>
+						<li>carapace_armiger_meltagun</li>
+					</turretIds>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>
+			</roles>
+		</properties>
+		<components>
+			<li>
+				<key>Reactor</key>
+				<label>Plasma Reactor</label>
+				<health>166</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.00</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.20</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>6</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftLeg</key>
+				<label>Left Leg</label>
+				<health>400</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightLeg</key>
+				<label>Right Leg</label>
+				<health>400</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmor</key>
+				<label>Front Carapace</label>
+				<health>285</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmor</key>
+				<label>Left Carapace</label>
+				<health>285</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.40</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmor</key>
+				<label>Right Carapace</label>
+				<health>285</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.20</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.40</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmor</key>
+				<label>Rear Carapace</label>
+				<health>285</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0.90</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.10</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>FuelTank</key>
+				<label>Promethium Tanks</label>
+				<health>133</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>0.70</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.90</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_FuelLeak">
+						<maxHealth>0.3</maxHealth>
+						<rate>1~4</rate>
+					</li>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.2</chance>
+						<radius>8</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(-1, -1)</li>
+						<li>(2, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Throne</key>
+				<label>Pilot Throne</label>
+				<health>200</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.70</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.90</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>1</hitWeight>
+			</li>
+			<li>
+				<key>Servos</key>
+				<label>Servo-muscle Bundle</label>
+				<health>125</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.00</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>4</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>60</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>1</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>250</fuelCapacity>
+			</li>
+			<li Class="LIK.CompProperties_KnightHead"/>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>LIK_Turret_armiger_autocannon</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Armiger autocannon</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_autocannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_thermalspear</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Thermal spear</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_thermalspear</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_chaincleaver</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Reaper chain-cleaver</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_chaincleaver</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_cleaversweep</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (reaper chain-cleaver)</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_cleaversweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_graviton</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Graviton pulsar</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_graviton</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_veuglaire</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Volkite veuglaire</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_veuglaire</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_lightninglock</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Lightning lock</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_lightninglock</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_conversionbeam</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Conversion beam cannon</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_conversionbeam</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_siegeclaw</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Siege claw and rad cleanser</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_siegeclaw</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_clawcleanser</turretDef>
+						<renderProperties>
+							<north>(-1.29, 0.66)</north>
+							<south>(1.29, 0.69)</south>
+							<east>(-0.05, 1.23)</east>
+							<west>(0.09, -0.31)</west>
+						</renderProperties>
+						<gizmoLabel>Rad cleanser mode (siege claw arm)</gizmoLabel>
+						<angleRestricted>(300, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_armiger_clawcleanser</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_autocannon</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Armiger autocannon</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_autocannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_thermalspear</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Thermal spear</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_thermalspear</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_chaincleaver</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Reaper chain-cleaver</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_chaincleaver</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_cleaversweep</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Sweep (reaper chain-cleaver)</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_cleaversweep</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_graviton</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Graviton pulsar</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_graviton</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_veuglaire</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Volkite veuglaire</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_veuglaire</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_lightninglock</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Lightning lock</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_lightninglock</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_conversionbeam</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Conversion beam cannon</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_conversionbeam</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_siegeclaw</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Siege claw and rad cleanser</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_siegeclaw</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_clawcleanser</turretDef>
+						<renderProperties>
+							<north>(1.29, 0.66)</north>
+							<south>(-1.29, 0.69)</south>
+							<east>(-0.09, -0.31)</east>
+							<west>(0.05, 1.23)</west>
+						</renderProperties>
+						<gizmoLabel>Rad cleanser mode (siege claw arm)</gizmoLabel>
+						<angleRestricted>(320, 60)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_armiger_clawcleanser</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_stubber</turretDef>
+						<renderProperties>
+							<north>(0.00, 1.41)</north>
+							<south>(0.02, 2.09)</south>
+							<east>(-0.60, 1.76)</east>
+							<west>(0.60, 1.76)</west>
+						</renderProperties>
+						<gizmoLabel>Armiger heavy stubber</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>carapace_armiger_stubber</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_armiger_meltagun</turretDef>
+						<renderProperties>
+							<north>(0.00, 1.41)</north>
+							<south>(0.02, 2.09)</south>
+							<east>(-0.60, 1.76)</east>
+							<west>(0.60, 1.76)</west>
+						</renderProperties>
+						<gizmoLabel>Armiger meltagun</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>carapace_armiger_meltagun</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+	<!--=============TURRETS=============-->
+</Defs>

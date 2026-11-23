@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  2026-11-22 (user: the plasma reactor said "Not connected to grav engine" and did not extend the build area): the vanilla grav engine only
+  links to the facilities in its linkableFacilities list, so the reactor could never link (no support bonus, its footprint never counted).
+-->
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+			<li>IMP_PlasmaReactor</li>
+		</value>
+	</Operation>
+</Patch>

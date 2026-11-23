@@ -1,0 +1,116 @@
+Source recordings used by LocalImperialKnights/Tools/gen_sounds_real.py (downloaded 2026-11-11).
+Freesound files are the site's preview MP3s. Licence checked on each sound's page on the download date.
+
+CC0 (public domain dedication - free to use, no credit required):
+  minigun_153492          https://freesound.org/people/Steelskull/sounds/153492/
+  heavymg_165394          https://freesound.org/people/ShawnyBoy/sounds/165394/
+  largemg_377246          https://freesound.org/people/SamsterBirdies/sounds/377246/   (downloaded, not used yet)
+  mg50cal_183656          https://freesound.org/people/qubodup/sounds/183656/
+  mg50cal_249146          https://freesound.org/people/klangfabrik/sounds/249146/      (downloaded, not used yet)
+  mg50cal_avenger_160355  https://freesound.org/people/qubodup/sounds/160355/          (downloaded, not used yet)
+  autocannon_854186       https://freesound.org/people/qubodup/sounds/854186/
+  cannon_187767           https://freesound.org/people/qubodup/sounds/187767/
+  artillery_239137        https://freesound.org/people/qubodup/sounds/239137/
+  artillery_k55_184365    https://freesound.org/people/qubodup/sounds/184365/          (downloaded, not used yet)
+  artillery_702245        https://freesound.org/people/InMotionAudio/sounds/702245/
+  flashover280kV_367454   https://freesound.org/people/jensfelger/sounds/367454/
+  taser_403252            https://freesound.org/people/The_Chemical_Workshop/sounds/403252/
+  teslacoil_145506        https://freesound.org/people/Rmutt/sounds/145506/
+  teslacoil_362975        https://freesound.org/people/follytowers/sounds/362975/
+  thunderstrike_840628    https://freesound.org/people/loganzsound/sounds/840628/
+  thundercrack_347853     https://freesound.org/people/cognito%20perceptu/sounds/347853/
+  thunderclap_534023      https://freesound.org/people/Fission9/sounds/534023/
+  lightning_434359        https://freesound.org/people/csengeri/sounds/434359/         (downloaded, not used yet)
+
+CC BY 4.0 (free to use, but the author MUST be credited if the sound is published):
+  gau8_brrt_127737        "BRRRRRRT" by nicStage - https://freesound.org/people/nicStage/sounds/127737/
+                          (via https://commons.wikimedia.org/wiki/File:BRRRRRRT.wav) - used only in fire_gatling_real_B_gau8.ogg
+
+Second batch (2026-11-11, rest of the weapons) - all CC0, licence checked on each page before download:
+  rocket_182794            https://freesound.org/people/qubodup/sounds/182794/
+  atmissile_184274         https://freesound.org/people/qubodup/sounds/184274/
+  rocket2_521377           https://freesound.org/people/Jarusca/sounds/521377/
+  flamethrower_490166      https://freesound.org/people/SamsterBirdies/sounds/490166/
+  firemassive_387924       https://freesound.org/people/Aegersum/sounds/387924/
+  blowtorch_453408         https://freesound.org/people/kyles/sounds/453408/            (downloaded, not used yet)
+  blowtorch2_668375        https://freesound.org/people/adh.dreaming/sounds/668375/
+  tnt4kg_165808            https://freesound.org/people/sidohzen/sounds/165808/
+  explosionmassive_177556  https://freesound.org/people/Hugofski/sounds/177556/
+  explosionlarge_482993    https://freesound.org/people/V-ktor/sounds/482993/
+  explosionrubble_132929   https://freesound.org/people/deleted_user_1887925/sounds/132929/
+  pressurerelease_457294   https://freesound.org/people/brunoboselli/sounds/457294/
+  steam_365071             https://freesound.org/people/sniperous/sounds/365071/        (downloaded, not used yet)
+  arcwelding_256915        https://freesound.org/people/squashy555/sounds/256915/
+  migwelding_264827        https://freesound.org/people/unfa/sounds/264827/             (downloaded, not used yet)
+  sizzle_382313            https://freesound.org/people/bottles/sounds/382313/          (downloaded, not used yet)
+  sizzle2_436791           https://freesound.org/people/roboroo/sounds/436791/
+  rockslide_655368         https://freesound.org/people/21100495/sounds/655368/
+  metalclang_264889        https://freesound.org/people/EpicWizard/sounds/264889/
+  swordshield_588278       https://freesound.org/people/marchelonia/sounds/588278/
+  afterburner_104883       https://freesound.org/people/StoneyJ/sounds/104883/
+  afterburner2_413312      https://freesound.org/people/TiesWijnen/sounds/413312/
+  transformer_144559       https://freesound.org/people/kiefspoon/sounds/144559/        (downloaded, not used yet)
+  bassrumble_321812        https://freesound.org/people/mmasonghi/sounds/321812/        (downloaded, not used yet)
+  earth_17785              https://freesound.org/people/Halion/sounds/17785/            (downloaded, not used yet)
+
+Fourth batch (2026-11-11, melee weapons; used by Tools/gen_sounds_real_rest.py) - all CC0, licence checked on each page before download:
+  chainsaw_118972            https://freesound.org/people/esperri/sounds/118972/
+  chainsawcut_185579         https://freesound.org/people/lonemonk/sounds/185579/
+  chainsawidle_453259        https://freesound.org/people/kyles/sounds/453259/                  (downloaded, not used yet)
+  hydraulicpress_866648      https://freesound.org/people/Andriejus/sounds/866648/
+  hydraulichoist_403075      https://freesound.org/people/chainsaw_dinner_party/sounds/403075/
+  swooshlow_475135           https://freesound.org/people/bolkmar/sounds/475135/
+  whooshheavy_697436         https://freesound.org/people/FALL-E/sounds/697436/
+  metalcrunch_675475         https://freesound.org/people/craigsmith/sounds/675475/
+  scrapmetal_587443          https://freesound.org/people/SamsterBirdies/sounds/587443/
+  pipehit_244983             https://freesound.org/people/ani_music/sounds/244983/
+  structurecollision_653294  https://freesound.org/people/Osvoldon/sounds/653294/
+  metalimpact_726486         https://freesound.org/people/JoMungus/sounds/726486/
+
+======================================================================
+Source recordings of the KNIGHT sounds and war horns (LocalImperialKnights/Tools/gen_knight_sounds.py), downloaded 2026-11-11.
+Freesound preview MP3s. All CC0 (public domain dedication, no credit required) - licence checked on each sound's page before download.
+
+  shiphorn_208714_monotraum_CC0.mp3                    https://freesound.org/people/monotraum/sounds/208714/
+  deephorn_328541_Vendarro_CC0.mp3                     https://freesound.org/people/Vendarro/sounds/328541/
+  cruisehorn_352374_Kinoton_CC0.mp3                    https://freesound.org/people/Kinoton/sounds/352374/
+  shiphornclose_420716_tierrafilmgmailcom_CC0.mp3      https://freesound.org/people/tierrafilm@gmail.com/sounds/420716/
+  foghorn_37914_kathol_CC0.mp3                         https://freesound.org/people/kathol/sounds/37914/
+  foghornship_636075_coalcon_CC0.mp3                   https://freesound.org/people/coalcon/sounds/636075/
+  boathorn_437687_SamsterBirdies_CC0.mp3               https://freesound.org/people/SamsterBirdies/sounds/437687/
+  foghornloud_437683_SamsterBirdies_CC0.mp3            https://freesound.org/people/SamsterBirdies/sounds/437683/
+  trainhorn_455157_L83_CC0.mp3                         https://freesound.org/people/L83/sounds/455157/
+  powerhorn_546528_trezz77_CC0.mp3                     https://freesound.org/people/trezz77/sounds/546528/
+  inception_194812_funnyman850_CC0.mp3                 https://freesound.org/people/funnyman850/sounds/194812/
+  jetstart_491407_SamsterBirdies_CC0.mp3               https://freesound.org/people/SamsterBirdies/sounds/491407/
+  f16start_322178_ikbenraar_CC0.mp3                    https://freesound.org/people/ikbenraar/sounds/322178/
+  reactor_749979_Bachsambora_CC0.mp3                   https://freesound.org/people/Bachsambora/sounds/749979/
+  facilityhum_619320_aSuperiorPotato_CC0.mp3           https://freesound.org/people/aSuperiorPotato/sounds/619320/
+  engineroom_62592_bsumusictech_CC0.mp3                https://freesound.org/people/bsumusictech/sounds/62592/
+  servo_322021_Burningmonkey_CC0.mp3                   https://freesound.org/people/Burningmonkey/sounds/322021/
+  clamp_123253_Skullsmasha_CC0.mp3                     https://freesound.org/people/Skullsmasha/sounds/123253/
+  mechwalk_557594_Breviceps_CC0.mp3                    https://freesound.org/people/Breviceps/sounds/557594/
+  robotstep1_813056_AudioPapkin_CC0.mp3                https://freesound.org/people/AudioPapkin/sounds/813056/
+  robotstep2_813053_AudioPapkin_CC0.mp3                https://freesound.org/people/AudioPapkin/sounds/813053/
+  robotstep3_813054_AudioPapkin_CC0.mp3                https://freesound.org/people/AudioPapkin/sounds/813054/
+  robotstep4_813055_AudioPapkin_CC0.mp3                https://freesound.org/people/AudioPapkin/sounds/813055/
+  robotstep5_815039_AudioPapkin_CC0.mp3                https://freesound.org/people/AudioPapkin/sounds/815039/
+  doorslam_406197_kyles_CC0.mp3                        https://freesound.org/people/kyles/sounds/406197/
+  gate_336888_Omnisis_CC0.mp3                          https://freesound.org/people/Omnisis/sounds/336888/
+
+Also used from ..\..\weapons\_sources_real: pressurerelease_457294, steam_365071, hydraulichoist_403075 (all CC0).
+
+NOT from this list: the Acastus war horn in the game is the user's own cut (mod assets\acastus\horn\acastus_horn_A_cut.ogg), made from
+  Downloads\608112__funwithsound__horn-9-federal.mp3 = https://freesound.org/people/funwithsound/sounds/608112/
+  Licence checked 2026-11-23: Creative Commons 0 (freesound page). Note: the uploader says the audio was cut from a YouTube
+  video (https://www.youtube.com/watch?v=1kdbH40abnY), so the CC0 is the uploader's own declaration. Low risk; swap for a
+  CC0 horn from the list above if anyone ever objects.
+
+HANGAR, REACTOR MELTDOWN AND MANUFACTORUM SOUNDS (added 2026-11-22; Sounds/Knights/Buildings) - all Creative Commons 0 (public domain), from freesound.org:
+  klaxon 555465 alphatone, industrial alarm 668980 vestibule-door, factory loop 677227 davilca, forge hammer 386393 ldezem,
+  stamping press 256762 radwoc, blast door 814046 qubodup, huge explosion 259300 + 352143 unfa, deep explosion 255111 rhapsodize,
+  sub explosion 149966 NenadSimic, explosion crack 251759 misosound, sharp explosion 448002 Kneeling, red alert 159453 noirenex,
+  dive alarm 156672 mkjunker. Also reused from the Knight / weapon sources above: pressurerelease, doorslam, servo, clamp, hydraulicpress,
+  metalclang 264889, steam, transformer, teslacoil, explosionmassive, explosionlarge, tnt4kg, artillery k55, thundercrack, rockslide,
+  bassrumble, facilityhum, firemassive, engineroom, foghornloud, hydraulichoist.
+  Links: https://freesound.org/s/<number>/

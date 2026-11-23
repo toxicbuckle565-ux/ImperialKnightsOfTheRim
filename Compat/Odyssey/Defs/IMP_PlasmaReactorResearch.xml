@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Research for the Mechanicum plasma reactor (grav core upgrade). Odyssey only. Sits in the Knights tab for now (slot 0,2 was the
+     removed manufactorum research); move to a shared Imperial tab with the reactor later. -->
+<Defs>
+	<ResearchProjectDef>
+		<defName>IMP_PlasmaReactor</defName>
+		<label>Mechanicum plasma reactor</label>
+		<description>Bind a Mechanicum plasma reactor to a gravship's grav engine. The reactor greatly strengthens the grav field, letting a ship carry far more substructure - room for Knight hangars and the landing decks of Imperial craft - and it feeds the ship's power grid.</description>
+		<tab>LIK_KnightsTab</tab>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>LIK_MechanicumForge</li>
+			<li>BasicGravtech</li>
+		</prerequisites>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+</Defs>

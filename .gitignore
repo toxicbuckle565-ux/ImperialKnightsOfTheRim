@@ -1,0 +1,11 @@
+# build output and IDE files
+Source/obj/
+Source/bin/
+*.user
+.vs/
+# Workshop item id - only the owner's upload folder needs it (stops forks updating the original Workshop page)
+About/PublishedFileId.txt
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store

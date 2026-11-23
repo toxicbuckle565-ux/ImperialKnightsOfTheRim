@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--============BUILDABLE============-->
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>LIK_AcastusBlueprint</defName>
+		<label>Acastus Knight</label>
+		<description>A slow, towering fire-support engine (Porphyrion) carrying the heaviest guns of any Knight, built to break fortresses. Piloted by a single noble through the Throne Mechanicum.</description>
+		<graphicData>
+			<texPath>Things/Knights/Acastus/Icon/acastus</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(14.950,14.950)</drawSize>
+		</graphicData>
+		<size>(8,8)</size>
+		<statBases>
+			<MaxHitPoints>9500</MaxHitPoints>
+			<WorkToBuild>720000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<researchPrerequisites>
+			<li>LIK_AcastusKnights</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>13</constructionSkillPrerequisite>
+		<costList>
+			<Steel>5500</Steel>
+			<Plasteel>1900</Plasteel>
+			<ComponentIndustrial>150</ComponentIndustrial>
+			<ComponentSpacer>80</ComponentSpacer>
+			<Gold>220</Gold>
+		</costList>
+		<designationCategory Inherit="False" />
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<soundBuilt/>
+		<thingToSpawn>LIK_Acastus</thingToSpawn>
+	</Vehicles.VehicleBuildDef>
+
+	<!--==============PAWN===============-->
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>LIK_Acastus</defName>
+		<label>Acastus Knight</label>
+		<description>A slow, towering fire-support engine (Porphyrion) carrying the heaviest guns of any Knight, built to break fortresses. Piloted by a single noble through the Throne Mechanicum.</description>
+		<graphicData>
+			<texPath>Things/Knights/Acastus/acastus</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<drawSize>(14.950,14.950)</drawSize>
+			<shaderType>CutoutComplexRGB</shaderType>
+			<color>(84,126,188)</color>
+			<colorTwo>(216,191,134)</colorTwo>
+			<colorThree>(255,255,255)</colorThree>
+		</graphicData>
+		<uiIconPath>Things/Knights/Acastus/Icon/acastus_south</uiIconPath>
+		<fillPercent>0.75</fillPercent>
+		<altitudeLayer>PawnState</altitudeLayer>
+		<buildDef>LIK_AcastusBlueprint</buildDef>
+		<size>(8,8)</size>
+
+		<navigationCategory>Manual</navigationCategory>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Spacer</techLevel>
+		<vehicleType>Land</vehicleType>
+		<nameable>true</nameable>
+
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightToll">
+				<strainPerHour>0.010</strainPerHour>
+				<ageDaysPerHour>0.15</ageDaysPerHour>
+				<feedbackScale>0.80</feedbackScale>
+				<referenceSize>4</referenceSize>
+				<minPiloting>14</minPiloting>
+			</li>
+			<!-- footsteps + war horn (Source/KnightSound.cs; sounds from Tools/gen_knight_sounds.py) -->
+			<li Class="LIK.DefModExtension_KnightSound">
+				<step>LIK_Snd_step_Acastus</step>
+				<stepTicks>52</stepTicks>
+				<stepShake>0.90</stepShake>
+				<horn>LIK_Snd_horn_Acastus</horn>
+			</li>
+		</modExtensions>
+
+		<vehicleStats>
+			<Mass>9500</Mass>
+			<MoveSpeed>3.4</MoveSpeed>
+			<CargoCapacity>450</CargoCapacity>
+			<RepairRate>0.9</RepairRate>
+		</vehicleStats>
+
+		<!-- Knight sounds (Tools/gen_knight_sounds.py): reactor hum loops while the engine runs, start-up / shut-down, hatch when the pilot climbs in or out. -->
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>LIK_Snd_hum_Acastus</value>
+			</li>
+		</soundSustainersOnEvent>
+		<soundOneShotsOnEvent Inherit="False">
+			<li>
+				<key>PawnEntered</key>
+				<value>LIK_Snd_hatch_in</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>LIK_Snd_hatch_out</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>LIK_Snd_startup_Acastus</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>LIK_Snd_shutdown_Acastus</value>
+			</li>
+		</soundOneShotsOnEvent>
+
+		<statBases>
+			<ArmorRating_Blunt>1.90</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2.10</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.2</Flammability>
+			<MarketValue>120000</MarketValue>
+		</statBases>
+
+		<race>
+			<baseBodySize>16</baseBodySize>
+		</race>
+
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<customRoadCosts AssignDefaults="1.0"/>
+			<customHillinessCosts>
+				<SmallHills>1.0</SmallHills>
+				<LargeHills>1.0</LargeHills>
+				<Mountainous>1.5</Mountainous>
+			</customHillinessCosts>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 4)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>pilot</key>
+					<label>Noble pilot (Throne Mechanicum)</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<chanceToHit>0</chanceToHit>
+					<handlingTypes><li>Movement</li><li>Turret</li></handlingTypes>
+					<turretIds>
+						<li>armL_acastus_magna</li>
+						<li>armL_acastus_convbeam</li>
+						<li>armR_acastus_magna</li>
+						<li>armR_acastus_convbeam</li>
+						<li>top_acastus_ironstorm</li>
+						<li>top_acastus_helios</li>
+						<li>socketL_acastus_autocannon</li>
+						<li>socketL_acastus_lascannon</li>
+						<li>socketR_acastus_autocannon</li>
+						<li>socketR_acastus_lascannon</li>
+					</turretIds>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>
+			</roles>
+		</properties>
+		<components>
+			<li>
+				<key>Reactor</key>
+				<label>Plasma Reactor</label>
+				<health>791</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.60</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.80</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>10</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftLeg</key>
+				<label>Left Leg</label>
+				<health>1900</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightLeg</key>
+				<label>Right Leg</label>
+				<health>1900</health>
+				<depth>External</depth>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmor</key>
+				<label>Front Carapace</label>
+				<health>1357</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.90</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.10</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmor</key>
+				<label>Left Carapace</label>
+				<health>1357</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.00</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmor</key>
+				<label>Right Carapace</label>
+				<health>1357</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.00</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmor</key>
+				<label>Rear Carapace</label>
+				<health>1357</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.50</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.70</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>FuelTank</key>
+				<label>Promethium Tanks</label>
+				<health>633</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+				</armor>
+				<reactors>
+					<li Class="Vehicles.Reactor_FuelLeak">
+						<maxHealth>0.3</maxHealth>
+						<rate>1~4</rate>
+					</li>
+					<li Class="Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.2</chance>
+						<radius>12</radius>
+						<damageDef>Burn</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<cells>
+						<li>(-3, -3)</li>
+						<li>(4, -3)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Throne</key>
+				<label>Pilot Throne</label>
+				<health>950</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>2.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>2.50</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>1</hitWeight>
+			</li>
+			<li>
+				<key>Servos</key>
+				<label>Servo-muscle Bundle</label>
+				<health>593</health>
+				<depth>Internal</depth>
+				<armor>
+					<ArmorRating_Blunt>1.40</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.60</ArmorRating_Sharp>
+				</armor>
+				<hitWeight>4</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>170</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>1</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>800</fuelCapacity>
+			</li>
+			<li Class="LIK.CompProperties_KnightHead"/>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>LIK_Turret_acastus_magna</turretDef>
+						<renderProperties>
+							<north>(4.55, 0.04)</north>
+							<south>(4.59, 0.06)</south>
+							<east>(-1.03, 2.87)</east>
+							<west>(1.03, -2.21)</west>
+						</renderProperties>
+						<gizmoLabel>Twin magna lascannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_acastus_magna</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_convbeam</turretDef>
+						<renderProperties>
+							<north>(5.82, -1.40)</north>
+							<south>(5.87, -1.36)</south>
+							<east>(-1.02, 2.52)</east>
+							<west>(1.04, -4.73)</west>
+						</renderProperties>
+						<gizmoLabel>Twin conversion beam cannon</gizmoLabel>
+						<angleRestricted>(290, 40)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armL_acastus_convbeam</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_magna</turretDef>
+						<renderProperties>
+							<north>(-4.55, 0.04)</north>
+							<south>(-4.59, 0.06)</south>
+							<east>(-1.03, -2.21)</east>
+							<west>(1.03, 2.87)</west>
+						</renderProperties>
+						<gizmoLabel>Twin magna lascannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_acastus_magna</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_convbeam</turretDef>
+						<renderProperties>
+							<north>(-5.82, -1.40)</north>
+							<south>(-5.87, -1.36)</south>
+							<east>(-1.04, -4.73)</east>
+							<west>(1.02, 2.52)</west>
+						</renderProperties>
+						<gizmoLabel>Twin conversion beam cannon</gizmoLabel>
+						<angleRestricted>(320, 70)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>
+						<key>armR_acastus_convbeam</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_ironstorm</turretDef>
+						<renderProperties>
+							<north>(0.00, 3.33)</north>
+							<south>(0.00, 4.32)</south>
+							<east>(-2.29, 4.43)</east>
+							<west>(2.29, 4.08)</west>
+						</renderProperties>
+						<gizmoLabel>Acastus Ironstorm missile launcher</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_acastus_ironstorm</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_helios</turretDef>
+						<renderProperties>
+							<north>(0.00, 3.33)</north>
+							<south>(0.00, 4.32)</south>
+							<east>(-2.29, 4.43)</east>
+							<west>(2.29, 4.08)</west>
+						</renderProperties>
+						<gizmoLabel>Helios defence missiles</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_acastus_helios</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_autocannon</turretDef>
+						<renderProperties>
+							<north>(-2.73, 2.79)</north>
+							<south>(2.86, -2.44)</south>
+							<east>(2.50, 1.70)</east>
+							<west>(-2.50, -1.21)</west>
+						</renderProperties>
+						<gizmoLabel>Acastus autocannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>socketL_acastus_autocannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_lascannon</turretDef>
+						<renderProperties>
+							<north>(-2.73, 2.79)</north>
+							<south>(2.86, -2.44)</south>
+							<east>(2.50, 1.70)</east>
+							<west>(-2.50, -1.21)</west>
+						</renderProperties>
+						<gizmoLabel>Acastus lascannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>socketL_acastus_lascannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_autocannon</turretDef>
+						<renderProperties>
+							<north>(2.73, 2.79)</north>
+							<south>(-2.86, -2.44)</south>
+							<east>(2.50, -1.21)</east>
+							<west>(-2.50, 1.70)</west>
+						</renderProperties>
+						<gizmoLabel>Acastus autocannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>socketR_acastus_autocannon</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_acastus_lascannon</turretDef>
+						<renderProperties>
+							<north>(2.73, 2.79)</north>
+							<south>(-2.86, -2.44)</south>
+							<east>(2.50, -1.21)</east>
+							<west>(-2.50, 1.70)</west>
+						</renderProperties>
+						<gizmoLabel>Acastus lascannon</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>socketR_acastus_lascannon</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+	<!--=============TURRETS=============-->
+</Defs>

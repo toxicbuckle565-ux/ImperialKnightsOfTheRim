@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+		How a pilot's personality changes the toll of piloting a Knight. Multipliers (1 = no change, <1 = lessens the toll):
+		  strain   = neural strain build-up
+		  feedback = damage feedback through the neural link (machine-spirit wrath) and the shock when a part is destroyed
+		  age      = ageing from piloting
+		Several traits multiply together (never below x0.25). The mod setting "Personality" scales how much this matters
+		(0 = ignore traits, 1 = as written, 2 = twice as strong). Vanilla traits only.
+		Add your own with:  <LIK.PilotTraitModifierDef><defName>..</defName><trait>TraitDefName</trait><degree>0</degree>...
+	-->
+
+	<!-- toughness -->
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Tough</defName>
+		<trait>Tough</trait>
+		<degree>0</degree>
+		<strain>0.85</strain>
+		<feedback>0.7</feedback>
+		<age>0.8</age>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Wimp</defName>
+		<trait>Wimp</trait>
+		<degree>0</degree>
+		<strain>1.15</strain>
+		<feedback>1.3</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Masochist</defName>
+		<trait>Masochist</trait>
+		<degree>0</degree>
+		<strain>0.95</strain>
+		<feedback>0.7</feedback>
+	</LIK.PilotTraitModifierDef>
+
+	<!-- nerves -->
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_IronWilled</defName>
+		<trait>Nerves</trait>
+		<degree>2</degree>
+		<strain>0.6</strain>
+		<feedback>0.8</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Steadfast</defName>
+		<trait>Nerves</trait>
+		<degree>1</degree>
+		<strain>0.8</strain>
+		<feedback>0.9</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Nervous</defName>
+		<trait>Nerves</trait>
+		<degree>-1</degree>
+		<strain>1.2</strain>
+		<feedback>1.15</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Volatile</defName>
+		<trait>Nerves</trait>
+		<degree>-2</degree>
+		<strain>1.4</strain>
+		<feedback>1.3</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Neurotic</defName>
+		<trait>Neurotic</trait>
+		<degree>1</degree>
+		<strain>1.15</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_VeryNeurotic</defName>
+		<trait>Neurotic</trait>
+		<degree>2</degree>
+		<strain>1.3</strain>
+	</LIK.PilotTraitModifierDef>
+
+	<!-- temperament -->
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Bloodlust</defName>
+		<trait>Bloodlust</trait>
+		<degree>0</degree>
+		<strain>0.9</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Psychopath</defName>
+		<trait>Psychopath</trait>
+		<degree>0</degree>
+		<strain>0.9</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Sanguine</defName>
+		<trait>NaturalMood</trait>
+		<degree>2</degree>
+		<strain>0.85</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Optimist</defName>
+		<trait>NaturalMood</trait>
+		<degree>1</degree>
+		<strain>0.93</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Pessimist</defName>
+		<trait>NaturalMood</trait>
+		<degree>-1</degree>
+		<strain>1.07</strain>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_Depressive</defName>
+		<trait>NaturalMood</trait>
+		<degree>-2</degree>
+		<strain>1.15</strain>
+	</LIK.PilotTraitModifierDef>
+
+	<!-- psychic sensitivity: a sensitive mind feels the machine spirit more -->
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_PsyHyper</defName>
+		<trait>PsychicSensitivity</trait>
+		<degree>2</degree>
+		<strain>1.2</strain>
+		<feedback>1.4</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_PsySensitive</defName>
+		<trait>PsychicSensitivity</trait>
+		<degree>1</degree>
+		<feedback>1.2</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_PsyDull</defName>
+		<trait>PsychicSensitivity</trait>
+		<degree>-1</degree>
+		<feedback>0.8</feedback>
+	</LIK.PilotTraitModifierDef>
+	<LIK.PilotTraitModifierDef>
+		<defName>LIK_Pilot_PsyDeaf</defName>
+		<trait>PsychicSensitivity</trait>
+		<degree>-2</degree>
+		<strain>0.8</strain>
+		<feedback>0.6</feedback>
+	</LIK.PilotTraitModifierDef>
+</Defs>
