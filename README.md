@@ -33,7 +33,9 @@ Five Knight classes, each with its own weapons, armour and hangar:
 - [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)
 - [Vehicle Framework](https://steamcommunity.com/sharedfiles/filedetails/?id=3014915404)
 
-Optional: **Odyssey** (Imperial plasma reactor, orbital Knight drops from a gravship hangar) and **Combat Extended** (patches included, loaded automatically).
+Optional: **Odyssey** (Imperial plasma reactor, orbital Knight drops from a gravship hangar).
+
+Not supported yet: **Combat Extended** - support is planned for a later update.
 
 ## Install from GitHub
 

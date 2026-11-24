@@ -66,7 +66,7 @@ The rarest and mightiest Knight of all - a towering super-heavy that turns the t
 [h2]Compatibility[/h2]
 [list]
 [*][b]Odyssey[/b] (optional) - Imperial plasma reactor for your gravship, and orbital drops: Knights fall from a gravship hangar onto the map below
-[*][b]Combat Extended[/b] - supported, patches load automatically
+[*][b]Combat Extended[/b] - not supported yet; support is planned for a later update
 [*][b]RimDark 40k - Mankind's Finest[/b] - its icons show up as extra Knight stickers when installed
 [*][b]Camera+[/b] - supported
 [*]Safe to add to an existing save. Removing it mid-save is not supported.

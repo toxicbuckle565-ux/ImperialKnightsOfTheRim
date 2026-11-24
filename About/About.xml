@@ -26,12 +26,20 @@ FEATURES
 
 OPTIONAL
 - Odyssey: Imperial plasma reactor for your gravship, and orbital drops - Knights fall from a gravship hangar onto the map below
-- Combat Extended: ammo and ballistics patches included
+
+NOT SUPPORTED YET
+- Combat Extended (support is planned for a later update)
 
 REQUIRES
 - Harmony
 - Vehicle Framework
 (Steam subscribes you to both automatically.)
+After subscribing, wait until Steam has finished downloading everything before starting RimWorld.
+
+BUGS, SOURCE AND REMAKES
+Report bugs in the Bug reports discussion or as an Issue on GitHub - please include your Player.log.
+The mod is open source: https://github.com/toxicbuckle565-ux/ImperialKnightsOfTheRim
+Code is MIT, art is CC BY-NC-SA 4.0 - you are welcome to remake it or use the art in your own free mods, with credit.
 
 CREDITS
 - Art: painted by ToxicBuckle565, based on community 3D models. Questoris parts from "Questoris Knight Builder" by Pedjorsi (Thingiverse, CC BY-NC-SA) - so this mod's art is shared under CC BY-NC-SA too. Some art is based on community models from various, partly unknown sources; if your work is used here and you would like credit or removal, please get in touch and it will be fixed quickly.
@@ -53,6 +61,5 @@ Unofficial, free fan mod. Not affiliated with or endorsed by Games Workshop. War
 	<loadAfter>
 		<li>brrainz.harmony</li>
 		<li>SmashPhil.VehicleFramework</li>
-		<li>CETeam.CombatExtended</li>
 	</loadAfter>
 </ModMetaData>
