@@ -21,9 +21,9 @@ namespace LIK
     [StaticConstructorOnStartup]
     public static class AlignTool
     {
-        public static bool Enabled { get { return LIKMod.I.alignHelper; } }
-        public static bool TintOn { get { return LIKMod.I.alignHelper && LIKMod.I.alignTint; } }
-        public static bool CrossOn { get { return LIKMod.I.alignHelper && LIKMod.I.alignCross; } }
+        public static bool Enabled { get { return LIKMod.I.alignHelper && Prefs.DevMode; } }   // modding tool: Dev mode only (2026-11-23)
+        public static bool TintOn { get { return Enabled && LIKMod.I.alignTint; } }
+        public static bool CrossOn { get { return Enabled && LIKMod.I.alignCross; } }
         public static readonly string Root;
         public static readonly Color WeaponTint = new Color(1f, 0.55f, 0.25f);
         public static readonly Color CoverTint = new Color(0.3f, 0.95f, 1f);

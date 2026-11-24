@@ -30,7 +30,6 @@ namespace LIK
         public float costExtra = 1f;        // fine tuning on top of the tier
         public bool aimTurnBetween = false;   // 2026-11-15: aim pictures (32-step Dominus top turrets) also turned flat by the leftover angle (jolts at each swap)
         public bool aimPictures = true;    // TRIAL: Questoris / Dominus top weapons show the picture for where the weapon points (FacingArt.AimMode)
-        public bool testImmortal = false;  // TESTING: colonists take no damage, never go hungry or tired (see TestImmortal.cs)
         public bool dropWar = true;         // drop-zone warfare: an enemy base hit by an orbital drop sends reinforcement waves (DropZoneWar.cs)
         public float dropWarWaves = 1f;     // number of waves (x)
         public float dropWarStrength = 1f;  // size of each wave (x)
@@ -61,7 +60,6 @@ namespace LIK
             Scribe_Values.Look(ref aimTurnBetween, "aimTurnBetween", false);
             Scribe_Values.Look(ref costTier, "costTier", CostConfig.DefaultTier);
             Scribe_Values.Look(ref costExtra, "costExtra", 1f);
-            Scribe_Values.Look(ref testImmortal, "testImmortal", false);
             Scribe_Values.Look(ref dropWar, "dropWar", true);
             Scribe_Values.Look(ref dropWarWaves, "dropWarWaves", 1f);
             Scribe_Values.Look(ref dropWarStrength, "dropWarStrength", 1f);
@@ -97,37 +95,63 @@ namespace LIK
         Vector2 settingsScroll;
         float settingsHeight = 1200f;
 
+        // ---- small helpers: section header, slider with its value in the label, explanations as hover tooltips (user 2026-11-23: UI was confusing)
+        static void Header(Listing_Standard l, string text)
+        {
+            l.Gap(6f);
+            Text.Font = GameFont.Medium; l.Label(text); Text.Font = GameFont.Small;
+            l.GapLine(6f);
+        }
+        static float Slide(Listing_Standard l, string label, string value, float v, float min, float max, string tip, float snap = 10f)
+        {
+            Rect r = l.GetRect(Text.LineHeight);
+            Widgets.Label(r.LeftPart(0.75f), label);
+            Text.Anchor = TextAnchor.MiddleRight; Widgets.Label(r.RightPart(0.25f), value); Text.Anchor = TextAnchor.UpperLeft;
+            if (Mouse.IsOver(r)) Widgets.DrawHighlight(r);
+            TooltipHandler.TipRegion(r, tip);
+            v = Mathf.Round(l.Slider(v, min, max) * snap) / snap;
+            l.Gap(2f);
+            return v;
+        }
+        static string X(float f) { return f <= 0f ? "off" : "x" + f.ToString("0.0#"); }
+        static string Pct(float f) { return (f * 100f).ToString("F0") + "%"; }
+
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            // two columns so the whole page (incl. the weapon position adjustments at the end) fits the window without scrolling
-            var l = new Listing_Standard();
-            l.ColumnWidth = inRect.width / 2f - 17f;
-            l.Begin(inRect);
-            l.Label("Piloting tolls. 1.0 is the default intensity, 0 turns a toll off, higher is harsher.");
-            l.GapLine();
+            // two columns in a scroll view: left = pilots, right = forge / combat / visuals (2026-11-23 clean-up)
             LIKSettings s = I;
-            l.Label("Neural strain: builds on the pilot while the Knight runs (x" + s.strainMult.ToString("F1") + ")");
-            s.strainMult = l.Slider(s.strainMult, 0f, 5f);
-            l.Gap();
-            l.Label("Machine-spirit wrath: unfit pilots strain more; a damaged Knight lashes back (x" + s.wrathMult.ToString("F1") + ")");
-            s.wrathMult = l.Slider(s.wrathMult, 0f, 5f);
-            l.Gap();
-            l.Label("Ageing: each hour in the throne ages the pilot (x" + s.ageMult.ToString("F1") + ")");
-            s.ageMult = l.Slider(s.ageMult, 0f, 5f);
-            l.Gap();
-            l.Label("Knight size: bigger Knights take a heavier toll (x" + s.sizeMult.ToString("F1") + ", 0 = size ignored)");
-            s.sizeMult = l.Slider(s.sizeMult, 0f, 3f);
-            l.Gap();
-            l.Label("Combat stress: strain builds faster the more enemies are near (x" + s.combatMult.ToString("F1") + ", 0 = off)");
-            s.combatMult = l.Slider(s.combatMult, 0f, 3f);
-            l.Gap();
-            l.Label("Personality: how much pilot traits (Tough, iron-willed, nervous, ...) change the tolls (x" + s.traitMult.ToString("F1") + ", 0 = ignore traits)");
-            s.traitMult = l.Slider(s.traitMult, 0f, 3f);
-            l.Gap();
+            Rect view = new Rect(0f, 0f, inRect.width - 20f, settingsHeight);
+            Widgets.BeginScrollView(inRect, ref settingsScroll, view);
+            var l = new Listing_Standard();
+            l.ColumnWidth = view.width / 2f - 17f;
+            l.Begin(view);
+
+            // ================= left column: piloting + tolls
+            Header(l, "Piloting");
+            l.CheckboxLabeled("Minimum Piloting skill to drive a Knight", ref s.requireSkill,
+                "Armiger 4, Questoris 8, Cerastus 10, Dominus 12, Acastus 14.");
+            s.skillEffect = Slide(l, "Skill effect", X(s.skillEffect), s.skillEffect, 0f, 3f,
+                "How much Piloting skill lessens the tolls and raises Knight speed and gunnery. 0 = skill has no effect.");
+            s.trainingMult = Slide(l, "Training speed", X(s.trainingMult), s.trainingMult, 0.1f, 5f,
+                "How fast Piloting is learned: squire training, mentoring, driving and combat.");
+
+            Header(l, "Pilot tolls");
+            Text.Font = GameFont.Tiny; l.Label("x1 = normal, 0 = off, higher = harsher. Hover a setting for details."); Text.Font = GameFont.Small;
+            l.CheckboxLabeled("Pause neural strain (being reworked)", ref s.strainPaused,
+                "While on, Knights cause no neural strain or feedback shock, and existing strain is cleared.");
+            s.strainMult = Slide(l, "Neural strain", X(s.strainMult), s.strainMult, 0f, 5f, "Builds up on the pilot while the Knight is running.");
+            s.wrathMult = Slide(l, "Machine-spirit wrath", X(s.wrathMult), s.wrathMult, 0f, 5f, "Unfit pilots strain more, and a damaged Knight lashes back at its pilot.");
+            s.ageMult = Slide(l, "Ageing", X(s.ageMult), s.ageMult, 0f, 5f, "Each hour on the Throne Mechanicum ages the pilot.");
+            s.sizeMult = Slide(l, "Knight size", X(s.sizeMult), s.sizeMult, 0f, 3f, "Bigger Knights take a heavier toll. 0 = size is ignored.");
+            s.combatMult = Slide(l, "Combat stress", X(s.combatMult), s.combatMult, 0f, 3f, "Strain builds faster the more enemies are near.");
+            s.traitMult = Slide(l, "Personality", X(s.traitMult), s.traitMult, 0f, 3f, "How much pilot traits (tough, iron-willed, nervous ...) change the tolls. 0 = traits ignored.");
+            float leftH = l.CurHeight;
+
+            // ================= right column: forge, combat, visuals
             l.NewColumn();
-            // ---- forge costs (CostConfig.cs)
+            Header(l, "Forge costs");
             CostConfig.Tier tier = CostConfig.Current;
-            if (l.ButtonTextLabeled("Forge costs (parts, weapons, modules)", tier.label))
+            if (l.ButtonTextLabeled("Cost level (parts, weapons, modules)", tier.label))
             {
                 var menu = new List<FloatMenuOption>();
                 for (int i = 0; i < CostConfig.Tiers.Length; i++)
@@ -141,48 +165,42 @@ namespace LIK
             l.Label(tier.desc);
             Text.Font = GameFont.Small;
             float oldExtra = s.costExtra;
-            l.Label("Fine tune the chosen tier (x" + s.costExtra.ToString("F2") + ")");
-            s.costExtra = Mathf.Round(l.Slider(s.costExtra, 0.25f, 3f) * 20f) / 20f;
+            s.costExtra = Slide(l, "Fine tune", "x" + s.costExtra.ToString("0.00"), s.costExtra, 0.25f, 3f, "Multiplies every cost of the chosen level.", 20f);
             if (oldExtra != s.costExtra) CostConfig.Apply();
-            l.GapLine();
-            l.CheckboxLabeled("TESTING: immortal colonists (no damage, no hunger or tiredness, mood and all needs kept full, injuries healed)", ref s.testImmortal);
-            l.GapLine();
-            l.CheckboxLabeled("A Knight needs a minimum Piloting skill to be driven (Armiger 4, Questoris 8, Cerastus 10, Dominus 12, Acastus 14)", ref s.requireSkill);
-            l.Label("Piloting skill effect: lessens tolls, raises Knight speed and gunnery (x" + s.skillEffect.ToString("F1") + ", 0 = no effect)");
-            s.skillEffect = l.Slider(s.skillEffect, 0f, 3f);
-            l.Gap();
-            l.Label("Piloting training speed: squire training, mentoring, driving and combat (x" + s.trainingMult.ToString("F1") + ")");
-            s.trainingMult = l.Slider(s.trainingMult, 0.1f, 5f);
-            l.Gap();
-            l.GapLine();
-            l.Label("Weapon position adjustments (art alignment helper)");
-            l.CheckboxLabeled("Show the \"Align weapons\" button on every Knight (nudge positions and pivots in game, hide weapons, save to a file)", ref s.alignHelper);
-            if (s.alignHelper)
-            {
-                l.CheckboxLabeled("   Tint weapons orange and the body-cover layers cyan (weapon colour needs a game restart)", ref s.alignTint);
-                l.CheckboxLabeled("   Draw a green cross on each weapon's turning point", ref s.alignCross);
-            }
-            l.Gap();
-            l.CheckboxLabeled("Stomp: a running Knight stamps on enemies that come right up to it (and crushes any under it)", ref s.stomp);
-            l.Label("Weapon flash and glow: " + (s.fxGlow * 100f).ToString("F0") + "% (the glare of Knight weapon shots and hits; smoke, debris and shockwaves are unaffected)");
-            s.fxGlow = Mathf.Round(l.Slider(s.fxGlow, 0f, 1f) * 20f) / 20f;
-            l.Label("Weapon part glow: " + (s.weaponGlow * 100f).ToString("F0") + "% (plasma coils, volkite cells and other painted energy parts)");
-            s.weaponGlow = Mathf.Round(l.Slider(s.weaponGlow, 0f, 1f) * 20f) / 20f;
-            l.CheckboxLabeled("Energy weapons light up the ground around their Knight (steady glow, flash when firing)", ref s.weaponLight);
-            l.CheckboxLabeled("Friendly fire: Knight weapons, blasts and stomps can hurt your own colonists, Knights, buildings and allies", ref s.friendlyFire);
-            l.CheckboxLabeled("Neural strain OFF (temporary, until it is reworked): no strain or feedback shock, and existing strain is cleared", ref s.strainPaused);
-            l.CheckboxLabeled("Drop-zone warfare: an enemy base hit by an orbital drop sends waves of reinforcements", ref s.dropWar);
+
+            Header(l, "Combat");
+            l.CheckboxLabeled("Stomp", ref s.stomp, "A running Knight stamps on enemies that come right up to it, and crushes any under it.");
+            l.CheckboxLabeled("Friendly fire", ref s.friendlyFire, "Knight weapons, blasts and stomps can hurt your own colonists, Knights, buildings and allies.");
+            l.CheckboxLabeled("Drop-zone warfare", ref s.dropWar, "An enemy base hit by an orbital drop sends waves of reinforcements.");
             if (s.dropWar)
             {
-                l.Label("   Number of waves (x" + s.dropWarWaves.ToString("F2") + "; x1 = Questoris 3, Cerastus/Dominus/Acastus 4)");
-                s.dropWarWaves = Mathf.Round(l.Slider(s.dropWarWaves, 0.25f, 4f) * 4f) / 4f;
-                l.Label("   Wave strength (x" + s.dropWarStrength.ToString("F2") + "; each wave is 35% heavier than the last)");
-                s.dropWarStrength = Mathf.Round(l.Slider(s.dropWarStrength, 0.25f, 5f) * 4f) / 4f;
+                s.dropWarWaves = Slide(l, "   Waves", "x" + s.dropWarWaves.ToString("0.00"), s.dropWarWaves, 0.25f, 4f, "Number of waves. x1 = 3 for a Questoris, 4 for a Cerastus, Dominus or Acastus.", 4f);
+                s.dropWarStrength = Slide(l, "   Wave strength", "x" + s.dropWarStrength.ToString("0.00"), s.dropWarStrength, 0.25f, 5f, "Size of each wave. Every wave is 35% heavier than the one before.", 4f);
             }
-            l.CheckboxLabeled("TRIAL: Questoris / Dominus top weapons change picture with where they AIM (off = with where the Knight faces)", ref s.aimPictures);
-            l.CheckboxLabeled("Turrets with 3D aim pictures (Dominus top guns): also tilt the picture between steps (off = clean steps only)", ref s.aimTurnBetween);
-            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.testImmortal = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.weaponGlow = 0.7f; s.weaponLight = true; }
+
+            Header(l, "Visuals");
+            s.fxGlow = Slide(l, "Shot and hit glare", Pct(s.fxGlow), s.fxGlow, 0f, 1f, "Glare of Knight weapon shots and hits. Smoke, debris and shockwaves are not affected.", 20f);
+            s.weaponGlow = Slide(l, "Weapon part glow", Pct(s.weaponGlow), s.weaponGlow, 0f, 1f, "Glow of plasma coils, volkite cells and other energy parts on the weapons.", 20f);
+            l.CheckboxLabeled("Energy weapons light the ground", ref s.weaponLight, "A steady glow around the Knight, and a flash when it fires.");
+            l.CheckboxLabeled("Top guns turn to aim", ref s.aimPictures, "Questoris and Dominus top weapons show the picture for where they aim (off = where the Knight faces).");
+            l.CheckboxLabeled("Smooth aim between steps", ref s.aimTurnBetween, "Guns with 3D aim pictures also tilt the picture between steps (off = clean steps only).");
+
+            if (Prefs.DevMode)      // art alignment helper: modding tool, only shown in Dev mode (2026-11-23)
+            {
+                Header(l, "Dev: weapon alignment");
+                l.CheckboxLabeled("\"Align weapons\" button on Knights", ref s.alignHelper, "Nudge weapon positions and turning points in game, hide weapons, save to a file.");
+                if (s.alignHelper)
+                {
+                    l.CheckboxLabeled("   Tint weapons and body layers", ref s.alignTint, "Weapons orange, body-cover layers cyan. Weapon colour needs a game restart.");
+                    l.CheckboxLabeled("   Cross on turning points", ref s.alignCross);
+                }
+            }
+            l.Gap(12f);
+            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.friendlyFire = false; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.weaponGlow = 0.7f; s.weaponLight = true; }
+            float rightH = l.CurHeight;
             l.End();
+            Widgets.EndScrollView();
+            settingsHeight = Mathf.Max(leftH, rightH) + 20f;      // the scroll area follows the taller column
         }
     }
 

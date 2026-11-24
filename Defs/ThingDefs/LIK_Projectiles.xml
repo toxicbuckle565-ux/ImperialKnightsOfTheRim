@@ -430,7 +430,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
-		<defName>LIK_Proj_ironstorm16</defName>
+		<defName>LIK_Proj_ironstormSixteen</defName>
 		<label>Acastus Ironstorm missile shot</label>
 		<thingClass>LIK.Projectile_KnightShell</thingClass>
 		<altitudeLayer>Silhouettes</altitudeLayer>

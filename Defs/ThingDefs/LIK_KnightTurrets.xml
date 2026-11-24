@@ -4334,7 +4334,7 @@
 		</modExtensions>
 		<!-- firing sound: LIK.DefModExtension_ShotSound above (Tools/weapon_sounds.py). Reload sound: Tools/gen_knight_sounds.py. -->
 		<reloadSound>LIK_Snd_reload</reloadSound>
-		<projectile>LIK_Proj_ironstorm16</projectile>
+		<projectile>LIK_Proj_ironstormSixteen</projectile>
 		<reloadTimer>4</reloadTimer>
 		<warmUpTimer>1.5</warmUpTimer>
 		<magazineCapacity>16</magazineCapacity>

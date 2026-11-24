@@ -16,7 +16,7 @@ namespace LIK
     public static class Patch_MissileFacing
     {
         // hull-fixed launchers are recognised by what they fire
-        static readonly HashSet<string> launcherProjectiles = new HashSet<string> { "LIK_Proj_missile", "LIK_Proj_ironstorm16", "LIK_Proj_stormspear", "LIK_Proj_helios", "LIK_Proj_shieldbreaker" };
+        static readonly HashSet<string> launcherProjectiles = new HashSet<string> { "LIK_Proj_missile", "LIK_Proj_ironstormSixteen", "LIK_Proj_stormspear", "LIK_Proj_helios", "LIK_Proj_shieldbreaker" };
 
         static int lastStowedMessage = -9999;
 
