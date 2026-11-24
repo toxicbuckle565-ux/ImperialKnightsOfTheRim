@@ -15,6 +15,10 @@ They are also used on the [Steam Workshop page](https://steamcommunity.com/share
 ![Dominus arsenal](07_arsenal_dominus.png)
 ![Acastus arsenal](08_arsenal_acastus.png)
 
+## Requirements and FAQ
+
+![Requirements and FAQ](09_requirements_faq.png)
+
 ## Roadmap
 
-![Roadmap](09_roadmap.png)
+![Roadmap](10_roadmap.png)
