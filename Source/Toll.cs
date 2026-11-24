@@ -36,6 +36,7 @@ namespace LIK
         public bool stomp = true;           // Knights stomp hostile pawns that come close (Stomp.cs)
         public float weaponGlow = 0.7f;     // 2026-11-23: glow of painted energy parts (plasma coils, volkite cells) - Source/WeaponGlow.cs
         public bool weaponLight = true;     // 2026-11-23: energy weapons light up the ground around their Knight (steady + flash when firing)
+        public float smokeAmount = 0.5f;   // user 2026-11-23: battle smoke and dust (Source/GlowGuard.cs), 100 % = unlimited
         public float fxGlow = 0.35f;       // user 2026-11-22: weapon impact glow strength (1 = the old full glare that hid the fight)
         public bool friendlyFire = false;   // user 2026-11-13: off = Knight weapons, blasts and stomps never hurt anything friendly (KnightCombat.cs)
         public bool strainPaused = true;    // user 2026-11-13: TEMPORARY - neural strain switched off (and cleared) until it is reworked
@@ -67,6 +68,7 @@ namespace LIK
             Scribe_Values.Look(ref stomp, "stomp", true);
             Scribe_Values.Look(ref friendlyFire, "friendlyFire", false);
             Scribe_Values.Look(ref fxGlow, "fxGlow", 0.35f);
+            Scribe_Values.Look(ref smokeAmount, "smokeAmount", 0.5f);
             Scribe_Values.Look(ref weaponGlow, "weaponGlow", 0.7f);
             Scribe_Values.Look(ref weaponLight, "weaponLight", true);
             Scribe_Values.Look(ref strainPaused, "strainPaused", true);
@@ -180,6 +182,7 @@ namespace LIK
 
             Header(l, "Visuals");
             s.fxGlow = Slide(l, "Shot and hit glare", Pct(s.fxGlow), s.fxGlow, 0f, 1f, "Glare of Knight weapon shots and hits. Smoke, debris and shockwaves are not affected.", 20f);
+            s.smokeAmount = Slide(l, "Battle smoke", Pct(s.smokeAmount), s.smokeAmount, 0f, 1f, "How much smoke and dust piles up where the fighting is. Lower it to keep the battlefield visible. 100% = no limit.", 20f);
             s.weaponGlow = Slide(l, "Weapon part glow", Pct(s.weaponGlow), s.weaponGlow, 0f, 1f, "Glow of plasma coils, volkite cells and other energy parts on the weapons.", 20f);
             l.CheckboxLabeled("Energy weapons light the ground", ref s.weaponLight, "A steady glow around the Knight, and a flash when it fires.");
             l.CheckboxLabeled("Top guns turn to aim", ref s.aimPictures, "Questoris and Dominus top weapons show the picture for where they aim (off = where the Knight faces).");
@@ -196,7 +199,7 @@ namespace LIK
                 }
             }
             l.Gap(12f);
-            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.friendlyFire = false; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.weaponGlow = 0.7f; s.weaponLight = true; }
+            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.friendlyFire = false; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.smokeAmount = 0.5f; s.weaponGlow = 0.7f; s.weaponLight = true; }
             float rightH = l.CurHeight;
             l.End();
             Widgets.EndScrollView();

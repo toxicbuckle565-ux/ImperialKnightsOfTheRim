@@ -27,11 +27,42 @@ namespace LIK
         struct Recent { public Vector3 pos; public float size; public int tick; }
         static readonly Dictionary<int, List<Recent>> byMap = new Dictionary<int, List<Recent>>();
 
+        // user 2026-11-23 'the smoke seems unaffected': smoke and dust stack up into an opaque cloud the same way - limited by the 'Battle smoke' setting
+        static readonly HashSet<string> Smokes = new HashSet<string> { "Smoke", "DustPuffThick", "DustPuff", "LIK_TrailSmokeHigh", "LIK_ChargeDust", "AirPuff" };
+        const int SmokeWindow = 120;                 // smoke lingers: count it over two seconds
+        static readonly Dictionary<int, List<Recent>> smokeByMap = new Dictionary<int, List<Recent>>();
+
+        static bool Smoke(Map map, ref FleckCreationData d)
+        {
+            float amount = Mathf.Clamp01(LIKMod.I.smokeAmount);
+            if (amount >= 0.99f) return true;
+            if (amount <= 0.01f) return false;
+            int now = Find.TickManager.TicksGame;
+            if (!smokeByMap.TryGetValue(map.uniqueID, out List<Recent> list)) smokeByMap[map.uniqueID] = list = new List<Recent>();
+            list.RemoveAll(r => now - r.tick > SmokeWindow || now < r.tick);
+            Vector3 p = d.spawnPosition; float crowd = 0f;
+            foreach (Recent r in list)
+            {
+                float dx = r.pos.x - p.x, dz = r.pos.z - p.z;
+                if (dx * dx + dz * dz < 16f) crowd += r.size;            // 4-cell radius
+            }
+            float budget = Mathf.Lerp(3f, 40f, amount * amount);         // smoke size allowed on one area per two seconds (50 % -> ~12)
+            float size = d.exactScale.HasValue ? Mathf.Max(d.exactScale.Value.x, d.exactScale.Value.z) : d.scale;
+            if (size <= 0f) return true;
+            if (crowd + size * 0.5f > budget) return false;               // already smoky here
+            float k = Mathf.Lerp(0.6f, 1f, amount);                       // thinner puffs below 100 %
+            d.scale *= k; if (d.exactScale.HasValue) d.exactScale = d.exactScale.Value * k;
+            if (list.Count < 600) list.Add(new Recent { pos = p, size = size * k, tick = now });
+            return true;
+        }
+
         static bool Prefix(FleckManager __instance, ref FleckCreationData fleckData)
         {
             FleckDef def = fleckData.def;
             Map map = __instance?.parent;
-            if (def == null || map == null || GlowFx.Full > 0 || !Bright.Contains(def.defName) || Find.TickManager == null) return true;
+            if (def == null || map == null || Find.TickManager == null) return true;
+            if (Smokes.Contains(def.defName)) return Smoke(map, ref fleckData);
+            if (GlowFx.Full > 0 || !Bright.Contains(def.defName)) return true;
             float g = GlowFx.G;
             if (g >= 0.99f) return true;                                   // full glare: no guard
             float size = fleckData.exactScale.HasValue ? Mathf.Max(fleckData.exactScale.Value.x, fleckData.exactScale.Value.z) : fleckData.scale;
