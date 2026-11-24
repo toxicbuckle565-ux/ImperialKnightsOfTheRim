@@ -642,7 +642,7 @@ namespace LIK
             }
             if (s != "graviton")
             {
-                Scorch(cell, map, p, Mathf.Clamp(r, 0.9f, 3.9f));
+                // no ash on plain impacts (user 2026-11-23: plasma hits covered the field in white 'extinguisher powder')
                 if (p >= 1.2f) MapComponent_ShotFx.Add(map, pos, s, p, r, Mathf.RoundToInt(120f + 150f * p));
             }
             if (Energy(s) && s != "lightning") HotGround(pos, map, 3f + r * 2f + 1.5f * p);
@@ -694,7 +694,7 @@ namespace LIK
                     if (p >= 1f) FleckMaker.ThrowSmoke(pos, map, 0.4f + 0.3f * p);
                 }
             }
-            if (Energy(s) && p >= 1f) { Scorch(pos.ToIntVec3(), map, p * 0.6f, 0.9f); if (s != "lightning") HotGround(pos, map, 2.5f + 2f * p); Shake(pos, map, 1.5f * p); }
+            if (Energy(s) && p >= 1f) { if (s != "lightning") HotGround(pos, map, 2.5f + 2f * p); Shake(pos, map, 1.5f * p); }
         }
 
         /// <summary>A las beam burning through an obstacle: molten glow, sparks, smoke; 'stopped' = the beam ended here.</summary>
@@ -711,7 +711,6 @@ namespace LIK
                 FleckMaker.ThrowSmoke(pos, map, 0.8f + 0.4f * p);
                 if (stopped) Stat(pos, map, "SparkFlash", 4f + 3f * p);
             }
-            Scorch(cell, map, 0.7f, 0.9f);
             HotGround(pos, map, 3f + 1.2f * p);
             MapComponent_ShotFx.Add(map, pos, "melta", Mathf.Min(p, 1.2f), 0.6f, 150);
         }
@@ -721,7 +720,7 @@ namespace LIK
             if (p < 0.6f) return;
             if (!ashLooked) { ashLooked = true; ash = DefDatabase<ThingDef>.GetNamedSilentFail("Filth_Ash"); }
             if (ash == null) return;
-            int n = Mathf.RoundToInt(p * 3f);
+            int n = Rand.Chance(Mathf.Min(1f, p * 0.35f)) ? 1 : 0;      // flame streams only: a light dusting of ash, not piles (2026-11-23)
             for (int i = 0; i < n; i++)
             {
                 IntVec3 c = cell + GenRadial.RadialPattern[Rand.Range(0, GenRadial.NumCellsInRadius(radius))];
