@@ -67,8 +67,13 @@ namespace LIK
             style.fontStyle = bold ? FontStyle.Bold : FontStyle.Normal;
             style.alignment = a;
             style.wordWrap = wrap;
-            style.normal.textColor = c;
+            // 2026-11-23: RimWorld 1.7 (Waylith) ignores GUIStyle.normal.textColor - every cogitator label came out white. Tint through
+            // GUI.color instead (what vanilla RimWorld does; works on 1.6 and 1.7): white text x colour = colour.
+            style.normal.textColor = Color.white;
+            Color old = GUI.color;
+            GUI.color = new Color(c.r * old.r, c.g * old.g, c.b * old.b, c.a * old.a);
             GUI.Label(r, s, style);
+            GUI.color = old;
         }
 
         public static float Width(string s, int size, bool heading = false)

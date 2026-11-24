@@ -22,6 +22,7 @@ namespace LIK
         public SoundDef horn;            // war horn
     }
 
+    [StaticConstructorOnStartup]
     public static class KnightSound
     {
         public const int HornCooldownTicks = 480;   // 8 s: about the length of the longest horn

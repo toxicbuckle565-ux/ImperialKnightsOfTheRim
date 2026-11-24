@@ -24,6 +24,7 @@ namespace LIK
         }
     }
 
+    [StaticConstructorOnStartup]
     public static class RangeShadow
     {
         static Mesh mesh;

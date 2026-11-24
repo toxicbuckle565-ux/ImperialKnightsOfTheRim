@@ -1,6 +1,6 @@
 # Imperial Knights of the Rim
 
-A RimWorld 1.6 mod: pilot towering Imperial Knights across the Rim.
+A RimWorld 1.6 / 1.7 (beta) mod: pilot towering Imperial Knights across the Rim.
 
 **Steam Workshop:** https://steamcommunity.com/sharedfiles/filedetails/?id=3844956726
 
@@ -29,7 +29,7 @@ Five Knight classes, each with its own weapons, armour and hangar:
 
 ## Requirements
 
-- RimWorld 1.6
+- RimWorld 1.6, or the 1.7 unstable beta
 - [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)
 - [Vehicle Framework](https://steamcommunity.com/sharedfiles/filedetails/?id=3014915404)
 

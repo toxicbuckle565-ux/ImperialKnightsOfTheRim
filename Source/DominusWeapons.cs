@@ -186,6 +186,7 @@ namespace LIK
     /// Thundercoil harpoon chain (visual): while the spear flies a chain runs from the arm to it; after the hit the spear is reeled back along it.
     /// Drawn every frame, follows the Knight. Not saved (it lasts about a second).
     /// </summary>
+    [StaticConstructorOnStartup]
     public class MapComponent_HarpoonTether : MapComponent
     {
         const int HoldTicks = 12, ReelTicks = 40;

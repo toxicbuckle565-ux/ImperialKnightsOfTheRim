@@ -13,18 +13,13 @@
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <PropertyGroup>
-    <Managed>C:/Program Files (x86)/Steam/steamapps/common/RimWorld/RimWorldWin64_Data/Managed/</Managed>
     <Workshop>C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/</Workshop>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" />
-    <Reference Include="Assembly-CSharp"><HintPath>$(Managed)Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.AudioModule"><HintPath>$(Managed)UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(Managed)UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(Managed)UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(Managed)UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(Managed)UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- 2026-11-23: game installs on 1.7 have no Managed/ folder; build against the 1.6 reference package. The same DLL runs on 1.6 and,
+         through Waylith's UnityEngine->UnityStubs redirect, on 1.7 -->
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" ExcludeAssets="runtime" PrivateAssets="all" />
     <Reference Include="0Harmony"><HintPath>$(Workshop)2009463077/1.6/Assemblies/0Harmony.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="SmashTools"><HintPath>$(Workshop)3014915404/1.6/Assemblies/SmashTools.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="Vehicles"><HintPath>$(Workshop)3014915404/1.6/Assemblies/Vehicles.dll</HintPath><Private>false</Private></Reference>

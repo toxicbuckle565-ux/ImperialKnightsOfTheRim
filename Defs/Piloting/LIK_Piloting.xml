@@ -12,7 +12,7 @@
 		<description>Piloting an Imperial Knight through its neural link. Skilled pilots strain less, age less, feel less feedback, run their Knight faster and aim better. Each Knight class needs a minimum level. Learned as a squire under a Knight Preceptor at the Knight hangar, by piloting and by fighting. Without the Ritual of Becoming it stops at level 7 - enough for the Helm Mechanicum of an Armiger, not for a Throne. Everyone starts at zero.</description>
 		<pawnCreatorSummaryVisible>true</pawnCreatorSummaryVisible>
 		<neverDisabledBasedOnWorkTypes>true</neverDisabledBasedOnWorkTypes>
-		<listOrder>125</listOrder>
+		<listOrder>5</listOrder>		<!-- 2026-11-23: last, below Intellectual (10). Was 125 = above Shooting: shifted every vanilla skill row down and broke Character Editor, which places its buttons by the vanilla row order -->
 		<generalRules>
 			<rulesStrings>
 				<li>subject->piloting</li>

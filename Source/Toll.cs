@@ -508,7 +508,17 @@ namespace LIK
     {
         static LIKStartup()
         {
-            new Harmony("local.imperialknights").PatchAll();
+            // 2026-11-23 (RimWorld 1.7): PatchAll stops at the first patch whose target is missing, which left most of the mod unpatched when
+            // Vehicle Framework 1.7 changed a method. Each patch class is now applied on its own; one that no longer fits is skipped with a warning.
+            var harmony = new Harmony("local.imperialknights");
+            var failed = new System.Collections.Generic.List<string>();
+            foreach (System.Type t in AccessTools.GetTypesFromAssembly(typeof(LIKStartup).Assembly))
+            {
+                if (!t.IsDefined(typeof(HarmonyPatch), false)) continue;
+                try { harmony.CreateClassProcessor(t).Patch(); }
+                catch (System.Exception e) { failed.Add(t.Name + " (" + (e.InnerException ?? e).Message + ")"); }
+            }
+            if (failed.Count > 0) Log.Warning("[LIK] " + failed.Count + " patch(es) skipped (game or Vehicle Framework version differs): " + string.Join("; ", failed));
         }
     }
 }

@@ -404,6 +404,8 @@ namespace LIK
         static string text;
 
         static System.Reflection.MethodBase TargetMethod() { return AccessTools.Method(typeof(VehiclePathFollower), "GeneratePath"); }
+        // Vehicle Framework 1.7 rewrote its pathfinding: no GeneratePath -> skip this cosmetic patch (the message is just not hidden)
+        static bool Prepare() { return TargetMethod() != null; }
 
         static void Prefix(VehiclePathFollower __instance)
         {

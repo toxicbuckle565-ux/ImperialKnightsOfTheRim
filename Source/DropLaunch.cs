@@ -225,6 +225,7 @@ namespace LIK
 
     /// <summary>One picture of the whole Knight (body, paint, weapons, stickers) rendered off-screen by a hidden camera, so the falling Knight
     /// can be scaled and faded - Vehicle Framework draws a Knight at a fixed size only.</summary>
+    [StaticConstructorOnStartup]
     public static class KnightSnapshot
     {
         public static readonly MaterialPropertyBlock Mpb = new MaterialPropertyBlock();
