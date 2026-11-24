@@ -1,6 +1,6 @@
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/01_intro.png[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/02_knights.png[/img]
-[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/03_buildings.png[/img]
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/03_buildings.gif[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/04_arsenal_armiger.png[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/05_arsenal_questoris.png[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/06_arsenal_cerastus.png[/img]

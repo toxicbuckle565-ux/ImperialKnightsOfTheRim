@@ -5,7 +5,7 @@ They are also used on the [Steam Workshop page](https://steamcommunity.com/share
 
 ![Intro](01_intro.png)
 ![The Knights](02_knights.png)
-![Buildings](03_buildings.png)
+![Buildings](03_buildings.gif)
 
 ## Arsenals
 
