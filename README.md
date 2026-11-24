@@ -4,6 +4,11 @@ A RimWorld 1.6 mod: pilot towering Imperial Knights across the Rim.
 
 **Steam Workshop:** https://steamcommunity.com/sharedfiles/filedetails/?id=3844956726
 
+![Imperial Knights of the Rim](docs/infographics/01_intro.png)
+![The Knights](docs/infographics/02_knights.png)
+
+**Every weapon, the buildings and the roadmap:** see [docs/infographics](docs/infographics/README.md).
+
 Five Knight classes, each with its own weapons, armour and hangar:
 
 - **Armiger** - the fast, light hunter of the household
