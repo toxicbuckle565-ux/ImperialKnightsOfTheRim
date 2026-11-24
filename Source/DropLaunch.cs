@@ -231,6 +231,7 @@ namespace LIK
         static Camera cam;
         const float PxPerCell = 64f;
         static readonly Vector3 Away = new Vector3(-5000f, 0f, -5000f);   // far outside every map: the main camera never sees it
+        static int shots;                                                 // each picture gets its own spot (see Take)
 
         public static RenderTexture Take(VehiclePawn v, out float sizeCells)
         {
@@ -256,10 +257,14 @@ namespace LIK
                     cam.nearClipPlane = 0.1f; cam.farClipPlane = 200f;
                 }
                 float alt = AltitudeLayer.PawnState.AltitudeFor();
-                cam.transform.position = new Vector3(Away.x, alt + 50f, Away.z);
+                // bug 2026-11-23 (group drop: every Knight fell as an Acastus): Graphics.DrawMesh calls stay queued until the frame ends, so
+                // Knights pictured in the same frame at the same spot all showed up in every picture, the biggest on top. Each picture now
+                // gets its own spot, far enough apart that the camera only sees one Knight.
+                Vector3 spot = Away + new Vector3((shots++ % 64) * 100f, 0f, 0f);
+                cam.transform.position = new Vector3(spot.x, alt + 50f, spot.z);
                 cam.orthographicSize = sizeCells / 2f;
                 cam.targetTexture = rt;
-                OrbitalDropDraw.DrawKnight(v, Away, alt);
+                OrbitalDropDraw.DrawKnight(v, spot, alt);
                 cam.Render();
                 cam.targetTexture = null;
                 if (IsEmpty(rt))
