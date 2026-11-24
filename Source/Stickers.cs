@@ -953,6 +953,9 @@ namespace LIK
             if (layer == 192) return 0.0006f;
             // Armiger (2026-11-17): its pauldrons are part of the body picture (no pad overlay, no hull) - pad stickers sit with the body, under the arm guns
             if (layer == 128 && cls?.defName != null && cls.defName.Contains("Armiger")) return 0.003f;
+            // a separate pauldron overlay (Acastus) is drawn high above the body: pad stickers must go over it, even though the class also has
+            // a hull overlay (bug 2026-11-23: Acastus pad stickers hidden under its pauldrons since its hull was added)
+            if (layer == 128 && cls != null && cls.pauldron != null) return 0.0505f;
             if (layer == 128) return cls != null && cls.hull != null ? 0.0029f : 0.0505f;
             return 0.003f;
         }
