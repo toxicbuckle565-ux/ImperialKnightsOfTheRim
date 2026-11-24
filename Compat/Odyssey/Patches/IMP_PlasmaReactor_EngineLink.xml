@@ -5,7 +5,9 @@
 -->
 <Patch>
 	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<!-- 2026-11-23: every grav engine, not just the vanilla one - Vanilla Gravship Expanded adds VGE_GravjumperEngine and VGE_GravhulkEngine
+		     (thingClass Building_GravEngine); without this the reactor could not link to them -->
+		<xpath>Defs/ThingDef[defName="GravEngine" or thingClass="Building_GravEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
 		<value>
 			<li>IMP_PlasmaReactor</li>
 		</value>
