@@ -698,7 +698,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_autocannon</defName>
 		<label>Armiger autocannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Long-range rapid fire that shreds light vehicles and infantry. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_autocannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -722,7 +722,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_thermalspear</defName>
 		<label>Armiger thermal spear</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Short-ranged melta beam that turns armour to slag. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_thermalspear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -746,7 +746,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_chaincleaver</defName>
 		<label>Armiger reaper chain-cleaver</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A huge chain-blade that sweeps through crowds of infantry. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_chaincleaver</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -770,7 +770,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_stubber</defName>
 		<label>Armiger heavy stubber</label>
-		<description>A Knight-scale weapon (carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A machine gun that keeps infantry at bay. Knight weapon (carapace), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_stubber</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -794,7 +794,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_meltagun</defName>
 		<label>Armiger meltagun</label>
-		<description>A Knight-scale weapon (carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A compact melta for close anti-armour work. Knight weapon (carapace), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_meltagun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -818,7 +818,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_battlecannon</defName>
 		<label>Questoris rapid-fire battle cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Heavy shells at long range, fired in quick pairs. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_battlecannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -842,7 +842,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_thermal</defName>
 		<label>Questoris thermal cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A melta cannon that burns through the heaviest armour. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_thermal</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -866,7 +866,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_gatling</defName>
 		<label>Questoris avenger gatling cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A roaring storm of shells against anything in range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gatling</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -890,7 +890,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_chainsword</defName>
 		<label>Questoris reaper chainsword</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Cleaves through tanks and sweeps aside infantry. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_chainsword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -914,7 +914,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_gauntlet</defName>
 		<label>Questoris thunderstrike gauntlet</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A power-field fist that tears tanks apart. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gauntlet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -938,7 +938,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_stubber</defName>
 		<label>Questoris heavy stubber</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A machine gun that keeps infantry at bay. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_stubber</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -962,7 +962,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_icarus</defName>
 		<label>Questoris twin Icarus autocannon</label>
-		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Twin autocannon built to bring down aircraft. Knight weapon (top carapace), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_icarus</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -986,7 +986,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_missilepod</defName>
 		<label>Questoris ironstorm missile pod</label>
-		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Volleys of Ironstorm missiles. Knight weapon (top carapace), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_missilepod</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1010,7 +1010,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_stormspear</defName>
 		<label>Questoris stormspear rocket pod</label>
-		<description>A Knight-scale weapon (top carapace), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A rocket pod that punches into armour. Knight weapon (top carapace), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_stormspear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1034,7 +1034,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_meltagun</defName>
 		<label>Questoris meltagun</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Close-range melta for anti-armour work. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_meltagun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1058,7 +1058,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_conflag</defName>
 		<label>Dominus conflagration cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Washes whole lines of enemies in fire. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_conflag</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1082,7 +1082,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_decimator</defName>
 		<label>Dominus plasma decimator</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>Huge bursts of plasma at long range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_decimator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1106,7 +1106,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_volcano</defName>
 		<label>Dominus volcano lance</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>A titan-killing laser that cuts through anything. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_volcano</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1130,7 +1130,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_harpoon</defName>
 		<label>Dominus thundercoil harpoon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>Skewers and wrecks the heaviest vehicles. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_harpoon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1154,7 +1154,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_shieldbreaker</defName>
 		<label>Dominus shieldbreaker missile launcher</label>
-		<description>A Knight-scale weapon (top missile mount / shoulder turret), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Missiles that break shields and armour. Knight weapon (top missile mount / shoulder turret), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_shieldbreaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1178,7 +1178,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_siegebreaker</defName>
 		<label>Dominus twin siegebreaker cannon</label>
-		<description>A Knight-scale weapon (top missile mount / shoulder turret), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Twin cannons that lob shells over walls. Knight weapon (top missile mount / shoulder turret), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_siegebreaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1202,7 +1202,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_dominus_twinmelta</defName>
 		<label>Dominus twin meltagun</label>
-		<description>A Knight-scale weapon (head gun), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Twin meltaguns for close-in defence. Knight weapon (head gun), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_twinmelta</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1226,7 +1226,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_graviton</defName>
 		<label>Armiger graviton pulsar</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>Crushes targets under their own weight - brutal on armour. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_graviton</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1250,7 +1250,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_veuglaire</defName>
 		<label>Armiger volkite veuglaire</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Ancient volkite beams that burn targets from within. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_veuglaire</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1274,7 +1274,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_lightninglock</defName>
 		<label>Armiger lightning lock</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Rapid las-volleys from the Moirax pattern. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_lightninglock</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1298,7 +1298,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_conversionbeam</defName>
 		<label>Armiger conversion beam cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>Hits harder the farther away its target stands. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_conversionbeam</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1322,7 +1322,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_armiger_siegeclaw</defName>
 		<label>Armiger siege claw and rad cleanser</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Crushes walls and armour; the rad cleanser purges infantry. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_siegeclaw</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1346,7 +1346,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_lightningcannon</defName>
 		<label>Questoris lightning cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A high-powered las-cannon of the Moirax line. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_lightningcannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1370,7 +1370,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_fusil</defName>
 		<label>Questoris phased plasma-fusil</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>Phased plasma bolts at medium range. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_fusil</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1394,7 +1394,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_gravcrusher</defName>
 		<label>Questoris graviton crusher</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>A compact graviton gun that crushes armour. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gravcrusher</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1418,7 +1418,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_chierovile</defName>
 		<label>Questoris volkite chierovile</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Volkite heat rays that burn targets from within. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_chierovile</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1442,7 +1442,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_hekaton</defName>
 		<label>Questoris hekaton siege claw and rad cleanser</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>Siege claw for walls and hulls; rad cleanser for infantry. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_hekaton</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1466,7 +1466,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_lasimpulsor</defName>
 		<label>Questoris las-impulsor</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
+		<description>Pulsing las-blasts that overwhelm infantry and light armour. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 1 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_lasimpulsor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1490,7 +1490,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_multilaser</defName>
 		<label>Questoris multi-laser</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Rapid las-fire against infantry and light vehicles. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_multilaser</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1514,7 +1514,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_executor</defName>
 		<label>Questoris plasma executor</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>Heavy plasma bolts that melt through armour. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_executor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1538,7 +1538,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_obliterator</defName>
 		<label>Questoris conversion beam obliterator</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>A huge conversion beam - deadlier the farther the target. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_obliterator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1562,7 +1562,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_questoris_phosphor</defName>
 		<label>Questoris phosphor blaster</label>
-		<description>A Knight-scale weapon (side mount (right of the head)), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Burning phosphor rounds. Knight weapon (side mount (right of the head)), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_phosphor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1586,7 +1586,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_acheronflame</defName>
 		<label>Cerastus acheron flame cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A flame cannon that floods an area with fire. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_acheronflame</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1610,7 +1610,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_chainfist</defName>
 		<label>Cerastus reaper chainfist and twin heavy bolter</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Chainfist in melee, twin heavy bolter at range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_chainfist</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1634,7 +1634,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_lascutter</defName>
 		<label>Cerastus atrapos lascutter</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>Cuts apart armour up close, with a long cutter beam at range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_lascutter</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1658,7 +1658,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_singularity</defName>
 		<label>Cerastus graviton singularity cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
+		<description>Collapses targets under crushing gravity. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 2 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_singularity</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1682,7 +1682,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_boltcannon</defName>
 		<label>Cerastus castigator bolt cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A hail of mass-reactive shells from twin barrels. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_boltcannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1706,7 +1706,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_warblade</defName>
 		<label>Cerastus tempest warblade</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>A giant power sword that cuts through ranks. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_warblade</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1730,7 +1730,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_shocklance</defName>
 		<label>Cerastus shock lance</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Stuns and hurls back its target; fires a plasma blast at range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_shocklance</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1754,7 +1754,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_cerastus_iongauntlet</defName>
 		<label>Cerastus ion gauntlet shield</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>An ion shield and power fist for close assault. Knight weapon (arm), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_iongauntlet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1778,7 +1778,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_magna</defName>
 		<label>Acastus twin magna lascannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
+		<description>Twin magna lascannons that kill the largest targets. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_magna</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1802,7 +1802,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_convbeam</defName>
 		<label>Acastus twin conversion beam cannon</label>
-		<description>A Knight-scale weapon (arm), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
+		<description>Twin conversion beams, strongest at long range. Knight weapon (arm), forged at the manufactorum and fitted at the hangar. A lost pattern: it can only be forged after 3 STC fragment(s) have been studied.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_convbeam</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1826,7 +1826,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_autocannon</defName>
 		<label>Acastus autocannon</label>
-		<description>A Knight-scale weapon (shoulder socket), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Autocannon for infantry and light vehicles. Knight weapon (shoulder socket), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_autocannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1850,7 +1850,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_lascannon</defName>
 		<label>Acastus lascannon</label>
-		<description>A Knight-scale weapon (shoulder socket), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Lascannon that punches through armour. Knight weapon (shoulder socket), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_lascannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1874,7 +1874,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_ironstorm</defName>
 		<label>Acastus Ironstorm missile launcher</label>
-		<description>A Knight-scale weapon (top launcher), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Heavy volleys of Ironstorm missiles. Knight weapon (top launcher), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_ironstorm</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1898,7 +1898,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_Weapon_acastus_helios</defName>
 		<label>Acastus helios defence missiles</label>
-		<description>A Knight-scale weapon (top launcher), forged at the Mechanicum manufactorum and fitted to a Knight at the hangar.</description>
+		<description>Defence missiles that knock drop pods out of the sky. Knight weapon (top launcher), forged at the manufactorum and fitted at the hangar.</description>
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_helios</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
