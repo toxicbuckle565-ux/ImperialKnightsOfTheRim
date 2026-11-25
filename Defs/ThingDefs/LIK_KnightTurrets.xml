@@ -4138,9 +4138,9 @@
 		</recoil>
 		<fireModes>
 			<li>
-				<shotsPerBurst>3</shotsPerBurst>
+				<shotsPerBurst>2</shotsPerBurst>
 				<ticksBetweenShots>6</ticksBetweenShots>
-				<ticksBetweenBursts>130</ticksBetweenBursts>
+				<ticksBetweenBursts>240</ticksBetweenBursts>
 				<label>Burst</label>
 				<texPath>UI/Gizmos/FireRate_Burst</texPath>
 			</li>
@@ -4156,7 +4156,7 @@
 		</graphicData>
 		<!-- energy weapon: no ammunition (reactor powered); it overheats instead -->
 		<cooldown>
-			<heatPerShot>12.59</heatPerShot>
+			<heatPerShot>31.64</heatPerShot>
 			<dissipationRate>0.22</dissipationRate>
 			<dissipationCapMultiplier>0.5</dissipationCapMultiplier>
 		</cooldown>

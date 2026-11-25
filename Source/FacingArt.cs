@@ -312,6 +312,9 @@ namespace LIK
         public static void Postfix(VehicleTurret __instance, ref TransformData transformData, ref PreRenderResults __result)
         {
             if (!__result.draw || __instance.def == null) return;
+            // Workshop bug report 2026-11-24 (Andersbot): other Vehicle Framework mods' turret graphics broke. This runs for EVERY VF turret;
+            // further down defName.Split('_')[2] threw on other mods' turret names (and "socket*" keys could hide their guns). Knights only.
+            if (!__instance.def.defName.StartsWith("LIK_Turret_")) return;
             if (AlignTool.HiddenKeys.Count > 0 && __instance.vehicle != null && __instance.key != null && AlignTool.IsHidden(__instance.vehicle, __instance.key.Split('_')[0])) { __result.draw = false; return; }
             Rot8 o = transformData.orientation;
             string side = o == Rot8.North ? "north" : o == Rot8.East ? "east" : o == Rot8.South ? "south" : o == Rot8.West ? "west" : null;

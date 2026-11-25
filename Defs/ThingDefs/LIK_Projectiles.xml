@@ -1733,6 +1733,9 @@
 				<growRange>180</growRange>
 				<conversionBands>true</conversionBands>
 				<whiteHot>true</whiteHot>
+				<convShortEnd>0.0833</convShortEnd>
+				<convLongStart>0.2222</convLongStart>
+				<convMult2>1.6</convMult2>
 				<twin>true</twin>
 			</li>
 		</modExtensions>

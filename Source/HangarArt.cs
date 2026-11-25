@@ -106,12 +106,33 @@ namespace LIK
             for (int i = 0; HangarArtData.Layers.ContainsKey("candles_" + i); i++)
             {
                 float fl = CandleFlicker.Value(h.thingIDNumber * 31 + i);
-                Quad(pic, "candles_" + i, floor + 0.016f, new Color(fl, fl, fl, fl));
+                Quad(pic, "candles_" + i, AltitudeLayer.PawnState.AltitudeFor() - 0.045f, new Color(fl, fl, fl, fl));   // above the overhang redraw (candles 4/5 sit on the gantry)
             }
             string ammo = h.AmmoLayer;
             if (ammo != null) Quad(pic, ammo, floor + 0.017f, Color.white);
             // catwalk above the Knight
             Quad(pic, "catwalk_" + h.CatwalkVariant, AltitudeLayer.MoteOverheadLow.AltitudeFor() - 0.01f, Color.white);
+            DrawOverhang(h, pic);
+        }
+
+        // Workshop report 2026-11-24 (RiqueGaming): "scaffolding/crane displays under grass". The building graphic is printed at
+        // FloorEmplacement, but its back part (gantry, cranes, pillars) hangs over cells OUTSIDE the 20x11 footprint where grass still
+        // grows, and LowPlant draws above FloorEmplacement. Redraw that strip above plants AND trees (trees draw on the Building layer; user screenshot 2026-11-24) - and over PAWNS too (user 2026-11-24: "pawns should show below the gantry"; the cells behind the hangar are behind it in this view). Just under PawnState: the docked Knight (drawn at PawnState) and the catwalk stay on top.
+        static Mesh overhangMesh;
+        static void DrawOverhang(Building_KnightHangar h, Vector3 pic)
+        {
+            float picBottom = pic.z - HangarArtData.DrawH / 2f;
+            float footTop = h.TrueCenter().z + h.def.size.z / 2f;
+            float v0 = Mathf.Clamp01((footTop - picBottom) / HangarArtData.DrawH);
+            if (v0 >= 0.999f) return;
+            if (overhangMesh == null)
+            {
+                overhangMesh = NewQuad();
+                overhangMesh.uv = new[] { new Vector2(0f, v0), new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(1f, v0) };
+            }
+            float hgt = HangarArtData.DrawH * (1f - v0);
+            Vector3 p = new Vector3(pic.x, AltitudeLayer.PawnState.AltitudeFor() - 0.05f, footTop + hgt / 2f);
+            Graphics.DrawMesh(overhangMesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(HangarArtData.DrawW, 1f, hgt)), h.Graphic.MatSingle, 0);
         }
     }
 

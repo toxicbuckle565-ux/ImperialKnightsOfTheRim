@@ -306,7 +306,7 @@ namespace LIK
             {
                 if (fx.supercharge > 1f) l.Add("SUPERCHARGE mode: x" + fx.supercharge.ToString("0.#") + " dmg - HAZARDOUS, 1 volley in 6 burns the Knight");
                 if (fx.pierce > 0f) l.Add("LAS BEAM: burns through cover to the target");
-                if (fx.vaporise > 0f) l.Add("VAPORISE: infantry struck are evaporated");
+                if (fx.vaporise > 0f) l.Add("VAPORISE: infantry struck are evaporated (Custodes and Space Marines only on a direct hit)");
                 if (fx.antiArmour > 1f) l.Add("ANTI-ARMOUR: x" + fx.antiArmour.ToString("0.#") + " vs war machines, buildings, monsters");
                 if (fx.ignoreCover) l.Add("TORRENT: never misses, cover does not stop it");
                 if (fx.arcRadius > 0f) l.Add("THUNDERSHOCK: arcs to foes within " + fx.arcRadius.ToString("0") + " cells");
@@ -319,6 +319,7 @@ namespace LIK
                 if (fx.braceMult > 1f) l.Add("BRACED: x" + fx.braceMult.ToString("0.#") + " fired standing still");
                 if (fx.gravField > 0f) l.Add("GRAVITON FIELD: crushes, worse on heavy armour");
                 if (fx.growRange > 0f || fx.conversionBands) l.Add("CONVERSION: stronger the farther the target");
+                if (fx.conversionBands) l.Add("BRACE TO FIRE: fizzles if fired on the move; blast grows with the armour or wall it hits");
                 if (fx.stream) l.Add("FLAME STREAM: sets the ground alight");
                 if (fx.braceRange > 1f) l.Add("ORDNANCE: x" + fx.braceRange.ToString("0.#") + " range standing still");
                 if (fx.deflagrate > 0f) l.Add("DEFLAGRATE: victims combust, burning those beside them");
@@ -668,7 +669,9 @@ namespace LIK
                 int burst = fm != null ? Mathf.Max(1, fm.shotsPerBurst.max) : 1;
                 float cyc = fm != null ? Mathf.Max(1f, fm.ticksBetweenBursts.max + fm.ticksBetweenShots * (burst - 1)) : 60f;
                 Bar(new Rect(x + 10f, y, 130f, 26f), "DAMAGE", dmg * burst / 400f, dmg + (burst > 1 ? " x" + burst : ""));
-                Bar(new Rect(x + 10f, y + 28f, 130f, 26f), "ARMOUR PEN", ap / 4f, ap.ToString("0.#"));
+                if (Patch_KnightDamageVsPawns.CEActive)       // CE patch (Compat/CombatExtended): penetration is in mm, up to ~1700
+                    Bar(new Rect(x + 10f, y + 28f, 130f, 26f), "ARMOUR PEN", ap / 1200f, ap.ToString("0") + " mm");
+                else Bar(new Rect(x + 10f, y + 28f, 130f, 26f), "ARMOUR PEN", ap / 4f, ap.ToString("0.#"));
                 Bar(new Rect(x + 10f, y + 56f, 130f, 26f), "RATE", burst * 600f / cyc / 30f, (burst * 600f / cyc).ToString("0.#") + "/10s");
                 // range ring
                 Vector2 rc = new Vector2(slate.xMax - 40f, y + 40f);

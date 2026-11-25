@@ -138,6 +138,45 @@ namespace LIK
 
         public MapComponent_KnightSeek(Map map) : base(map) { }
 
+        // user 2026-11-24: conversion beams must be fired standing still (lore: moving negates the beam - Projectile_KnightShell fizzles it),
+        // so Seek & destroy acknowledges them: when one starts charging, a Knight on Seek halts (only its own seek order is ended - a player
+        // order is never touched) and makes no new move until the burst is away.
+        readonly Dictionary<int, int> shotHold = new Dictionary<int, int>();
+
+        public static void HoldForShot(VehiclePawn v, int ticks)
+        {
+            if (v == null || !v.Spawned || v.Faction != Faction.OfPlayer) return;
+            GameComponent_Seek seek = GameComponent_Seek.Instance;
+            if (seek == null || !seek.Get(v)) return;
+            MapComponent_KnightSeek comp = v.Map.GetComponent<MapComponent_KnightSeek>();
+            if (comp == null) return;
+            int until = Find.TickManager.TicksGame + ticks;
+            int had; comp.shotHold.TryGetValue(v.thingIDNumber, out had);
+            comp.shotHold[v.thingIDNumber] = Mathf.Max(had, until);
+            comp.StopOwnOrder(v);
+            if (Prefs.DevMode) Log.Message("[LIK] seek & destroy: " + v.LabelShort + " halts for a conversion shot (" + ticks + " ticks)");
+        }
+
+        bool HoldingForShot(VehiclePawn v)
+        {
+            int until;
+            if (!shotHold.TryGetValue(v.thingIDNumber, out until)) return false;
+            if (Find.TickManager.TicksGame < until) return true;
+            shotHold.Remove(v.thingIDNumber);
+            return false;
+        }
+
+        /// <summary>Ends this component's own Goto (never a player's order).</summary>
+        void StopOwnOrder(VehiclePawn v)
+        {
+            IntVec3 mine;
+            Job cur = v.CurJob;
+            if (cur == null || cur.def != JobDefOf.Goto || !lastDest.TryGetValue(v.thingIDNumber, out mine) || cur.targetA.Cell != mine) return;
+            lastDest.Remove(v.thingIDNumber);
+            lock (SeekOrders) SeekOrders.Remove(v.thingIDNumber);
+            v.jobs.EndCurrentJob(JobCondition.InterruptForced, true, true);
+        }
+
         public override void MapComponentTick()
         {
             if (Find.TickManager.TicksGame % 15 == 4) { DropGoneTargets(); PawnsFirst(); }
@@ -244,6 +283,7 @@ namespace LIK
             }
 
             if (!v.CanMoveFinal) return;
+            if (HoldingForShot(v)) { StopOwnOrder(v); return; }        // a conversion gun is charging / firing: stand still (user 2026-11-24)
             CheckFailed(v);
             if (WalkOverPawns(v)) return;
             Thing target = FindTarget(v);

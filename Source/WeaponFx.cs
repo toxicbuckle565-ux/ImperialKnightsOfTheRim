@@ -773,6 +773,14 @@ namespace LIK
             int now = Find.TickManager.TicksGame;
             charges.RemoveAll(c => c.turret == turret);
             charges.Add(new Charge { turret = turret, start = now, end = now + ticks });
+            // conversion beams fizzle when fired on the move (user 2026-11-24): a Knight on Seek & destroy halts for the charge + burst
+            DefModExtension_ShotFx fx = turret?.def?.projectile?.GetModExtension<DefModExtension_ShotFx>();
+            if (fx != null && fx.conversionBands)
+            {
+                Vehicles.FireMode fm = turret.CurrentFireMode;
+                int burst = fm != null ? Mathf.Max(0, fm.shotsPerBurst.max - 1) * fm.ticksBetweenShots : 0;
+                MapComponent_KnightSeek.HoldForShot(turret.vehicle, ticks + burst + 20);
+            }
         }
 
         void TickCharges(int now)
@@ -1058,7 +1066,9 @@ namespace LIK
             {
                 int dmg = DamageAmount; float ap = ArmorPenetration; Vector3 dest = destination; ThingDef weapon = equipmentDef; Thing intended = intendedTarget.Thing;
                 Destroy();
-                ConversionBeam.Detonate(this, fx, map, cell, from, dest, who, dmg, ap, braced, weapon, intended);
+                // lore (user 2026-11-24): a conversion beam fired on the move is negated - the shot fizzles where it lands
+                if (!braced) ConversionBeam.Fizzle(fx, map, cell, from, dest, def);
+                else ConversionBeam.Detonate(this, fx, map, cell, from, dest, who, dmg, ap, braced, weapon, intended);
                 return;
             }
             if (fx != null && fx.gravField > 0f)

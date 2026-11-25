@@ -17,7 +17,8 @@ namespace LIK
             {
                 if (!c.InBounds(map)) continue;
                 foreach (Thing t in c.GetThingList(map))
-                    if (t is Pawn p && !(p is Vehicles.VehiclePawn) && !p.Dead && p.BodySize <= 4f && p != launcher && !victims.Contains(p)) victims.Add(p);
+                    if (t is Pawn p && !(p is Vehicles.VehiclePawn) && !p.Dead && p.BodySize <= 4f && p != launcher && !victims.Contains(p)
+                        && (c == cell || !Transhuman(p))) victims.Add(p);
             }
             foreach (Pawn p in victims)
             {
@@ -37,6 +38,33 @@ namespace LIK
             if (victims.Count > 0)
                 Messages.Message(victims.Count == 1 ? victims[0].LabelShortCap + " was evaporated by the blast." : victims.Count + " were evaporated by the blast.",
                     new TargetInfo(cell, map), MessageTypeDefOf.NeutralEvent, false);
+        }
+
+        // User 2026-11-24: Custodes AND Space Marines (incl. Primaris) survive the SPLASH - only the cell the shot lands on evaporates them;
+        // around it they take the shot's normal damage. RimDark 40k - Mankinds Finest (BEWH_*); soft check, nothing happens without it.
+        static readonly string[] ToughXenotypes = { "BEWH_Custodes", "BEWH_SpaceMarine", "BEWH_PrimarisSpaceMarine" };
+        static readonly string[] MarineGenes = { "BEWH_SinewCoil", "BEWH_Magnificat", "BEWH_BelisarianFurnace", "BEWH_ProtoOssmodula", "BEWH_Musculeator",
+                                                 "BEWH_Mentanifex", "BEWH_Vigoranis", "BEWH_Hyperanatomica", "BEWH_Furybound" };
+        const string CustodesGene = "BEWH_HyperionMuscleStrands";
+        static List<GeneDef> marineGenes; static GeneDef custodesGene; static bool genesLooked;
+
+        public static bool Transhuman(Pawn p)
+        {
+            if (p.genes == null) return false;
+            string x = p.genes.Xenotype?.defName;
+            if (x != null && System.Array.IndexOf(ToughXenotypes, x) >= 0) return true;
+            if (!genesLooked)
+            {
+                genesLooked = true;
+                custodesGene = DefDatabase<GeneDef>.GetNamedSilentFail(CustodesGene);
+                var l = new List<GeneDef>();
+                foreach (string n in MarineGenes) { GeneDef g = DefDatabase<GeneDef>.GetNamedSilentFail(n); if (g != null) l.Add(g); }
+                marineGenes = l.Count == MarineGenes.Length ? l : null;
+            }
+            if (custodesGene != null && p.genes.HasActiveGene(custodesGene)) return true;     // implanted / custom-xenotype Custodes
+            if (marineGenes == null) return false;
+            foreach (GeneDef g in marineGenes) if (!p.genes.HasActiveGene(g)) return false;  // the full Astartes gene set, not a half-made aspirant
+            return true;
         }
     }
 

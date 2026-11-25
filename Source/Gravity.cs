@@ -29,6 +29,9 @@ namespace LIK
             float a = p.GetStatValue(StatDefOf.ArmorRating_Sharp);
             float worn = 0f;
             if (p.apparel != null) foreach (Apparel ap in p.apparel.WornApparel) worn = Mathf.Max(worn, ap.GetStatValue(StatDefOf.ArmorRating_Sharp));
+            // Combat Extended rates armour in mm (Space Marine ~36, Terminator ~110): back to the vanilla scale with the same factor
+            // Tools/gen_ce_patch.py uses for the Knights (ARMOUR_SHARP 30), or every armoured pawn would clamp to "super-heavy"
+            if (Patch_KnightDamageVsPawns.CEActive) { a /= 30f; worn /= 30f; }
             if (p is Vehicles.VehiclePawn) a = Mathf.Max(a, 1.6f);           // a Knight / war machine: thick plating
             return Mathf.Clamp(a + worn, 0f, 2f);
         }
