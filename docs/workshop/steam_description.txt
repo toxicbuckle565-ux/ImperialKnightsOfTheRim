@@ -13,6 +13,7 @@
 [list]
 [*][b]Game versions:[/b] RimWorld 1.6, and the 1.7 unstable beta (works in our tests - please report anything odd)
 [*][b]Required:[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3014915404]Vehicle Framework[/url] (Steam subscribes you to both automatically)
+[*][b]Combat Extended (beta):[/b] supported but optional - Knight weapons and armour are rebalanced for CE automatically when it is active, every weapon effect still works. CE itself currently runs on RimWorld 1.6 only; the patch switches on for 1.7 once CE updates
 [*][b]Bugs:[/b] post in the pinned [b]Bug reports[/b] discussion or open an Issue on GitHub - please include your Player.log
 [*][b]Open source:[/b] [url=https://github.com/toxicbuckle565-ux/ImperialKnightsOfTheRim]github.com/toxicbuckle565-ux/ImperialKnightsOfTheRim[/url] - code MIT, art CC BY-NC-SA 4.0; remakes, translations and add-ons welcome, with credit
 [/list]
