@@ -774,7 +774,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_stubber</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2.21,2.21)</drawSize>
+			<drawSize>(1.87,1.87)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -798,7 +798,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_meltagun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2.04,2.04)</drawSize>
+			<drawSize>(1.81,1.81)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
