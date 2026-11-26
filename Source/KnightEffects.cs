@@ -150,6 +150,39 @@ namespace LIK
 
     public static class KnightMeleeGuard { [System.ThreadStatic] public static Thing striker; }
 
+    /// <summary>
+    /// 2026-11-26 (player video: Armiger chain-cleaver still hits itself): KnightMeleeGuard only covers the moment of the blow, but a
+    /// GenExplosion deals its damage over the NEXT ticks (Explosion.Tick), when the guard is already off. A Knight's own melee blast now
+    /// lists the striking Knight in the explosion's ignoredThings, which the explosion honours for its whole life.
+    /// </summary>
+    [HarmonyLib.HarmonyPatch(typeof(GenExplosion), nameof(GenExplosion.DoExplosion))]
+    public static class Patch_MeleeBlastSparesStriker
+    {
+        static void Prefix(ref List<Thing> ignoredThings)
+        {
+            Thing s = KnightMeleeGuard.striker;
+            if (s == null) return;
+            ignoredThings = ignoredThings == null ? new List<Thing>() : new List<Thing>(ignoredThings);
+            if (!ignoredThings.Contains(s)) ignoredThings.Add(s);
+        }
+    }
+
+    /// <summary>
+    /// User 2026-11-26: "make melee weapon attacks unable to damage the Knight entirely". Catch-all at the point where ANY explosion hurts a
+    /// thing: a blast made by a Knight melee weapon (its projectile carries DefModExtension_MeleeFx) never damages the Knight that struck,
+    /// however the blast was started or delayed (mods that spawn explosions late, chained blasts ...).
+    /// </summary>
+    [HarmonyLib.HarmonyPatch(typeof(DamageWorker), "ExplosionDamageThing")]
+    public static class Patch_MeleeBlastNeverHurtsStriker
+    {
+        static bool Prefix(Explosion explosion, Thing t)
+        {
+            if (explosion == null || t == null || explosion.instigator != t) return true;
+            ThingDef p = explosion.projectile;
+            return p == null || !p.HasModExtension<DefModExtension_MeleeFx>();
+        }
+    }
+
     public static class KnightEffects
     {
         static HediffDef suppressed;
