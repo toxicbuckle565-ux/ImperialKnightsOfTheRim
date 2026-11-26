@@ -91,7 +91,7 @@ namespace LIK
             string who = v.Faction == null || v.Faction.IsPlayer ? "" : " // " + v.Faction.Name.ToUpperInvariant();
             Rect title = new Rect(scr.x + 6f, scr.y + 6f, scr.width - 13f, 16f);
             CogUI.Fill(title, CogUI.G3);
-            CogUI.Label(new Rect(title.x + 5f, title.y - 1f, title.width - 8f, 18f), "AUSPEX // " + v.LabelShort.ToUpperInvariant() + who, CogUI.INK, 12, true, TextAnchor.MiddleLeft);
+            CogUI.Label(new Rect(title.x + 5f, title.y - 1f, title.width - 8f, 18f), "KNIGHT HEALTH // " + v.LabelShort.ToUpperInvariant() + who, CogUI.INK, 12, true, TextAnchor.MiddleLeft);
 
             // the schematic: rings behind, then each part layer tinted by its health, neutral areas and dark seams
             float P = scr.height - 36f;
