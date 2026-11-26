@@ -424,7 +424,8 @@ namespace LIK
             }
             else if (refitKnight != null)
             {
-                if (CogUI.Key(brass, "REFIT NOW", true) && hangar.Refit(refitKnight, cls, refitKeys, headIdx, lsOn, vsOn)) Close();
+                // 2026-11-26 (user: "rather have the pawns do it"): an order builders haul and fit - no more instant refit here
+                if (CogUI.Key(brass, hangar.order != null ? "REPLACE WITH REFIT" : "ORDER REFIT", true) && hangar.OrderRefit(refitKnight, cls, refitKeys, headIdx, lsOn, vsOn)) Close();
             }
             else if (CogUI.Key(brass, hangar.order != null ? "REPLACE ORDER" : "SANCTIFY ORDER", true))
             {
