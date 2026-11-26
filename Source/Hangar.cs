@@ -114,9 +114,9 @@ namespace LIK
                 if (voidShield && cls.voidShield != null) list.Add(cls.voidShield);
                 for (int i = 0; i < cls.mounts.Count; i++)
                 {
-                    if (cls.mounts[i].optional && i < turretKeys.Count && turretKeys[i] == KnightMount.None) continue;
-                    WeaponOption opt = cls.mounts[i].options.FirstOrDefault(o => i < turretKeys.Count && o.turretKey == turretKeys[i]) ?? cls.mounts[i].options[0];
-                    list.Add(opt.weapon);
+                    if (i >= turretKeys.Count || turretKeys[i] == KnightMount.None) continue;      // empty mount: nothing to deliver (unarmed assembly, user 2026-11-25)
+                    WeaponOption opt = cls.mounts[i].options.FirstOrDefault(o => o.turretKey == turretKeys[i]);
+                    if (opt != null) list.Add(opt.weapon);
                 }
                 return list;
             }
@@ -172,7 +172,7 @@ namespace LIK
             {
                 KnightMount m = cls.mounts[i];
                 string want = keys != null && i < keys.Count ? keys[i] : null;
-                if (m.optional && want == KnightMount.None) continue;
+                if (want == KnightMount.None) continue;                               // any mount may be empty (unarmed Knight)
                 keep.Add(m.options.Any(o => o.turretKey == want) ? want : m.options[0].turretKey);
             }
             // alternate-mode turrets are never fitted at assembly (the weapon starts in its normal mode)
@@ -188,6 +188,16 @@ namespace LIK
                 VehicleTurret reference = comp.Props.turrets.FirstOrDefault(t => t.key == k);
                 if (reference != null) comp.CopyAndAddTurret(reference);
                 else Log.Warning("[LIK] no reference turret " + k + " on " + v.def.defName);
+            }
+            // 2026-11-26: a void shield generator fitted as a MOUNT option (Questoris top mount) switches the Knight's void shield on / off
+            CompKnightHead vc = v.GetComp<CompKnightHead>();
+            if (vc != null)
+            {
+                bool hasOption = false, fitted = false;
+                foreach (KnightMount m in cls.mounts)
+                    foreach (WeaponOption o in m.options)
+                        if (o?.weapon != null && o.weapon.defName.StartsWith("LIK_VoidShield_")) { hasOption = true; if (keep.Contains(o.turretKey)) fitted = true; }
+                if (hasOption && vc.voidShield != fitted) { vc.voidShield = fitted; vc.shieldCharge = -1f; }
             }
             if (v.Spawned) v.GetComp<CompKnightHead>()?.Apply();      // refresh weapon backpack overlays
             Patch_RocketToggleGizmo.Refresh(v);                        // a raised Acastus launcher shows the launcher fitted now
@@ -248,6 +258,7 @@ namespace LIK
             KnightSound.StepTick(this);
             if (parent.IsHashIntervalTick(30) && parent is VehiclePawn iv && iv.Spawned && IonShield.Fitted(iv)) IonShield.Tick(iv, this);
             if (parent.IsHashIntervalTick(60) && parent is VehiclePawn tv && tv.Spawned) IonShieldTorso.AutoAim(tv, this);
+            if (lifeSupport && parent.IsHashIntervalTick(250) && parent is VehiclePawn lv && lv.Spawned) LifeSupport.Tick(lv, this);   // feeds, rests, tends, sedates (LifeSupport.cs)
             if (parent.IsHashIntervalTick(30) && parent is VehiclePawn sv && sv.Spawned) IonShieldTorso.Tick(sv, this);
             if (!voidShield || !parent.IsHashIntervalTick(30)) return;
             if (shieldCharge < 0f) shieldCharge = ShieldMax;
@@ -482,7 +493,7 @@ namespace LIK
             foreach (KnightMount m in cls.mounts)
             {
                 WeaponOption cur = comp == null ? null : m.options.FirstOrDefault(o => comp.GetTurret(o.turretKey) != null || (o.altTurretKeys != null && o.altTurretKeys.Any(a => comp.GetTurret(a) != null)));
-                keys.Add(cur != null ? cur.turretKey : (m.optional ? KnightMount.None : m.options[0].turretKey));
+                keys.Add(cur != null ? cur.turretKey : KnightMount.None);
             }
             return keys;
         }
@@ -859,7 +870,7 @@ namespace LIK
             choice = new int[c.mounts.Count];
             List<string> keys = Building_KnightHangar.CurrentKeys(knight, c);
             for (int i = 0; i < c.mounts.Count; i++)
-                choice[i] = c.mounts[i].optional && keys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == keys[i]));
+                choice[i] = keys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == keys[i]));
             headIdx = Building_KnightHangar.CurrentHeadIndex(knight, c);
             lsOn = knight.GetComp<CompKnightHead>()?.lifeSupport ?? false;
             vsOn = knight.GetComp<CompKnightHead>()?.voidShield ?? false;
@@ -877,7 +888,7 @@ namespace LIK
             choice = new int[c.mounts.Count];
             List<string> keys = Building_KnightHangar.CurrentKeys(knight, c);
             for (int i = 0; i < c.mounts.Count; i++)
-                choice[i] = c.mounts[i].optional && keys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == keys[i]));
+                choice[i] = keys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == keys[i]));
             headIdx = Building_KnightHangar.CurrentHeadIndex(knight, c);
             lsOn = knight.GetComp<CompKnightHead>()?.lifeSupport ?? false;
             vsOn = knight.GetComp<CompKnightHead>()?.voidShield ?? false;
@@ -890,6 +901,7 @@ namespace LIK
             if (classes.Count == 0) { choice = new int[0]; return; }
             KnightClassDef c = classes[idx];
             choice = new int[c.mounts.Count];
+            for (int i = 0; i < choice.Length; i++) choice[i] = -1;                  // assembled unarmed: weapons are fitted later at the refit
             skinIdx = 0; paintChoice = null;
             headIdx = 0;
             lsOn = from != null && from.lifeSupport;
@@ -898,7 +910,7 @@ namespace LIK
             {
                 headIdx = Mathf.Clamp(from.headIndex, 0, Mathf.Max(0, c.heads.Count - 1));
                 for (int i = 0; i < c.mounts.Count && i < from.turretKeys.Count; i++)
-                    choice[i] = c.mounts[i].optional && from.turretKeys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == from.turretKeys[i]));
+                    choice[i] = from.turretKeys[i] == KnightMount.None ? -1 : Mathf.Max(0, c.mounts[i].options.FindIndex(o => o.turretKey == from.turretKeys[i]));
                 if (from.skin != null) skinIdx = c.skins.IndexOf(from.skin) + 1;
             }
         }
@@ -975,8 +987,13 @@ namespace LIK
         void OpenWeaponMenu(int mi)
         {
             KnightMount m = classes[classIdx].mounts[mi];
+            if (refitKnight == null && !devFree)
+            {
+                Messages.Message("A Knight is assembled without weapons. Forge its weapons at the manufactorum, then dock the Knight in the hangar and fit them in a refit, one at a time if you like.", MessageTypeDefOf.RejectInput, false);
+                return;
+            }
             var menu = new List<FloatMenuOption>();
-            if (m.optional) menu.Add(new FloatMenuOption("No weapon (leave empty)", delegate { choice[mi] = -1; }));
+            menu.Add(new FloatMenuOption("No weapon (leave empty)", delegate { choice[mi] = -1; }));
             for (int j = 0; j < m.options.Count; j++)
             {
                 int jj = j;
@@ -1069,7 +1086,7 @@ namespace LIK
                 Vector2 p = flatPic && m.uiPos.x >= 0f
                     ? new Vector2(body.x + m.uiPos.x * body.width, body.y + m.uiPos.y * body.height)
                     : new Vector2(centre.x + m.pos.x * cell, centre.y - m.pos.y * cell);
-                string tip = cur == null ? m.label + ": empty (optional). Click to fit a weapon."
+                string tip = cur == null ? m.label + (refitKnight == null && !devFree ? ": empty - weapons are fitted after assembly, in a refit." : ": empty. Click to fit a weapon.")
                     : m.label + ": " + cur.weapon.LabelCap + " (" + Stock(cur.weapon) + " in stock). Click to choose a weapon" + (m.optional ? " or leave it empty." : ".");
                 if (DrawSlot(p, boxSize, m.label + (m.optional ? " (optional)" : ""), cur == null ? "None" : cur.weapon.LabelCap, cur?.weapon.uiIcon, tip)) OpenWeaponMenu(i);
             }
@@ -1084,7 +1101,7 @@ namespace LIK
             if (cls.lifeSupport != null)
             {
                 Vector2 lp = new Vector2(view.x + 60f, view.y + 50f);
-                string lsTip = "Life-support module (optional): " + (lsOn ? "FITTED" : "not fitted") + " (" + Stock(cls.lifeSupport) + " in stock). It greatly slows the pilot's neural strain, ageing and damage shock. Click to " + (lsOn ? "remove" : "fit") + " it.";
+                string lsTip = "Life-support module (optional): " + (lsOn ? "FITTED" : "not fitted") + " (" + Stock(cls.lifeSupport) + " in stock). It feeds and rests the pilot, seals their wounds and keeps their mood from falling below 10% (no mental breaks) while inside - diseases still need a doctor, and greatly slows neural strain, ageing and damage shock. Click to " + (lsOn ? "remove" : "fit") + " it.";
                 if (DrawSlot(lp, boxSize, "Life support (optional)", lsOn ? "Fitted" : "None", lsOn ? cls.lifeSupport.uiIcon : null, lsTip)) lsOn = !lsOn;
             }
 
@@ -1199,7 +1216,7 @@ namespace LIK
             var o = new HangarOrder { cls = cls, skin = skinIdx == 0 || skinIdx > cls.skins.Count ? null : cls.skins[skinIdx - 1], headIndex = headIdx, lifeSupport = lsOn, voidShield = vsOn,
                                       paint = paintChoice != null, paintOne = paintChoice?.one ?? Color.white, paintTwo = paintChoice?.two ?? Color.white, paintThree = paintChoice?.three ?? Color.white,
                                       stickers = paintChoice?.stickers != null ? paintChoice.stickers.Select(x => x.Copy()).ToList() : new List<KnightSticker>() };
-            for (int i = 0; i < cls.mounts.Count; i++) o.turretKeys.Add(choice[i] < 0 ? KnightMount.None : cls.mounts[i].options[choice[i]].turretKey);
+            for (int i = 0; i < cls.mounts.Count; i++) o.turretKeys.Add(choice[i] < 0 || (refitKnight == null && !devFree) ? KnightMount.None : cls.mounts[i].options[choice[i]].turretKey);
             return o;
         }
     }

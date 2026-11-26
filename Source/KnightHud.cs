@@ -128,7 +128,7 @@ namespace LIK
             float integrity = v.GetStatValue(VehicleStatDefOf.BodyIntegrity);
             Row(ref y, x, w, "INTEGRITY", integrity, true, null, null);
             CompKnightHead kc = v.GetComp<CompKnightHead>();
-            if (kc != null && kc.voidShield && cls.voidShield != null)
+            if (kc != null && kc.voidShield)
             {
                 float max = kc.ShieldMax, cur = kc.shieldCharge < 0f ? max : kc.shieldCharge;
                 Row(ref y, x, w, "VOID SHIELD", max > 0f ? cur / max : 0f, true, new Color(0.45f, 0.85f, 1f), null);

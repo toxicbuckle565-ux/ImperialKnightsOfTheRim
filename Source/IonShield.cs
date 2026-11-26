@@ -151,22 +151,23 @@ namespace LIK
     }
 
     /// <summary>Damage to a Knight with the ion gauntlet shield fitted: the shield takes its share first (front arc / melee half).</summary>
-    [HarmonyPatch]
+    // 2026-11-26 fix: was on VehicleComponent.TakeDamage, which Combat Extended never calls - the gauntlet shield did nothing under CE.
+    // Now on VehicleStatHandler.ApplyDamage (every hit on a vehicle), right after the torso ion shield.
+    [HarmonyPatch(typeof(VehicleStatHandler), nameof(VehicleStatHandler.ApplyDamage))]
     public static class Patch_IonShield
     {
-        static MethodBase TargetMethod()
-        {
-            return AccessTools.Method(typeof(VehicleComponent), "TakeDamage", new[] { typeof(VehiclePawn), typeof(DamageInfo).MakeByRefType(), typeof(bool) });
-        }
+        static readonly AccessTools.FieldRef<VehicleStatHandler, VehiclePawn> vehicleRef = AccessTools.FieldRefAccess<VehicleStatHandler, VehiclePawn>("vehicle");
 
         [HarmonyPriority(Priority.High)]
-        static void Prefix(VehiclePawn __0, ref DamageInfo __1)
+        static void Prefix(VehicleStatHandler __instance, ref DamageInfo __0)
         {
-            if (__0 == null || __1.Amount <= 0f || !IonShield.Fitted(__0)) return;
-            CompKnightHead c = __0.GetComp<CompKnightHead>();
+            VehiclePawn v;
+            try { v = vehicleRef(__instance); } catch { return; }
+            if (v == null || __0.Amount <= 0f || !IonShield.Fitted(v)) return;
+            CompKnightHead c = v.GetComp<CompKnightHead>();
             if (c == null) return;
-            float soaked = IonShield.Intercept(__0, c, __1);
-            if (soaked > 0f) __1.SetAmount(Mathf.Max(0f, __1.Amount - soaked));
+            float soaked = IonShield.Intercept(v, c, __0);
+            if (soaked > 0f) __0.SetAmount(Mathf.Max(0f, __0.Amount - soaked));
         }
     }
 
@@ -175,7 +176,8 @@ namespace LIK
     public static class Patch_IonGauntletNoFire
     {
         [HarmonyPriority(Priority.First)]
-        static bool Prefix(VehicleTurret __instance) { return __instance.def == null || __instance.def.defName != IonShield.TurretDef; }
+        // also the Questoris void shield generator on the top mount (2026-11-26): it is a shield, not a weapon
+        static bool Prefix(VehicleTurret __instance) { return __instance.def == null || (__instance.def.defName != IonShield.TurretDef && __instance.def.defName != "LIK_Turret_questoris_voidshield"); }
     }
 
     /// <summary>Energy bar on the Knight.</summary>

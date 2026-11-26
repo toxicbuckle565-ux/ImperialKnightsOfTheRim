@@ -97,7 +97,7 @@ namespace LIK
             foreach (KnightMount m in cls.mounts)
                 foreach (WeaponOption o in m.options)
                 {
-                    if (o == null || o.turretKey == null) continue;
+                    if (o == null || o.turretKey == null || (o.weapon != null && o.weapon.defName.StartsWith("LIK_VoidShield_"))) continue;   // the void shield is not a melee arm
                     bool fitted = comp.GetTurret(o.turretKey) != null || (o.altTurretKeys != null && o.altTurretKeys.Any(k => comp.GetTurret(k) != null));
                     if (!fitted) continue;
                     VehicleTurret def = comp.GetTurret(o.turretKey) ?? comp.Props.turrets.FirstOrDefault(t => t.key == o.turretKey);

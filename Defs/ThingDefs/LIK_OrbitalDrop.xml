@@ -57,14 +57,17 @@
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Small</defName>
 		<graphicData><drawSize>(7.5,7.5)</drawSize></graphicData>
+		<uiIconScale>0.12</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 7.5x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Medium</defName>
 		<graphicData><drawSize>(11,11)</drawSize></graphicData>
+		<uiIconScale>0.082</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 11x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Large</defName>
 		<graphicData><drawSize>(14,14)</drawSize></graphicData>
+		<uiIconScale>0.064</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 14x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 
 	<!-- One crater per Knight class (user 2026-11-11: "the crater should depend on which knight is falling"). The three above are kept for old saves. Sizes doubled 2026-11-11 (user: crater should be bigger; the vanilla picture has wide empty margins). -->
@@ -72,26 +75,31 @@
 		<defName>LIK_KnightCrater_Armiger</defName>
 		<label>Armiger impact crater</label>
 		<graphicData><drawSize>(12,12)</drawSize></graphicData>
+		<uiIconScale>0.075</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 12x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Questoris</defName>
 		<label>Questoris impact crater</label>
 		<graphicData><drawSize>(22,22)</drawSize></graphicData>
+		<uiIconScale>0.041</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 22x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Cerastus</defName>
 		<label>Cerastus impact crater</label>
 		<graphicData><drawSize>(24,24)</drawSize></graphicData>
+		<uiIconScale>0.037</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 24x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Dominus</defName>
 		<label>Dominus impact crater</label>
 		<graphicData><drawSize>(28,28)</drawSize></graphicData>
+		<uiIconScale>0.032</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 28x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 	<ThingDef ParentName="LIK_KnightCraterBase">
 		<defName>LIK_KnightCrater_Acastus</defName>
 		<label>Acastus impact crater</label>
 		<graphicData><drawSize>(34,34)</drawSize></graphicData>
+		<uiIconScale>0.026</uiIconScale>	<!-- 2026-11-25: menu icon was drawn 34x size (1x1 thing, big picture) and covered the right-click menu -->
 	</ThingDef>
 
 	<!-- Rocks flung up by the impact (vanilla debris picture, higher and longer arcs). -->

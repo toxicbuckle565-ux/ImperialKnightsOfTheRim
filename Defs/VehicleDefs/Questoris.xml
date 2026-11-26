@@ -173,6 +173,7 @@
 						<li>top_questoris_missilepod</li>
 						<li>top_questoris_stormspear</li>
 						<li>top_questoris_icarus</li>
+						<li>top_questoris_voidshield</li>
 						<li>side_questoris_stubber</li>
 						<li>side_questoris_meltagun</li>
 						<li>side_questoris_multilaser</li>
@@ -765,6 +766,19 @@
 						<aimPieOffset>(0, 0.2)</aimPieOffset>
 						<drawLayer>1</drawLayer>
 						<key>top_questoris_missilepod</key>
+					</li>
+					<li>
+						<turretDef>LIK_Turret_questoris_voidshield</turretDef>
+						<renderProperties>
+							<north>(0.00, 2.21)</north>
+							<south>(0.00, 2.21)</south>
+							<east>(-0.32, 2.67)</east>
+							<west>(0.32, 2.65)</west>
+						</renderProperties>
+						<gizmoLabel>Void shield generator</gizmoLabel>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>1</drawLayer>
+						<key>top_questoris_voidshield</key>
 					</li>
 					<li>
 						<turretDef>LIK_Turret_questoris_stormspear</turretDef>

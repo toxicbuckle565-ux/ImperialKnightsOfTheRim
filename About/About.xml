@@ -67,5 +67,6 @@ Unofficial, free fan mod. Not affiliated with or endorsed by Games Workshop. War
 	<loadAfter>
 		<li>brrainz.harmony</li>
 		<li>SmashPhil.VehicleFramework</li>
+		<li>CETeam.CombatExtended</li>	<!-- 2026-11-26: the CE add-on (Compat/CombatExtended/Defs) inherits from CE defs - CE must load first -->
 	</loadAfter>
 </ModMetaData>

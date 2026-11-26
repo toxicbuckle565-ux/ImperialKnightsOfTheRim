@@ -78,7 +78,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/armiger_legs</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.67,1.67)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -102,7 +102,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/armiger_torso</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.8,1.8)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -126,7 +126,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/armiger_core</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.23,1.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -150,7 +150,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/armiger_throne</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.48,1.48)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -174,7 +174,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/questoris_legs</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.61,1.61)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -198,7 +198,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/questoris_torso</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.93,1.93)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -222,7 +222,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/questoris_core</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.23,1.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -246,7 +246,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/questoris_throne</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.48,1.48)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -270,7 +270,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/dominus_legs</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.56,1.56)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -294,7 +294,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/dominus_torso</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.75,1.75)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -318,7 +318,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/dominus_core</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.23,1.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -342,7 +342,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/dominus_throne</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.48,1.48)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -366,7 +366,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/cerastus_legs</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.23,2.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -390,7 +390,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/cerastus_torso</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.75,1.75)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -414,7 +414,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/cerastus_core</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.23,1.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -438,7 +438,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/cerastus_throne</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.48,1.48)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -462,7 +462,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/acastus_legs</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.16,2.16)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -486,7 +486,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/acastus_torso</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.7,1.7)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -510,7 +510,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/acastus_core</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.23,1.23)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -534,7 +534,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Parts/acastus_throne</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.48,1.48)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -558,7 +558,7 @@
 		<graphicData>
 			<texPath>Things/Knights/LifeSupport/armiger</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.46,1.46)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -582,7 +582,7 @@
 		<graphicData>
 			<texPath>Things/Knights/LifeSupport/questoris</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.46,1.46)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -606,7 +606,7 @@
 		<graphicData>
 			<texPath>Things/Knights/LifeSupport/dominus</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.46,1.46)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -630,7 +630,7 @@
 		<graphicData>
 			<texPath>Things/Knights/LifeSupport/cerastus</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.46,1.46)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -654,7 +654,7 @@
 		<graphicData>
 			<texPath>Things/Knights/LifeSupport/acastus</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.46,1.46)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -674,11 +674,11 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>LIK_VoidShield_Questoris</defName>
 		<label>Questoris void shield generator</label>
-		<description>A void shield generator for the Questoris Knight, forged at the Mechanicum manufactorum. Fitted at the hangar as an optional carapace module, it projects a shield that soaks up damage and recharges a few seconds after the last hit.</description>
+		<description>A void shield generator for the Questoris Knight, forged at the Mechanicum manufactorum. Fitted at the hangar on the top carapace mount in place of a weapon, it projects a shield that soaks up damage and recharges a few seconds after the last hit.</description>
 		<graphicData>
 			<texPath>Things/Knights/VoidShield/questoris</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.0,1.0)</drawSize>
+			<drawSize>(1.43,1.43)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -702,7 +702,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_autocannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.17,2.17)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -726,7 +726,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_thermalspear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.73,1.73)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -750,7 +750,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_chaincleaver</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.63,1.63)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -774,7 +774,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_stubber</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.21,2.21)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -798,7 +798,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_meltagun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.04,2.04)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -822,7 +822,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_battlecannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.8,1.8)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -846,7 +846,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_thermal</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.53,1.53)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -870,7 +870,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gatling</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.52,1.52)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -894,7 +894,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_chainsword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.71,1.71)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -918,7 +918,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gauntlet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.29,1.29)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -942,7 +942,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_stubber</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.75,1.75)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -990,7 +990,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_missilepod</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(0.96,0.96)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1014,7 +1014,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_stormspear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(0.93,0.93)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1038,7 +1038,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_meltagun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.67,1.67)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1062,7 +1062,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_conflag</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.47,1.47)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1086,7 +1086,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_decimator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.6,1.6)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1110,7 +1110,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_volcano</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.91,1.91)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1134,7 +1134,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_harpoon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.69,1.69)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1158,7 +1158,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_shieldbreaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.44,1.44)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1182,7 +1182,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_siegebreaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.54,1.54)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1206,7 +1206,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/dominus/item_dominus_twinmelta</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.18,1.18)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1230,7 +1230,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_graviton</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.82,1.82)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1254,7 +1254,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_veuglaire</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.64,1.64)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1278,7 +1278,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_lightninglock</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.65,1.65)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1302,7 +1302,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_conversionbeam</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.9,1.9)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1326,7 +1326,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/armiger/item_armiger_siegeclaw</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1350,7 +1350,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_lightningcannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.77,1.77)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1374,7 +1374,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_fusil</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.76,1.76)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1398,7 +1398,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_gravcrusher</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.7,1.7)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1422,7 +1422,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_chierovile</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.79,1.79)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1446,7 +1446,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_hekaton</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.52,1.52)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1470,7 +1470,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_lasimpulsor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.66,1.66)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1494,7 +1494,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_multilaser</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.79,1.79)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1518,7 +1518,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_executor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.58,1.58)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1542,7 +1542,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_obliterator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.71,1.71)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1566,7 +1566,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/questoris/item_questoris_phosphor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.95,1.95)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1590,7 +1590,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_acheronflame</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.94,1.94)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1614,7 +1614,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_chainfist</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.8,1.8)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1638,7 +1638,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_lascutter</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.87,1.87)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1662,7 +1662,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_singularity</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.59,1.59)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1686,7 +1686,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_boltcannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.45,1.45)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1710,7 +1710,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_warblade</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.08,2.08)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1734,7 +1734,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_shocklance</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(2.13,2.13)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1758,7 +1758,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/cerastus/item_cerastus_iongauntlet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.27,1.27)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1782,7 +1782,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_magna</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.75,1.75)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1806,7 +1806,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_convbeam</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.63,1.63)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1830,7 +1830,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_autocannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.94,1.94)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1854,7 +1854,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_lascannon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.85,1.85)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1878,7 +1878,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_ironstorm</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.16,1.16)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
@@ -1902,7 +1902,7 @@
 		<graphicData>
 			<texPath>Things/Knights/Weapons/acastus/item_acastus_helios</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.16,1.16)</drawSize>
 		</graphicData>
 		<stackLimit>1</stackLimit>
 		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>

@@ -466,7 +466,7 @@ namespace LIK
             if (cls.lifeSupport != null)
             {
                 if (Toggle(new Rect(x + 8f, my, w - 16f, 24f), "LIFE SUPPORT", lsOn, cls.lifeSupport,
-                    "Life-support module (optional): greatly slows the pilot's neural strain, ageing and damage shock. " + Stock(cls.lifeSupport) + " in stock.")) lsOn = !lsOn;
+                    "Life-support module (optional): feeds and rests the pilot, seals their wounds and keeps their mood from falling below 10% (no mental breaks) while inside - diseases still need a doctor; greatly slows neural strain, ageing and damage shock. " + Stock(cls.lifeSupport) + " in stock.")) lsOn = !lsOn;
                 my += 30f;
             }
             if (cls.voidShield != null)
@@ -560,7 +560,7 @@ namespace LIK
                                                        : new Vector2(c.x + m.pos.x * cell, c.y - m.pos.y * cell);
                 var s = new Slot { mount = i, point = p, label = m.label.ToUpperInvariant() + (m.optional ? " (OPT.)" : ""),
                                    name = cur == null ? "- EMPTY -" : cur.weapon.LabelCap.ToString(), icon = cur?.weapon.uiIcon,
-                                   tip = cur == null ? m.label + ": empty (optional). Click to fit a weapon."
+                                   tip = cur == null ? m.label + (refitKnight == null && !devFree ? ": empty - the Knight is assembled unarmed; forge its weapons and fit them in a refit." : ": empty. Click to fit a weapon.")
                                        : m.label + ": " + cur.weapon.LabelCap + " (" + Stock(cur.weapon) + " in stock). Click to choose a weapon" + (m.optional ? " or leave it empty." : ".") };
                 if (p.x < c.x - ks * 0.1f) left.Add(s); else if (p.x > c.x + ks * 0.1f) right.Add(s); else top.Add(s);
             }

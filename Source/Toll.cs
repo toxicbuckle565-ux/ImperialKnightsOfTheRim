@@ -493,22 +493,23 @@ namespace LIK
     }
 
 
-    /// <summary>Void shield: a fitted generator soaks up damage before the Knight's components take it.</summary>
-    [HarmonyPatch]
+    /// <summary>Void shield: a fitted generator soaks up damage before the Knight's components take it.
+    /// 2026-11-26 fix: was hooked on VehicleComponent.TakeDamage, which Combat Extended never calls (it writes part health itself) - the shield
+    /// did nothing under CE. Now on VehicleStatHandler.ApplyDamage like the ion shield (every hit on a vehicle, CE or not), after the ion shields.</summary>
+    [HarmonyPatch(typeof(VehicleStatHandler), nameof(VehicleStatHandler.ApplyDamage))]
     public static class Patch_VoidShield
     {
-        static MethodBase TargetMethod()
-        {
-            return AccessTools.Method(typeof(VehicleComponent), "TakeDamage",
-                new[] { typeof(VehiclePawn), typeof(DamageInfo).MakeByRefType(), typeof(bool) });
-        }
+        static readonly AccessTools.FieldRef<VehicleStatHandler, VehiclePawn> vehicleRef = AccessTools.FieldRefAccess<VehicleStatHandler, VehiclePawn>("vehicle");
 
-        static void Prefix(VehiclePawn __0, ref DamageInfo __1)
+        [HarmonyPriority(Priority.Normal)]
+        static void Prefix(VehicleStatHandler __instance, ref DamageInfo __0)
         {
-            CompKnightHead c = __0?.GetComp<CompKnightHead>();
-            if (c == null || !c.voidShield) return;
-            float soaked = c.Absorb(__1.Amount);
-            if (soaked > 0f) __1.SetAmount(Mathf.Max(0f, __1.Amount - soaked));
+            VehiclePawn v;
+            try { v = vehicleRef(__instance); } catch { return; }
+            CompKnightHead c = v?.GetComp<CompKnightHead>();
+            if (c == null || !c.voidShield || __0.Amount <= 0f) return;
+            float soaked = c.Absorb(__0.Amount);
+            if (soaked > 0f) __0.SetAmount(Mathf.Max(0f, __0.Amount - soaked));
         }
     }
 

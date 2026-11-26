@@ -5252,4 +5252,34 @@
 		</cooldown>
 	</Vehicles.VehicleTurretDef>
 
+	<!-- Questoris void shield generator on the top mount (Tools/patch_voidshield_top.py, 2026-11-26). Not a weapon: it never fires
+	     (Source/IonShield.cs) and does not turn; fitted, it switches the Knight's void shield on (KnightLoadout.Apply). -->
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>LIK_Turret_questoris_voidshield</defName>
+		<label>Void shield generator</label>
+		<description>A void shield generator in place of the top carapace weapon. It projects a shield that soaks up damage and recharges a few seconds after the last hit.</description>
+		<turretType>Static</turretType>
+		<projectile>LIK_Proj_gauntlet</projectile>	<!-- never fires; an ammo-free projectile so Combat Extended gives it no ammo set -->
+		<reloadTimer>4</reloadTimer>
+		<warmUpTimer>1.5</warmUpTimer>
+		<magazineCapacity>999</magazineCapacity>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>0</rotationSpeed>
+		<minRange>0</minRange>
+		<maxRange>50</maxRange>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Shield</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+		</fireModes>
+		<graphicData>
+			<texPath>Things/Knights/Weapons/questoris/turret_questoris_voidshield</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<drawSize>(2.0,2.0)</drawSize>
+		</graphicData>
+	</Vehicles.VehicleTurretDef>
 </Defs>

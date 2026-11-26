@@ -135,7 +135,7 @@ namespace LIK
             if (kc != null)
             {
                 kc.lifeSupport = cls.lifeSupport != null && Rand.Chance(0.7f);
-                kc.voidShield = cls.voidShield != null && Rand.Chance(0.6f);
+                if (cls.voidShield != null) kc.voidShield = Rand.Chance(0.6f);   // (a void shield on a mount is set by KnightLoadout.Apply)
                 kc.shieldCharge = -1f;
             }
             Paint(knight, f);

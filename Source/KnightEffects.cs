@@ -126,7 +126,11 @@ namespace LIK
                 }
             int dmg0 = DamageAmount; float ap0 = ArmorPenetration; ThingDef weapon0 = equipmentDef; Thing target0 = usedTarget.Thing ?? intendedTarget.Thing;
             DamageDef dd0 = def.projectile.damageDef;
-            base.Explode();
+            // 2026-11-25 (Steam bug report: "the Armiger chain cleaver damages the Knight it is attached to"): the blow's blast lands right next
+            // to the Knight's own body - the striking Knight is never hurt by its own melee blow
+            KnightMeleeGuard.striker = who;
+            try { base.Explode(); }
+            finally { KnightMeleeGuard.striker = null; }
             if (fx == null || map == null) return;
             if (fx.antiArmour > 1f) DominusWeapons.AntiArmour(map, cell, radius, target0, fx.antiArmour, dmg0, ap0, who, weapon0, dd0);
             if (fx.panic > 0f) KnightEffects.Panic(map, cell, radius + 2.5f, who, fx.panic);
@@ -143,6 +147,8 @@ namespace LIK
             QuestorisWeapons.MeleeAfter(fx, struck, map, from, dmg0, ap0, dd0, who, weapon0);
         }
     }
+
+    public static class KnightMeleeGuard { [System.ThreadStatic] public static Thing striker; }
 
     public static class KnightEffects
     {

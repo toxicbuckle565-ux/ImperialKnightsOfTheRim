@@ -62,6 +62,7 @@ namespace LIK
         [HarmonyPriority(Priority.First)]
         static bool Prefix(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result)
         {
+            if (KnightMeleeGuard.striker != null && __instance == KnightMeleeGuard.striker) { __result = new DamageWorker.DamageResult(); return false; }   // own melee blow
             if (!HomeProtection.Spares(dinfo.Instigator, __instance))
             {
                 // dev mode: a Knight weapon still hurting one of the colony's buildings on a home map - say who / what, so a missed path shows up

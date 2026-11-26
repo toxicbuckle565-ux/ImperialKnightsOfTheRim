@@ -31,7 +31,7 @@ namespace LIK
             { "Questoris", (1500f, 2500f, 3.0f) },
             { "Cerastus",  (1700f, 2500f, 2.0f) },
             { "Dominus",   (2000f, 3000f, 1.5f) },
-            { "Acastus",   (3500f, 8000f, 0.25f) },     // user 2026-11-24 "acastus need to be rarer": was 6000 pts / weight 0.7; max one per raid
+            { "Acastus",   (3500f, 8000f, 0.25f) },     // user 2026-11-24 "acastus need to be rarer": was 6000 pts / weight 0.7; max one per raid     // user 2026-11-24 "acastus need to be rarer": was 6000 pts / weight 0.7; max one per raid
         };
         const int MaxAcastus = 1;
 

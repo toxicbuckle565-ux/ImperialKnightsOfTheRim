@@ -24,6 +24,11 @@ namespace LIK
         {
             __state = false;
             if (VehicleTurret.LaunchProjectileCE == null || __instance?.def == null || !__instance.def.defName.StartsWith("LIK_Turret_")) return;
+            // 2026-11-26: Compat/CombatExtended now swaps Knight turret projectiles for CE ones (BulletCE / ProjectileCE_Explosive, incl.
+            // our LIK_CE_Proj_*). Those MUST go through CE's launcher - the vanilla path casts them to Verse.Projectile and threw
+            // InvalidCastException (Acastus autocannon/ironstorm). Only a projectile that really is a Verse.Projectile takes the vanilla path.
+            ThingDef proj = __instance.loadedAmmo?.projectileWhenLoaded ?? __instance.def.projectile;
+            if (proj?.thingClass == null || !typeof(Projectile).IsAssignableFrom(proj.thingClass)) return;
             saved = VehicleTurret.LaunchProjectileCE;
             VehicleTurret.LaunchProjectileCE = null;
             __state = true;
