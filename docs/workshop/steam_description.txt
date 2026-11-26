@@ -1,4 +1,4 @@
-[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/11_update.png[/img]
+[img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/11_update.png?v=2[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/01_intro.png[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/02_knights.png[/img]
 [img]https://raw.githubusercontent.com/toxicbuckle565-ux/ImperialKnightsOfTheRim/main/docs/infographics/03_buildings.gif[/img]
