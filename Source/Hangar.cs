@@ -102,12 +102,21 @@ namespace LIK
         public Color paintOne = Color.white, paintTwo = Color.white, paintThree = Color.white;
         public List<KnightSticker> stickers = new List<KnightSticker>();                // stickers chosen with the paint scheme (Stickers.cs)
         public float work;
+        // REFIT order (user 2026-11-26: "rather have the pawns do it"): pawns haul only the changed pieces to the delivery row, then a
+        // constructor fits them on the Knight docked in the bay. turretKeys / headIndex / lifeSupport / voidShield = the wanted end state.
+        public bool refit;
+        public List<ThingDef> refitItems = new List<ThingDef>();
+        public const float RefitWorkPerPiece = 1500f;
+
+        /// <summary>Work to finish this order: a full assembly, or a short fitting job per refit piece.</summary>
+        public float WorkNeeded { get { return refit ? RefitWorkPerPiece * Mathf.Max(1, refitItems.Count) : cls.assembleWork; } }
 
         /// <summary>The items to deliver, in the slot order of the hangar's delivery row: four parts, the head, then one weapon per mount.</summary>
         public List<ThingDef> RequiredItems
         {
             get
             {
+                if (refit) return new List<ThingDef>(refitItems);
                 var list = new List<ThingDef>(cls.parts);
                 if (cls.heads.Count > 0) list.Add(cls.heads[Mathf.Clamp(headIndex, 0, cls.heads.Count - 1)].item);
                 if (lifeSupport && cls.lifeSupport != null) list.Add(cls.lifeSupport);
@@ -138,6 +147,9 @@ namespace LIK
             Scribe_Values.Look(ref paintTwo, "paintTwo", Color.white);
             Scribe_Values.Look(ref paintThree, "paintThree", Color.white);
             if (turretKeys == null) turretKeys = new List<string>();
+            Scribe_Values.Look(ref refit, "refit", false);
+            Scribe_Collections.Look(ref refitItems, "refitItems", LookMode.Def);
+            if (refitItems == null) refitItems = new List<ThingDef>();
         }
     }
 
@@ -454,6 +466,7 @@ namespace LIK
         public bool Complete(Pawn doer)
         {
             if (order == null || !Spawned) return false;
+            if (order.refit) return CompleteRefit(doer);
             if (FindDockedKnight() != null || StowedKnight != null) return false;   // the bay is occupied by a docked or stowed Knight
             if (KnightSpotBlocked(order.cls.vehicle) != null) return false;          // never wipe a wall behind the hangar
             List<ThingDef> req = order.RequiredItems;
@@ -591,6 +604,50 @@ namespace LIK
             return true;
         }
 
+        /// <summary>A refit order for the docked Knight (user 2026-11-26): pawns deliver the new pieces, then fit them (CompleteRefit).</summary>
+        public bool OrderRefit(VehiclePawn v, KnightClassDef cls, IList<string> keys, int headIdx, bool ls, bool vs)
+        {
+            if (!Spawned || ServicedKnight != v) { Messages.Message("The Knight is no longer docked here.", this, MessageTypeDefOf.RejectInput, false); return false; }
+            List<ThingDef> need = RefitNeeds(v, cls, keys, headIdx, ls, vs, null);
+            if (need.Count == 0 && (v.GetComp<CompKnightHead>()?.lifeSupport ?? false) == ls && (v.GetComp<CompKnightHead>()?.voidShield ?? false) == vs)
+            { Messages.Message("Nothing to change.", this, MessageTypeDefOf.RejectInput, false); return false; }
+            if (order != null) CancelOrder();
+            order = new HangarOrder { cls = cls, refit = true, refitItems = need, turretKeys = new List<string>(keys), headIndex = headIdx, lifeSupport = ls, voidShield = vs };
+            Messages.Message(v.LabelShort + " refit ordered. Builders will bring the new pieces to the hangar and fit them.", this, MessageTypeDefOf.PositiveEvent, false);
+            return true;
+        }
+
+        /// <summary>Fit the delivered pieces on the docked Knight; the pieces taken off come back as items.</summary>
+        bool CompleteRefit(Pawn doer)
+        {
+            VehiclePawn v = ServicedKnight;
+            if (v == null || KnightLoadout.ClassFor(v.VehicleDef) != order.cls) return false;
+            List<ThingDef> req = order.RequiredItems;
+            var items = new List<Thing>();
+            for (int i = 0; i < req.Count; i++)
+            {
+                Thing t = ItemAt(i);
+                if (t == null) return false;
+                items.Add(t);
+            }
+            KnightClassDef cls = order.cls;
+            var returned = new List<ThingDef>();
+            RefitNeeds(v, cls, order.turretKeys, order.headIndex, order.lifeSupport, order.voidShield, returned);
+            foreach (Thing t in items) t.SplitOff(1).Destroy();
+            KnightLoadout.Apply(v, cls, order.turretKeys);
+            if (!v.Spawned) OrbitalDropDraw.ForgetTurrets(v);       // docked (clamped) Knight: redraw with the new weapons
+            if (cls.heads.Count > 0) { KnightLoadout.SetHead(v, cls, order.headIndex); v.GetComp<CompKnightHead>()?.Apply(); }
+            CompKnightHead lc = v.GetComp<CompKnightHead>();
+            if (lc != null && cls.lifeSupport != null) lc.lifeSupport = order.lifeSupport;
+            if (lc != null && cls.voidShield != null) { if (lc.voidShield != order.voidShield) lc.shieldCharge = -1f; lc.voidShield = order.voidShield; }
+            foreach (ThingDef d in returned) GenPlace.TryPlaceThing(ThingMaker.MakeThing(d), SlotCell(0), Map, ThingPlaceMode.Near);
+            order = null;
+            serviceNotified = false;
+            Messages.Message(v.LabelShort + " refitted" + (doer != null ? " by " + doer.LabelShort : "") + ". New weapons are loaded from the dock's steel supply.",
+                v.Spawned ? new LookTargets(v) : new LookTargets(this), MessageTypeDefOf.PositiveEvent, false);
+            return true;
+        }
+
         void CancelOrder()
         {
             if (order == null) return;
@@ -716,7 +773,7 @@ namespace LIK
                 {
                     knight = dk, iconName = "LIK_Refit",
                     defaultLabel = "Refit docked Knight",
-                    defaultDesc = "Change the weapons and head of the Knight in this bay. New pieces are taken from stock on the map; the pieces taken off come back as items. " +
+                    defaultDesc = "Change the weapons and head of the Knight in this bay. Builders haul the new pieces to the hangar and fit them; the pieces taken off come back as items. " +
                                   "Repairs and reloading happen automatically while it is docked.",
                     icon = GizmoIcons.Get("LIK_Refit", dk.VehicleDef, TexCommand.Attack),
                     action = delegate { Find.WindowStack.Add(new Window_ConfigureKnight(this, dk)); }
@@ -745,7 +802,7 @@ namespace LIK
             if (order != null)
                 yield return new Command_Action
                 {
-                    defaultLabel = "Cancel assembly",
+                    defaultLabel = order.refit ? "Cancel refit" : "Cancel assembly",
                     defaultDesc = "Cancel the current order. Parts already delivered become available again; no progress is kept.",
                     icon = TexCommand.ClearPrioritizedWork,
                     action = CancelOrder
@@ -774,8 +831,12 @@ namespace LIK
             if (order == null) return s + (s.NullOrEmpty() ? "" : "\n") + "No assembly ordered. Dock a Knight here to repair and rearm it.";
             List<ThingDef> req = order.RequiredItems;
             int have = Enumerable.Range(0, req.Count).Count(i => ItemAt(i) != null);
+            if (order.refit)
+                return s + (s.NullOrEmpty() ? "" : "\n") + "Refitting: " + order.cls.LabelCap + " (" + have + "/" + req.Count + " pieces delivered, " +
+                       Mathf.RoundToInt(100f * order.work / Mathf.Max(1f, order.WorkNeeded)) + "% fitted)" +
+                       (ServicedKnight == null ? "\nOn hold: dock the Knight in this bay to fit the new pieces." : "");
             return s + (s.NullOrEmpty() ? "" : "\n") + "Assembling: " + order.cls.LabelCap + " (" + have + "/" + req.Count + " parts delivered, " +
-                   Mathf.RoundToInt(100f * order.work / Mathf.Max(1f, order.cls.assembleWork)) + "% assembled)" +
+                   Mathf.RoundToInt(100f * order.work / Mathf.Max(1f, order.WorkNeeded)) + "% assembled)" +
                    (ServicedKnight != null ? "\nOn hold: " + ServicedKnight.LabelShort + " is in the bay. Cancel this order and use \"Refit docked Knight\" to change its weapons." : "");
         }
 
@@ -1204,7 +1265,7 @@ namespace LIK
             Rect confirm = new Rect(rx, inRect.height - 44f, 190f, 38f);
             if (refitKnight != null)
             {
-                if (Widgets.ButtonText(confirm, "Refit now") && hangar.Refit(refitKnight, cls, refitKeys, headIdx, lsOn, vsOn)) Close();
+                if (Widgets.ButtonText(confirm, hangar.order != null ? "Replace order with refit" : "Order refit") && hangar.OrderRefit(refitKnight, cls, refitKeys, headIdx, lsOn, vsOn)) Close();
             }
             else if (Widgets.ButtonText(confirm, hangar.order != null ? "Replace current order" : "Order assembly"))
             {
@@ -1246,6 +1307,13 @@ namespace LIK
                 return false;
             }
             if (!pawn.CanReserve(t, 1, -1, null, forced)) return false;
+            if (h.order.refit)                                   // refit: the Knight must be in the bay; only its new pieces are hauled
+            {
+                VehiclePawn rk = h.ServicedKnight;
+                if (rk == null || KnightLoadout.ClassFor(rk.VehicleDef) != h.order.cls) { JobFailReason.Is("the Knight to refit is not in the bay"); return false; }
+                if (!h.AllItemsAvailable(pawn)) { JobFailReason.Is("missing weapons or pieces for the refit"); return false; }
+                return true;
+            }
             if (h.FindDockedKnight() != null) { JobFailReason.Is("a Knight is docked in the bay"); return false; }
             if (h.StowedKnight != null) { JobFailReason.Is("a Knight is stowed in the bay"); return false; }
             string spotBlocked = h.KnightSpotBlocked(h.order.cls.vehicle);
@@ -1305,7 +1373,7 @@ namespace LIK
                 item = Hangar.FindLoose(pawn, req[idx]);
                 if (item == null)
                 {
-                    Messages.Message(pawn.LabelShortCap + " cannot find the " + req[idx].label + " for the assembly.", pawn, MessageTypeDefOf.RejectInput, false);
+                    Messages.Message(pawn.LabelShortCap + " cannot find the " + req[idx].label + (Hangar.order.refit ? " for the refit." : " for the assembly."), pawn, MessageTypeDefOf.RejectInput, false);
                     EndJobWith(JobCondition.Incompletable);
                 }
             };
@@ -1350,16 +1418,16 @@ namespace LIK
                 pawn.rotationTracker.FaceTarget(Hangar.Position);
                 o.work += pawn.GetStatValue(StatDefOf.GeneralLaborSpeed);
                 if (pawn.IsHashIntervalTick(80)) FleckMaker.ThrowMicroSparks(pawn.DrawPos, pawn.Map);
-                if (o.work < o.cls.assembleWork) return;
+                if (o.work < o.WorkNeeded) return;
                 if (!Hangar.Complete(pawn))
                 {
-                    Messages.Message("The assembly could not be completed: a part is missing from the delivery row, or a Knight is docked in the bay.", Hangar, MessageTypeDefOf.RejectInput, false);
+                    Messages.Message(o.refit ? "The refit could not be completed: a piece is missing from the delivery row, or the Knight left the bay." : "The assembly could not be completed: a part is missing from the delivery row, or a Knight is docked in the bay.", Hangar, MessageTypeDefOf.RejectInput, false);
                     EndJobWith(JobCondition.Incompletable);
                     return;
                 }
                 EndJobWith(JobCondition.Succeeded);
             };
-            work.WithProgressBar(TargetIndex.A, () => Hangar.order == null ? 1f : Mathf.Clamp01(Hangar.order.work / Mathf.Max(1f, Hangar.order.cls.assembleWork)));
+            work.WithProgressBar(TargetIndex.A, () => Hangar.order == null ? 1f : Mathf.Clamp01(Hangar.order.work / Mathf.Max(1f, Hangar.order.WorkNeeded)));
 
             yield return pick;
             yield return gotoItem;

@@ -47,17 +47,17 @@
 	<JobDef>
 		<defName>LIK_AssembleKnight</defName>
 		<driverClass>LIK.JobDriver_AssembleKnight</driverClass>
-		<reportString>assembling a Knight.</reportString>
+		<reportString>assembling or refitting a Knight.</reportString>
 		<casualInterruptible>false</casualInterruptible>
 	</JobDef>
 
 	<WorkGiverDef>
 		<defName>LIK_AssembleKnight</defName>
-		<label>assemble a Knight</label>
+		<label>assemble or refit a Knight</label>
 		<giverClass>LIK.WorkGiver_AssembleKnight</giverClass>
 		<workType>Construction</workType>
-		<verb>assemble</verb>
-		<gerund>assembling</gerund>
+		<verb>work on the Knight at</verb>
+		<gerund>working on the Knight at</gerund>
 		<priorityInType>60</priorityInType>
 		<requiredCapacities>
 			<li>Manipulation</li>
