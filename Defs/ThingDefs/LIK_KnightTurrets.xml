@@ -4384,6 +4384,7 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+			<gizmoIconTexPath>Things/Knights/Weapons/acastus/item_acastus_ironstorm</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
@@ -4433,6 +4434,7 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+			<gizmoIconTexPath>Things/Knights/Weapons/acastus/item_acastus_helios</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
