@@ -696,6 +696,7 @@ namespace LIK
         public int delayTicks;                // group drop in sequence: waits (unseen, high above) before it starts to fall
         public int group, firstKnightId = -1; // the drop this Knight belongs to, and the Knight that landed first (sounds the war horn)
         public bool seekOnLanding = true;     // switch Seek & destroy on as it lands (drop window, user 2026-11-13)
+        public bool raidDrop;                 // a Knight-house raid opening from orbit (KnightRaids.cs, user 2026-11-25): an AI Knight
 
         ThingOwner<Thing> Inner { get { return inner ?? (inner = new ThingOwner<Thing>(this, true, LookMode.Deep)); } }
         VehiclePawn Knight { get { return Inner.Count > 0 ? Inner[0] as VehiclePawn : null; } }
@@ -703,6 +704,7 @@ namespace LIK
         public void GetChildHolders(List<IThingHolder> outChildren) { ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings()); }
 
         public void Load(VehiclePawn v) { Inner.TryAdd(v); }
+        public string KnightLabel { get { return Knight?.def.label ?? "Knight"; } }
 
         float Height { get { return StartHeight * ticksLeft / (float)FallTicks; } }   // constant, very high speed - no braking
 
@@ -863,9 +865,17 @@ namespace LIK
             // user 2026-11-13: on an enemy base, once the whole drop is down, the first Knight to land sounds its war horn
             if (group != 0 && !map.listerThings.ThingsOfDef(KnightDropDefOf.LIK_KnightDropIncoming).Any(t => t is KnightDropFaller o && o != this && o.group == group && o.Spawned))
                 map.GetComponent<MapComponent_DropHorn>()?.Queue(firstKnightId, map);
-            foreach (Pawn p in TollUtil.Pilots(v)) TollUtil.AddStrain(p, 0.12f);
-            Messages.Message(v.LabelShort + " has made planetfall.", v, MessageTypeDefOf.PositiveEvent, false);
-            MapComponent_DropZoneWar.Start(map, v);     // drop-zone warfare: the enemy sends reinforcement waves (2026-11-12)
+            if (raidDrop)
+            {
+                // a house Knight opening a raid: driven by the AI (MapComponent_KnightSeek); the letter was sent when the drop began
+                MapComponent_KnightSeek.Arrived[v.thingIDNumber] = Find.TickManager.TicksGame;
+            }
+            else
+            {
+                foreach (Pawn p in TollUtil.Pilots(v)) TollUtil.AddStrain(p, 0.12f);
+                Messages.Message(v.LabelShort + " has made planetfall.", v, MessageTypeDefOf.PositiveEvent, false);
+                MapComponent_DropZoneWar.Start(map, v);     // drop-zone warfare: the enemy sends reinforcement waves (2026-11-12)
+            }
             if (sw.ElapsedMilliseconds > 50)
                 Log.Message("[LIK] Drop impact took " + sw.ElapsedMilliseconds + " ms (damage " + tDamage + ", obliterate " + tObliterate + ", knight spawn + engine " + tSpawn + ", plants queued " + tPlants + ")");
         }
@@ -895,6 +905,7 @@ namespace LIK
             Scribe_Values.Look(ref group, "group", 0);
             Scribe_Values.Look(ref firstKnightId, "firstKnightId", -1);
             Scribe_Values.Look(ref seekOnLanding, "seekOnLanding", true);
+            Scribe_Values.Look(ref raidDrop, "raidDrop", false);
         }
     }
 

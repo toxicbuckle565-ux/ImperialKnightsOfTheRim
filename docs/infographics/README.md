@@ -3,6 +3,10 @@
 Overview pictures of the mod: what it adds, the five Knights, the buildings, every weapon and the roadmap.
 They are also used on the [Steam Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3844956726).
 
+## Latest update
+
+![Update: Knight Houses](11_update.png)
+
 ![Intro](01_intro.png)
 ![The Knights](02_knights.png)
 ![Buildings](03_buildings.gif)

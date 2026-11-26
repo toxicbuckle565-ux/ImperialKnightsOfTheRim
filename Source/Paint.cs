@@ -65,6 +65,17 @@ namespace LIK
             new Scheme("House Zavora", 194, 36, 34, 196, 198, 204),   // halved red / white (white half: sticker), steel rims, black hazard
         };
 
+        // RENEGADE houses (user 2026-11-25: stand-in until the Chaos Knights): houses that broke their oaths - Horus Heresy traitors
+        // (Devine, Makabius, Lucaris) and Herpetrax, which never swore to the Imperium. Names from the lore; colours are a grim stand-in
+        // (no official source found for each) - replace when the Chaos Knights come.
+        public static readonly List<Scheme> RenegadeHouses = new List<Scheme>
+        {
+            new Scheme("House Devine", 36, 34, 38, 150, 104, 52),           // black iron, tarnished bronze
+            new Scheme("House Herpetrax", 62, 74, 44, 128, 72, 40),         // corroded green, rust
+            new Scheme("House Makabius", 110, 22, 22, 176, 136, 66),        // dried-blood red, brass
+            new Scheme("House Lucaris", 64, 36, 78, 150, 104, 52),          // bruised purple, bronze
+        };
+
         static readonly int ColorOneID = Shader.PropertyToID("_ColorOne");
         static readonly int ColorTwoID = Shader.PropertyToID("_ColorTwo");
         static readonly int ColorThreeID = Shader.PropertyToID("_ColorThree");

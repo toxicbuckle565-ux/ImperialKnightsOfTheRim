@@ -23,6 +23,19 @@ namespace LIK
             return fx != null && fx.pierce > 0f;
         }
 
+        // user 2026-11-25: "change the Acastus targeting through walls to about a third, but its range stays the same" - an Acastus gun picks
+        // targets behind walls only within a third of its range; further out it needs a clear line like any gun (the shot still burns through).
+        public const float AcastusBlindShare = 1f / 3f;
+
+        /// <summary>May this burn-through gun pick a target this far away without a clear line of sight?</summary>
+        public static bool PiercesAt(VehicleTurret t, Vector3 targetPos)
+        {
+            if (!Pierces(t)) return false;
+            string dn = t.def?.defName;
+            if (dn == null || !dn.StartsWith("LIK_Turret_acastus_")) return true;
+            return (targetPos - t.TurretLocation).MagnitudeHorizontal() <= t.MaxRange * AcastusBlindShare;
+        }
+
         static void Postfix(VehicleTurret turret, IntVec3 root, LocalTargetInfo target, ref IntVec3 goodDest, ref bool __result)
         {
             if (__result || !Pierces(turret) || !target.IsValid) return;
@@ -36,6 +49,7 @@ namespace LIK
                 if (th is Pawn p && (p.Dead)) return;
             }
             if (!turret.InRange(target) || !turret.AngleBetween(target.CenterVector3)) return;
+            if (!PiercesAt(turret, target.CenterVector3)) return;                // Acastus: only the near third through walls
             goodDest = target.Cell;
             __result = true;
         }

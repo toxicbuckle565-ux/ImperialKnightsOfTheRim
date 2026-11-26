@@ -186,8 +186,9 @@
 				<reactors>
 					<li Class="Vehicles.Reactor_Explosive">
 						<indicator>VF_Explosive</indicator>
-						<chance>0.15</chance>
-						<radius>6</radius>
+						<maxHealth>0.25</maxHealth>
+						<chance>0.3</chance>
+						<radius>3</radius>
 						<damageDef>Burn</damageDef>
 					</li>
 				</reactors>
@@ -294,8 +295,9 @@
 					</li>
 					<li Class="Vehicles.Reactor_Explosive">
 						<indicator>VF_Explosive</indicator>
-						<chance>0.2</chance>
-						<radius>8</radius>
+						<maxHealth>0.25</maxHealth>
+						<chance>0.5</chance>
+						<radius>4</radius>
 						<damageDef>Burn</damageDef>
 					</li>
 				</reactors>

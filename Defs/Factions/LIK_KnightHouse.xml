@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- KNIGHT FACTIONS - framework (user 2026-11-24: "lets start on the framework first").
+     One faction def for the Questor Imperialis noble houses. Each Knight House in a world takes one of the lore houses the paint system
+     knows (KnightPaint.Houses: name + armour / trim colours) - see Source/KnightHouses.cs. Trade, raids with Knights, reinforcements and
+     Freeblades build on KnightHouseUtil.GenerateCrewedKnight later; this file only defines the faction and its people. -->
+<Defs>
+
+	<FactionDef ParentName="OutlanderFactionBase">
+		<defName>LIK_KnightHouse</defName>
+		<label>Knight house</label>
+		<description>A noble house of the Questor Imperialis - an ancient knightly family sworn to the Emperor, holding its lands by right of the Imperial Knights it fields. Its nobles are bonded to their Knights' Thrones Mechanicum in the Ritual of Becoming; lesser kin and sworn retainers pilot the Armigers as Bondsmen, while household troops, squires and Sacristans serve the house.\n\nA Knight house values honour and oaths above all. It can be a powerful friend - or a terrible enemy.</description>
+		<pawnSingular>house retainer</pawnSingular>
+		<pawnsPlural>house retainers</pawnsPlural>
+		<leaderTitle>High Monarch</leaderTitle>
+		<fixedLeaderKinds>
+			<li>LIK_KnightNoble</li>
+		</fixedLeaderKinds>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+		<maxConfigurableAtWorldCreation>3</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>65</configurationListOrderPriority>
+		<settlementGenerationWeight>0.6</settlementGenerationWeight>
+		<listOrderPriority>31</listOrderPriority>
+		<pawnGroupMakers>
+			<li>
+				<kindDef>Combat</kindDef>
+				<options>
+					<LIK_HouseGuard>10</LIK_HouseGuard>
+					<LIK_HouseTrooper>10</LIK_HouseTrooper>
+					<LIK_HouseVeteran>6</LIK_HouseVeteran>
+					<LIK_Bondsman>3</LIK_Bondsman>
+					<LIK_KnightNoble>2</LIK_KnightNoble>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<LIK_HouseServant>15</LIK_HouseServant>
+					<LIK_Squire>6</LIK_Squire>
+					<LIK_Sacristan>4</LIK_Sacristan>
+					<LIK_HouseGuard>10</LIK_HouseGuard>
+					<LIK_KnightNoble>3</LIK_KnightNoble>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<LIK_HouseFactor>1</LIK_HouseFactor>
+				</traders>
+				<carriers>
+					<Muffalo>6</Muffalo>
+					<Dromedary>4</Dromedary>
+					<Elephant>1</Elephant>
+				</carriers>
+				<guards>
+					<LIK_HouseGuard>10</LIK_HouseGuard>
+					<LIK_HouseTrooper>8</LIK_HouseTrooper>
+					<LIK_HouseVeteran>4</LIK_HouseVeteran>
+					<LIK_Squire>2</LIK_Squire>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<LIK_HouseServant>8</LIK_HouseServant>
+					<LIK_Sacristan>4</LIK_Sacristan>
+					<LIK_HouseGuard>10</LIK_HouseGuard>
+					<LIK_HouseTrooper>10</LIK_HouseTrooper>
+					<LIK_HouseVeteran>6</LIK_HouseVeteran>
+					<LIK_Bondsman>3</LIK_Bondsman>
+					<LIK_KnightNoble>3</LIK_KnightNoble>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightHouse">
+				<relicWeaponChance>0.15</relicWeaponChance>
+			</li>
+		</modExtensions>
+	</FactionDef>
+
+	<!-- ===== the house's people (vanilla outlander bases; Knight pilots get Piloting + the Throne bond in code) ===== -->
+	<PawnKindDef ParentName="VillagerBase">
+		<defName>LIK_HouseServant</defName>
+		<label>house servant</label>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="VillagerBase">
+		<defName>LIK_Squire</defName>
+		<label>squire</label>
+		<labelPlural>squires</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="VillagerBase">
+		<defName>LIK_Sacristan</defName>
+		<label>sacristan</label>
+		<labelPlural>sacristans</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="GuardBase">
+		<defName>LIK_HouseGuard</defName>
+		<label>household guard</label>
+		<labelPlural>household guards</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryGunnerBase">
+		<defName>LIK_HouseTrooper</defName>
+		<initialResistanceRange>6~10</initialResistanceRange>	<!-- vanilla Mercenary_Gunner (2026-11-25: config error without it) -->
+		<label>household trooper</label>
+		<labelPlural>household troopers</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryEliteBase">
+		<defName>LIK_HouseVeteran</defName>
+		<initialResistanceRange>15~23</initialResistanceRange>	<!-- vanilla Mercenary_Elite (2026-11-25: config error without it) -->
+		<label>house veteran</label>
+		<labelPlural>house veterans</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryGunnerBase">
+		<defName>LIK_Bondsman</defName>
+		<initialResistanceRange>12~20</initialResistanceRange>	<!-- oath-bound to the house: harder to sway than a trooper (2026-11-25: config error without it) -->
+		<label>bondsman</label>
+		<labelPlural>bondsmen</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="CouncilmanBase">
+		<defName>LIK_KnightNoble</defName>
+		<label>knight noble</label>
+		<labelPlural>knight nobles</labelPlural>
+		<factionLeader>true</factionLeader>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="TraderBase">
+		<defName>LIK_HouseFactor</defName>
+		<label>house factor</label>
+		<labelPlural>house factors</labelPlural>
+	</PawnKindDef>
+
+</Defs>

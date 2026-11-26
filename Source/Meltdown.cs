@@ -84,7 +84,7 @@ namespace LIK
             if (Find.CurrentMap == map) KnightQuake.Start(0.6f + radius * 0.06f, 1.6f);
             GenExplosion.DoExplosion(c, map, radius, DamageDefOf.Bomb, knight, dmg, 0.6f, chanceToStartFire: 0.5f, damageFalloff: true,
                 ignoredThings: knight != null ? new List<Thing> { knight } : null, doSoundEffects: false, screenShakeFactor: 0f);
-            Devastate(map, c, radius, dmg, knight);
+            Devastate(map, c, radius, dmg, knight, VehicleShare(cls, overload));
             ThingDef crater = DefDatabase<ThingDef>.GetNamedSilentFail("LIK_KnightCrater_" + cls);
             if (crater != null && c.InBounds(map) && !c.GetTerrain(map).IsWater) GenSpawn.Spawn(crater, c, map, WipeMode.Vanish);
             return enemies;
@@ -98,7 +98,46 @@ namespace LIK
         ///    plants are flattened by the outward wave. Natural rock stands.
         ///  - the BLAST ZONE (core .. radius): a pressure wave that ignores walls and most armour, falling off to 40 % at the edge.
         /// </summary>
-        static void Devastate(Map map, IntVec3 c, float radius, int dmg, Thing knight)
+        /// <summary>
+        /// user 2026-11-25 (tabletop Deadly Demise: Armiger D3, Questoris / Cerastus D6, Dominus D6+2, Acastus 2D6 mortal wounds - a
+        /// meltdown can finish a damaged Knight but never one-shots a healthy one): the share of a VEHICLE's integrity a blast takes away
+        /// at its core (falling to 40 % of that at the edge). The overload (Noble Sacrifice) hits harder.
+        /// </summary>
+        public static float VehicleShare(string cls, bool overload)
+        {
+            float s = cls == "Armiger" ? 0.15f : cls == "Dominus" ? 0.35f : cls == "Acastus" ? 0.5f : 0.25f;
+            return overload ? Mathf.Min(s * 1.3f, 0.65f) : s;
+        }
+
+        /// <summary>Every part of the vehicle loses the same share of its maximum health (so its integrity drops by that share), then the
+        /// Knight death rule is checked (KnightDeath: falls under 25 %).</summary>
+        static AccessTools.FieldRef<VehicleComponent, float> compHealth; static bool compHealthTried;
+        static AccessTools.FieldRef<VehicleComponent, float> CompHealth()
+        {
+            if (!compHealthTried)
+            {
+                compHealthTried = true;
+                try { compHealth = AccessTools.FieldRefAccess<VehicleComponent, float>("health"); }
+                catch (System.Exception e) { Log.Warning("[LIK] meltdown: VF part health field not found - vehicles take plain blast damage instead (" + e.Message + ")"); }
+            }
+            return compHealth;
+        }
+
+        static void DamageVehicle(VehiclePawn v, float share, Thing knight)
+        {
+            if (v?.statHandler?.components == null || share <= 0f) return;
+            var hp = CompHealth();
+            if (hp == null) { v.TakeDamage(new DamageInfo(DamageDefOf.Bomb, 400f * share, 2f, -1f, knight)); return; }
+            foreach (VehicleComponent comp in v.statHandler.components)
+            {
+                if (comp?.props == null) continue;
+                hp(comp) = Mathf.Max(0f, comp.Health - comp.props.health * share);      // 'health' is not public in VF's build
+            }
+            KnightDeath.Check(v, new DamageInfo(DamageDefOf.Bomb, 1f, 0f, -1f, knight));
+            if (!v.Destroyed && v.GetStatValue(VehicleStatDefOf.BodyIntegrity) < 0.01f) v.Kill(new DamageInfo(DamageDefOf.Bomb, 1f, 0f, -1f, knight));
+        }
+
+        static void Devastate(Map map, IntVec3 c, float radius, int dmg, Thing knight, float vehicleShare)
         {
             float r = Mathf.Min(radius, GenRadial.MaxRadialPatternRadius - 1f), core = r * 0.6f;
             var cells = GenRadial.RadialCellsAround(c, r, true).Where(x => x.InBounds(map)).ToList();
@@ -115,8 +154,10 @@ namespace LIK
                     if (t is Pawn p)
                     {
                         if (p.Dead) continue;
+                        float f = inCore ? 1f : 1f - 0.6f * (d - core) / Mathf.Max(0.1f, r - core);
+                        // vehicles (other Knights, tanks) are badly damaged, not obliterated - tabletop Deadly Demise (user 2026-11-25)
+                        if (p is VehiclePawn vp) { DamageVehicle(vp, vehicleShare * f, knight); continue; }
                         if (inCore) { p.Kill(new DamageInfo(DamageDefOf.Bomb, 9999f, 99f, -1f, knight)); continue; }
-                        float f = 1f - 0.6f * (d - core) / Mathf.Max(0.1f, r - core);
                         for (int i = 0; i < 3 && !p.Dead && !p.Destroyed; i++)
                             p.TakeDamage(new DamageInfo(DamageDefOf.Bomb, dmg * f * 0.6f, 2f, -1f, knight));
                         continue;
@@ -159,7 +200,10 @@ namespace LIK
             bool overload = mc != null && mc.IsOverloading(v);
             // destroyed mid-countdown, before the build-up started: it goes the natural way (build-up now, blast 1.5 s later)
             if (overload && mc.OverloadLeft(v) > Meltdown.BuildUpTicks) { mc.ClearOverload(v); overload = false; goto critical; }
-            if (!overload && !Rand.Chance(Meltdown.NaturalChance)) return;
+            // 2026-11-25 (user: "not seeing any reactors go nuclear this whole day"): dev log of every roll, to prove the roll runs
+            bool goesCritical = overload || Rand.Chance(Meltdown.NaturalChance);
+            if (Prefs.DevMode) Log.Message("[LIK] " + v.LabelShort + " destroyed - reactor roll (" + Meltdown.NaturalChance.ToStringPercent() + "): " + (overload ? "OVERLOAD" : goesCritical ? "MELTDOWN" : "holds"));
+            if (!goesCritical) return;
             critical:
             __state = new MeltdownState { overload = overload, map = v.Map, pos = v.Position, label = v.LabelShort, knightFaction = v.Faction };
             // the crew does not get out: take them out of the throne now (unspawned), their fate is decided after the blast

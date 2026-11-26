@@ -74,7 +74,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.5</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_chainsword</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -106,7 +106,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.4</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+			<soundExplode>LIK_Snd_impact_gauntlet_sweep</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -263,7 +263,7 @@
 			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
 			<preExplosionSpawnChance>1</preExplosionSpawnChance>
 			<explosionRadius>2.4</explosionRadius>
-			<soundExplode>Explosion_Flame</soundExplode>
+			<soundExplode>LIK_Snd_impact_conflagration</soundExplode>
 			<screenShakeFactor>3.3</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -351,7 +351,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.3</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_chaincleaver</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -479,7 +479,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.5</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_chainsword</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -509,7 +509,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.3</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_chaincleaver</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -707,7 +707,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.4</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+			<soundExplode>LIK_Snd_impact_gauntlet</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -888,7 +888,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>400</speed>
 			<explosionRadius>1.2</explosionRadius>
-			<soundExplode>Explosion_Bomb</soundExplode>
+			<soundExplode>LIK_Snd_impact_lightninglock</soundExplode>
 			<screenShakeFactor>2.7</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -924,7 +924,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>400</speed>
 			<explosionRadius>1.5</explosionRadius>
-			<soundExplode>Explosion_Bomb</soundExplode>
+			<soundExplode>LIK_Snd_impact_conversion_armiger</soundExplode>
 			<screenShakeFactor>3.8</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -969,7 +969,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.4</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+			<soundExplode>LIK_Snd_impact_siegeclaw</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -995,7 +995,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.6</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Blunt</soundExplode>
+			<soundExplode>LIK_Snd_impact_hekaton</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -1026,7 +1026,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>55</speed>
 			<explosionRadius>1.8</explosionRadius>
-			<soundExplode>Explosion_Flame</soundExplode>
+			<soundExplode>LIK_Snd_impact_radcleanser</soundExplode>
 			<screenShakeFactor>2.9</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -1057,7 +1057,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>55</speed>
 			<explosionRadius>1.8</explosionRadius>
-			<soundExplode>Explosion_Flame</soundExplode>
+			<soundExplode>LIK_Snd_impact_radcleanser_twin</soundExplode>
 			<screenShakeFactor>2.9</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -1386,7 +1386,7 @@
 			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
 			<preExplosionSpawnChance>1</preExplosionSpawnChance>
 			<explosionRadius>2.6</explosionRadius>
-			<soundExplode>Explosion_Flame</soundExplode>
+			<soundExplode>LIK_Snd_impact_acheron</soundExplode>
 			<screenShakeFactor>3.4</screenShakeFactor>
 		</projectile>
 		<modExtensions>
@@ -1444,7 +1444,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.6</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_chainfist</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -1559,7 +1559,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.6</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_warblade</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">
@@ -1651,7 +1651,7 @@
 			<stoppingPower>2.0</stoppingPower>
 			<speed>90</speed>
 			<explosionRadius>1.0</explosionRadius>
-			<soundExplode>MeleeHit_Metal_Sharp</soundExplode>
+			<soundExplode>LIK_Snd_impact_shocklance</soundExplode>
 		</projectile>
 		<modExtensions>
 			<li Class="LIK.DefModExtension_MeleeFx">

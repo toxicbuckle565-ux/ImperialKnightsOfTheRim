@@ -30,7 +30,11 @@ namespace LIK
 
         static AlignTool()
         {
-            ModContentPack m = LoadedModManager.RunningModsListForReading.FirstOrDefault(x => x.PackageIdPlayerFacing != null && x.PackageIdPlayerFacing.ToLowerInvariant() == "local.imperialknights");
+            // 2026-11-25 fix (user: siege claw nudge did nothing in game): this looked the mod up by the LOCAL package id only, so the release
+            // copy (toxicbuckle565.imperialknightsoftherim) never loaded Data/axis_offsets.json or aim_shifts.json. Find it by our own assembly.
+            System.Reflection.Assembly me = typeof(AlignTool).Assembly;
+            ModContentPack m = LoadedModManager.RunningModsListForReading.FirstOrDefault(x => x.assemblies?.loadedAssemblies != null && x.assemblies.loadedAssemblies.Contains(me))
+                ?? LoadedModManager.RunningModsListForReading.FirstOrDefault(x => x.PackageIdPlayerFacing != null && x.PackageIdPlayerFacing.ToLowerInvariant() == "local.imperialknights");
             Root = m?.RootDir;
             if (Root != null) LoadAxisDefaults(Root);
             if (Enabled) Log.Message("[LIK] alignment helper ON (mod settings > Imperial Knights)");

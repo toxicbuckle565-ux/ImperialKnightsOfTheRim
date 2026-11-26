@@ -115,6 +115,7 @@ namespace LIK
 
         void Order(VehiclePawn v, IntVec3 dest)
         {
+            if (!dest.IsValid || !dest.InBounds(map)) return;
             Job job = JobMaker.MakeJob(JobDefOf.Goto, dest);
             job.locomotionUrgency = LocomotionUrgency.Jog;
             lock (SeekOrders) SeekOrders[v.thingIDNumber] = dest;
@@ -143,11 +144,14 @@ namespace LIK
         // order is never touched) and makes no new move until the burst is away.
         readonly Dictionary<int, int> shotHold = new Dictionary<int, int>();
 
+        /// <summary>A Knight of another faction (a Knight house's raider / reinforcement): always run by the Seek &amp; destroy AI.</summary>
+        public static bool IsAIKnight(VehiclePawn v) => v?.Faction != null && v.Faction != Faction.OfPlayer && KnightLoadout.ClassFor(v.VehicleDef) != null;
+
         public static void HoldForShot(VehiclePawn v, int ticks)
         {
-            if (v == null || !v.Spawned || v.Faction != Faction.OfPlayer) return;
+            if (v == null || !v.Spawned) return;
             GameComponent_Seek seek = GameComponent_Seek.Instance;
-            if (seek == null || !seek.Get(v)) return;
+            if (!IsAIKnight(v) && (v.Faction != Faction.OfPlayer || seek == null || !seek.Get(v))) return;
             MapComponent_KnightSeek comp = v.Map.GetComponent<MapComponent_KnightSeek>();
             if (comp == null) return;
             int until = Find.TickManager.TicksGame + ticks;
@@ -186,8 +190,20 @@ namespace LIK
             foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Pawn).ToList())
             {
                 VehiclePawn v = t as VehiclePawn;
-                if (v == null || v.Faction != Faction.OfPlayer || !seek.Get(v)) continue;
-                if (!v.Drafted || v.Downed || v.Dead) { seek.Set(v, false); continue; }       // engine off: seeking ends
+                if (v == null) continue;
+                // Knight raids (user 2026-11-24): every NON-player Knight (a Knight house's raiders or reinforcements) is driven by this AI too
+                bool ai = IsAIKnight(v);
+                if (!ai && (v.Faction != Faction.OfPlayer || !seek.Get(v))) continue;
+                if (ai)
+                {
+                    if (v.Downed || v.Dead) continue;
+                    // legs gone (VF turns the engine off at MoveSpeed <= 0.1): don't start it again - the Knight is crippled, its guns still fire
+                    bool crippled = v.GetStatValue(VehicleStatDefOf.MoveSpeed) <= 0.1f;
+                    if (!v.Drafted && !crippled) { try { if (v.ignition != null && v.CanDraft().Accepted) v.ignition.Drafted = true; } catch { } }
+                    if (crippled) { if (v.vehiclePather.Moving) v.vehiclePather.StopDead(); continue; }
+                    if (!v.Drafted) continue;                                   // no pilot aboard: the Knight stands
+                }
+                else if (!v.Drafted || v.Downed || v.Dead) { seek.Set(v, false); continue; }       // engine off: seeking ends
                 if (KnightLanding.Recovering(v)) continue;          // still recovering from an orbital drop
                 try { Launcher(v); Run(v); }
                 catch (System.Exception e) { Log.ErrorOnce("[LIK] seek & destroy failed for " + v.LabelShort + ": " + e, v.thingIDNumber ^ 0x5eed); }
@@ -256,6 +272,9 @@ namespace LIK
             }
             if (standoff == float.MaxValue) standoff = 25f;
             standoff = Mathf.Clamp(standoff * 0.85f, 3f, 40f);
+            // user 2026-11-25 "the chain-cleaver never gets close enough": a melee arm (fitted, or the arm's other mode) sets the distance
+            float melee = KnightFacing.MeleeReach(v);
+            if (melee > 0f) standoff = Mathf.Max(2.5f, melee * 0.75f);
             float longest = 0f;
             foreach (VehicleTurret tr in turrets.Turrets)
                 if (!tr.TurretDisabled && tr.HasAmmo && tr.def.maxRange > longest) longest = tr.MaxRange;
@@ -278,15 +297,46 @@ namespace LIK
                 // the Knight stays where the player put it for a while, and for as long as it has something to shoot at from there;
                 // it only goes hunting again when that spot has nothing left in reach
                 bool there = v.Position.DistanceTo(hold.Key) <= 3f;
-                if (there && (now < hold.Value || EnemyInReach(v, longest))) return;
+                if (there && (now < hold.Value || EnemyInReach(v, longest))) { KnightFacing.FaceBest(v, map); return; }   // holding where the player put it: still turn to the enemy
                 manualHold.Remove(id);
             }
 
             if (!v.CanMoveFinal) return;
             if (HoldingForShot(v)) { StopOwnOrder(v); return; }        // a conversion gun is charging / firing: stand still (user 2026-11-24)
             CheckFailed(v);
+            // user 2026-11-25: an AI Knight shut in (dropped into a base) rams its way out towards where it wants to go (KnightRam.cs)
+            if (IsAIKnight(v) && KnightRam.Step(v, map, c => Order(v, c))) return;
             if (WalkOverPawns(v)) return;
             Thing target = FindTarget(v);
+            // user 2026-11-25 "friendly knights don't move with the caravan": a house Knight keeps with its own people - follows them when there is
+            // nobody to fight, and leaves the map with them (or when none of them are left)
+            // 2026-11-25 fix (user: raid at 10000 pts, no Knights): drop-pod raids - the infantry was still in the pods when the Knights spawned,
+            // 'none of their people left' sent them off the map at once. Now: a grace period after arriving, and a hostile Knight with something
+            // to fight never leaves just because its people are gone - only a real retreat (most of the group exiting) takes it home.
+            // user 2026-11-25: the grace only stops a fresh Knight from LEAVING (its people may still be in drop pods) - it follows them at once
+            if (IsAIKnight(v))
+            {
+                List<Pawn> g = Group(v);
+                NoteKnights(v);
+                bool fresh = JustArrived(v);
+                bool retreat = !fresh && g.Count > 0 && g.Count(Leaving) * 2 > g.Count;
+                if (retreat && v.Faction.HostileTo(Faction.OfPlayer)) retreat = WillRetreat(v);   // a hostile house would rather die (user 2026-11-25)
+                if (retreat) { KnightRam.SetGoal(v, KnightRam.NearestEdge(v, map)); LeaveMap(v); return; }   // the raid broke / the visit is over: go with them
+                if (target == null)                                            // nothing to fight: keep with them, or go home
+                {
+                    // user 2026-11-25: Knights that dropped ahead of their raid wait for the troops still on the way (GameComponent_KnightRaidFollow)
+                    if (g.Count == 0)
+                    {
+                        if (!fresh && !GameComponent_KnightRaidFollow.Pending(map, v.Faction)) { KnightRam.SetGoal(v, KnightRam.NearestEdge(v, map)); LeaveMap(v); }
+                        else KnightRam.SetGoal(v, IntVec3.Invalid);
+                        return;
+                    }
+                    IntVec3 centre = new IntVec3((int)g.Average(p => p.Position.x), 0, (int)g.Average(p => p.Position.z));
+                    KnightRam.SetGoal(v, v.Position.DistanceTo(centre) > 15f ? centre : IntVec3.Invalid);
+                    Escort(v); return;
+                }
+                // something to fight: fight (a lone Knight fights on)
+            }
             if (target == null)
             {
                 // nobody left to hunt (dead, fled the map): stop marching to where the last one stood
@@ -302,8 +352,10 @@ namespace LIK
 
             float dist = v.Position.DistanceTo(target.Position);
             bool engaged = dist <= standoff && GenSight.LineOfSight(v.Position, target.Position, map);
+            if (IsAIKnight(v)) KnightRam.SetGoal(v, engaged ? IntVec3.Invalid : target.Position);   // nobody in its sights: it must get to them
             if (engaged)
             {
+                KnightFacing.FaceBest(v, map);                                          // user 2026-11-25: turn the guns onto the most enemies
                 lastDest.Remove(id); lock (SeekOrders) SeekOrders.Remove(id);         // stopping here on purpose is not a failed order
                 if (v.vehiclePather.Moving && v.CurJobDef == JobDefOf.Goto) v.jobs.EndCurrentJob(JobCondition.InterruptForced, true, true);
                 return;
@@ -312,10 +364,139 @@ namespace LIK
             IntVec3 last;
             if (lastDest.TryGetValue(v.thingIDNumber, out last) && v.CurJobDef == JobDefOf.Goto && v.vehiclePather.Moving
                 && last.DistanceTo(target.Position) < Mathf.Max(4f, standoff * 0.4f)) return;   // already heading there
+            // still walking a leg of a long march (Leg) that brings it closer: let it finish instead of re-ordering every second
+            if (lastDest.TryGetValue(v.thingIDNumber, out last) && v.CurJobDef == JobDefOf.Goto && v.vehiclePather.Moving
+                && v.Position.DistanceTo(last) > 10f && last.DistanceTo(target.Position) < v.Position.DistanceTo(target.Position)) return;
 
             IntVec3 dest;
-            if (!FindStandCell(v, target, standoff, out dest)) return;
-            Order(v, dest);
+            if (!FindStandCell(v, target, standoff, melee > 0f, out dest)) return;
+            Order(v, Leg(v, dest));
+        }
+
+        // ------------------------------------------------------------------ house Knights keep with their people (user 2026-11-25)
+        public const int ArrivalGraceTicks = 900;                                   // 15 s (user: 60 s was too long) - drop pods land in a few seconds
+        public static readonly Dictionary<int, int> Arrived = new Dictionary<int, int>();   // thingIDNumber -> tick (KnightRaidUtil.SpawnKnights)
+        static bool JustArrived(VehiclePawn v)
+        {
+            int t;
+            return Arrived.TryGetValue(v.thingIDNumber, out t) && Find.TickManager.TicksGame - t < ArrivalGraceTicks;
+        }
+
+        // ------------------------------------------------------------------ Knights rather die than retreat (user 2026-11-25)
+        // "the knights keep retreating once most the pawns are downed ... have it dependent on the amount of remaining knights and greatly
+        // reduce the probability": when a hostile house's infantry breaks, its Knights do NOT go with them by default. Each Knight rolls whether
+        // it falls back, and the chance only grows as the house's Knights on this map fall: all Knights still standing = 0 % (they fight on),
+        // the last of four = ~15 %, at most 20 %. It rolls again each time another Knight is lost; once it has decided to go, it goes.
+        // A Knight that fights on still leaves when nothing is left to fight. Friendly / visiting Knights still leave with their people.
+        const float MaxRetreatChance = 0.20f;
+        static readonly Dictionary<string, int> peakKnights = new Dictionary<string, int>();               // map+faction -> most Knights seen
+        static readonly Dictionary<int, KeyValuePair<int, bool>> retreatRoll = new Dictionary<int, KeyValuePair<int, bool>>();   // id -> (Knights alive at roll, retreat)
+
+        bool WillRetreat(VehiclePawn v)
+        {
+            int alive = map.mapPawns.SpawnedPawnsInFaction(v.Faction).OfType<VehiclePawn>().Count(k => IsAIKnight(k) && !k.Downed && !k.Dead);
+            string key = map.uniqueID + "/" + v.Faction.loadID;
+            int peak;
+            if (!peakKnights.TryGetValue(key, out peak) || alive > peak) peakKnights[key] = peak = alive;
+            KeyValuePair<int, bool> r;
+            if (retreatRoll.TryGetValue(v.thingIDNumber, out r) && (r.Value || r.Key <= alive)) return r.Value;   // decided, and no new losses since
+            float lost = peak > 0 ? 1f - (float)alive / peak : 0f;
+            bool go = Rand.Chance(MaxRetreatChance * lost);
+            retreatRoll[v.thingIDNumber] = new KeyValuePair<int, bool>(alive, go);
+            if (Prefs.DevMode) Log.Message("[LIK] " + v.LabelShort + " of " + v.Faction.Name + ": infantry broke, " + alive + "/" + peak + " Knights left, "
+                + (MaxRetreatChance * lost * 100f).ToString("0") + "% to retreat -> " + (go ? "falls back" : "fights on"));
+            return go;
+        }
+
+        /// <summary>Peak Knight count is tracked from every check, so losses before the infantry breaks count too.</summary>
+        void NoteKnights(VehiclePawn v)
+        {
+            if (!v.Faction.HostileTo(Faction.OfPlayer)) return;
+            string key = map.uniqueID + "/" + v.Faction.loadID;
+            int alive = map.mapPawns.SpawnedPawnsInFaction(v.Faction).OfType<VehiclePawn>().Count(k => IsAIKnight(k) && !k.Downed && !k.Dead);
+            int peak;
+            if (!peakKnights.TryGetValue(key, out peak) || alive > peak) peakKnights[key] = alive;
+        }
+
+        List<Pawn> Group(VehiclePawn v)
+        {
+            return map.mapPawns.SpawnedPawnsInFaction(v.Faction).Where(p => !(p is VehiclePawn) && !p.Dead && !p.Downed).ToList();
+        }
+
+        static bool Leaving(Pawn p)
+        {
+            string duty = p.mindState?.duty?.def?.defName;
+            return duty != null && duty.StartsWith("ExitMap");
+        }
+
+        /// <summary>Their people are going (most of them have an exit-map duty) or none are left.</summary>
+        bool GroupLeaving(VehiclePawn v)
+        {
+            List<Pawn> g = Group(v);
+            return g.Count == 0 || g.Count(Leaving) * 2 > g.Count;
+        }
+
+        void Escort(VehiclePawn v)
+        {
+            List<Pawn> g = Group(v);
+            if (g.Count == 0) return;
+            IntVec3 centre = new IntVec3((int)g.Average(p => p.Position.x), 0, (int)g.Average(p => p.Position.z));
+            if (v.Position.DistanceTo(centre) <= 15f) return;                                      // close enough: hold with them
+            IntVec3 last;
+            if (lastDest.TryGetValue(v.thingIDNumber, out last) && v.CurJobDef == JobDefOf.Goto && v.vehiclePather.Moving
+                && last.DistanceTo(centre) < 12f) return;                                          // already on the way
+            foreach (IntVec3 c in GenRadial.RadialCellsAround(centre, 10f, true))
+                if (Fits(v, c)) { Order(v, Leg(v, c)); return; }
+        }
+
+        /// <summary>Walk to the nearest map edge the Knight fits along; once there, it leaves (with its pilot).</summary>
+        void LeaveMap(VehiclePawn v)
+        {
+            int half = Mathf.Max(v.def.size.x, v.def.size.z) / 2;
+            if (v.Position.DistanceToEdge(map) <= half + 2)
+            {
+                if (Prefs.DevMode) Log.Message("[LIK] " + v.LabelShort + " of " + v.Faction?.Name + " leaves the map with its people");
+                foreach (Pawn p in Meltdown.Crew(v).ToList())
+                {
+                    VehicleRoleHandler h = v.handlers.FirstOrDefault(x => x.thingOwner != null && x.thingOwner.Contains(p));
+                    if (h != null && v.TryRemovePawn(p, h)) { if (!p.Destroyed) Find.WorldPawns.PassToWorld(p, RimWorld.Planet.PawnDiscardDecideMode.Decide); }
+                }
+                v.Destroy(DestroyMode.Vanish);
+                return;
+            }
+            IntVec3 last;
+            if (lastDest.TryGetValue(v.thingIDNumber, out last) && v.CurJobDef == JobDefOf.Goto && v.vehiclePather.Moving
+                && last.DistanceToEdge(map) <= half + 4) return;                                   // already heading out
+            // the nearest edge point, then a spot near it where the whole Knight fits
+            IntVec3 p0 = v.Position;
+            int dx0 = p0.x, dx1 = map.Size.x - 1 - p0.x, dz0 = p0.z, dz1 = map.Size.z - 1 - p0.z;
+            int m = Mathf.Min(Mathf.Min(dx0, dx1), Mathf.Min(dz0, dz1));
+            IntVec3 edge = m == dx0 ? new IntVec3(half + 1, 0, p0.z) : m == dx1 ? new IntVec3(map.Size.x - 2 - half, 0, p0.z)
+                         : m == dz0 ? new IntVec3(p0.x, 0, half + 1) : new IntVec3(p0.x, 0, map.Size.z - 2 - half);
+            foreach (IntVec3 c in GenRadial.RadialCellsAround(edge, 12f, true))
+                if (c.InBounds(map) && c.DistanceToEdge(map) <= half + 2 && Fits(v, c)) { Order(v, Leg(v, c)); return; }
+        }
+
+        // user 2026-11-25 (Knight raid test): raiders ordered straight across the map (~150 cells) got "pathing ... ran out of cells to process"
+        // from Vehicle Framework and stood at the edge. Long walks go in legs: a spot ~LegCells along the way where the whole Knight fits;
+        // the next check (every Interval) orders the next leg from there.
+        const float LegCells = 25f;          // 45 still failed from the map edge ("ran out of cells") - user 2026-11-25
+
+        IntVec3 Leg(VehiclePawn v, IntVec3 dest)
+        {
+            float d = v.Position.DistanceTo(dest);
+            if (d <= LegCells + 8f) return dest;
+            Vector3 dir = (dest - v.Position).ToVector3(); dir.y = 0f; dir.Normalize();
+            for (float step = LegCells; step >= 15f; step -= 10f)
+            {
+                IntVec3 c = (v.Position.ToVector3Shifted() + dir * step).ToIntVec3();
+                foreach (IntVec3 x in GenRadial.RadialCellsAround(c, 6f, true))
+                    if (Fits(v, x)) return x;
+            }
+            // 2026-11-25 (critical error: two Knights at the map edge were ordered 116 cells in one go, VF's background pathfinder "ran out of
+            // cells", and right after that the game's job pool was corrupted - "same driver for 2 pawns" - until rendering broke):
+            // never order a walk longer than a leg. Nothing fits on the way: no order now, the next check tries again from wherever it stands.
+            return IntVec3.Invalid;
         }
 
         /// <summary>Nearest hostile PAWN; only when no hostile pawn is left, the nearest turret / building that can attack
@@ -370,7 +551,7 @@ namespace LIK
                             if (!tr.InRange(p) || !tr.AngleBetween(p.DrawPos)) continue;
                             float d = (p.DrawPos - loc).sqrMagnitude;
                             if (d >= bd) continue;
-                            if (!Patch_PierceTargetsThroughWalls.Pierces(tr) && !tr.TryFindShootLineFromTo(loc.ToIntVec3(), p, out _)) continue;   // burn-through guns ignore walls
+                            if (!Patch_PierceTargetsThroughWalls.PiercesAt(tr, p.DrawPos) && !tr.TryFindShootLineFromTo(loc.ToIntVec3(), p, out _)) continue;   // burn-through guns ignore walls
                             bd = d; best = p;
                         }
                         if (best != null) tr.SetTarget(best);
@@ -416,10 +597,14 @@ namespace LIK
             return lastDest.TryGetValue(v.thingIDNumber, out last) && last == dest;
         }
 
-        bool FindStandCell(VehiclePawn v, Thing target, float standoff, out IntVec3 result)
+        bool FindStandCell(VehiclePawn v, Thing target, float standoff, bool melee, out IntVec3 result)
         {
             IntVec3 tp = target.Position;
-            foreach (IntVec3 c in GenRadial.RadialCellsAround(tp, standoff, standoff + 4f)
+            // melee: a spot INSIDE the arm's reach (the ring used to start at the reach and go 4 cells further out - never close enough)
+            float inner = melee ? Mathf.Max(Mathf.Max(v.def.size.x, v.def.size.z) * 0.5f, standoff - 3f) : standoff;
+            float outer = melee ? standoff : standoff + 4f;
+            if (inner > outer - 1f) inner = Mathf.Max(0f, outer - 1.5f);
+            foreach (IntVec3 c in GenRadial.RadialCellsAround(tp, inner, outer)
                          .Where(c => c.InBounds(map))
                          .OrderBy(c => c.DistanceToSquared(v.Position)).Take(80))
             {

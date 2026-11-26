@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RENEGADE KNIGHT HOUSE (user 2026-11-25: "add a renegade knight faction till we add the chaos knight").
+     A permanent-enemy Knight house built on the vanilla pirate faction (raids, sieges, no trade). It uses the same Knight framework as the
+     loyal houses (DefModExtension_KnightHouse, renegade = true): raids with Knights / raid types, orbital drops, settlement guards,
+     fights-to-the-death AI. Name + colours come from KnightPaint.RenegadeHouses. Will be replaced / reskinned by the Chaos Knights. -->
+<Defs>
+
+	<FactionDef ParentName="PirateBandBase">
+		<defName>LIK_RenegadeHouse</defName>
+		<label>renegade Knight house</label>
+		<description>A Knight house that broke its oaths. Whether its forebears marched with the Warmaster in the Heresy or it never knelt to the Emperor at all, it answers to no Throne but its own now. Its nobles still ride their ancient Knights, bonded by the Throne Mechanicum, but the honour that once bound them is gone - in its place, cruelty, pride and the hunger for conquest.\n\nRenegade houses do not trade and do not parley. They come to take, and their Knights would rather burn than yield.</description>
+		<pawnSingular>renegade retainer</pawnSingular>
+		<pawnsPlural>renegade retainers</pawnsPlural>
+		<leaderTitle>renegade monarch</leaderTitle>
+		<fixedLeaderKinds>
+			<li>LIK_RenegadeNoble</li>
+		</fixedLeaderKinds>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+		<maxConfigurableAtWorldCreation>3</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>66</configurationListOrderPriority>
+		<settlementGenerationWeight>0.4</settlementGenerationWeight>
+		<listOrderPriority>32</listOrderPriority>
+		<colorSpectrum Inherit="False">
+			<li>(0.25, 0.22, 0.22)</li>
+		</colorSpectrum>
+		<pawnGroupMakers Inherit="False">
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<LIK_RenegadeTrooper>10</LIK_RenegadeTrooper>
+					<LIK_RenegadeHuscarl>8</LIK_RenegadeHuscarl>
+					<Pirate>6</Pirate>
+					<Mercenary_Gunner>6</Mercenary_Gunner>
+					<Mercenary_Heavy>3</Mercenary_Heavy>
+					<Mercenary_Slasher>3</Mercenary_Slasher>
+					<LIK_RenegadeBondsman>3</LIK_RenegadeBondsman>
+					<LIK_RenegadeNoble>2</LIK_RenegadeNoble>
+				</options>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<LIK_RenegadeTrooper>10</LIK_RenegadeTrooper>
+					<LIK_RenegadeHuscarl>8</LIK_RenegadeHuscarl>
+					<Pirate>6</Pirate>
+					<Mercenary_Heavy>3</Mercenary_Heavy>
+					<LIK_RenegadeBondsman>3</LIK_RenegadeBondsman>
+					<LIK_RenegadeNoble>3</LIK_RenegadeNoble>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<modExtensions>
+			<li Class="LIK.DefModExtension_KnightHouse">
+				<renegade>true</renegade>
+				<relicWeaponChance>0.2</relicWeaponChance>
+				<nobleKind>LIK_RenegadeNoble</nobleKind>
+				<bondsmanKind>LIK_RenegadeBondsman</bondsmanKind>
+			</li>
+		</modExtensions>
+	</FactionDef>
+
+	<!-- ===== the renegade house's people (vanilla pirate / mercenary bases) ===== -->
+	<PawnKindDef ParentName="MercenaryGunnerBase">
+		<defName>LIK_RenegadeTrooper</defName>
+		<initialResistanceRange>6~10</initialResistanceRange>
+		<label>renegade trooper</label>
+		<labelPlural>renegade troopers</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryEliteBase">
+		<defName>LIK_RenegadeHuscarl</defName>
+		<initialResistanceRange>15~23</initialResistanceRange>
+		<label>huscarl</label>
+		<labelPlural>huscarls</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryGunnerBase">
+		<defName>LIK_RenegadeBondsman</defName>
+		<initialResistanceRange>12~20</initialResistanceRange>
+		<label>oathbreaker bondsman</label>
+		<labelPlural>oathbreaker bondsmen</labelPlural>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="MercenaryEliteBase">
+		<defName>LIK_RenegadeNoble</defName>
+		<initialResistanceRange>20~30</initialResistanceRange>
+		<label>renegade noble</label>
+		<labelPlural>renegade nobles</labelPlural>
+		<factionLeader>true</factionLeader>
+	</PawnKindDef>
+
+</Defs>

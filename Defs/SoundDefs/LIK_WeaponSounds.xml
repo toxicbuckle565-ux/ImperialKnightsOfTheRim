@@ -1062,6 +1062,126 @@
 	</SoundDef>
 
 	<SoundDef>
+		<defName>LIK_Snd_impact_acheron</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_acheron_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_chaincleaver</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_chaincleaver_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>65~65</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>24~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_chainfist</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_chainfist_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>88~88</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>40~125</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_chainsword</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_chainsword_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_conflagration</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_conflagration_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>88~88</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>40~125</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_conversion_armiger</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_conversion_armiger_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>65~65</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>24~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
 		<defName>LIK_Snd_impact_explosion_huge</defName>
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -1122,6 +1242,46 @@
 	</SoundDef>
 
 	<SoundDef>
+		<defName>LIK_Snd_impact_gauntlet</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_gauntlet_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_gauntlet_sweep</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_gauntlet_sweep_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
 		<defName>LIK_Snd_impact_graviton</defName>
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -1136,6 +1296,26 @@
 				<volumeRange>88~88</volumeRange>
 				<pitchRange>0.96~1.04</pitchRange>
 				<distRange>40~125</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_hekaton</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_hekaton_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
 				<sustainLoop>False</sustainLoop>
 			</li>
 		</subSounds>
@@ -1182,6 +1362,26 @@
 	</SoundDef>
 
 	<SoundDef>
+		<defName>LIK_Snd_impact_lightninglock</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_lightninglock_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>55~55</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>18~52</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
 		<defName>LIK_Snd_impact_melee_heavy</defName>
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -1216,6 +1416,106 @@
 				<volumeRange>88~88</volumeRange>
 				<pitchRange>0.96~1.04</pitchRange>
 				<distRange>40~125</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_radcleanser</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_radcleanser_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>55~55</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>18~52</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_radcleanser_twin</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_radcleanser_twin_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>65~65</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>24~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_shocklance</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_shocklance_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_siegeclaw</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_siegeclaw_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>65~65</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>24~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>LIK_Snd_impact_warblade</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Knights/Weapons/impact_warblade_real</clipPath>
+					</li>
+				</grains>
+				<volumeRange>76~76</volumeRange>
+				<pitchRange>0.96~1.04</pitchRange>
+				<distRange>30~92</distRange>
 				<sustainLoop>False</sustainLoop>
 			</li>
 		</subSounds>

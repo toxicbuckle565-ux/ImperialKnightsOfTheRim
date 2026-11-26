@@ -35,9 +35,12 @@ namespace LIK
         public float dropWarStrength = 1f;  // size of each wave (x)
         public bool stomp = true;           // Knights stomp hostile pawns that come close (Stomp.cs)
         public float weaponGlow = 0.7f;     // 2026-11-23: glow of painted energy parts (plasma coils, volkite cells) - Source/WeaponGlow.cs
+        public bool statusPanel = true;     // user 2026-11-25: Knight status panel (green schematic + part health) when a Knight is selected - KnightHud.cs
         public bool weaponLight = true;     // 2026-11-23: energy weapons light up the ground around their Knight (steady + flash when firing)
         public float smokeAmount = 0.5f;   // user 2026-11-23: battle smoke and dust (Source/GlowGuard.cs), 100 % = unlimited
+        public float craterDays = 5f;      // user 2026-11-25: drop / meltdown craters fade away after this many days (0 = never) - Source/Craters.cs
         public float fxGlow = 0.35f;       // user 2026-11-22: weapon impact glow strength (1 = the old full glare that hid the fight)
+        public bool raidDropOnBase = false; // user 2026-11-25: enemy Knights of a pod raid may drop into the Home area / onto buildings (KnightRaids.cs)
         public bool friendlyFire = false;   // user 2026-11-13: off = Knight weapons, blasts and stomps never hurt anything friendly (KnightCombat.cs)
         public bool strainPaused = true;    // user 2026-11-13: TEMPORARY - neural strain switched off (and cleared) until it is reworked
         public int dropGapSeconds = 0;      // group orbital drop: 0 = all at once, else seconds between Knights (hangar button)
@@ -67,8 +70,11 @@ namespace LIK
             Scribe_Values.Look(ref dropGapSeconds, "dropGapSeconds", 0);
             Scribe_Values.Look(ref stomp, "stomp", true);
             Scribe_Values.Look(ref friendlyFire, "friendlyFire", false);
+            Scribe_Values.Look(ref raidDropOnBase, "raidDropOnBase", false);
             Scribe_Values.Look(ref fxGlow, "fxGlow", 0.35f);
             Scribe_Values.Look(ref smokeAmount, "smokeAmount", 0.5f);
+            Scribe_Values.Look(ref craterDays, "craterDays", 5f);
+            Scribe_Values.Look(ref statusPanel, "statusPanel", true);
             Scribe_Values.Look(ref weaponGlow, "weaponGlow", 0.7f);
             Scribe_Values.Look(ref weaponLight, "weaponLight", true);
             Scribe_Values.Look(ref strainPaused, "strainPaused", true);
@@ -173,6 +179,7 @@ namespace LIK
             Header(l, "Combat");
             l.CheckboxLabeled("Stomp", ref s.stomp, "A running Knight stamps on enemies that come right up to it, and crushes any under it.");
             l.CheckboxLabeled("Friendly fire", ref s.friendlyFire, "Knight weapons, blasts and stomps can hurt your own colonists, Knights, buildings and allies.");
+            l.CheckboxLabeled("Enemy Knights may drop into your base", ref s.raidDropOnBase, "Off: Knights of a drop-pod raid land on open ground outside your Home area.\nOn: they can land right in your base like a centre-drop raid - the impact crater flattens every building, wall and item in it. A Knight never lands with one of your pawns under its feet.");
             l.CheckboxLabeled("Drop-zone warfare", ref s.dropWar, "An enemy base hit by an orbital drop sends waves of reinforcements.");
             if (s.dropWar)
             {
@@ -183,7 +190,9 @@ namespace LIK
             Header(l, "Visuals");
             s.fxGlow = Slide(l, "Shot and hit glare", Pct(s.fxGlow), s.fxGlow, 0f, 1f, "Glare of Knight weapon shots and hits. Smoke, debris and shockwaves are not affected.", 20f);
             s.smokeAmount = Slide(l, "Battle smoke", Pct(s.smokeAmount), s.smokeAmount, 0f, 1f, "How much smoke and dust piles up where the fighting is. Lower it to keep the battlefield visible. 100% = no limit.", 20f);
+            s.craterDays = Slide(l, "Craters fade after", s.craterDays <= 0f ? "never" : s.craterDays.ToString("0") + (s.craterDays == 1f ? " day" : " days"), s.craterDays, 0f, 30f, "Orbital drop and reactor meltdown craters slowly fade into the ground over the second half of this time, then are gone. 0 = they stay until deconstructed.", 1f);
             s.weaponGlow = Slide(l, "Weapon part glow", Pct(s.weaponGlow), s.weaponGlow, 0f, 1f, "Glow of plasma coils, volkite cells and other energy parts on the weapons.", 20f);
+            l.CheckboxLabeled("Knight status panel", ref s.statusPanel, "When one Knight is selected (any faction), a small auspex panel above the inspect pane shows its schematic with each part shaded by health, every part's health, integrity and void shield.");
             l.CheckboxLabeled("Energy weapons light the ground", ref s.weaponLight, "A steady glow around the Knight, and a flash when it fires.");
             l.CheckboxLabeled("Top guns turn to aim", ref s.aimPictures, "Questoris and Dominus top weapons show the picture for where they aim (off = where the Knight faces).");
             l.CheckboxLabeled("Smooth aim between steps", ref s.aimTurnBetween, "Guns with 3D aim pictures also tilt the picture between steps (off = clean steps only).");
@@ -199,7 +208,7 @@ namespace LIK
                 }
             }
             l.Gap(12f);
-            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.friendlyFire = false; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.smokeAmount = 0.5f; s.weaponGlow = 0.7f; s.weaponLight = true; }
+            if (l.ButtonText("Reset all to defaults")) { s.costTier = CostConfig.DefaultTier; s.costExtra = 1f; CostConfig.Apply(); s.aimPictures = true; s.aimTurnBetween = false; s.strainMult = 1f; s.wrathMult = 1f; s.ageMult = 1f; s.traitMult = 1f; s.sizeMult = 1f; s.combatMult = 1f; s.requireSkill = true; s.skillEffect = 1f; s.trainingMult = 1f; s.alignHelper = false; s.alignTint = false; s.alignCross = false; s.stomp = true; s.friendlyFire = false; s.raidDropOnBase = false; s.dropWar = true; s.dropWarWaves = 1f; s.dropWarStrength = 1f; s.fxGlow = 0.35f; s.smokeAmount = 0.5f; s.craterDays = 5f; s.statusPanel = true; s.weaponGlow = 0.7f; s.weaponLight = true; }
             float rightH = l.CurHeight;
             l.End();
             Widgets.EndScrollView();

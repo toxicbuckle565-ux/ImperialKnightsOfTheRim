@@ -20,12 +20,13 @@
 	<!-- Impact crater: vanilla crater pictures, drawn big, but flat and walkable (not an edifice) so the Knight stands in it. -->
 	<ThingDef Name="LIK_KnightCraterBase" Abstract="True">
 		<label>Knight impact crater</label>
-		<description>A scorched pit punched into the ground by an Imperial Knight dropping from orbit. It can be deconstructed to level the ground.</description>
-		<thingClass>Building</thingClass>
+		<description>A scorched pit punched into the ground by an Imperial Knight dropping from orbit. It slowly grows over and disappears (mod settings: "Craters fade after"), or it can be deconstructed to level the ground at once.</description>
+		<thingClass>LIK.KnightCrater</thingClass>	<!-- 2026-11-25: fades away on a timer (Source/Craters.cs) -->
+		<tickerType>Rare</tickerType>
 		<category>Building</category>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<passability>Standable</passability>
-		<drawerType>MapMeshOnly</drawerType>
+		<drawerType>RealtimeOnly</drawerType>	<!-- drawn each frame so it can fade (was MapMeshOnly) -->
 		<useHitPoints>false</useHitPoints>
 		<rotatable>false</rotatable>
 		<selectable>true</selectable>

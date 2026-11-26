@@ -4,6 +4,10 @@ A RimWorld 1.6 / 1.7 (beta) mod: pilot towering Imperial Knights across the Rim.
 
 **Steam Workshop:** https://steamcommunity.com/sharedfiles/filedetails/?id=3844956726
 
+## Latest update: Knight Houses
+
+![Update: Knight Houses](docs/infographics/11_update.png)
+
 ![Imperial Knights of the Rim](docs/infographics/01_intro.png)
 ![The Knights](docs/infographics/02_knights.png)
 
@@ -35,7 +39,7 @@ Five Knight classes, each with its own weapons, armour and hangar:
 
 Optional: **Odyssey** (Imperial plasma reactor, orbital Knight drops from a gravship hangar).
 
-Not supported yet: **Combat Extended** - support is planned for a later update.
+**Combat Extended:** supported (beta) - Knight weapons and armour are rebalanced for CE automatically when it is active.
 
 ## Install from GitHub
 

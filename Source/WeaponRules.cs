@@ -80,6 +80,7 @@ namespace LIK
                     // low objects do not stop a Knight's shot (see Patch_KnightShotIntercept), so furniture, sandbags and chunks are left alone;
                     // only solid walls / rock and trees standing in the beam are burnt
                     if (!solid && (t.def.category != ThingCategory.Plant || t.def.fillPercent < 0.2f)) continue;
+                    if (HomeProtection.Spares(launcher, t)) continue;      // 'Protect home' (user 2026-11-25): the beam passes through the colony's own walls unharmed
                     // user 2026-11-11: a lascannon goes through the thickest fortification - the beam is never stopped. Every obstacle takes
                     // 'budget' burn damage: ordinary walls and most rock are destroyed outright, the very toughest are left damaged and glowing.
                     float hp = t.HitPoints;

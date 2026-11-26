@@ -204,10 +204,15 @@ namespace LIK
     {
         public string headId;
         public bool lifeSupport;            // a life-support module is fitted (see TollUtil.LifeSupportFactors)
+        public bool protectHome = true;     // user 2026-11-25: this Knight's weapons spare the colony's walls / buildings on home maps (HomeProtection.cs)
         public bool voidShield;             // a void shield generator is fitted
         public float shieldCharge = -1f;    // remaining shield (<0 = not yet initialised = full)
         public float ionCharge = -1f;       // ion gauntlet shield energy (<0 = full); IonShield.cs
         public int ionDownUntil, lastIonHit;
+        public int ionMode;                 // user 2026-11-25: torso ion shield direction - 0 auto, 1 front, 2 right, 3 rear, 4 left (IonShieldTorso.cs); saved
+        public float ionAutoAngle = -1f;    // where auto mode points it now (not saved)
+        public float torsoCharge = -1f;     // torso ion shield energy (<0 = full); saved
+        public int torsoDownUntil, lastTorsoHit;   // collapsed until / last hit (ticks); saved
         int lastShieldHit = -99999;
         public int nextStepTick;            // footsteps (KnightSound.StepTick); not saved
         public int lastHornTick = -99999;   // war horn (KnightSound); not saved
@@ -242,6 +247,8 @@ namespace LIK
             base.CompTick();
             KnightSound.StepTick(this);
             if (parent.IsHashIntervalTick(30) && parent is VehiclePawn iv && iv.Spawned && IonShield.Fitted(iv)) IonShield.Tick(iv, this);
+            if (parent.IsHashIntervalTick(60) && parent is VehiclePawn tv && tv.Spawned) IonShieldTorso.AutoAim(tv, this);
+            if (parent.IsHashIntervalTick(30) && parent is VehiclePawn sv && sv.Spawned) IonShieldTorso.Tick(sv, this);
             if (!voidShield || !parent.IsHashIntervalTick(30)) return;
             if (shieldCharge < 0f) shieldCharge = ShieldMax;
             float max = ShieldMax;
@@ -274,6 +281,11 @@ namespace LIK
             Scribe_Values.Look(ref ionDownUntil, "ionDownUntil", 0);
             Scribe_Values.Look(ref rocketsOpen, "rocketsOpen", false);
             Scribe_Values.Look(ref groundAttack, "groundAttack", false);
+            Scribe_Values.Look(ref protectHome, "protectHome", true);
+            Scribe_Values.Look(ref ionMode, "ionMode", 0);
+            Scribe_Values.Look(ref torsoCharge, "torsoCharge", -1f);
+            Scribe_Values.Look(ref torsoDownUntil, "torsoDownUntil", 0);
+            Scribe_Values.Look(ref lastTorsoHit, "lastTorsoHit", 0);
             Scribe_Defs.Look(ref skinBeforeRockets, "skinBeforeRockets");
             Scribe_Values.Look(ref paintInit, "paintInit", false);
             Scribe_Collections.Look(ref stickers, "stickers", LookMode.Deep);
