@@ -699,14 +699,18 @@ namespace LIK
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/LIK_BayDoors", false) ?? BaseContent.BadTex,
                     action = PlayDoorCycle
                 };
-            yield return new Command_Action
+            VehiclePawn dk = ServicedKnight;
+            var assemble = new Command_Action
             {
                 defaultLabel = "Configure Knight assembly",
                 defaultDesc = "Choose the Knight class, a weapon for every mount and a livery. Builders then haul the forged parts and weapons in and assemble it.",
                 icon = GizmoIcons.Get("LIK_ConfigureAssembly", order?.cls?.vehicle, TexCommand.Attack),
                 action = delegate { Find.WindowStack.Add(new Window_ConfigureKnight(this)); }
             };
-            VehiclePawn dk = ServicedKnight;
+            // user 2026-11-26: with an Armiger in the bay they opened this (looks like the refit screen) and got a NEW-Knight order asking
+            // for a whole Armiger. A new Knight can't be assembled while the bay is occupied anyway, so point to the refit instead.
+            if (dk != null) assemble.Disable(dk.LabelShort + " is in the bay. To change its weapons use \"Refit docked Knight\". A new Knight can only be assembled in an empty bay.");
+            yield return assemble;
             if (dk != null)
                 yield return new Command_KnightAction
                 {
@@ -771,7 +775,8 @@ namespace LIK
             List<ThingDef> req = order.RequiredItems;
             int have = Enumerable.Range(0, req.Count).Count(i => ItemAt(i) != null);
             return s + (s.NullOrEmpty() ? "" : "\n") + "Assembling: " + order.cls.LabelCap + " (" + have + "/" + req.Count + " parts delivered, " +
-                   Mathf.RoundToInt(100f * order.work / Mathf.Max(1f, order.cls.assembleWork)) + "% assembled)";
+                   Mathf.RoundToInt(100f * order.work / Mathf.Max(1f, order.cls.assembleWork)) + "% assembled)" +
+                   (ServicedKnight != null ? "\nOn hold: " + ServicedKnight.LabelShort + " is in the bay. Cancel this order and use \"Refit docked Knight\" to change its weapons." : "");
         }
 
         public override void ExposeData()
