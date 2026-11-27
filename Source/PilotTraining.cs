@@ -232,8 +232,12 @@ namespace LIK
     // ------------------------------------------------------------------ squire drills at the hangar
     public class WorkGiver_SquireTraining : WorkGiver_Scanner
     {
-        public override ThingRequest PotentialWorkThingRequest { get { return ThingRequest.ForDef(HangarDefOf.LIK_KnightHangar); } }
         public override PathEndMode PathEndMode { get { return PathEndMode.OnCell; } }
+        public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
+        {
+            foreach (ThingDef d in HangarGeo.AllDefs)                     // South + West + East hangars (2026-11-26)
+                foreach (Thing t in pawn.Map.listerThings.ThingsOfDef(d)) yield return t;
+        }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
@@ -254,7 +258,7 @@ namespace LIK
         {
             IntVec3 bay = h.BayCell;
             for (int r = 0; r < 4; r++)
-                foreach (IntVec3 c in GenRadial.RadialCellsAround(bay + new IntVec3(0, 0, -3), r, true))
+                foreach (IntVec3 c in GenRadial.RadialCellsAround(bay + h.KnightFacing.FacingCell * 3, r, true))   // on the apron side
                     if (c.InBounds(h.Map) && c.Standable(h.Map) && pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Some)) return c;
             return IntVec3.Invalid;
         }

@@ -1047,6 +1047,7 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+			<gizmoIconTexPath>Things/Knights/Weapons/questoris/item_questoris_icarus</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
@@ -1150,6 +1151,7 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+			<gizmoIconTexPath>Things/Knights/Weapons/questoris/item_questoris_missilepod</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
@@ -1224,6 +1226,7 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+			<gizmoIconTexPath>Things/Knights/Weapons/questoris/item_questoris_stormspear</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
@@ -5283,5 +5286,6 @@
 			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<drawSize>(2.0,2.0)</drawSize>
 		</graphicData>
+			<gizmoIconTexPath>Things/Knights/VoidShield/questoris</gizmoIconTexPath>
 	</Vehicles.VehicleTurretDef>
 </Defs>

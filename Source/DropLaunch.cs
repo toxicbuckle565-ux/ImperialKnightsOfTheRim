@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using SmashTools;
 using UnityEngine;
 using Vehicles;
 using Verse;
@@ -42,7 +43,7 @@ namespace LIK
             ComputeShipEdge(v);
             // doors stay open until this Knight's top has passed under the bay's front lip (+0.4 s)
             Vector3 spot = StowedDrawPos(v.VehicleDef);
-            float lip = (this.TrueCenter() + new Vector3(HangarArtData.BayX, 0f, HangarArtData.BayZ)).z - 3.32f;
+            float lip = (this.TrueCenter() + new Vector3(Geo.bayX, 0f, Geo.bayZ)).z - Geo.lip;
             float tLip = Mathf.Sqrt(2f * Mathf.Max(0f, spot.z - (lip - VisibleTop(v))) / Gravity);
             doorHoldExtra = Mathf.Max(0f, releaseAt + tLip + 0.4f - DoorHoldEnd);
         }
@@ -103,7 +104,7 @@ namespace LIK
             {
                 // still clamped; a shudder as the clamps let go
                 if (t > releaseAt - 0.35f) spot += new Vector3(Rand.Range(-0.04f, 0.04f), 0f, Rand.Range(-0.04f, 0.04f));
-                OrbitalDropDraw.DrawKnight(v, spot, alt);
+                OrbitalDropDraw.DrawKnight(v, spot, alt, Geo.Rot8);
                 return;
             }
             if (!released) { released = true; OnRelease(v, spot); }
@@ -112,7 +113,7 @@ namespace LIK
             if (snap != null && !snap.IsCreated()) { FreeSnapshot(); snapFailed = false; }   // lost from video memory: take it again
             if (snap == null && !snapFailed)
             {
-                snap = KnightSnapshot.Take(v, out snapSize);
+                snap = KnightSnapshot.Take(v, out snapSize, Geo.Rot8);
                 if (snap == null) snapFailed = true;
                 else snapMat = new Material(ShaderDatabase.Transparent) { mainTexture = snap };
             }
@@ -122,8 +123,8 @@ namespace LIK
             // seen in the bay down to the front lip (hazard line top, 3.32 cells in front of the bay centre), hidden under the ship, then
             // seen again in space past the ship's south edge (per column), fading out as it falls away.
             float s = snapSize;
-            Vector3 shaft = this.TrueCenter() + new Vector3(HangarArtData.BayX, 0f, HangarArtData.BayZ);
-            float lip = shaft.z - 3.32f;
+            Vector3 shaft = this.TrueCenter() + new Vector3(Geo.bayX, 0f, Geo.bayZ);
+            float lip = shaft.z - Geo.lip;
             float cz = spot.z - 0.5f * Gravity * tf * tf;
             float cx = spot.x;
             float bx0 = cx - s / 2f, bz0 = cz - s / 2f, bz1 = cz + s / 2f;
@@ -234,7 +235,8 @@ namespace LIK
         static readonly Vector3 Away = new Vector3(-5000f, 0f, -5000f);   // far outside every map: the main camera never sees it
         static int shots;                                                 // each picture gets its own spot (see Take)
 
-        public static RenderTexture Take(VehiclePawn v, out float sizeCells)
+        public static RenderTexture Take(VehiclePawn v, out float sizeCells) { return Take(v, out sizeCells, Rot8.South); }
+        public static RenderTexture Take(VehiclePawn v, out float sizeCells, Rot8 rot)
         {
             Vector2 ds = v.VehicleDef.graphicData.drawSize;
             sizeCells = Mathf.Max(ds.x, ds.y) * 1.35f;                       // weapons reach past the body picture
@@ -265,7 +267,7 @@ namespace LIK
                 cam.transform.position = new Vector3(spot.x, alt + 50f, spot.z);
                 cam.orthographicSize = sizeCells / 2f;
                 cam.targetTexture = rt;
-                OrbitalDropDraw.DrawKnight(v, spot, alt);
+                OrbitalDropDraw.DrawKnight(v, spot, alt, rot);
                 cam.Render();
                 cam.targetTexture = null;
                 if (IsEmpty(rt))

@@ -8,6 +8,8 @@
 		<graphicData>
 			<texPath>Things/Knights/Hangar/knight_hangar</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>	<!-- 2026-11-27: rotatable, but north shows the south picture -->
+			<allowFlip>false</allowFlip>	<!-- 2026-11-27: RimWorld mirrors west-facing pictures by default (showed a flipped hangar) -->
 			<drawSize>(20.00000,18.78906)</drawSize>
 			<drawOffset>(0.00000,0,3.89453)</drawOffset>
 		</graphicData>
@@ -17,7 +19,7 @@
 		<passability>Standable</passability>
 		<holdsRoof>true</holdsRoof>	<!-- 2026-11-22: 20x18 is too wide for walls alone (6-cell roof range); every hangar cell supports the roof -->
 		<fillPercent>0</fillPercent>
-		<rotatable>false</rotatable>
+		<rotatable>true</rotatable>	<!-- 2026-11-27: west/east = LIK_KnightHangarWest/East, swapped in by HangarPlacement.cs -->
 		<selectable>true</selectable>
 		<tickerType>Rare</tickerType>
 		<costList>

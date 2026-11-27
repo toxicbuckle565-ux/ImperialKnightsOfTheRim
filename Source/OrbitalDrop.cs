@@ -90,7 +90,7 @@ namespace LIK
 
         /// <summary>Every weapon back to its rest angle (straight ahead, Knight facing south), target cleared - set at once, since a docked
         /// Knight is off the map and its turrets no longer tick round on their own.</summary>
-        static void NeutralGuns(VehiclePawn v)
+        static void NeutralGuns(VehiclePawn v, Rot8 facing)
         {
             var turrets = v.CompVehicleTurrets?.Turrets;
             if (turrets == null) return;
@@ -99,7 +99,7 @@ namespace LIK
                 try
                 {
                     t.SetTarget(LocalTargetInfo.Invalid);
-                    float a = t.attachedTo != null ? t.defaultAngleRotated : VehicleTurret.TurretRotationFor(Rot8.South, t.defaultAngleRotated);
+                    float a = t.attachedTo != null ? t.defaultAngleRotated : VehicleTurret.TurretRotationFor(facing, t.defaultAngleRotated);
                     t.TurretRotation = a;
                     t.TurretRotationTargeted = t.TurretRotation;
                 }
@@ -118,9 +118,9 @@ namespace LIK
                 left.AddRange(v.AllPawnsAboard);
                 v.DisembarkAll();                   // while the Knight is still on the map (the pilot steps out beside it)
             }
-            NeutralGuns(v);                         // user 2026-11-22: guns straight when docked
+            NeutralGuns(v, Geo.Rot8);               // user 2026-11-22: guns straight when docked
             v.DeSpawn();
-            if (!Stowed.TryAdd(v)) { GenSpawn.Spawn(v, KnightCell(v.VehicleDef), Map, Rot4.South, WipeMode.VanishOrMoveAside); return; }
+            if (!Stowed.TryAdd(v)) { GenSpawn.Spawn(v, KnightCell(v.VehicleDef), Map, KnightFacing, WipeMode.VanishOrMoveAside); return; }
             // no door cycle on dock (user 2026-11-21): the doors belong to the orbital drop
             string crew = left.Count > 0 ? " " + string.Join(", ", left.Select(p => p.LabelShort)) + " climbs out." :
                           v.HasEnoughOperators ? " The pilot stays aboard, held in stasis." : "";
@@ -134,7 +134,7 @@ namespace LIK
             if (v == null || !Spawned) return;
             Stowed.Remove(v);
             // no door cycle on release (user 2026-11-21): the doors belong to the orbital drop only
-            GenSpawn.Spawn(v, KnightCell(v.VehicleDef), Map, Rot4.South, WipeMode.VanishOrMoveAside);
+            GenSpawn.Spawn(v, KnightCell(v.VehicleDef), Map, KnightFacing, WipeMode.VanishOrMoveAside);
             v.GetComp<CompKnightHead>()?.Apply();
             undockedKnight = v;                                  // stays standing until it walks out (AutoDock skips it)
             if (!forced) DefDatabase<SoundDef>.GetNamedSilentFail("LIK_Snd_hangar_clamps_release")?.PlayOneShot(new TargetInfo(Position, Map));
@@ -146,7 +146,7 @@ namespace LIK
         public string KnightSpotBlocked(VehicleDef def)
         {
             if (def == null || !Spawned) return null;
-            foreach (IntVec3 c in GenAdj.OccupiedRect(KnightCell(def), Rot4.South, def.size))
+            foreach (IntVec3 c in GenAdj.OccupiedRect(KnightCell(def), KnightFacing, def.size))
             {
                 if (!c.InBounds(Map)) return "the Knight would stand off the map edge";
                 foreach (Thing t in c.GetThingList(Map))
@@ -924,7 +924,9 @@ namespace LIK
 
         /// <summary>The whole Knight as it looks in game (body, livery, equipped weapons static), facing south.
         /// Uses Vehicle Framework's own render pipeline; falls back to the plain body picture if that fails.</summary>
-        public static void DrawKnight(VehiclePawn v, Vector3 center, float altitude, float alpha = 1f)
+        public static void DrawKnight(VehiclePawn v, Vector3 center, float altitude, float alpha = 1f) { DrawKnight(v, center, altitude, Rot8.South, alpha); }
+        /// <summary>Facing: the sideways hangars (2026-11-26) show the docked / launching Knight from the side.</summary>
+        public static void DrawKnight(VehiclePawn v, Vector3 center, float altitude, Rot8 rot, float alpha = 1f)
         {
             if (!failed.Contains(v.thingIDNumber))
             {
@@ -936,9 +938,9 @@ namespace LIK
                     // the weapons drew on top of the body (user 2026-11-12)
                     if (!revalidated.TryGetValue(v, out _)) { revalidated.Add(v, null); KnightPaint.EnsureInitial(v); v.CompVehicleTurrets?.RevalidateTurrets(); v.GetComp<CompKnightHead>()?.Apply(true); }
                     Vector3 loc = new Vector3(center.x, altitude, center.z);
-                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.EnsureInitialized, in loc, Rot8.South, 0f);
-                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.ParallelPreDraw, in loc, Rot8.South, 0f);
-                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.Draw, in loc, Rot8.South, 0f);
+                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.EnsureInitialized, in loc, rot, 0f);
+                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.ParallelPreDraw, in loc, rot, 0f);
+                    v.DrawTracker.DynamicDrawPhaseAt(DrawPhase.Draw, in loc, rot, 0f);
                     return;
                 }
                 catch (System.Exception e)
@@ -947,14 +949,14 @@ namespace LIK
                     Log.Warning("[LIK] could not draw the stowed/falling Knight with its weapons, showing the body only: " + e.Message);
                 }
             }
-            DrawBody(v, center, altitude);
+            DrawBody(v, center, altitude, rot);
         }
 
-        static void DrawBody(VehiclePawn v, Vector3 center, float altitude)
+        static void DrawBody(VehiclePawn v, Vector3 center, float altitude, Rot8 rot)
         {
             GraphicData gd = v.VehicleDef.graphicData;
             if (gd == null) return;
-            string path = gd.texPath + "_south";
+            string path = gd.texPath + (rot == Rot8.West ? "_west" : rot == Rot8.East ? "_east" : "_south");
             if (!mats.TryGetValue(path, out Material m))
             {
                 m = MaterialPool.MatFrom(path, ShaderDatabase.Cutout);
@@ -987,7 +989,7 @@ namespace LIK
                 if (h.Launching) { h.DrawLaunch(); continue; }       // orbital drop under way: doors, release, shaft fall
                 VehiclePawn v = h.StowedKnight;
                 if (v == null) continue;
-                OrbitalDropDraw.DrawKnight(v, h.StowedDrawPos(v.VehicleDef), AltitudeLayer.PawnState.AltitudeFor());   // on the bay, not the hangar centre (2026-11-22)
+                OrbitalDropDraw.DrawKnight(v, h.StowedDrawPos(v.VehicleDef), AltitudeLayer.PawnState.AltitudeFor(), h.Geo.Rot8);   // on the bay, not the hangar centre (2026-11-22)
             }
         }
     }

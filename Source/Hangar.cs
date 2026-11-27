@@ -405,8 +405,14 @@ namespace LIK
 
         public IntVec3 SlotCell(int i)
         {
-            int w = def.size.x;                                           // delivery area: bottom two rows
-            return new IntVec3(Position.x - HalfX + i % w, Position.y, Position.z - HalfZ + i / w);
+            CellRect r = this.OccupiedRect();                             // 2026-11-27: from the occupied rect (the hangar can now be placed rotated)
+            if (KnightFacing == Rot4.West || KnightFacing == Rot4.East)   // sideways hangars: the apron is the outer column pair
+            {
+                int hgt = r.Height, col = i / hgt;
+                return new IntVec3(KnightFacing == Rot4.West ? r.minX + col : r.maxX - col, Position.y, r.minZ + i % hgt);
+            }
+            int w = r.Width;                                              // delivery area: bottom two rows (same cells as before for old hangars)
+            return new IntVec3(r.minX + i % w, Position.y, r.minZ + i / w);
         }
 
         /// <summary>Footprint check against the hangar's size extension (the single Knight hangar accepts every class).</summary>
@@ -430,7 +436,11 @@ namespace LIK
 
         public bool IsSlotCell(IntVec3 c)
         {
-            return (c.z == Position.z - HalfZ || c.z == Position.z - HalfZ + 1) && c.x >= Position.x - HalfX && c.x <= Position.x + HalfX;
+            CellRect r = this.OccupiedRect();
+            if (!r.Contains(c)) return false;
+            if (KnightFacing == Rot4.West) return c.x <= r.minX + 1;
+            if (KnightFacing == Rot4.East) return c.x >= r.maxX - 1;
+            return c.z <= r.minZ + 1;
         }
 
         /// <summary>Every item is either already on its slot or lying somewhere reachable.</summary>
@@ -486,7 +496,7 @@ namespace LIK
             CompKnightHead kc = knight.GetComp<CompKnightHead>();
             if (kc != null) { kc.lifeSupport = order.lifeSupport && cls.lifeSupport != null; kc.voidShield = order.voidShield && cls.voidShield != null; kc.shieldCharge = -1f; }
             foreach (Thing t in items) t.Destroy();
-            GenSpawn.Spawn(knight, KnightCell(knight.VehicleDef), Map, Rot4.South, WipeMode.VanishOrMoveAside, false);   // feet on the drawn bay (true 35-degree art)
+            GenSpawn.Spawn(knight, KnightCell(knight.VehicleDef), Map, KnightFacing, WipeMode.VanishOrMoveAside, false);   // feet on the drawn bay (true 35-degree art)
             knight.GetComp<CompKnightHead>()?.Apply();          // after the skin, which can reset the drawing
             if (KnightPaint.Paintable(knight.VehicleDef))
             {
@@ -1292,7 +1302,8 @@ namespace LIK
     {
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            foreach (Thing t in pawn.Map.listerThings.ThingsOfDef(HangarDefOf.LIK_KnightHangar)) yield return t;
+            foreach (ThingDef d in HangarGeo.AllDefs)                     // South + West + East hangars (2026-11-26)
+                foreach (Thing t in pawn.Map.listerThings.ThingsOfDef(d)) yield return t;
         }
 
         public override PathEndMode PathEndMode { get { return PathEndMode.Touch; } }

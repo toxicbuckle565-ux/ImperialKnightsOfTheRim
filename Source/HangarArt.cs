@@ -18,8 +18,7 @@ namespace LIK
     [StaticConstructorOnStartup]
     public static class HangarArt
     {
-        const string P = "Things/Knights/Hangar/hangar_";
-        public static readonly Dictionary<string, Material> Mats = new Dictionary<string, Material>();
+        public static readonly Dictionary<string, Material> Mats = new Dictionary<string, Material>();   // key: texture path (all facings)
         // user 2026-11-23: dropping one Knight made the OTHER hangars' doors look open - the two door meshes were shared by every hangar, and
         // DrawMesh is deferred, so all hangars drew with the UVs (door clipping) of the last one drawn. Now each hangar has its own pair.
         static readonly Dictionary<int, Mesh[]> doorMeshes = new Dictionary<int, Mesh[]>();
@@ -32,8 +31,9 @@ namespace LIK
 
         static HangarArt()
         {
-            foreach (string n in HangarArtData.Layers.Keys)
-                Mats[n] = MaterialPool.MatFrom(P + n, n.StartsWith("candles") ? ShaderDatabase.MoteGlow : ShaderDatabase.Transparent);
+            foreach (HangarGeo g in new[] { HangarGeo.South, HangarArtDataSides.West, HangarArtDataSides.East })
+                foreach (string n in g.layers.Keys)
+                    Mats[g.tex + n] = MaterialPool.MatFrom(g.tex + n, n.StartsWith("candles") ? ShaderDatabase.MoteGlow : ShaderDatabase.Transparent);
         }
 
         static Mesh NewQuad()
@@ -66,31 +66,48 @@ namespace LIK
             }
         }
 
-        static void Quad(Vector3 picCentre, string name, float alt, Color c, float dx = 0f, float dz = 0f)
+        static void Quad(HangarGeo g, Vector3 picCentre, string name, float alt, Color c, float dx = 0f, float dz = 0f)
         {
-            float[] r = HangarArtData.Layers[name];
+            float[] r = g.layers[name];
             Vector3 p = new Vector3(picCentre.x + r[0] + dx, alt, picCentre.z + r[1] + dz);
             mpb.SetColor(ShaderPropertyIDs.Color, c);
-            Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(r[2], 1f, r[3])), Mats[name], 0, null, 0, mpb);
+            Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(r[2], 1f, r[3])), Mats[g.tex + name], 0, null, 0, mpb);
         }
 
-        /// <summary>A door half shifted by dx, clipped to the hole's x range (the part under the platform is not drawn).</summary>
-        static void Door(Mesh mesh, Vector3 picCentre, string name, float alt, float dx, float dz, Color c)
+        /// <summary>A door half moved by `move` cells along its slide axis (x for the south hangar, screen z for the sideways ones) and
+        /// sunk by dz, clipped to the hole's range on that axis (the part under the platform is not drawn).</summary>
+        static void Door(HangarGeo g, Mesh mesh, Vector3 picCentre, string name, float alt, float move, float dz, Color c)
         {
-            float[] r = HangarArtData.Layers[name];
-            float x0 = r[0] - r[2] / 2f + dx, x1 = r[0] + r[2] / 2f + dx;
-            float c0 = Mathf.Max(x0, HangarArtData.HoleX0), c1 = Mathf.Min(x1, HangarArtData.HoleX1);
-            if (c1 - c0 < 0.01f) return;
-            float u0 = (c0 - x0) / r[2], u1 = (c1 - x0) / r[2];
-            mesh.uv = new[] { new Vector2(u0, 0f), new Vector2(u0, 1f), new Vector2(u1, 1f), new Vector2(u1, 0f) };
-            Vector3 p = new Vector3(picCentre.x + (c0 + c1) / 2f, alt, picCentre.z + r[1] + dz);
-            mpb.SetColor(ShaderPropertyIDs.Color, c);
-            Graphics.DrawMesh(mesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(c1 - c0, 1f, r[3])), Mats[name], 0, null, 0, mpb);
+            float[] r = g.layers[name];
+            if (!g.clipZ)
+            {
+                float x0 = r[0] - r[2] / 2f + move, x1 = r[0] + r[2] / 2f + move;
+                float c0 = Mathf.Max(x0, g.hole0), c1 = Mathf.Min(x1, g.hole1);
+                if (c1 - c0 < 0.01f) return;
+                float u0 = (c0 - x0) / r[2], u1 = (c1 - x0) / r[2];
+                mesh.uv = new[] { new Vector2(u0, 0f), new Vector2(u0, 1f), new Vector2(u1, 1f), new Vector2(u1, 0f) };
+                Vector3 p = new Vector3(picCentre.x + (c0 + c1) / 2f, alt, picCentre.z + r[1] + dz);
+                mpb.SetColor(ShaderPropertyIDs.Color, c);
+                Graphics.DrawMesh(mesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(c1 - c0, 1f, r[3])), Mats[g.tex + name], 0, null, 0, mpb);
+            }
+            else
+            {
+                // sideways hangar: the doors slide up/down the screen; clip the quad's z range to the hole
+                float z0 = r[1] - r[3] / 2f + move + dz, z1 = r[1] + r[3] / 2f + move + dz;
+                float c0 = Mathf.Max(z0, g.hole0), c1 = Mathf.Min(z1, g.hole1);
+                if (c1 - c0 < 0.01f) return;
+                float v0 = (c0 - z0) / r[3], v1 = (c1 - z0) / r[3];
+                mesh.uv = new[] { new Vector2(0f, v0), new Vector2(0f, v1), new Vector2(1f, v1), new Vector2(1f, v0) };
+                Vector3 p = new Vector3(picCentre.x + r[0], alt, picCentre.z + (c0 + c1) / 2f);
+                mpb.SetColor(ShaderPropertyIDs.Color, c);
+                Graphics.DrawMesh(mesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(r[2], 1f, c1 - c0)), Mats[g.tex + name], 0, null, 0, mpb);
+            }
         }
 
         public static void Draw(Building_KnightHangar h)
         {
-            Vector3 pic = h.TrueCenter() + new Vector3(HangarArtData.OffX, 0f, HangarArtData.OffZ);
+            HangarGeo g = h.Geo;
+            Vector3 pic = h.TrueCenter() + new Vector3(g.offX, 0f, g.offZ);
             float floor = AltitudeLayer.FloorEmplacement.AltitudeFor();
             h.DoorSounds();                                             // 2026-11-22 sound design
             float t = h.DoorTimelineSeconds;
@@ -98,41 +115,44 @@ namespace LIK
             float dark = 1f - 0.18f * drop;
             Color dc = new Color(dark, dark, dark, 1f);
             Mesh[] dm = DoorMeshes(h);
-            Door(dm[0], pic, "doorL", floor + 0.010f, -slide * HangarArtData.Slide, -drop * HangarArtData.Drop, dc);
-            Door(dm[1], pic, "doorR", floor + 0.011f, slide * HangarArtData.Slide, -drop * HangarArtData.Drop, dc);
-            Quad(pic, "top_off", floor + 0.014f, Color.white);
-            if (beacon > 0.01f) Quad(pic, "top_on", floor + 0.015f, new Color(1f, 1f, 1f, beacon));
+            // each half slides away from the other (south: L left, R right; sideways hangars: along screen z)
+            int ax = g.clipZ ? 1 : 0;
+            float dirL = Mathf.Sign(g.layers["doorL"][ax] - g.layers["doorR"][ax]);
+            Door(g, dm[0], pic, "doorL", floor + 0.010f, dirL * slide * g.slide, -drop * g.drop, dc);
+            Door(g, dm[1], pic, "doorR", floor + 0.011f, -dirL * slide * g.slide, -drop * g.drop, dc);
+            Quad(g, pic, "top_off", floor + 0.014f, Color.white);
+            if (beacon > 0.01f) Quad(g, pic, "top_on", floor + 0.015f, new Color(1f, 1f, 1f, beacon));
             // candles: one glow layer per cluster, each with its own flicker (user 2026-11-21: not all in sync)
-            for (int i = 0; HangarArtData.Layers.ContainsKey("candles_" + i); i++)
+            for (int i = 0; g.layers.ContainsKey("candles_" + i); i++)
             {
                 float fl = CandleFlicker.Value(h.thingIDNumber * 31 + i);
-                Quad(pic, "candles_" + i, AltitudeLayer.PawnState.AltitudeFor() - 0.045f, new Color(fl, fl, fl, fl));   // above the overhang redraw (candles 4/5 sit on the gantry)
+                Quad(g, pic, "candles_" + i, AltitudeLayer.PawnState.AltitudeFor() - 0.045f, new Color(fl, fl, fl, fl));   // above the overhang redraw (candles 4/5 sit on the gantry)
             }
             string ammo = h.AmmoLayer;
-            if (ammo != null) Quad(pic, ammo, floor + 0.017f, Color.white);
+            if (ammo != null && g.layers.ContainsKey(ammo)) Quad(g, pic, ammo, floor + 0.017f, Color.white);
             // catwalk above the Knight
-            Quad(pic, "catwalk_" + h.CatwalkVariant, AltitudeLayer.MoteOverheadLow.AltitudeFor() - 0.01f, Color.white);
-            DrawOverhang(h, pic);
+            Quad(g, pic, "catwalk_" + h.CatwalkVariant, AltitudeLayer.MoteOverheadLow.AltitudeFor() - 0.01f, Color.white);
+            DrawOverhang(h, g, pic);
         }
 
         // Workshop report 2026-11-24 (RiqueGaming): "scaffolding/crane displays under grass". The building graphic is printed at
         // FloorEmplacement, but its back part (gantry, cranes, pillars) hangs over cells OUTSIDE the 20x11 footprint where grass still
         // grows, and LowPlant draws above FloorEmplacement. Redraw that strip above plants AND trees (trees draw on the Building layer; user screenshot 2026-11-24) - and over PAWNS too (user 2026-11-24: "pawns should show below the gantry"; the cells behind the hangar are behind it in this view). Just under PawnState: the docked Knight (drawn at PawnState) and the catwalk stay on top.
-        static Mesh overhangMesh;
-        static void DrawOverhang(Building_KnightHangar h, Vector3 pic)
+        static readonly Dictionary<HangarGeo, Mesh> overhangMeshes = new Dictionary<HangarGeo, Mesh>();   // one per facing (its own v0)
+        static void DrawOverhang(Building_KnightHangar h, HangarGeo g, Vector3 pic)
         {
-            float picBottom = pic.z - HangarArtData.DrawH / 2f;
-            float footTop = h.TrueCenter().z + h.def.size.z / 2f;
-            float v0 = Mathf.Clamp01((footTop - picBottom) / HangarArtData.DrawH);
+            float picBottom = pic.z - g.drawH / 2f;
+            float footTop = h.TrueCenter().z + h.RotatedSize.z / 2f;           // rotated size (sideways hangars are placed turned)
+            float v0 = Mathf.Clamp01((footTop - picBottom) / g.drawH);
             if (v0 >= 0.999f) return;
-            if (overhangMesh == null)
+            if (!overhangMeshes.TryGetValue(g, out Mesh overhangMesh))
             {
-                overhangMesh = NewQuad();
+                overhangMeshes[g] = overhangMesh = NewQuad();
                 overhangMesh.uv = new[] { new Vector2(0f, v0), new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(1f, v0) };
             }
-            float hgt = HangarArtData.DrawH * (1f - v0);
+            float hgt = g.drawH * (1f - v0);
             Vector3 p = new Vector3(pic.x, AltitudeLayer.PawnState.AltitudeFor() - 0.05f, footTop + hgt / 2f);
-            Graphics.DrawMesh(overhangMesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(HangarArtData.DrawW, 1f, hgt)), h.Graphic.MatSingle, 0);
+            Graphics.DrawMesh(overhangMesh, Matrix4x4.TRS(p, Quaternion.identity, new Vector3(g.drawW, 1f, hgt)), h.Graphic.MatSingle, 0);
         }
     }
 
@@ -192,7 +212,12 @@ int doorOpenSnd = -1, doorCloseSnd = -1;                       // the door cycle
         }
 
         /// <summary>The cell a Knight stands on in the drawn bay (the art is drawn at the true 35-degree angle, so the bay is below centre).</summary>
-        public IntVec3 BayCell { get { return Position + new IntVec3(HangarArtData.BayDX, 0, HangarArtData.BayDZ); } }
+        public IntVec3 BayCell { get { return (this.TrueCenter() + new Vector3(Geo.bayX, 0f, Geo.bayZ)).ToIntVec3(); } }   // = Position + (BayDX, BayDZ) for old (north-placed) hangars
+
+        /// <summary>This hangar's art geometry (South / West / East def, user 2026-11-26).</summary>
+        public HangarGeo Geo { get { return HangarGeo.For(def); } }
+        /// <summary>The way a Knight faces in this bay (towards the apron / exit).</summary>
+        public Rot4 KnightFacing { get { return Geo.facing; } }
 
         /// <summary>Where a Knight of this class stands in the hangar: the bay cell moved back by FeetDZ so its FEET (not its picture
         /// centre) are on the drawn bay, like the knights_in_hangar previews (user 2026-11-21: 'make it fit like the preview images').</summary>
@@ -213,34 +238,33 @@ int doorOpenSnd = -1, doorCloseSnd = -1;                       // the door cycle
             if (settledKnightId == v.thingIDNumber) return;                         // once per docked Knight (no retry loop)
             settledKnightId = v.thingIDNumber;
             IntVec3 was = v.Position;
-            v.DeSpawn(); GenSpawn.Spawn(v, c, Map, Rot4.South, WipeMode.VanishOrMoveAside);
+            v.DeSpawn(); GenSpawn.Spawn(v, c, Map, KnightFacing, WipeMode.VanishOrMoveAside);
             if (v.Spawned && v.Position != c)
             {
                 IntVec3 shift = c - v.Position;
-                v.DeSpawn(); GenSpawn.Spawn(v, c + shift, Map, Rot4.South, WipeMode.VanishOrMoveAside);
+                v.DeSpawn(); GenSpawn.Spawn(v, c + shift, Map, KnightFacing, WipeMode.VanishOrMoveAside);
             }
             v.GetComp<CompKnightHead>()?.Apply();
             if (Prefs.DevMode) Log.Message("[LIK] hangar " + thingIDNumber + ": placed " + v.LabelShort + " from " + was + " -> wanted " + c + ", now at " + v.Position + " (drawn " + v.DrawPos.ToString("F2") + ")" + (v.Spawned ? "" : " (NOT spawned)"));
         }
 
         /// <summary>Exact picture-centre offset above the feet (minus 0.4) for this Knight's class (cells).</summary>
-        static float FeetZ(VehicleDef def)
+        float FeetZ(VehicleDef def)
         {
             KnightClassDef cls = def != null ? KnightLoadout.ClassFor(def) : null;
-            string n = cls?.defName ?? def?.defName ?? "";
-            foreach (KeyValuePair<string, float> kv in HangarArtData.FeetZ) if (n.Contains(kv.Key)) return kv.Value;
-            return 0f;
+            return Geo.FeetZFor(cls?.defName ?? def?.defName);
         }
 
         // FEET ON THE FRONT OF THE BAY (user 2026-11-22, matches INGAME_placement_mock): every Knight stands with its feet just behind the
         // bay's front hazard line. Measured in anim_base_style.png (128 px/cell): bay centre y 1680, hazard line top y 2105 -> feet 0.25 cells
         // behind it = 3.07 cells in front of the bay centre. Knight pictures are centred horizontally, so x = bay centre.
-        const float FeetFromBayCentre = -3.07f;
+        // sideways hangars (2026-11-26): the same rule from their own lip -> HangarGeo.FeetFromBayCentre (south = -3.07)
 
         /// <summary>Exact point (cells, world) where this class's PICTURE CENTRE goes so it stands centred in the bay, feet on the front.</summary>
         public Vector3 KnightDrawSpot(VehicleDef def)
         {
-            return this.TrueCenter() + new Vector3(HangarArtData.BayX, 0f, HangarArtData.BayZ + FeetFromBayCentre + FeetZ(def) + 0.4f);
+            HangarGeo g = Geo;
+            return this.TrueCenter() + new Vector3(g.bayX + g.BackX, 0f, g.bayZ + g.FeetFromBayCentre + FeetZ(def) + 0.4f);
         }
 
         /// <summary>Cell an undocked / newly assembled Knight stands on (the game draws it centred on that cell).</summary>
@@ -257,7 +281,8 @@ int doorOpenSnd = -1, doorCloseSnd = -1;                       // the door cycle
         /// <summary>Where a docked (clamped) Knight's picture centre is drawn: the preview pose, exact (not rounded to a cell).</summary>
         public Vector3 StowedDrawPos(VehicleDef def)
         {
-            return this.TrueCenter() + new Vector3(HangarArtData.BayX, 0f, HangarArtData.BayZ + DockedFeetFromBayCentre + FeetZ(def) + 0.4f);
+            HangarGeo g = Geo;
+            return this.TrueCenter() + new Vector3(g.bayX + g.BackX, 0f, g.bayZ + DockedFeetFromBayCentre + FeetZ(def) + 0.4f);
         }
 
         public IntVec3 KnightCellFor(VehiclePawn v) { return KnightCell(v?.VehicleDef); }

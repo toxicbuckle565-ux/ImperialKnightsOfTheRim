@@ -42,7 +42,7 @@ namespace LIK
                 job.locomotionUrgency = LocomotionUrgency.Walk;
                 if (knight.jobs.TryTakeOrderedJob(job, JobTag.Misc, false))
                 {
-                    knight.vehiclePather.SetEndRotation(Rot8.South);
+                    knight.vehiclePather.SetEndRotation(hangar.Geo.Rot8);   // facing the apron (south / west / east hangar)
                     hangar.OrderDock(knight);                     // clamped into the cradle on arrival (docking = stowing, 2026-11-22)
                 }
             });
